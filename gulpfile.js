@@ -9,6 +9,7 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
 var cssnano = require('gulp-cssnano');
+var runSequence = require('run-sequence');
 
 var dir_src = 'src',
     dir_dst = 'public';
@@ -18,22 +19,24 @@ var src = {
   html: dir_src + '/index.html',
   js: dir_src + '/js',
   css: dir_src + '/css/sass/app.sass',
-  fonts: ''
-}
+  fonts: '',
+  img: dir_src + '/img/**/*',
+};
 
 var dst = {
   dir: dir_dst,
   html: dir_dst + '/index.html',
   js: dir_dst + '/js',
-  css: dir_src + '/css',
-  fonts: ''
-}
+  css: dir_dst + '/css',
+  fonts: '',
+  img: dir_dst + '/img',
+};
 
 // SASS compiler
 gulp.task('sass', function(){
   return gulp
       .src(src.css)
-      .pipe(sass()) // Using gulp-sass
+      .pipe(sass())
       .pipe(gulp.dest(dst.css));
 });
 
@@ -50,10 +53,10 @@ gulp.task('useref', function(){
 });
 
 // Copying Fonts to Dist
-gulp.task('fonts', function() {
+gulp.task('img', function() {
     return gulp
-        .src('app/fonts/**/*')
-        .pipe(gulp.dest('dist/fonts'))
+        .src(src.img)
+        .pipe(gulp.dest(dst.img))
 })
 
 // Sync browser
@@ -67,12 +70,19 @@ gulp.task('browserSync', function() {
 })
 
 
-
 // Watch
-gulp.task('watch', ['browserSync', 'sass', 'useref'], function (){
-    // gulp.watch(src.js, ['minify']);
-    gulp.watch(src.sass, ['sass']);
+gulp.task('watch', [ 'browserSync', 'useref', 'sass'], function (){
+
+    gulp.watch(src.css, ['sass']);
     gulp.watch(src.html, ['useref']);
 
     gulp.watch(dst.html, browserSync.reload);
+    gulp.watch(src.css, browserSync.reload);
 });
+
+
+gulp.task('default', function (callback) {
+  runSequence(['img', 'sass', 'useref', 'browserSync', 'watch'],
+    callback
+  )
+})

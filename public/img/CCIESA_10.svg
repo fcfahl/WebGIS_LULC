@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="107.95mm" height="157.988mm"
+ viewBox="0 0 1275 1866"
+ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  version="1.2" baseProfile="tiny">
+<desc>Generated with Qt</desc>
+<defs>
+</defs>
+<g fill="none" stroke="black" stroke-width="1" fill-rule="evenodd" stroke-linecap="square" stroke-linejoin="bevel" >
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffffff" fill-opacity="1" stroke="none" transform="matrix(0.999537,0,0,0.999537,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="none" fill-rule="evenodd" d="M-1,-1 L1276.59,-1 L1276.59,1867.14 L-1,1867.14 L-1,-1"/>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,2 L5.5,2 L5.5,5 L2,5 L2,2"/>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="47.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >No data</text>
+</g>
+
+<g fill="#000000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,6 L5.5,6 L5.5,9 L2,9 L2,6"/>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="87.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Cropland; rainfed</text>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,10 L5.5,10 L5.5,13 L2,13 L2,10"/>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="127.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Herbaceous cover</text>
+</g>
+
+<g fill="#ffff64" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,14 L5.5,14 L5.5,17 L2,17 L2,14"/>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="167.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree or shrub cover</text>
+</g>
+
+<g fill="#ffff00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#aaf0f0" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,18 L5.5,18 L5.5,21 L2,21 L2,18"/>
+</g>
+
+<g fill="#aaf0f0" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#aaf0f0" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="207.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Cropland; irrigated or post-flooding</text>
+</g>
+
+<g fill="#aaf0f0" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#dcf064" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,22 L5.5,22 L5.5,25 L2,25 L2,22"/>
+</g>
+
+<g fill="#dcf064" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#dcf064" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="245" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Mosaic cropland (&gt;50%) / natural vegetation</text>
+</g>
+
+<g fill="#dcf064" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#dcf064" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="285" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >(tree; shrub; herbaceous cover) (&lt;50%)</text>
+</g>
+
+<g fill="#dcf064" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#c8c864" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,29.5 L5.5,29.5 L5.5,32.5 L2,32.5 L2,29.5"/>
+</g>
+
+<g fill="#c8c864" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#c8c864" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="320" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Mosaic natural vegetation (tree; shrub; herbaceous cover) (&gt;50%)</text>
+</g>
+
+<g fill="#c8c864" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#c8c864" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="360" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >/ cropland (&lt;50%) </text>
+</g>
+
+<g fill="#c8c864" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#006400" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,37 L5.5,37 L5.5,40 L2,40 L2,37"/>
+</g>
+
+<g fill="#006400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#006400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="397.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; broadleaved; evergreen; closed to open (&gt;15%)</text>
+</g>
+
+<g fill="#006400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,41 L5.5,41 L5.5,44 L2,44 L2,41"/>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="437.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; broadleaved; deciduous; closed to open (&gt;15%)</text>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,45 L5.5,45 L5.5,48 L2,48 L2,45"/>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="477.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; broadleaved; deciduous; closed (&gt;40%)</text>
+</g>
+
+<g fill="#00a000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#aac800" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,49 L5.5,49 L5.5,52 L2,52 L2,49"/>
+</g>
+
+<g fill="#aac800" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#aac800" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="517.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; broadleaved; deciduous; open (15-40%)</text>
+</g>
+
+<g fill="#aac800" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,53 L5.5,53 L5.5,56 L2,56 L2,53"/>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="557.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; needleleaved; evergreen; closed to open (&gt;15%)</text>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,57 L5.5,57 L5.5,60 L2,60 L2,57"/>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="597.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; needleleaved; evergreen; closed (&gt;40%)</text>
+</g>
+
+<g fill="#003c00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#005000" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,61 L5.5,61 L5.5,64 L2,64 L2,61"/>
+</g>
+
+<g fill="#005000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#005000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="637.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; needleleaved; evergreen; open (15-40%)</text>
+</g>
+
+<g fill="#005000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,65 L5.5,65 L5.5,68 L2,68 L2,65"/>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="677.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; needleleaved; deciduous; closed to open (&gt;15%)</text>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,69 L5.5,69 L5.5,72 L2,72 L2,69"/>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="717.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; needleleaved; deciduous; closed (&gt;40%)</text>
+</g>
+
+<g fill="#285000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#286400" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,73 L5.5,73 L5.5,76 L2,76 L2,73"/>
+</g>
+
+<g fill="#286400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#286400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="757.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; needleleaved; deciduous; open (15-40%)</text>
+</g>
+
+<g fill="#286400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#788200" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,77 L5.5,77 L5.5,80 L2,80 L2,77"/>
+</g>
+
+<g fill="#788200" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#788200" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="797.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; mixed leaf type (broadleaved and needleleaved)</text>
+</g>
+
+<g fill="#788200" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#8ca000" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,81 L5.5,81 L5.5,84 L2,84 L2,81"/>
+</g>
+
+<g fill="#8ca000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#8ca000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="837.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Mosaic tree and shrub (&gt;50%) / herbaceous cover (&lt;50%)</text>
+</g>
+
+<g fill="#8ca000" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#be9600" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,85 L5.5,85 L5.5,88 L2,88 L2,85"/>
+</g>
+
+<g fill="#be9600" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#be9600" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="877.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Mosaic herbaceous cover (&gt;50%) / tree and shrub (&lt;50%)</text>
+</g>
+
+<g fill="#be9600" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,89 L5.5,89 L5.5,92 L2,92 L2,89"/>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="917.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Shrubland</text>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#784b00" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,93 L5.5,93 L5.5,96 L2,96 L2,93"/>
+</g>
+
+<g fill="#784b00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#784b00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="957.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Shrubland evergreen</text>
+</g>
+
+<g fill="#784b00" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,97 L5.5,97 L5.5,100 L2,100 L2,97"/>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="997.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Shrubland deciduous</text>
+</g>
+
+<g fill="#966400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffb432" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,101 L5.5,101 L5.5,104 L2,104 L2,101"/>
+</g>
+
+<g fill="#ffb432" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffb432" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1037.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Grassland</text>
+</g>
+
+<g fill="#ffb432" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffdcd2" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,105 L5.5,105 L5.5,108 L2,108 L2,105"/>
+</g>
+
+<g fill="#ffdcd2" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffdcd2" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1077.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Lichens and mosses</text>
+</g>
+
+<g fill="#ffdcd2" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,109 L5.5,109 L5.5,112 L2,112 L2,109"/>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1117.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Sparse vegetation (tree; shrub; herbaceous cover) (&lt;15%)</text>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffd278" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,113 L5.5,113 L5.5,116 L2,116 L2,113"/>
+</g>
+
+<g fill="#ffd278" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffd278" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1157.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Sparse shrub (&lt;15%)</text>
+</g>
+
+<g fill="#ffd278" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,117 L5.5,117 L5.5,120 L2,120 L2,117"/>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1197.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Sparse herbaceous cover (&lt;15%)</text>
+</g>
+
+<g fill="#ffebaf" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00785a" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,121 L5.5,121 L5.5,124 L2,124 L2,121"/>
+</g>
+
+<g fill="#00785a" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00785a" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1237.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; flooded; fresh or brakish water</text>
+</g>
+
+<g fill="#00785a" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#009678" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,125 L5.5,125 L5.5,128 L2,128 L2,125"/>
+</g>
+
+<g fill="#009678" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#009678" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1277.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Tree cover; flooded; saline water</text>
+</g>
+
+<g fill="#009678" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00dc82" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,129 L5.5,129 L5.5,132 L2,132 L2,129"/>
+</g>
+
+<g fill="#00dc82" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#00dc82" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1317.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Shrub or herbaceous cover; flooded; fresh/saline/brakish water</text>
+</g>
+
+<g fill="#00dc82" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#c31400" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,133 L5.5,133 L5.5,136 L2,136 L2,133"/>
+</g>
+
+<g fill="#c31400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#c31400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1357.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Urban areas</text>
+</g>
+
+<g fill="#c31400" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,137 L5.5,137 L5.5,140 L2,140 L2,137"/>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1397.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Bare areas</text>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#dcdcdc" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,141 L5.5,141 L5.5,144 L2,144 L2,141"/>
+</g>
+
+<g fill="#dcdcdc" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#dcdcdc" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1437.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Consolidated bare areas</text>
+</g>
+
+<g fill="#dcdcdc" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,145 L5.5,145 L5.5,148 L2,148 L2,145"/>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1477.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Unconsolidated bare areas</text>
+</g>
+
+<g fill="#fff5d7" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#0046c8" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,149 L5.5,149 L5.5,152 L2,152 L2,149"/>
+</g>
+
+<g fill="#0046c8" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#0046c8" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1517.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Water bodies</text>
+</g>
+
+<g fill="#0046c8" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffffff" fill-opacity="1" stroke="none" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+<path vector-effect="non-scaling-stroke" fill-rule="evenodd" d="M2,153 L5.5,153 L5.5,156 L2,156 L2,153"/>
+</g>
+
+<g fill="#ffffff" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="#ffffff" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1.18056,0,0,1.18056,0,0)"
+font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+>
+<text fill="#000000" fill-opacity="1" stroke="none" xml:space="preserve" x="65" y="1557.5" font-family="Arial" font-size="35" font-weight="400" font-style="normal" 
+ >Permanent snow and ice</text>
+</g>
+
+<g fill="#ffffff" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(11.8056,0,0,11.8056,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+
+<g fill="none" stroke="#000000" stroke-opacity="1" stroke-width="1" stroke-linecap="square" stroke-linejoin="bevel" transform="matrix(1,0,0,1,0,0)"
+font-family="MS Shell Dlg 2" font-size="34.375" font-weight="400" font-style="normal" 
+>
+</g>
+</g>
+</svg>
