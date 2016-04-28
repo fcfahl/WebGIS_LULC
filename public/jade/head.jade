@@ -1,0 +1,73 @@
+head
+    title "LULC Maps of Europe"
+    meta(name="keywords" content=".....")
+    meta(name="author" content="Fernando Fahl")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(charset="utf-8")
+            
+
+    //- Bootstrap with style from http://bootswatch.com/
+    link(rel="stylesheet" type="text/css" href="http://bootswatch.com/simplex/bootstrap.min.css")
+    //- link(rel="stylesheet" type="text/css" href="libs/bootstrap4/bootstrap.min.css")
+                        
+    // Jquery UI
+    link(rel="stylesheet" type="text/css" href="libs/jquery-ui-1.11.4/jquery-ui.min.css")
+    link(rel="stylesheet" type="text/css" href="libs/jquery-ui-1.11.4/jquery-ui.theme.min.css")
+    
+    // Font Awesome CSS
+    //- link(rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")  
+    link(rel="stylesheet" type="text/css" href="libs/font-awesome-4.5.0/css/font-awesome.min.css")
+    
+    // leaflet
+    script(src="libs/leaflet_V0.7.7/leaflet.js")   
+    link(rel="stylesheet" type="text/css" href="libs/leaflet_V0.7.7/leaflet.css")   
+
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js")        
+    //- link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css")   
+    //- 
+    
+    // Openlayers - library to parse getCapabilities
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.14.0/ol.js")   
+    
+    // Panoraimo API
+    //- script(src='http://www.panoramio.com/wapi/wapi.js?v=1&hl=en')   
+    // Panoraimo plugin
+    //- script(src="libs/panoramio/Panoramio.js")   
+    
+    // leaflet plugins    
+    +addPlugin('Services2/layer/tile/Bing.js')        
+    +addPlugin('Services2/layer/tile/Google.js')
+    +addPlugin('leaflet-providers-master/leaflet-providers.js')
+    +addPlugin('sidebar-v2-master/js/leaflet-sidebar.js')
+    +addPlugin('Leaflet.ZoomBox-master/L.Control.ZoomBox.min.js')    
+    +addPlugin('Leaflet.NavBar-master/src/Leaflet.NavBar.js')    
+    +addPlugin('Leaflet-MiniMap-master/src/Control.MiniMap.js')    
+    +addPlugin('leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js')    
+    +addPlugin('Leaflet-IconLayers-master/src/iconLayers.js')
+    +addPlugin('Leaflet-IconLayers-master/src/providers.js')
+    +addPlugin('Leaflet.TileLegend-master/Leaflet.TileLegend.js')    
+    +addPlugin('erictheise-rrose-77e87f5/rrose-src.js')
+    
+  
+    
+    +addPlugin('Proj4Leaflet-master/lib/proj4-compressed.js')        
+    +addPlugin('Proj4Leaflet-master/src/proj4leaflet.js')    
+    +addPlugin('Leaflet-WFST-master/dist/Leaflet-WFST.min.js')
+
+    +addPlugin('Leaflet.markercluster/dist/leaflet.markercluster-src.js')
+    +addPlugin('Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js')  
+    
+    
+    +addCSS('sidebar-v2-master/css/leaflet-sidebar_CUSTOM.css')
+    +addCSS('Leaflet.ZoomBox-master/L.Control.ZoomBox.css') 
+    +addCSS('Leaflet.NavBar-master/src/Leaflet.NavBar.css')
+    +addCSS('Leaflet-MiniMap-master/src/Control.MiniMap.css')
+    +addCSS('leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css')
+    +addCSS('Leaflet-IconLayers-master/src/iconLayers.css')        
+    +addCSS('Leaflet.TileLegend-master/Leaflet.TileLegend.css')
+    +addCSS('erictheise-rrose-77e87f5/leaflet.rrose.css')
+    +addCSS('Leaflet.markercluster/dist/MarkerCluster.css')
+    +addCSS('Leaflet.markercluster/dist/MarkerCluster.Default.css')
+                    
+    // Custom CSS 
+    link(rel="stylesheet" type="text/css" href="styles/css/app.css")  
