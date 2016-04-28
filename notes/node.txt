@@ -1,0 +1,35 @@
+1 - Bower
+ install: npm install -g bower
+
+ cd E:/12_GitHub/WebGIS_LULC/public
+ bower init
+
+bower install jquery --save
+bower install fontawesome --save
+bower install jquery-ui --save
+bower install leaflet --save
+bower install openlayers/ol3 --save
+bower install bootstrap#v4.0.0-alpha.2 --save
+
+
+2 - Gulp
+http://blog.caelum.com.br/bye-bye-grunt-js-hello-gulp-js/
+
+ cd E:/12_GitHub/WebGIS_LULC/public
+ npm init
+
+  npm install gulp --save-dev
+  npm install gulp-util --save-dev
+  npm install gulp-uglify --save-dev
+  npm install gulp-watch --save-dev
+
+
+  npm install gulp-sass --save-dev
+  npm install browser-sync --save-dev
+
+  optimize files
+  npm install gulp-useref --save-dev
+  npm install gulp-cssnano --save-dev
+
+
+gulp watch
