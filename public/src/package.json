@@ -1,0 +1,29 @@
+{
+  "name": "lulc",
+  "version": "1.0.0",
+  "description": "Land Use and Land Cover of Europe",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcfahl/WebGIS_LULC.git"
+  },
+  "keywords": [
+    "LULC",
+    "WebGIS"
+  ],
+  "author": "fernando fahl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fcfahl/WebGIS_LULC/issues"
+  },
+  "homepage": "https://github.com/fcfahl/WebGIS_LULC#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5"
+  }
+}

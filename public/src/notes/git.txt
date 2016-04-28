@@ -1,0 +1,21 @@
+1) Set up git
+git config --global user.name "fcfahl"
+git config --global user.email "fcfahl@gmx.com"
+
+2) Set up local repository
+git init 09_Git
+cd init 09_Git
+git remote add origin https://github.com/fcfahl/WebGIS_Polimi.git
+git remote add origin https://github.com/fcfahl/WebGIS_LULC.git
+
+3)Clone repo
+git clone https://github.com/fcfahl/WebGIS_LULC.git
+cd WebGIS_Polimi
+
+4) Push repo
+git add -A
+git commit -m '04-28 init'
+git push origin master
+
+5) Update local repo
+git pull
