@@ -15,6 +15,8 @@ bower install bootstrap#v4.0.0-alpha.2 --save
 bower install leaflet-providers --save
 bower install leaflet-plugins --save
 
+bower install tether --save
+
 
 2 - Gulp
 http://blog.caelum.com.br/bye-bye-grunt-js-hello-gulp-js/
@@ -37,5 +39,7 @@ http://blog.caelum.com.br/bye-bye-grunt-js-hello-gulp-js/
 
 npm install del --save-dev
   npm install run-sequence --save-dev
+
+  npm install gulp-json-srv --save-dev 
 
 gulp watch
