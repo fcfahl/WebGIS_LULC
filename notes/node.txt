@@ -21,7 +21,7 @@ bower install tether --save
 2 - Gulp
 http://blog.caelum.com.br/bye-bye-grunt-js-hello-gulp-js/
 
- cd E:/12_GitHub/WebGIS_LULC/public
+ cd E:/12_GitHub/WebGIS_LULC/
  npm init
 
   npm install gulp --save-dev
@@ -40,6 +40,9 @@ http://blog.caelum.com.br/bye-bye-grunt-js-hello-gulp-js/
 npm install del --save-dev
   npm install run-sequence --save-dev
 
-  npm install gulp-json-srv --save-dev 
+  npm install gulp-json-srv --save-dev
+
+  alternative --http://code.tutsplus.com/tutorials/gulp-as-a-development-web-server--cms-20903
+npm install --save-dev gulp-connect
 
 gulp watch
