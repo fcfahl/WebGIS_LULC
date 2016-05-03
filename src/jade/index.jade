@@ -1,5 +1,4 @@
 //output:../../src/index.html
-//- include variables
 //- include mixins
 
 doctype html
@@ -14,7 +13,7 @@ html(lang="en")
     link(rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png")
 
     // break line
-    <!-- build:css css/main.min.css -->
+    <!-- build:css1 css/main.min.css -->
     link(rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-flex.css")
     link(rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/base/jquery-ui.css")
     link(rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css")
@@ -23,12 +22,12 @@ html(lang="en")
     <!-- endbuild -->
 
     // break line
-    <!-- build:css css/app.css -->
+    <!-- build:css2 css/app.css -->
     link(rel="stylesheet" type="text/css" href="css/app.css")
     // break line
     <!-- endbuild -->
 
-    <!-- build:js js/leaflet.min.js -->
+    <!-- build:js1 js/leaflet.min.js -->
     script(src="bower_components/leaflet/dist/leaflet.js")
     script(src="bower_components/leaflet-providers/leaflet-providers.js")
     script(src="bower_components/leaflet-plugins/layer/tile/Bing.js")
@@ -70,7 +69,7 @@ html(lang="en")
       footer
 
     // Script section
-    <!-- build:js js/main.min.js -->
+    <!-- build:js2 js/libs.min.js -->
     script(src="bower_components/jquery/dist/jquery.js")
     script(src="bower_components/jquery-ui/jquery-ui.js")
     script(src="bower_components/tether/dist/js/tether.js")
@@ -79,8 +78,8 @@ html(lang="en")
     <!-- endbuild -->
 
     //- break line
-    //- <!-- build:js js/custom.min.js -->
+    <!-- build:js3 js/app.min.js -->
     script(src="js/jquery.js")
     script(src="js/map.js")
     //- break line
-    //- <!-- endbuild -->
+    <!-- endbuild -->

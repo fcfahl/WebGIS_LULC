@@ -46,3 +46,16 @@ npm install del --save-dev
 npm install --save-dev gulp-connect
 
 gulp watch
+
+
+3 - Gulp coursera
+
+ cd E:/12_GitHub/WebGIS_LULC/
+
+npm install jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-clean-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify browser-sync del --save-dev
+
+gulp-minify-css
+Deprecation warning: This package has been deprecated. Please use gulp-clean-css instead.
+
+npm install gulp-clean-css --save-dev
+npm install json-server -g
