@@ -34,8 +34,8 @@ var gulp = require('gulp'),
       return del(['dist/images']), gulp.src('src/img/**/*')
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced:
         true })))
-        .pipe(gulp.dest('dist/img'))
-        .pipe(notify({ message: 'Images task complete' }));
+        .pipe(gulp.dest('dist/img'));
+        // .pipe(notify({ message: 'Images task complete' }));
     });
 
     gulp.task('copyfonts', ['clean'], function() {
@@ -46,7 +46,7 @@ var gulp = require('gulp'),
 
     gulp.task('usemin', ['jshint'], function () {
       return gulp
-          .src('src/**/*.html')
+          .src('src/*.html')
           .pipe(usemin({
               css1:[minifycss(),rev()],
               css2:[minifycss(),rev()],
@@ -57,6 +57,35 @@ var gulp = require('gulp'),
           .pipe(gulp.dest('dist/'));
     });
 
+    // Watch
+    gulp.task('watch', ['browser‐sync'], function() {
+
+        // Watch .js files
+        gulp.watch('{src/js/**/*.js,src/css/**/*.css,src/**/*.html}', ['usemin']);
+
+        // Watch image files
+        gulp.watch('src/img/**/*', ['imagemin']);
+        });
+
+        gulp.task('browser‐sync', ['default'], function () {
+            var files = [
+                'src/*.html',
+                'src/css/**/*.sass',
+                'src/js/*.js',
+                'dist/**/*'
+            ];
+
+        browserSync.init(files, {
+           server: {
+              baseDir: "dist",
+              index: "index.html"
+           }
+        });
+
+        // Watch any files in dist/, reload on change
+        gulp.watch(['dist/**']).on('change', browserSync.reload);
+
+    });
 
     // Default task
     gulp.task('default', ['clean'], function() {

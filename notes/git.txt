@@ -23,8 +23,6 @@ git pull
 
 6) ignore files
 create file: touch .gitignore
-git config --global core.excludesfile ~/.gitignore_global
 
-
-remove folders
-git rm -r node_modules --cached 
+remove folders already committed
+git rm -r node_modules --cached
