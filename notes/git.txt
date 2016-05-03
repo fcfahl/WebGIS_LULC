@@ -19,3 +19,7 @@ git push origin master
 
 5) Update local repo
 git pull
+
+
+6) ignore files
+Using your favorite text editor, open the file .git/info/exclude.
