@@ -22,4 +22,9 @@ git pull
 
 
 6) ignore files
-Using your favorite text editor, open the file .git/info/exclude.
+create file: touch .gitignore
+git config --global core.excludesfile ~/.gitignore_global
+
+
+remove folders
+git rm -r node_modules --cached 
