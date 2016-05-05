@@ -30,7 +30,13 @@ http://blog.caelum.com.br/bye-bye-grunt-js-hello-gulp-js/
   npm install gulp-watch --save-dev
 
 
+
+  npm install gulp-imagemin
+
+npm install node-sass --save-dev
+
   npm install gulp-sass --save-dev
+
   npm install browser-sync --save-dev
 
   optimize files
@@ -42,6 +48,8 @@ npm install del --save-dev
 
   npm install gulp-json-srv --save-dev
 
+  npm install gulp-ruby-sass --save-dev
+
   alternative --http://code.tutsplus.com/tutorials/gulp-as-a-development-web-server--cms-20903
 npm install --save-dev gulp-connect
 
@@ -52,10 +60,26 @@ gulp watch
 
  cd E:/12_GitHub/WebGIS_LULC/
 
-npm install jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-clean-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify browser-sync del --save-dev
+npm install jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-clean-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify browser-sync del gulp-sass run-sequence --save-dev
 
 gulp-minify-css
 Deprecation warning: This package has been deprecated. Please use gulp-clean-css instead.
 
 npm install gulp-clean-css --save-dev
 npm install json-server -g
+
+
+
+____
+
+npm install -g npm-check-updates
+
+npm install -g npm-check-updates
+
+
+4 -  Gulp ruby (this is the only way to compile sass with gulp)
+Ruby must be installed
+gem install sass
+
+
+npm install gulp-ruby-sass --save-dev

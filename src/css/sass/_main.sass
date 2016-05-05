@@ -53,26 +53,26 @@ html, body
       flex: 1 0 auto
       overflow: hidden
 
-        #side
+      #side
+        display: flex
+        flex-direction: column
+        width: $widthSide
+
+        .tabs
+          height: $heightTabs
+
+        .pannel
+          flex: 1
+          overflow-y: scroll
+          overflow-x: hidden
+
+        .settings
           display: flex
-          flex-direction: column
-          width: $widthSide
-
-          .tabs
-            height: $heightTabs
-
-          .pannel
-            flex: 1
-            overflow-y: scroll
-            overflow-x: hidden
-
-          .settings
-            display: flex
-            flex-direction: row
-            justify-content: center
-            align-content: space-around
-            align-items: center
-            height: $heightSettings
+          flex-direction: row
+          justify-content: center
+          align-content: space-around
+          align-items: center
+          height: $heightSettings
 
     #map
       background: white

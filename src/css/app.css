@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,6 +29,23 @@ html, body {
       height: calc(100% - (70px + 15px ));
       flex: 1 0 auto;
       overflow: hidden; }
+      html .container-fluid #main #side, body .container-fluid #main #side {
+        display: flex;
+        flex-direction: column;
+        width: 300px; }
+        html .container-fluid #main #side .tabs, body .container-fluid #main #side .tabs {
+          height: 40px; }
+        html .container-fluid #main #side .pannel, body .container-fluid #main #side .pannel {
+          flex: 1;
+          overflow-y: scroll;
+          overflow-x: hidden; }
+        html .container-fluid #main #side .settings, body .container-fluid #main #side .settings {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-content: space-around;
+          align-items: center;
+          height: 30px; }
     html .container-fluid #map, body .container-fluid #map {
       background: white;
       flex-grow: 1; }
@@ -125,7 +143,7 @@ body {
             text-decoration: none; }
           body .container-fluid #main #side .pannel .leg .panel-heading a:after, body .container-fluid #main #side .pannel .tbl .panel-heading a:after {
             font-family: "FontAwesome";
-            content: "\f0da";
+            content: "";
             position: absolute;
             left: 10px;
             font-size: 20px;
@@ -133,26 +151,26 @@ body {
             top: 50%;
             line-height: 1;
             margin-top: -10px; }
-        body .container-fluid #main #side .pannel .leg .panel-heading a.collapsed:after, body .container-fluid #main #side .pannel .tbl .panel-heading a.collapsed:after {
-          content: "\f0d7"; }
-        body .container-fluid #main #side .pannel .leg .opy, body .container-fluid #main #side .pannel .tbl .opy {
-          padding-top: 5px; }
-          body .container-fluid #main #side .pannel .leg .opy .opy_title, body .container-fluid #main #side .pannel .tbl .opy .opy_title {
-            font-size: 0.6em;
-            text-align: center;
-            vertical-align: bottom;
-            padding: 5px 0 0 10px;
-            position: relative;
-            float: left;
-            width: 80px; }
-          body .container-fluid #main #side .pannel .leg .opy .opy_slider, body .container-fluid #main #side .pannel .tbl .opy .opy_slider {
-            position: relative;
-            float: left;
-            width: 60%; }
-      body .container-fluid #main #side .pannel .tbl {
-        display: none; }
-        body .container-fluid #main #side .pannel .tbl .table_row {
-          font-size: 0.6em; }
+          body .container-fluid #main #side .pannel .leg .panel-heading .panel-heading a.collapsed:after, body .container-fluid #main #side .pannel .tbl .panel-heading .panel-heading a.collapsed:after {
+            content: ""; }
+          body .container-fluid #main #side .pannel .leg .panel-heading .opy, body .container-fluid #main #side .pannel .tbl .panel-heading .opy {
+            padding-top: 5px; }
+            body .container-fluid #main #side .pannel .leg .panel-heading .opy .opy_title, body .container-fluid #main #side .pannel .tbl .panel-heading .opy .opy_title {
+              font-size: 0.6em;
+              text-align: center;
+              vertical-align: bottom;
+              padding: 5px 0 0 10px;
+              position: relative;
+              float: left;
+              width: 80px; }
+            body .container-fluid #main #side .pannel .leg .panel-heading .opy .opy_slider, body .container-fluid #main #side .pannel .tbl .panel-heading .opy .opy_slider {
+              position: relative;
+              float: left;
+              width: 60%; }
+        body .container-fluid #main #side .pannel .leg .tbl, body .container-fluid #main #side .pannel .tbl .tbl {
+          display: none; }
+          body .container-fluid #main #side .pannel .leg .tbl .table_row, body .container-fluid #main #side .pannel .tbl .tbl .table_row {
+            font-size: 0.6em; }
       body .container-fluid #main #side .settings {
         border-top: solid white 0.5px; }
         body .container-fluid #main #side .settings .button {
