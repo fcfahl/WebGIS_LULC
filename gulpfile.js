@@ -7,9 +7,13 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     cssnano = require('gulp-cssnano'),
     runSequence = require('run-sequence'),
-    jsonServer = require('gulp-json-srv'),
-    connect = require('gulp-connect'),
+    // jsonServer = require('gulp-json-srv'),
+    // connect = require('gulp-connect'),
     imagemin = require('gulp-imagemin'),
+    usemin = require('gulp-usemin'),
+    rev = require('gulp-rev'),
+    watch = require('gulp-watch'),
+    browserSync = require('browser-sync'),
     clean  = require('gulp-clean');
 
 var dir_src = 'src',
@@ -21,7 +25,7 @@ var from = {
     js: dir_src + '/js',
     js_files: dir_src + '/js/**/*.js',
     sass: dir_src + '/css/sass/app.sass',
-    sass_files: dir_src + '/css/sass/*.scss',
+    sass_files: dir_src + '/css/**/*.sass',
     css: dir_src + '/css',
     css_file: dir_src + '/css/app.css',
     fonts: dir_src + '/bower_components/font-awesome/**/*.{ttf,woff,eof,svg}*',
@@ -62,7 +66,7 @@ gulp.task('copyFiles', ['clean'], function() {
 });
 
 // SASS compiler
-gulp.task('sass', ['copyFiles'], function(){
+gulp.task('sass', function(){
       sass(from.sass)
           .on('error', sass.logError)
           .pipe(gulp.dest(from.css));
@@ -92,10 +96,29 @@ gulp.task('usemin', ['jshint'], function () {
       .pipe(gulp.dest(to.dir));
 });
 
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: to.dir,
+      reloadDelay: 100
+    }
+  })
+});
+
+// Watch
+gulp.task('watch', ['browserSync'], function (){
+    gulp.watch(from.sass_files, ['sass', 'usemin']);
+    gulp.watch(from.js_files, ['usemin']);
+    gulp.watch(from.html, ['usemin']);
+    gulp.watch(to.html, browserSync.reload);
+});
 
 // Default task
-gulp.task('default', function () {
-  console.log('from.bootstrap_sass: ', from.bootstrap_sass);
-  console.log('from.css: ', from.css);
-  gulp.start('bootstrap');
+gulp.task('build', ['clean'], function () {
+  runSequence(['copyFiles', 'sass', 'usemin']);
+})
+
+// Default task
+gulp.task('default', ['build'], function () {
+  gulp.start('browserSync', 'watch');
 })
