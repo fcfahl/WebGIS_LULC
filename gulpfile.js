@@ -8,7 +8,7 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     runSequence = require('run-sequence'),
     // jsonServer = require('gulp-json-srv'),
-    // connect = require('gulp-connect'),
+    connect = require('gulp-connect'),
     imagemin = require('gulp-imagemin'),
     usemin = require('gulp-usemin'),
     rev = require('gulp-rev'),
@@ -41,6 +41,7 @@ var to = {
     html: dir_dst + '/index.html',
     js: dir_dst + '/js',
     css: dir_dst + '/css',
+    css_file: dir_dst + '/css',
     fonts: '',
     img: dir_dst + '/img',
     json: dir_dst + '/db.json'
@@ -63,6 +64,11 @@ gulp.task('copyFiles', ['clean'], function() {
       .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
       .pipe(gulp.dest(to.img));
       // .pipe(notify({ message: 'Images task complete' }));
+});
+
+gulp.task('copyCSS', ['clean'], function() {
+    gulp.src(from.css_file)
+      .pipe(gulp.dest(to.css_file));
 });
 
 // SASS compiler
@@ -88,7 +94,8 @@ gulp.task('usemin', ['jshint'], function () {
       .src(from.html)
       .pipe(usemin({
           css1:[cssnano(),rev()],
-          css2:[cssnano(),rev()],
+        //   css2:[rev()],
+        //   css2:[cssnano(),rev()],
           js1: [uglify(),rev()],
           js2: [uglify(),rev()],
           js3: [uglify(),rev()]
@@ -105,9 +112,18 @@ gulp.task('browserSync', function() {
   })
 });
 
+gulp.task('webserver', function() {
+  connect.server({
+    port: 3000,
+    livereload: true,
+    data: to.json,
+  });
+});
+
 // Watch
-gulp.task('watch', ['browserSync'], function (){
-    gulp.watch(from.sass_files, ['sass', 'usemin']);
+gulp.task('watch', function (){
+// gulp.task('watch', ['browserSync'], function (){
+    gulp.watch(from.sass_files, ['sass', 'copyCSS']);
     gulp.watch(from.js_files, ['usemin']);
     gulp.watch(from.html, ['usemin']);
     gulp.watch(to.html, browserSync.reload);
@@ -115,10 +131,11 @@ gulp.task('watch', ['browserSync'], function (){
 
 // Default task
 gulp.task('build', ['clean'], function () {
-  runSequence(['copyFiles', 'sass', 'usemin']);
+  runSequence(['copyFiles', 'sass', 'copyCSS', 'usemin']);
 })
 
 // Default task
 gulp.task('default', ['build'], function () {
-  gulp.start('browserSync', 'watch');
+  gulp.start('watch','webserver');
+  // gulp.start('browserSync', 'watch','webserver');
 })

@@ -83,3 +83,9 @@ gem install sass
 
 
 npm install gulp-ruby-sass --save-dev
+
+5 - final
+npm install gulp gulp-ruby-sass jshint gulp-imagemin gulp-cache gulp-jshint jshint-stylish gulp-uglify gulp-cssnano run-sequence gulp-imagemin gulp-usemin gulp-rev gulp-watch browser-sync gulp-clean gulp-connect --save-dev
+
+
+npm install gulp-connect --save-dev

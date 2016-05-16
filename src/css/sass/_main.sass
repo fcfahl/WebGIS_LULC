@@ -17,67 +17,43 @@ $widthSide: 300px
 $lineDivision: solid white 0.5px
 
 *
-  box-sizing: border-box
-  margin: 0
-  padding: 0
-  // overflow: hidden
-
-html, body
-  width: 100%
-  height: 100%
-  overflow: hidden
-
-  .container-fluid
-    display: flex
-    flex-direction: column
-    height: 100%
+    box-sizing: border-box
     margin: 0
     padding: 0
+    // overflow: hidden
+
+html, body
+    width: 100%
+    height: 100%
     overflow: hidden
 
-
-    header
-      display: flex
-      flex-direction: row
-      align-items: center
-      align-content: space-around
-      height: $heightHeader
-
-      .title
-        flex-grow: 1
-
-    #main
-      display: flex
-      flex-direction: row
-      height: $heightMain
-      flex: 1 0 auto
-      overflow: hidden
-
-      #side
+    .container-fluid
         display: flex
         flex-direction: column
-        width: $widthSide
+        height: 100%
+        margin: 0
+        padding: 0
+        overflow: hidden
 
-        .tabs
-          height: $heightTabs
+        header
+            display: flex
+            flex-direction: row
+            align-items: center
+            align-content: space-around
+            height: $heightHeader
+            background: blue
 
-        .pannel
-          flex: 1
-          overflow-y: scroll
-          overflow-x: hidden
+            .title
+                flex-grow: 1
 
-        .settings
-          display: flex
-          flex-direction: row
-          justify-content: center
-          align-content: space-around
-          align-items: center
-          height: $heightSettings
+        #main
+            display: flex
+            flex-direction: row
+            height: $heightMain
+            flex: 1 0 auto
+            overflow: hidden
 
-    #map
-      background: white
-      flex-grow: 1
-
-
-    footer
-      height: $heightFooter
+            #side
+                display: flex
+                flex-direction: column
+                width: $widthSide

@@ -1,85 +1,76 @@
 //output:../../src/index.html
-//- include mixins
+include mixins
 
 doctype html
 html(lang="en")
 
-  head
-    title "LULC Maps of Europe"
-    meta(name="keywords" content=".....")
-    meta(name="author" content="Fernando Fahl")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    meta(charset="utf-8")
-    link(rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png")
+    head
+        title "LULC Maps of Europe"
+        meta(name="keywords" content=".....")
+        meta(name="author" content="Fernando Fahl")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(charset="utf-8")
+        link(rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png")
 
-    // break line
-    <!-- build:css1 css/main.min.css -->
-    link(rel="stylesheet" type="text/css" href="css/bootstrap-flex.css")
-    link(rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/base/jquery-ui.css")
-    link(rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css")
-    link(rel="stylesheet" type="text/css" href="bower_components/leaflet/dist/leaflet.css")
-    // break line
-    <!-- endbuild -->
+        <!-- build:css1 css/main.min.css -->
+        link(rel="stylesheet" type="text/css" href="css/bootstrap-flex.css")
+        link(rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/base/jquery-ui.css")
+        link(rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css")
+        link(rel="stylesheet" type="text/css" href="bower_components/leaflet/dist/leaflet.css")
+        <!-- endbuild -->
 
-    // break line
-    <!-- build:css2 css/app.css -->
-    link(rel="stylesheet" type="text/css" href="css/app.css")
-    // break line
-    <!-- endbuild -->
+        //- <!-- build:css2 css/app.css -->
+        link(rel="stylesheet" type="text/css" href="css/app.css")
+        //- <!-- endbuild -->
 
-    <!-- build:js1 js/leaflet.min.js -->
-    script(src="bower_components/leaflet/dist/leaflet.js")
-    script(src="bower_components/leaflet-providers/leaflet-providers.js")
-    script(src="bower_components/leaflet-plugins/layer/tile/Bing.js")
-    script(src="bower_components/leaflet-plugins/layer/tile/Google.js")
-    script(src="bower_components/leaflet-plugins/layer/tile/Bing.js")
-    // break line
-    <!-- endbuild -->
+        <!-- build:js1 js/leaflet.min.js -->
+        script(src="bower_components/leaflet/dist/leaflet.js")
+        script(src="bower_components/leaflet-providers/leaflet-providers.js")
+        script(src="bower_components/leaflet-plugins/layer/tile/Bing.js")
+        script(src="bower_components/leaflet-plugins/layer/tile/Google.js")
+        script(src="bower_components/leaflet-plugins/layer/tile/Bing.js")
+        <!-- endbuild -->
 
+    body
 
-  body
+        .container-fluid
 
-    .container-fluid
+            header
+                .logo
+                    a(href="javascript:void(0)")
+                        img(src="img/logo/logo_polimi_white.png" alt="Logo Image")
+                .title
+                    h2 Land Use and Land Cover Maps of Europe
 
-      header
-        .logo
-          a(href="javascript:void(0)" class="logo")
-            img(src="img/logo/logo_polimi_white.png" alt="Logo Image")
-        .title
-          h2 Land Use and Land Cover Maps of Europe
+            #main
+                #side
+                    .tabs
+                        ul(id="clothing-nav" class="nav nav-tabs" role="tablist")
+                            //- +tabs_bootstrap('nav-item','nav-link active','layers','Layers','true')
+                            //- +tabs_bootstrap('nav-item','nav-link','legend','Legend','false')
+                            //- +tabs_bootstrap('nav-item','nav-link','info','Metadata','false')
 
-      #main
-        #side
-          .tabs
-            //- ul(id="clothing-nav" class="nav nav-tabs" role="tablist")
-            //-     +tabs_bootstrap('nav-item','nav-link active','layers','Layers','true')
-            //-     +tabs_bootstrap('nav-item','nav-link','legend','Legend','false')
-            //-     +tabs_bootstrap('nav-item','nav-link','info','Metadata','false')
+                    .pannel
+                        #clothing-nav-content.tab-content
+                            //- .tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab"): include layers
+                            //- .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab"): include legend
+                            //- .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab"): include info
 
-          .pannel
-            //- #clothing-nav-content.tab-content
-            //-     .tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab"): include layers
-            //-     .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab"): include legend
-            //-     .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab"): include info
+                    .settings
+                        //- button.button#expand Expand All
+                        //- button.button#setting Settings
 
-          .settings
-            //- button.button#expand Expand All
-            //- button.button#setting Settings
+            footer
 
-      footer
+        // Script section
+        <!-- build:js2 js/libs.min.js -->
+        script(src="bower_components/jquery/dist/jquery.js")
+        script(src="bower_components/jquery-ui/jquery-ui.js")
+        script(src="bower_components/tether/dist/js/tether.js")
+        script(src="bower_components/bootstrap/dist/js/bootstrap.js")
+        <!-- endbuild -->
 
-    // Script section
-    <!-- build:js2 js/libs.min.js -->
-    script(src="bower_components/jquery/dist/jquery.js")
-    script(src="bower_components/jquery-ui/jquery-ui.js")
-    script(src="bower_components/tether/dist/js/tether.js")
-    script(src="bower_components/bootstrap/dist/js/bootstrap.js")
-    //- break line
-    <!-- endbuild -->
-
-    //- break line
-    <!-- build:js3 js/app.min.js -->
-    script(src="js/jquery.js")
-    script(src="js/map.js")
-    //- break line
-    <!-- endbuild -->
+        <!-- build:js3 js/app.min.js -->
+        script(src="js/jquery.js")
+        script(src="js/map.js")
+        <!-- endbuild -->
