@@ -1,3 +1,26 @@
 mixin addPlugin(name)
     //- leaflet plugins
     script(src='libs/plugins/' + name ) 
+
+mixin tabs_bootstrap(classLI,classA,name,tab,bool)
+    - var idA = name + "-tab"
+    - var ref = "#" + name
+
+    li(class=classLI)
+        a(class=classA href=ref role=roleA id=idA data-toggle="tab" aria-controls=name aria-expanded=bool)=tab
+
+mixin accorde(section,sort)
+  .group
+    - var index = 0
+    h3=section
+    div(id=sort)
+      each layer in Layers
+        - var ID = layer.ID
+        - var NM = layer.Name
+        - var cat = layer.Category
+        if cat == section
+          div(id=ID class='draggable')
+            li
+              input(type="checkbox" value=ID class="boxlayer" checked='false' rel="#{index++}")
+              label(for=ID)
+                span=NM

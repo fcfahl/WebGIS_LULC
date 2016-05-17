@@ -7,5 +7,11 @@
 
 
 $.getJSON('db.json', function(json) {
-console.log("DB: ", json.WMS[0].Name);
+
+  var DB = json.Layers;
+  console.log("DB: ", DB);
+
+  for (var i = 0; i < DB.length; i++) {
+    console.log(DB[i].ID);
+  }
 });

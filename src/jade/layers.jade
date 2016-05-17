@@ -1,0 +1,23 @@
+include mixins
+
+#accordion
+    +accorde('Administrative Layers', 'adm')
+    +accorde('Land Cover Layers', 'lulc')
+    //- +accorde('Custom Layers', 'custom',custom)
+        
+    .group
+        h3='Custom Layers'
+        #custom
+            div(class="btn-group btn-group-justified" role="group" aria-label="...") 
+                div(class="btn-group" role="group")
+                    button(type="button" class="btn btn-primary cleanButton" data-toggle="modal" data-target="#modalWindow" id="modalButton") WMS Layer
+                div(class="btn-group" role="group")
+                    button(type="button" class="btn btn-primary cleanButton" data-toggle="modal" data-target="#modalPhoto" id="modalButton") Photos
+                
+            include modal-wms            
+            include modal-photo
+            
+            .wms_custom        
+                ul(class="list-group")
+            
+            .photo

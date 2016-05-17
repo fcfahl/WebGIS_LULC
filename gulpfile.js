@@ -14,7 +14,12 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     watch = require('gulp-watch'),
     browserSync = require('browser-sync'),
-    clean  = require('gulp-clean');
+    clean  = require('gulp-clean'),
+    data = require('gulp-data'),
+    jade = require('gulp-jade'),
+    fs = require('fs'),
+    gutil = require('gulp-util')
+    ;
 
 var dir_src = 'src',
     dir_dst = 'public';
@@ -24,14 +29,15 @@ var from = {
     html: dir_src + '/index.html',
     js: dir_src + '/js',
     js_files: dir_src + '/js/**/*.js',
-    sass: dir_src + '/css/sass/app.sass',
+    sass: dir_src + '/css/**/*.sass',
     sass_files: dir_src + '/css/**/*.sass',
     css: dir_src + '/css',
     css_file: dir_src + '/css/app.css',
     fonts: dir_src + '/bower_components/font-awesome/**/*.{ttf,woff,eof,svg}*',
     img: dir_src + '/img/**/*',
     json: dir_src + '/db.json',
-    jade: dir_src + '/jade/**/*.jade',
+    jade: dir_src + '/jade/index.jade',
+    jade_files: dir_src + '/jade/**/*.jade',
     bootstrap_sass: dir_src + '/bower_components/bootstrap/scss/bootstrap-flex.scss',
     bootstrap_css: dir_src + '/bower_components/bootstrap/dist/css'
 };
@@ -41,35 +47,14 @@ var to = {
     html: dir_dst + '/index.html',
     js: dir_dst + '/js',
     css: dir_dst + '/css',
-    css_file: dir_dst + '/css',
     fonts: '',
     img: dir_dst + '/img',
     json: dir_dst + '/db.json'
 };
 
-// Clean
-gulp.task('clean', function() {
-  return gulp
-      .src(to.dir, {read: false})
-      .pipe(clean());
-});
-
-// Copying fies and images
-gulp.task('copyFiles', ['clean'], function() {
-    gulp.src(from.fonts)
-    .pipe(gulp.dest(to.dir));
-    gulp.src(from.json)
-    .pipe(gulp.dest(to.dir));
-    gulp.src(from.img)
-      .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-      .pipe(gulp.dest(to.img));
-      // .pipe(notify({ message: 'Images task complete' }));
-});
-
-gulp.task('copyCSS', ['clean'], function() {
-    gulp.src(from.css_file)
-      .pipe(gulp.dest(to.css_file));
-});
+var json_Layers = JSON.parse(fs.readFileSync("./" + from.json)),
+    json_Data = json_Layers.Layers;
+    // console.log('CONFIG ', json_Data);
 
 // SASS compiler
 gulp.task('sass', function(){
@@ -89,24 +74,23 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('usemin', ['jshint'], function () {
-  return gulp
-      .src(from.html)
-      .pipe(usemin({
-          css1:[cssnano(),rev()],
-        //   css2:[rev()],
-        //   css2:[cssnano(),rev()],
-          js1: [uglify(),rev()],
-          js2: [uglify(),rev()],
-          js3: [uglify(),rev()]
-      }))
-      .pipe(gulp.dest(to.dir));
+// Jade compiler + Load json
+// https://codepen.io/hoichi/post/json-to-jade-in-gulp
+// http://stackoverflow.com/questions/31614931/how-to-parse-the-external-json-in-gulp-jade
+gulp.task('jade', function() {
+    gulp.src(from.jade)
+        .pipe(jade({
+            pretty: true,
+            locals: JSON.parse( fs.readFileSync("./" + from.json, { encoding: 'utf8' }) )
+        }).on('error', gutil.log))
+        .pipe(gulp.dest("./" + from.dir))
 });
+
 
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: to.dir,
+      baseDir: from.dir,
       reloadDelay: 100
     }
   })
@@ -116,22 +100,22 @@ gulp.task('webserver', function() {
   connect.server({
     port: 3000,
     livereload: true,
-    data: to.json,
+    data: from.json,
   });
 });
 
 // Watch
 gulp.task('watch', function (){
 // gulp.task('watch', ['browserSync'], function (){
-    gulp.watch(from.sass_files, ['sass', 'copyCSS']);
-    gulp.watch(from.js_files, ['usemin']);
-    gulp.watch(from.html, ['usemin']);
+    gulp.watch(from.sass_files, ['sass']);
+    gulp.watch(from.js_files, ['jshint']);
+    gulp.watch(from.jade_files, ['jade']);
     gulp.watch(to.html, browserSync.reload);
 });
 
 // Default task
-gulp.task('build', ['clean'], function () {
-  runSequence(['copyFiles', 'sass', 'copyCSS', 'usemin']);
+gulp.task('build', function () {
+  runSequence(['sass', 'jshint', 'jade']);
 })
 
 // Default task

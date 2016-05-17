@@ -111,3 +111,6 @@ npm install node-sass -g
 
 cd E:/12_GitHub/WebGIS_Bio/public/styles
 node-sass --watch scss/app.sass css/app.css
+
+cd E:\12_GitHub\WebGIS_LULC\src
+node-sass --watch ./css/sass/app.sass ./css/app.css

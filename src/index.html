@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!--output:../../src/index.html--><!DOCTYPE html>
 <html lang="en">
   <head>
     <title>"LULC Maps of Europe"</title>
@@ -35,11 +36,161 @@
           </div>
           <div class="pannel">
             <div id="clothing-nav-content" class="tab-content">
+              <div role="tabpanel" id="layers" aria-labelledby="layers-tab" class="tab-pane fade in active">
+                <div id="accordion">
+                                  <div class="group">
+                                    <h3>Administrative Layers</h3>
+                                    <div id="adm">
+                                      <div id="NUTS0" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="NUTS0" checked="false" rel="0" class="boxlayer">
+                                          <label for="NUTS0"><span>Country Boundaries</span></label>
+                                        </li>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="group">
+                                    <h3>Land Cover Layers</h3>
+                                    <div id="lulc">
+                                      <div id="GLC_00" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="GLC_00" checked="false" rel="0" class="boxlayer">
+                                          <label for="GLC_00"><span>Global Land Cover (2000)</span></label>
+                                        </li>
+                                      </div>
+                                      <div id="Corine_06" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="Corine_06" checked="false" rel="1" class="boxlayer">
+                                          <label for="Corine_06"><span>Corine (2006)</span></label>
+                                        </li>
+                                      </div>
+                                      <div id="GlobCover_09" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="GlobCover_09" checked="false" rel="2" class="boxlayer">
+                                          <label for="GlobCover_09"><span>GlobCover (2009)</span></label>
+                                        </li>
+                                      </div>
+                                      <div id="MODIS_10" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="MODIS_10" checked="false" rel="3" class="boxlayer">
+                                          <label for="MODIS_10"><span>MODIS (2010)</span></label>
+                                        </li>
+                                      </div>
+                                      <div id="CCIESA_10" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="CCIESA_10" checked="false" rel="4" class="boxlayer">
+                                          <label for="CCIESA_10"><span>Land Cover CCI (2010)</span></label>
+                                        </li>
+                                      </div>
+                                      <div id="GLand30_10" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="GLand30_10" checked="false" rel="5" class="boxlayer">
+                                          <label for="GLand30_10"><span>GlobeLand30 (2010)</span></label>
+                                        </li>
+                                      </div>
+                                      <div id="Atlas_06" class="draggable">
+                                        <li>
+                                          <input type="checkbox" value="Atlas_06" checked="false" rel="6" class="boxlayer">
+                                          <label for="Atlas_06"><span>Urban Atlas (2006)</span></label>
+                                        </li>
+                                      </div>
+                                    </div>
+                                  </div>
+                  <div class="group">
+                    <h3>Custom Layers</h3>
+                    <div id="custom">
+                      <div role="group" aria-label="..." class="btn-group btn-group-justified"> 
+                        <div role="group" class="btn-group">
+                          <button type="button" data-toggle="modal" data-target="#modalWindow" id="modalButton" class="btn btn-primary cleanButton">WMS Layer</button>
+                        </div>
+                        <div role="group" class="btn-group">
+                          <button type="button" data-toggle="modal" data-target="#modalPhoto" id="modalButton" class="btn btn-primary cleanButton">Photos</button>
+                        </div>
+                      </div>
+                      <div class="wmsModal">
+                        <div id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h3>Add WMS Layer</h3>
+                              </div>
+                              <div class="modal-body">
+                                <div class="wmsCapability"><span class="h5">Get Capabilities</span>
+                                  <input type="text" id="wms_capability" class="form-control">
+                                </div>
+                                <div class="wmsButton">
+                                  <button type="button" id="wms_submit" class="btn btn-primary cleanButton">Submit</button>
+                                  <button type="button" data-dismiss="modal" class="btn btn-secondary ">Close</button>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <div class="wmsList">
+                                  <ul class="list-group"></ul>
+                                </div>
+                                <div class="wmsButtons">
+                                  <button type="button" id="wms_close" data-dismiss="modal" class="btn btn-secondary ">Close</button>
+                                  <button type="button" id="wms_add" data-dismiss="modal" class="btn btn-primary">Add Selected Layers</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="wmsModal">
+                        <div id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
+                          <div class="modal-dialog">
+                            <div class="modal-content modal-photo">
+                              <div class="modal-header">
+                                <h3>Add Services</h3>
+                              </div>
+                              <div class="modal-body">            
+                                <div class="photoWeb col-xs-4 col-sm-4">
+                                  <div data-toggle="buttons" class="btn-group-vertical">
+                                    <label value="addFlickr" class="btn btn-primary btn-photo">Flickr<i class="icon fa ">
+                                        <input type="checkbox" id="addFlickr" autocomplete="off"></i></label>
+                                    <label value="addPanoraimo" class="btn btn-primary btn-photo">Panoraimo<i class="icon fa ">
+                                        <input type="checkbox" id="addPanoraimo" autocomplete="off"></i></label>
+                                    <label value="addGeograph" class="btn btn-primary btn-photo">Geograph<i class="icon fa ">
+                                        <input type="checkbox" id="addGeograph" autocomplete="off"></i></label>
+                                  </div>
+                                </div>
+                                <div class="photoList col-xs-8 col-sm-8">
+                                  <form class="form-inline">
+                                    <div class="form-group">
+                                      <label for="photo_query">Search criteria</label>
+                                      <input type="text" id="photo_query" placeholder="Search criteria" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="photo_number">Max. points</label>
+                                      <input type="text" id="photo_number" class="form-control">
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                              <div class="modal-buttons"> 
+                                <button type="button" id="wms_close" data-dismiss="modal" class="btn btn-secondary ">Close</button>
+                                <button type="button" id="wms_add" data-dismiss="modal" class="btn btn-primary">Add Selected Services</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="wms_custom">       
+                        <ul class="list-group"></ul>
+                      </div>
+                      <div class="photo"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="settings">
+            <button id="expand" class="button">Expand All</button>
+            <button id="setting" class="button">Settings</button>
           </div>
         </div>
+        <div id="map"></div>
       </div>
       <footer></footer>
     </div>

@@ -1,0 +1,24 @@
+.wmsModal
+
+    div(class="modal fade"  id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h3 Add WMS Layer
+                .modal-body
+                    .wmsCapability
+                        span.h5 Get Capabilities
+                        input(type="text" class="form-control" id="wms_capability")
+                    //- .wmsUrl
+                        //- span.h5 WMS url link
+                        //- input(type="text" class="form-control" id="wms_url")
+                    .wmsButton
+                        button(type="button" class="btn btn-primary cleanButton" id="wms_submit") Submit
+                        button(type="button" class="btn btn-secondary " data-dismiss="modal" ) Close
+                .modal-footer
+                    .wmsList
+                        ul(class="list-group")
+                    .wmsButtons
+                        button(type="button" class="btn btn-secondary " id="wms_close" data-dismiss="modal") Close
+                        button(type="button" class="btn btn-primary" id="wms_add" data-dismiss="modal" ) Add Selected Layers
+                    
