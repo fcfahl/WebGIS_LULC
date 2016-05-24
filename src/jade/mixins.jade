@@ -10,11 +10,14 @@ mixin tabs_bootstrap(classLI,classA,name,tab,bool)
         a(class=classA href=ref role=roleA id=idA data-toggle="tab" aria-controls=name aria-expanded=bool)=tab
 
 mixin accorde(section,sort)
+  //- read db.json
+  - var obj = locals[0].Layers
+
   .group
     - var index = 0
     h3=section
     div(id=sort)
-      each layer in Layers
+      each layer in obj
         - var ID = layer.ID
         - var NM = layer.Name
         - var cat = layer.Category
@@ -24,3 +27,57 @@ mixin accorde(section,sort)
               input(type="checkbox" value=ID class="boxlayer" checked='false' rel="#{index++}")
               label(for=ID)
                 span=NM
+
+mixin legend_boot(section,sort)
+  //- read db.json
+  - var obj = locals[0].Layers
+
+  each layer in obj
+    - var ID_leg = "leg_" + layer.ID
+    - var ID_opy = "opy_" + layer.ID
+    - var heading = "legH_" + layer.ID
+    - var collapse = "leg_col_" + layer.ID
+    - var ref_collapse = "#leg_col_" + layer.ID
+    - var NM = layer.Name
+    - var ref = "img/"  +   layer.ID  + ".svg"
+    - var legend = layer.Legend
+
+    div(id=ID_leg class="leg" role="tablist" aria-multiselectable="true")
+        .panel.panel-default
+            .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
+                h3.panel-title
+                    a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID_leg class="accordion-toggle")=NM 
+        div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
+            .opy
+                .opy_title Opacity:
+                input(id=ID_opy class="opy_slider slider" data-id=id type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)")                
+            
+          if legend == "yes"
+            img(src=ref alt=NM width="280px")  
+
+mixin table_boot(section,sort)
+
+    //- read db.json
+    - var obj = locals[0].Layers
+
+    - var index = 0
+
+    each layer in obj
+      - var table = layer.ID
+      - var ID_table = "tbl_" + layer.ID
+      - var heading = "tbl2_" + layer.ID
+      - var collapse = "tbl_col_" + layer.ID
+      - var ref_collapse = "#tbl_col_" + layer.ID
+      - var NM = layer.Name
+      - var ref = "html/"  +   id  + ".html"
+      - var legend = layer.Legend
+
+      div(id=ID_table class="tbl" role="tablist" aria-multiselectable="true")
+          .panel.panel-default
+              .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
+                  h3.panel-title                    
+                      a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID_table)=NM        
+          div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
+              //- iframe(src=ref)
+              //- +mk_table(id, table)
+              //- include #{expertise} 

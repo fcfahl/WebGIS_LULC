@@ -46,15 +46,18 @@ html(lang="en")
                 #side
                     .tabs
                         ul(id="clothing-nav" class="nav nav-tabs" role="tablist")
-                            //- +tabs_bootstrap('nav-item','nav-link active','layers','Layers','true')
-                            //- +tabs_bootstrap('nav-item','nav-link','legend','Legend','false')
-                            //- +tabs_bootstrap('nav-item','nav-link','info','Metadata','false')
+                            +tabs_bootstrap('nav-item','nav-link active','layers','Layers','true')
+                            +tabs_bootstrap('nav-item','nav-link','legend','Legend','false')
+                            +tabs_bootstrap('nav-item','nav-link','info','Metadata','false')
 
                     .pannel
                         #clothing-nav-content.tab-content
                             .tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab"): include layers
-                            //- .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab"): include legend
-                            //- .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab"): include info
+
+                            .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab"): +legend_boot('Land Cover Layers', 'lulc')
+
+
+                            .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab"): +table_boot('Land Cover Layers', 'lulc')
 
                     .settings
                         button.button#expand Expand All

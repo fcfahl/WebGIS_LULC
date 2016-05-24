@@ -32,6 +32,9 @@
         <div id="side">
           <div class="tabs">
             <ul id="clothing-nav" role="tablist" class="nav nav-tabs">
+              <li class="nav-item"><a href="#layers" id="layers-tab" data-toggle="tab" aria-controls="layers" aria-expanded="true" class="nav-link active">Layers</a></li>
+              <li class="nav-item"><a href="#legend" id="legend-tab" data-toggle="tab" aria-controls="legend" aria-expanded="false" class="nav-link">Legend</a></li>
+              <li class="nav-item"><a href="#info" id="info-tab" data-toggle="tab" aria-controls="info" aria-expanded="false" class="nav-link">Metadata</a></li>
             </ul>
           </div>
           <div class="pannel">
@@ -182,6 +185,186 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <div role="tabpanel" id="legend" aria-labelledby="legend-tab" class="tab-pane fade">
+                                <div id="leg_GLC_00" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_GLC_00" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GLC_00" aria-expanded="true" aria-controls="leg_GLC_00" class="accordion-toggle">Global Land Cover (2000)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_GLC_00" role="tabpanel" aria-labelledby="legH_GLC_00" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_GLC_00" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div><img src="img/GLC_00.svg" alt="Global Land Cover (2000)" width="280px">
+                                </div>
+                                <div id="leg_Corine_06" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_Corine_06" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_Corine_06" aria-expanded="true" aria-controls="leg_Corine_06" class="accordion-toggle">Corine (2006)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_Corine_06" role="tabpanel" aria-labelledby="legH_Corine_06" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_Corine_06" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div><img src="img/Corine_06.svg" alt="Corine (2006)" width="280px">
+                                </div>
+                                <div id="leg_GlobCover_09" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_GlobCover_09" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GlobCover_09" aria-expanded="true" aria-controls="leg_GlobCover_09" class="accordion-toggle">GlobCover (2009)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_GlobCover_09" role="tabpanel" aria-labelledby="legH_GlobCover_09" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_GlobCover_09" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div><img src="img/GlobCover_09.svg" alt="GlobCover (2009)" width="280px">
+                                </div>
+                                <div id="leg_MODIS_10" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_MODIS_10" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_MODIS_10" aria-expanded="true" aria-controls="leg_MODIS_10" class="accordion-toggle">MODIS (2010)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_MODIS_10" role="tabpanel" aria-labelledby="legH_MODIS_10" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_MODIS_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div><img src="img/MODIS_10.svg" alt="MODIS (2010)" width="280px">
+                                </div>
+                                <div id="leg_CCIESA_10" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_CCIESA_10" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_CCIESA_10" aria-expanded="true" aria-controls="leg_CCIESA_10" class="accordion-toggle">Land Cover CCI (2010)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_CCIESA_10" role="tabpanel" aria-labelledby="legH_CCIESA_10" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_CCIESA_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div><img src="img/CCIESA_10.svg" alt="Land Cover CCI (2010)" width="280px">
+                                </div>
+                                <div id="leg_GLand30_10" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_GLand30_10" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GLand30_10" aria-expanded="true" aria-controls="leg_GLand30_10" class="accordion-toggle">GlobeLand30 (2010)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_GLand30_10" role="tabpanel" aria-labelledby="legH_GLand30_10" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_GLand30_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div><img src="img/GLand30_10.svg" alt="GlobeLand30 (2010)" width="280px">
+                                </div>
+                                <div id="leg_NUTS0" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_NUTS0" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_NUTS0" aria-expanded="true" aria-controls="leg_NUTS0" class="accordion-toggle">Country Boundaries</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_NUTS0" role="tabpanel" aria-labelledby="legH_NUTS0" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_NUTS0" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div id="leg_Atlas_06" role="tablist" aria-multiselectable="true" class="leg">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="legH_Atlas_06" rel="NaN" class="panel-heading collapsed">
+                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_Atlas_06" aria-expanded="true" aria-controls="leg_Atlas_06" class="accordion-toggle">Urban Atlas (2006)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="leg_col_Atlas_06" role="tabpanel" aria-labelledby="legH_Atlas_06" class="panel-collapse collapse in">
+                                    <div class="opy">
+                                      <div class="opy_title">Opacity:</div>
+                                      <input id="opy_Atlas_06" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)" class="opy_slider slider">
+                                    </div>
+                                  </div><img src="img/Atlas_06.svg" alt="Urban Atlas (2006)" width="280px">
+                                </div>
+              </div>
+              <div role="tabpanel" id="info" aria-labelledby="info-tab" class="tab-pane fade">
+                                <div id="tbl_GLC_00" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_GLC_00" rel="0" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GLC_00" aria-expanded="true" aria-controls="tbl_GLC_00">Global Land Cover (2000)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_GLC_00" role="tabpanel" aria-labelledby="tbl2_GLC_00" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
+                                <div id="tbl_Corine_06" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_Corine_06" rel="1" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_Corine_06" aria-expanded="true" aria-controls="tbl_Corine_06">Corine (2006)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_Corine_06" role="tabpanel" aria-labelledby="tbl2_Corine_06" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
+                                <div id="tbl_GlobCover_09" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_GlobCover_09" rel="2" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GlobCover_09" aria-expanded="true" aria-controls="tbl_GlobCover_09">GlobCover (2009)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_GlobCover_09" role="tabpanel" aria-labelledby="tbl2_GlobCover_09" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
+                                <div id="tbl_MODIS_10" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_MODIS_10" rel="3" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_MODIS_10" aria-expanded="true" aria-controls="tbl_MODIS_10">MODIS (2010)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_MODIS_10" role="tabpanel" aria-labelledby="tbl2_MODIS_10" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
+                                <div id="tbl_CCIESA_10" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_CCIESA_10" rel="4" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_CCIESA_10" aria-expanded="true" aria-controls="tbl_CCIESA_10">Land Cover CCI (2010)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_CCIESA_10" role="tabpanel" aria-labelledby="tbl2_CCIESA_10" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
+                                <div id="tbl_GLand30_10" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_GLand30_10" rel="5" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GLand30_10" aria-expanded="true" aria-controls="tbl_GLand30_10">GlobeLand30 (2010)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_GLand30_10" role="tabpanel" aria-labelledby="tbl2_GLand30_10" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
+                                <div id="tbl_NUTS0" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_NUTS0" rel="6" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_NUTS0" aria-expanded="true" aria-controls="tbl_NUTS0">Country Boundaries</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_NUTS0" role="tabpanel" aria-labelledby="tbl2_NUTS0" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
+                                <div id="tbl_Atlas_06" role="tablist" aria-multiselectable="true" class="tbl">
+                                  <div class="panel panel-default">
+                                    <div role="tab" id="tbl2_Atlas_06" rel="7" class="panel-heading collapsed">
+                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_Atlas_06" aria-expanded="true" aria-controls="tbl_Atlas_06">Urban Atlas (2006)</a></h3>
+                                    </div>
+                                  </div>
+                                  <div id="tbl_col_Atlas_06" role="tabpanel" aria-labelledby="tbl2_Atlas_06" class="panel-collapse collapse in">
+                                  </div>
+                                </div>
               </div>
             </div>
           </div>

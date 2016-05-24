@@ -18,8 +18,8 @@ var gulp = require('gulp'),
     data = require('gulp-data'),
     jade = require('gulp-jade'),
     fs = require('fs'),
-    gutil = require('gulp-util')
-    ;
+    gutil = require('gulp-util'),
+    data = require('gulp-data');
 
 var dir_src = 'src',
     dir_dst = 'public';
@@ -79,9 +79,12 @@ gulp.task('jshint', function() {
 // http://stackoverflow.com/questions/31614931/how-to-parse-the-external-json-in-gulp-jade
 gulp.task('jade', function() {
     gulp.src(from.jade)
+        // .pipe(data(function(file) {
+        //           return require('./src/db.json');
+        //         } ))
         .pipe(jade({
             pretty: true,
-            locals: JSON.parse( fs.readFileSync("./" + from.json, { encoding: 'utf8' }) )
+            locals: JSON.parse(fs.readFileSync("./" + from.json, { encoding: 'utf8' }) )
         }).on('error', gutil.log))
         .pipe(gulp.dest("./" + from.dir))
 });
