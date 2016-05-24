@@ -6,13 +6,16 @@
 // console.log (arr);
 
 
+$( document ).ready(function() {
 
-$.getJSON('db.json', function(json) {
+    $.getJSON('db.json', function(json) {
 
-  var DB = json[0].Layers;
-  console.log(DB);
+    var DB = json[0].Layers;
+    console.log(DB);
 
-  for (var i = 0; i < DB.length; i++) {
+    for (var i = 0; i < DB.length; i++) {
     console.log(DB[i].ID);
-  }
+    }
+    });
+
 });
