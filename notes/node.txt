@@ -17,6 +17,15 @@ bower install leaflet-plugins --save
 
 bower install tether --save
 
+bower install Leaflet.ZoomBox  --save
+bower install leaflet-navbar  --save
+bower install leaflet-minimap --save
+
+
+not found on bower
+bower install leaflet-graphicscale --save
+bower install leaflet-iconlayers --save
+bower install Leaflet.ZoomLabel --save
 
 2 - Gulp
 http://blog.caelum.com.br/bye-bye-grunt-js-hello-gulp-js/

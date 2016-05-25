@@ -1,6 +1,19 @@
-mixin addPlugin(name)
+mixin addPlugin(name, type)
     //- leaflet plugins
-    script(src='libs/plugins/' + name ) 
+    - if (type == 'bower')
+      - var folder = 'bower_components/' + name
+    - else
+      - var folder = name
+
+    script(src=folder) 
+
+mixin addCSS(name, type)
+    //- leaflet plugins
+    - if (type == 'bower')
+      - var folder = 'bower_components/'  + name
+    - else
+      - var folder = name
+    link(rel="stylesheet" type="text/css" href=folder)
 
 mixin tabs_bootstrap(classLI,classA,name,tab,bool)
     - var idA = name + "-tab"
@@ -52,14 +65,13 @@ mixin legend_boot(section,sort)
                 .opy_title Opacity:
                 input(id=ID_opy class="opy_slider slider" data-id=id type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)")                
             
-          if legend == "yes"
-            img(src=ref alt=NM width="280px")  
+            if legend == "yes"
+              img(src=ref alt=NM width="280px")  
 
 mixin table_boot(section,sort)
 
     //- read db.json
     - var obj = locals[0].Layers
-
     - var index = 0
 
     each layer in obj
@@ -78,6 +90,22 @@ mixin table_boot(section,sort)
                   h3.panel-title                    
                       a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID_table)=NM        
           div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
-              //- iframe(src=ref)
-              //- +mk_table(id, table)
-              //- include #{expertise} 
+              +mk_table(layer.ID)
+
+mixin mk_table (ID) 
+
+    //- read db.json
+    - var obj = locals[0].Layers
+    - var layers = obj.ID
+
+    each layer in obj
+      - var table = layer.ID
+
+      if ID == table
+        table(id=table_ID class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="50%")
+            tbody
+                each val, key in layer
+                  if key !== 'Type' && key !== 'Legend'
+                    tr(class="table_row")
+                        td #{key}
+                        td #{val}
