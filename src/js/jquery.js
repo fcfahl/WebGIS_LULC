@@ -11,9 +11,17 @@ $( document ).ready(function() {
          var DB_services = data[0].Services;
          // console.log(DB_services);
 
-        //  for (var i = 0; i < DB_layers.length; i++) {
-        //  console.log(DB_layers[i].ID);
-        // }
+         var LULC_layers = DB_services[0].ID;
+         console.log(LULC_layers);
+
+         var LULC_layers = [];
+         for (var i = 0; i < DB_services.length; i++) {
+           LULC_layers[i] = DB_services[i].ID;
+
+        }
+
+        console.log(LULC_layers);
+
        // Add JSON to localStorage under serverData
         //  localStorage.setItem("serverData", JSON.stringify(DB_layers));
 

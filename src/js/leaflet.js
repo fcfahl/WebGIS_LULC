@@ -79,8 +79,8 @@
         height = "" ;
 
     // there is a problem on geoserver to set up a custom style - it seems to shift the color classes for discrete colortables - for this reason it is been using only the defaul raster style
-    var LULC_layers = ["NUTS0", "GLC_00","Corine_06", "Atlas_06", "GlobCover_09", "MODIS_10", "CCIESA_10", "GLand30_10"];
-    var LULC_styles = ["NUTS0", "raster","raster", "Atlas_06", "raster", "raster", "raster", "raster"];
+    // var LULC_layers = ["NUTS0", "GLC_00","Corine_06", "Atlas_06", "GlobCover_09", "MODIS_10", "CCIESA_10", "GLand30_10"];
+    // var LULC_styles = ["NUTS0", "raster","raster", "Atlas_06", "raster", "raster", "raster", "raster"];
 
     // loop through LULC_Layers
     $.each(LULC_layers, function (index, obj) {
