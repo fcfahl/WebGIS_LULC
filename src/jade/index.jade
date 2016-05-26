@@ -24,6 +24,8 @@ html(lang="en")
         +addCSS('Leaflet.ZoomBox/L.Control.ZoomBox.css', "bower")   
         +addCSS('Leaflet.NavBar/src/Leaflet.NavBar.css', "bower")
         +addCSS('leaflet-minimap/dist/Control.MiniMap.min.css', "bower")
+        +addCSS('libs/Leaflet-IconLayers-master/src/iconLayers.css')
+        +addCSS('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css')
         //- <!-- endbuild -->
 
         //- <!-- build:css3 css/app.css -->
@@ -31,14 +33,22 @@ html(lang="en")
         //- <!-- endbuild -->
 
         <!-- build:js1 js/leaflet.min.js -->
-        +addPlugin('leaflet/dist/leaflet.js', "bower")   
-        +addPlugin('leaflet-providers/leaflet-providers.js', "bower")   
+        +addPlugin('leaflet/dist/leaflet.js', "bower")  
+        +addPlugin('leaflet-plugins/layer/tile/Bing.js', "bower")        
+        +addPlugin('leaflet-plugins/layer/tile/Google.js', "bower")  
+ 
+        +addPlugin('leaflet-providers/leaflet-providers.js', "bower") 
+  
         +addPlugin('Leaflet.ZoomBox/L.Control.ZoomBox.min.js', "bower")   
         +addPlugin('Leaflet.NavBar/src/Leaflet.NavBar.js', "bower")
         +addPlugin('leaflet-minimap/dist/Control.MiniMap.min.js', "bower")
-        +addPlugin('leaflet-plugins/layer/tile/Bing.js', "bower")        
-        +addPlugin('leaflet-plugins/layer/tile/Google.js', "bower")        
-        +addPlugin('leaflet-plugins/layer/tile/Bing.js', "bower") 
+
+        +addPlugin('libs/Leaflet-IconLayers-master/src/providers.js') 
+        +addPlugin('libs/Leaflet-IconLayers-master/src/iconLayers.js') 
+
+        +addPlugin('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js')    
+        +addPlugin('libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js')    
+
         <!-- endbuild -->
 
     body
@@ -89,8 +99,8 @@ html(lang="en")
         <!-- endbuild -->
 
         <!-- build:js3 js/app.min.js -->
-        script(src="js/wmsObj.js")
-        script(src="js/parseXML.js")
+        //- script(src="js/wmsObj.js")
+        //- script(src="js/parseXML.js")
         script(src="js/jquery.js")
         script(src="js/leaflet.js")
         script(src="js/map.js")

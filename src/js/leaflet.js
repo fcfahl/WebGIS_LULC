@@ -36,40 +36,34 @@
 
 
     //leaflet-graphicscale-master Plugin
-        // var graphicScale = L.control.graphicScale({
-        //     doubleLine: false,
-        //     fill: 'hollow',
-        //     showSubunits: false,
-        //     position: 'bottomright'
-        // }).addTo(map);
+        var graphicScale = L.control.graphicScale({
+            doubleLine: false,
+            fill: 'hollow',
+            showSubunits: false,
+            position: 'bottomright'
+        }).addTo(map);
 
 
-        //Leaflet-IconLayers-master Plugin
-            // var layers = [];
-            // for (var providerId in providers) {
-            //     layers.push(providers[providerId]);
-            // }
-            // layers.push({
-            //     layer: {
-            //         onAdd: function() {},
-            //         onRemove: function() {}
-            //     },
-            //     title: 'empty'
-            // })
-            // var ctrl = L.control.iconLayers(layers).addTo(map);
+        // Leaflet-IconLayers-master Plugin
+            var layers = [];
+            for (var providerId in providers) {
+                layers.push(providers[providerId]);
+            }
+            layers.push({
+                layer: {
+                    onAdd: function() {},
+                    onRemove: function() {}
+                },
+                title: 'empty'
+            });
+            var ctrl = L.control.iconLayers(layers).addTo(map);
 
 
-
-    //sidebar-v2-master Plugin
-    // var sidebar = L.control.sidebar('sidebar', {position: 'left'}).addTo(map);
-
-     //leaflet-locationfilter-master Plugin
-    // var locationFilter = new L.LocationFilter().addTo(map);
 
     // Leaflet.ZoomLabel-master plugin
-    // L.control.zoomLabel({
-    //     position: 'bottomleft'
-    // }).addTo(map);
+    L.control.zoomLabel({
+        position: 'bottomleft'
+    }).addTo(map);
 
 
     // LULC layers (WMS)

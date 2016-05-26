@@ -1,22 +1,25 @@
-// var map = window.localStorage.getItem('Atlas_06');
-//
-//
-// var arr = JSON.parse( localStorage.getItem('Atlas_06') );
-//
-// console.log (arr);
-
-
 $( document ).ready(function() {
 
-    $.getJSON('db.json', function(json) {
+    localStorage.clear();
 
-    var DB = json[0].Layers;
-    console.log(DB);
+    $.getJSON('db.json').success(function (data)
+     {
 
-    for (var i = 0; i < DB.length; i++) {
-    console.log(DB[i].ID);
-    }
-    });
+         var DB_layers = data[0].Layers;
+        //  console.log(DB_layers);
+
+         var DB_services = data[0].Services;
+         // console.log(DB_services);
+
+        //  for (var i = 0; i < DB_layers.length; i++) {
+        //  console.log(DB_layers[i].ID);
+        // }
+       // Add JSON to localStorage under serverData
+        //  localStorage.setItem("serverData", JSON.stringify(DB_layers));
+
+        // http://stackoverflow.com/questions/22536620/jquery-posting-json-to-local-file
+
+     });
 
     // Uncheck the checkboxes (problem in Firefox)
     $('input:checkbox').removeAttr('checked');
@@ -137,13 +140,13 @@ $( document ).ready(function() {
                  ID_opacity = ("#opy_" + name),
                  index_ID = (100 - index);
 
-            // update Json object
-            window[name].options.zIndex = index_ID;
-            window[name].wmsParams.zIndex = index_ID;
+                // update Json object
+                window[name].options.zIndex = index_ID;
+                window[name].wmsParams.zIndex = index_ID;
 
-            console.log(window[name].wmsParams.layers, " : ",  window[name].wmsParams.zIndex);
+                console.log(window[name].wmsParams.layers, " : ",  window[name].wmsParams.zIndex);
 
-            window[name].setZIndex(index_ID);
+                window[name].setZIndex(index_ID);
 
 
                 //  console.log("index: " +  index);

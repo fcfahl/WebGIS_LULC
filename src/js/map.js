@@ -1,2 +1,7 @@
-console.log( "ready!" );
-console.log( "ready2" );
+$( document ).ready(function() {
+
+  console.log( "map ready!" );
+
+  
+
+});

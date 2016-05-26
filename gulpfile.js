@@ -101,7 +101,7 @@ gulp.task('browserSync', function() {
 
 gulp.task('webserver', function() {
   connect.server({
-    port: 8000,
+    port: 3000,
     livereload: true,
     data: from.json,
   });

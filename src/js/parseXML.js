@@ -68,8 +68,9 @@
                 styles = "",
                 format = "image/png",
                 zIndex = 200 - index;
-                id = "wms" + index +"_" + title.slice(0,10).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ''), // clip the name and remove the special characters to create an unique ID
                 ref="#" + id;
+                id = "wms" + index +"_" + title.slice(0,10).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ''); // clip the name and remove the special characters to create an unique ID
+
 
             // Add parameters to object
             wmsObj (id, title, server, version, layers, bbox, width, height, CRS, format, transparent, tiled, styles, zIndex);
