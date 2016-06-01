@@ -1,0 +1,30 @@
+{
+  "name": "Leaflet.NavBar",
+  "version": "1.0.0",
+  "homepage": "https://github.com/davidchouse/Leaflet.NavBar",
+  "authors": [
+    "David C."
+  ],
+  "description": "Simple navigation toolbar for Leaflet.",
+  "main": "src/Leaflet.NavBar.js",
+  "keywords": [
+    "leaflet"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "024be5ceb8c5606d1bec261876263d1937740a13"
+  },
+  "_source": "https://github.com/davidchouse/Leaflet.NavBar.git",
+  "_target": "^1.0.0",
+  "_originalSource": "leaflet-navbar"
+}

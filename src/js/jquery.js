@@ -11,8 +11,8 @@ $( document ).ready(function() {
          var DB_services = data[0].Services;
          // console.log(DB_services);
 
-         var LULC_layers = DB_services[0].ID;
-         console.log(LULC_layers);
+         var LULC_ID = DB_services[0].ID;
+         console.log(LULC_ID);
 
          var LULC_layers = [];
          for (var i = 0; i < DB_services.length; i++) {
