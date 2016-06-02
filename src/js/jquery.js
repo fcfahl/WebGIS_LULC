@@ -1,33 +1,4 @@
-$( document ).ready(function() {
-
-    localStorage.clear();
-
-    $.getJSON('db.json').success(function (data)
-     {
-
-         var DB_layers = data[0].Layers;
-        //  console.log(DB_layers);
-
-         var DB_services = data[0].Services;
-         // console.log(DB_services);
-
-         var LULC_ID = DB_services[0].ID;
-         console.log(LULC_ID);
-
-         var LULC_layers = [];
-         for (var i = 0; i < DB_services.length; i++) {
-           LULC_layers[i] = DB_services[i].ID;
-
-        }
-
-        console.log(LULC_layers);
-
-       // Add JSON to localStorage under serverData
-        //  localStorage.setItem("serverData", JSON.stringify(DB_layers));
-
-        // http://stackoverflow.com/questions/22536620/jquery-posting-json-to-local-file
-
-     });
+function html_design (LULC_layers) {
 
     // Uncheck the checkboxes (problem in Firefox)
     $('input:checkbox').removeAttr('checked');
@@ -70,7 +41,6 @@ $( document ).ready(function() {
 
         }
     }
-
 
     // Expand All button
     $( "#expand" ).button().on( "click", function() {
@@ -136,7 +106,6 @@ $( document ).ready(function() {
      // Drag and Drop layers
      $( "#lulc" ).sortable({
 
-
          update: function (e, ui) {
             console.clear();
             $("#lulc div").each(function (i, elm) {
@@ -156,6 +125,8 @@ $( document ).ready(function() {
 
                 window[name].setZIndex(index_ID);
 
+                // Let ADM always on top
+                window["NUTS0"].setZIndex(500);
 
                 //  console.log("index: " +  index);
                 //  console.log("ID_leg: " + ID_leg);
@@ -191,4 +162,4 @@ $( document ).ready(function() {
     });
 
 
-});
+};

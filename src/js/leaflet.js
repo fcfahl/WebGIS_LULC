@@ -1,82 +1,114 @@
-    // zoom configuration
+var map = "";
 
+function leaflet_control (LULC_layers) {
+
+    // zoom configuration
     var   southWest = L.latLng(31, -17.5),
             northEast = L.latLng(72, 45),
             centerView= L.latLng(56, 20),
             zoomLevel = 4;
 
-    var map = L.map('map').setView(centerView, zoomLevel);
-    // console.log('map:' + map)
-
-	map.fitBounds([southWest, northEast]);
+    map = L.map('map').setView(centerView, zoomLevel);
+    map.fitBounds([southWest, northEast]);
 
     // Leaflet.ZoomBox-master plugin
-    var control = L.control.zoomBox({
-        modal: false,  // If false (default), it deactivates after each use.
-                  // If true, zoomBox control stays active until you click on the control to deactivate.
-                // position: "topleft",
-                // className: "customClass"  // Class to use to provide icon instead of Font Awesome
+        var control = L.control.zoomBox({
+            modal: false,
+            // If false (default), it deactivates after each use.
+            // If true, zoomBox control stays active until you click on the control to deactivate.
+            // position: "topleft",
+            // className: "customClass"  // Class to use to provide icon instead of Font Awesome
     }).addTo(map);
 
     // geotagged photos
     var featureGroup = L.featureGroup([]).addTo(map);
-        // var featureGroup = L.markerClusterGroup();
+    // var featureGroup = L.markerClusterGroup();
 
     // Leaflet.NavBar-master plugin
-        L.control.navbar().addTo(map);
+    L.control.navbar().addTo(map);
 
     //Leaflet-MiniMap-master Plugin
-        var OSM2 = L.tileLayer.provider('OpenStreetMap.Mapnik', {
-            minZoom: 0,
-            maxZoom: 13});
-        var miniMap = new L.Control.MiniMap(OSM2, {
-            toggleDisplay: true,
-            position: 'topright'
-        }).addTo(map);
-
+    var OSM2 = L.tileLayer.provider('OpenStreetMap.Mapnik', {
+        minZoom: 0,
+        maxZoom: 13});
+    var miniMap = new L.Control.MiniMap(OSM2, {
+        toggleDisplay: true,
+        position: 'topright'
+    }).addTo(map);
 
     //leaflet-graphicscale-master Plugin
-        var graphicScale = L.control.graphicScale({
-            doubleLine: false,
-            fill: 'hollow',
-            showSubunits: false,
-            position: 'bottomright'
-        }).addTo(map);
+    var graphicScale = L.control.graphicScale({
+        doubleLine: false,
+        fill: 'hollow',
+        showSubunits: false,
+        position: 'bottomright'
+    }).addTo(map);
 
-
-        // Leaflet-IconLayers-master Plugin
-            var layers = [];
-            for (var providerId in providers) {
-                layers.push(providers[providerId]);
-            }
-            layers.push({
-                layer: {
-                    onAdd: function() {},
-                    onRemove: function() {}
-                },
-                title: 'empty'
-            });
-            var ctrl = L.control.iconLayers(layers).addTo(map);
-
-
+    // Leaflet-IconLayers-master Plugin
+    var layers = [];
+    for (var providerId in providers) {
+        layers.push(providers[providerId]);
+    }
+        layers.push({
+        layer: {
+        onAdd: function() {},
+        onRemove: function() {}
+    },
+        title: 'empty'
+    });
+    var ctrl = L.control.iconLayers(layers).addTo(map);
 
     // Leaflet.ZoomLabel-master plugin
     L.control.zoomLabel({
         position: 'bottomleft'
     }).addTo(map);
 
+}
 
-    // LULC layers (WMS)
-    var server = 'http://localhost:8080/geoserver/LULC/wms',
-        workspace = "LULC:",
-        format = 'image/png',
-        transparent = true,
-        version ='1.3.0',
-        tiled = true,
-        CRS = "EPSG:3035",
-        bbox = "",
-        width ="" ,
-        height = "" ;
+function map_Layers () {
+
+    $(document).on('click', "input:checkbox:not(.wms_Ignore)", function(event) {
+
+        var layerClicked = window[event.target.value];
+
+       //  console.log('layerClicked: ' , layerClicked);
+       //  console.log('this for adding: ' , this);
+
+        if (map.hasLayer(layerClicked)) {
+            map.removeLayer(layerClicked);
+        } else {
+            map.addLayer(layerClicked);
+        };
+    });
+
+}
+
+function WMS_object  (id, title, server, service, version, layer, bbox, width, height, CRS, format, transparent, tiled, style, zIndex){
+
+    // create geoserver URL
+    var get_Map = server + "?service=" + service + "&version=" + version + "&request=GetMap&layers=" + layer + "&bbox=" + bbox + "&width=" + width + "&height=" + height + "&srs=" +  CRS + "&format=" + format;
+
+    // console.log(get_Map);
+
+    // create leaflet object
+    var arg = {
+        layers: layer,
+        format: format,
+        transparent: transparent,
+        version: version,
+        tiled: tiled,
+        styles: style,
+        zIndex: zIndex,
+        // crs: wmsLayer.CRS,
+    };
+
+    // create Leaflet object
+    window[id] = L.tileLayer.wms(server, arg);
+
+}
+
+function WMS_layers (DB_WMS, DB_Service, LULC_layers, LULC_styles) {
+
 
     // there is a problem on geoserver to set up a custom style - it seems to shift the color classes for discrete colortables - for this reason it is been using only the defaul raster style
     // var LULC_layers = ["NUTS0", "GLC_00","Corine_06", "Atlas_06", "GlobCover_09", "MODIS_10", "CCIESA_10", "GLand30_10"];
@@ -86,18 +118,20 @@
     $.each(LULC_layers, function (index, obj) {
 
         var title = LULC_layers[index],
-            id = title,
-            layer = workspace + title,
-            styles = LULC_styles[index],
-            zIndex = 100 - index;
+                id = title,
+                service = DB_Service.Type,
+                layer = DB_WMS.Workspace + title,
+                style = LULC_styles[index],
+                zIndex = 100 - index;
 
         // Add parameters to object
-        wmsObj (id, title, server, version, layer, bbox, width, height, CRS, format, transparent, tiled, styles, zIndex);
-
-        // Create leaflet variables for each layer
-        wmsLeaflet(title);
+        WMS_object (id, title, DB_WMS.Server, service, DB_WMS.Version, layer, DB_WMS.Bbox, DB_WMS.Width, DB_WMS.Height, DB_WMS.CRS, DB_WMS.Format, DB_WMS.Transparent, DB_WMS.Tiled, style, zIndex);
 
       });
+
+}
+
+function WFS_Layers () {
 
     //   WFS Implementation
       //
@@ -125,13 +159,13 @@
     // });
     //
 
-//     var polyStyle = {
-//     "color": "#ffffff",
-//     "weight": 0,
-//     "fillOpacity": 0.75
-// };
-//
-//
+    //     var polyStyle = {
+    //     "color": "#ffffff",
+    //     "weight": 0,
+    //     "fillOpacity": 0.75
+    // };
+    //
+    //
     var geojsonLayer = new L.GeoJSON();
 
           function getJson(data) {
@@ -151,17 +185,17 @@
 
 
 
-function onEachFeature(feature, layer) {
+    function onEachFeature(feature, layer) {
     // does this feature have a property named dz?
     if (feature.properties && feature.properties.Country) {
         layer.bindPopup(feature.properties.Country);
     }
     layer.on({
-					//mouseover: highlightFeature,
-					//mouseout: resetHighlight,
-					click: clickfunction
-				});
-}
+                    //mouseover: highlightFeature,
+                    //mouseout: resetHighlight,
+                    click: clickfunction
+                });
+    }
 
 
 
@@ -169,13 +203,13 @@ function onEachFeature(feature, layer) {
 
 
 
-// console.log (URL)
+    // console.log (URL)
 
 
 
 
 
-// Create an empty layer where we will load the polygons
+    // Create an empty layer where we will load the polygons
         var featureLayer = new L.GeoJSON();
         // Set a default style for out the polygons will appear
         var defaultStyle = {
@@ -264,3 +298,6 @@ function onEachFeature(feature, layer) {
         // loading indicator end
         map.fitBounds(fuffi.getBounds());
         }
+
+
+}
