@@ -10,6 +10,10 @@ $( document ).ready(function() {
                         DB_services = data[0].Services,
                         DB_WMS = data[0].WMS_Server;
 
+                        var legend = data[0].Legend;
+                        //-
+                        console.log(legend[0].GLC_00);
+
                 var LULC_layers = [],
                         LULC_styles = [],
                         WMS_server = [];
@@ -34,7 +38,7 @@ $( document ).ready(function() {
                 map_Layers();
 
                 // Add JSON to localStorage http://stackoverflow.com/questions/22536620/jquery-posting-json-to-local-file
-                localStorage.setItem("serverData", JSON.stringify(DB_layers));
+                // localStorage.setItem("serverData", JSON.stringify(DB_layers));
 
 
         })

@@ -236,17 +236,6 @@
                 "Data source": "...",
                 "Legend": "yes"
             }
-        ],
-        "Legend":
-        [
-            {
-                "GLC_00":
-                {
-                    "#000": "RED",
-                    "#300": "GREEN",
-                    "#500": "BLUE"
-                }
-            }
         ]
     }
 ]

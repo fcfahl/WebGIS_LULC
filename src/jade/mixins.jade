@@ -66,7 +66,8 @@ mixin legend_boot(section,sort)
                 input(id=ID_opy class="opy_slider slider" data-id=id type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="updateOpacity(this)")                
             
             if legend == "yes"
-              img(src=ref alt=NM width="280px")  
+                img(src=ref alt=NM width="280px")  
+                +mk_legend(layer.ID)
 
 mixin table_boot(section,sort)
 
@@ -109,3 +110,23 @@ mixin mk_table (ID)
                     tr(class="table_row")
                         td #{key}
                         td #{val}
+
+
+mixin mk_legend (ID)
+
+    //- read db.json
+    - var obj = locals[0].Legend
+    - var layers = locals[0].Layers
+
+    each description, color in obj[0].GLC_00
+    
+        each layer in layers
+            - var legend = layer.ID
+            //- - var map = "obj."  +   layer.ID 
+            - var map = obj.GLC_00 
+            if ID == legend
+                div(style= "width:10px;height:10px;border:1px; background " + color + ";") #{description}
+
+//- legend = data[0].Legend;
+//- 
+//- console.log(legend[0].GLC_00);

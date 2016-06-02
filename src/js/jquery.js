@@ -162,4 +162,4 @@ function html_design (LULC_layers) {
     });
 
 
-};
+}

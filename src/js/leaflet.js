@@ -78,7 +78,7 @@ function map_Layers () {
             map.removeLayer(layerClicked);
         } else {
             map.addLayer(layerClicked);
-        };
+        }
     });
 
 }
