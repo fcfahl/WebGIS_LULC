@@ -23,7 +23,6 @@
     "font-awesome": "fontawesome#^4.6.1",
     "jquery-ui": "^1.11.4",
     "leaflet": "^0.7.7",
-    "ol3": "openlayers/ol3#^3.15.1",
     "bootstrap": "v4.0.0-alpha.2",
     "leaflet-providers": "^1.1.9",
     "leaflet-plugins": "^1.6.0",
