@@ -318,7 +318,7 @@ function geotag_Photos () {
     }
 
     // parse data
-    function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
+    function parse_Photos (service_Name, service_Photo, action, service_Icon, pSearch, pNumber){
 
         // set default values
         if (pSearch === undefined) {
@@ -356,7 +356,7 @@ function geotag_Photos () {
             if(service_Name == "Flickr"){
                 display_Flickr(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
             }else if (service_Name == "Panoramio") {
-                display_Panoramio(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
+                parse_Panoraimo(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
             }else if (service_Name == "Geograph") {
                 display_Geograph(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
             }else {
@@ -423,7 +423,31 @@ function geotag_Photos () {
         }
     }
 
-    function display_Panoramio (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
+    function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Logo){
+
+            console.log("data_Photo", data_Photo);
+
+        // loop through the photos
+        $.each(data_Photo.photos, function() {
+
+        var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.photo_title+ '<br/><a id="'+ this.photo_id+'" title="'+ this.photo_title+ '" rel="pano" href="'+ this.photo_url+ '" target="_new"><img src="'+ this.photo_file_url+'" alt="'+this.photo_title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.owner_url+ '" target="_new">'+ this.owner_name+'</a>'+ this.upload_date + '</font>';
+
+        // create a photo frame
+        var popup = L.popup({
+            maxWidth: service_Photo.maxWidth,
+            maxHeight: service_Photo.maxHeight
+        }).setContent( img);
+
+        // create a marker
+        var marker = L.marker([this.latitude, this.longitude], {
+            icon: service_Icon
+        }).addTo(group_Panoramio);
+        marker.bindPopup(popup);
+        });
+
+    }
+
+    function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
 
         // define search variables
         if ( pSearch === "") {
@@ -452,10 +476,8 @@ function geotag_Photos () {
 
             console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
 
-
             // parse the Panoraimo data
-            var data_Photo =
-                $.ajax({
+            $.when ( $.ajax ({
                     url: url_Panoraimo,
                     // The name of the callback parameter, as specified by the YQL service
                     jsonp: "callback",
@@ -464,21 +486,13 @@ function geotag_Photos () {
                     // Tell YQL what we want and that we want JSON
                     data: {
                         tag: pSearch,
-                        format: service_Photo.format
+                        format: "json",
                     },
-                    success: function(response) {
-                        return response;
-                    }
-                });
-            var result = Object.keys(data_Photo);
-            // var test = JSON.parse(data_Photo)
-            console.log("data_Photo: ", data_Photo);
-            console.log("data_Photo: ", data_Photo.responseJSON.photos);
-            // console.log("data_Photo: ", data_Photo.done);
-            // console.log("data_Photo: ", data_Photo.success);
-            // console.log(test);
-            console.log(result);
-
+                })
+            ).then(function( response ) {
+                // var  data_Photo = response;
+                display_Panoraimo(response, service_Photo, service_Icon, service_Logo);
+            });
 
         }else{
             // remove layer
