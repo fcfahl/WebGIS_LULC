@@ -263,6 +263,65 @@
                     "#500": "BLUE"
                 }
             }
+        ],
+        "Photo":
+        [
+            {
+                "Flickr":
+                {
+                    "url": "https://www.flickr.com/photos/",
+                    "rest": "https://api.flickr.com/services/rest/",
+                    "key": "78a6ce549b86483a335a3377a3765ef0",
+                    "method": "flickr.photos.search",
+                    "has_geo": "1",
+                    "extras": "geo,url_s",
+                    "text": "",
+                    "perpage": "",
+                    "page": "1",
+                    "format": "json",
+                    "jsoncallback": "1",
+                    "logo": "https://s.yimg.com/pw/images/goodies/white-flickr.png",
+                    "marker": "https://s.yimg.com/pw/images/goodies/white-small-circle.png",
+                    "maxWidth": "600",
+                    "maxHeight": "800"
+                },
+                "Panoramio":
+                {
+                    "url": "http://www.panoramio.com/map/get_panoramas.php?",
+                    "rest": "",
+                    "key": "",
+                    "method": "",
+                    "has_geo": "",
+                    "extras": "",
+                    "text": "",
+                    "perpage": "",
+                    "page": "",
+                    "format": "json",
+                    "jsoncallback": "jsonp",
+                    "logo": "http://www.panoramio.com/img/glass/components/logo_bar/panoramio.png",
+                    "marker": "http://www.panoramio.com/img/panoramio-marker.png",
+                    "maxWidth": "600",
+                    "maxHeight": "800"
+                },
+                "Geograph":
+                {
+                    "url": "",
+                    "rest": "",
+                    "key": "",
+                    "method": "",
+                    "has_geo": "",
+                    "extras": "",
+                    "text": "",
+                    "perpage": "",
+                    "page": "",
+                    "format": "",
+                    "jsoncallback": "",
+                    "logo": "",
+                    "marker": "",
+                    "maxWidth": "600",
+                    "maxHeight": "800"
+                }
+            }
         ]
     }
 ]

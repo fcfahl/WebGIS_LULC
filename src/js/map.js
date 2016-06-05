@@ -7,16 +7,17 @@ $( document ).ready(function() {
     $.getJSON( "db.json" )
     .done(function( data ) {
         var DB_layers = data[0].Layers,
-        DB_services = data[0].Services,
-        DB_WMS = data[0].WMS_Server;
-
-        var legend = data[0].Legend;
-        //-
-        // console.log(legend[0].GLC_00);
+            DB_services = data[0].Services,
+            DB_WMS = data[0].WMS_Server,
+            DB_legend = data[0].Legend;
+            DB_photo = data[0].Photo;
 
         var LULC_layers = [],
-        LULC_styles = [],
-        WMS_server = [];
+            LULC_styles = [],
+            WMS_server = [],
+            photo_Services = [];
+
+        // console.log(legend[0].GLC_00);
 
         for (var i = 0; i < data[0].Layers.length; i++) {
             LULC_layers[i] = DB_layers[i].ID;
@@ -31,12 +32,16 @@ $( document ).ready(function() {
             WMS_server[k] = DB_WMS[k].Server;
         }
 
+        // for (var l = 0; l < data[0].Photo.length; l++) {
+        //     photo_Services[l] = DB_photo[l].Server;
+        // }
+
         // Call functions
         html_Design (LULC_layers);
         leaflet_Control (LULC_layers);
         WMS_Layers (DB_WMS[0], DB_services[0], LULC_layers, LULC_styles);
         WMS_Custom ();
-        WMS_Photos ();
+        geotag_Photos (DB_photo);
 
             // Add JSON to localStorage http://stackoverflow.com/questions/22536620/jquery-posting-json-to-local-file
             // localStorage.setItem("serverData", JSON.stringify(DB_layers));
