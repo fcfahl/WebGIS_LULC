@@ -41,6 +41,18 @@ mixin accorde(section,sort)
               label(for=ID)
                 span=NM
 
+mixin switch_button(name)
+
+    .switch_photo
+        label.switch-light(onclick="" )
+            input(class="switch_toogle" type="checkbox" value=name) 
+            strong #{name}
+
+            span.well
+                span Off
+                span On
+                a.btn.btn-primary
+
 mixin legend_boot(section,sort)
   //- read db.json
   - var obj = locals[0].Layers

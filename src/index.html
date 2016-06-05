@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png"><!-- build:css1 css/main.min.css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap-flex.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/base/jquery-ui.css"/>
-    <link rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/css-toggle-switch/dist/toggle-switch.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css"/><!-- endbuild -->
     <link rel="stylesheet" type="text/css" href="bower_components/leaflet/dist/leaflet.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/Leaflet.ZoomBox/L.Control.ZoomBox.css"/>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css"/>
     
     
-    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="css/sass/app.css"/>
     <!-- build:js1 js/leaflet.min.js -->
     <script src="bower_components/leaflet/dist/leaflet.js"> </script>
     <script src="bower_components/leaflet-plugins/layer/tile/Bing.js"> </script>
@@ -828,8 +828,21 @@
             </div>
           </div>
           <div class="settings">
-            <button id="expand" class="button">Expand All</button>
-            <button id="setting" class="button">Settings</button>
+                            <div class="switch_photo">
+                              <label onclick="" class="switch-light">
+                                <input type="checkbox" value="Flickr" class="switch_toogle"><strong>Flickr</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                              </label>
+                            </div>
+                            <div class="switch_photo">
+                              <label onclick="" class="switch-light">
+                                <input type="checkbox" value="Panoramio" class="switch_toogle"><strong>Panoramio</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                              </label>
+                            </div>
+                            <div class="switch_photo">
+                              <label onclick="" class="switch-light">
+                                <input type="checkbox" value="Geograph" class="switch_toogle"><strong>Geograph</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                              </label>
+                            </div><i aria-hidden="true" class="fa fa-cogs"></i>
           </div>
         </div>
         <div id="map"></div>

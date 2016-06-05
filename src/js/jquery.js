@@ -145,7 +145,7 @@ function WMS_Custom (){
         //jquery dynamically added checkbox
         //http://stackoverflow.com/questions/4692281/jquery-dynamically-added-checkbox-not-working-with-change-function
 
-    $(document).on('click', "input:checkbox:not(.wms_Ignore)", function(event) {
+    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch_toogle )", function(event) {
 
          var layerClicked = window[event.target.value];
 
@@ -254,10 +254,29 @@ function WMS_Custom (){
 
 }
 
-function geotag_Photos (photo_Services) {
+function geotag_Photos () {
 
-    // console.log(photo_Services[0].Flickr);
+    // switch button
+    $(document).on('click', "input:checkbox(.switch_toogle)", function(event) {
 
+        var data = get_BBOX();
+        // console.log( "get_BBOX: ",  data);
+
+        var service_Name = this.value;
+
+        var service_Photo = DB_photo[0][service_Name];
+        // console.log(photo_Service.url);
+
+         if(this.checked) {
+            parse_Photos(service_Name, service_Photo, "show")
+            // console.log( "show: ",  service_Name);
+         }else{
+            parse_Photos(service_Name, service_Photo,"remove")
+            // console.log( "remove: ", service_Name);
+         }
+    });
+
+    // get bbox coordinates
     function get_BBOX () {
 
         var fixed_bounds = [31, -17.5, 72, 45];
@@ -301,15 +320,117 @@ function geotag_Photos (photo_Services) {
         return data;
     }
 
-    function parse_Photos (){
+    // parse data
+    function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
 
+        // set default values
+        if (pSearch === undefined) {
+            pSearch = "";
+        }
 
+        if (pNumber === undefined) {
+            pNumber = 50;
+        }
 
+        var parms_Photo = {
+            "api_key": service_Photo.key,
+            "method": service_Photo.method,
+            "has_geo": service_Photo.has_geo,
+            "extras": service_Photo.extras,
+            "text": pSearch,
+            "perpage": pNumber,
+            "page": service_Photo.page,
+            "format": service_Photo.format,
+            "nojsoncallback": service_Photo.jsoncallback
+        };
+
+        var service_Icon = new L.Icon({
+            iconUrl: service_Photo.marker,
+            shadowUrl: null,
+            iconAnchor: [9,9],
+            popupAnchor: [0,-10],
+            iconSize: [15, 15],
+        });
+
+        var service_Logo = service_Photo.logo;
+
+        if(action == "show") {
+
+            if(service_Name == "Flickr"){
+                display_Flickr(service_Photo, parms_Photo, service_Icon, service_Logo)
+            }else if (service_Name == "Panoramio") {
+                display_Panoramio(service_Photo, parms_Photo, service_Icon, service_Logo)
+
+            }else if (service_Name == "Geograph") {
+                console.log( "Geograph: ");
+            }else {
+                console.log("PHOTO SERVICE NOT FOUND");
+            }
+
+        }else{
+            console.log( "remove: ");
+
+            if(service_Name == "Flickr"){
+                map.removeLayer(group_Leaflet);
+            }else if (service_Name == "Panoramio") {
+                console.log( "Panoramio: ");
+            }else if (service_Name == "Geograph") {
+                console.log( "Geograph: ");
+            }else {
+                console.log("PHOTO SERVICE NOT FOUND");
+            }
+        }
     }
 
-    function display_Photos (){
+    function display_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo){
 
+        // check if the obect is empty
+        if( group_Leaflet === "") {
 
+            // create a new object if it is empty
+            group_Leaflet = L.featureGroup([]).addTo(map);
+            // var featureGroup = L.markerClusterGroup();
+
+            // parse the Flickr data
+            var data_Photo = JSON.parse (
+                $.ajax({
+                    url:  service_Photo.rest,
+                    data: parms_Photo,
+                    async: false
+                }).responseText
+            );
+
+            // loop through the photos
+            $.each(data_Photo.photos.photo, function() {
+
+                // get the url for each photo
+                var url = service_Photo.url + this.owner + '/' + this.id ;
+                var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.title+ '<br/><a id="'+ this.id+'" title="'+ this.title+ '" rel="pano" href="'+ url + '" target="_new"><img src="'+ this.url_s+'" alt="'+this.title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+ url  + '" target="_new">'+ this.owner+'</a>'+ this.upload_date + '</font>';
+
+                // console.log( "url: ", url ); // server response
+
+                // create a photo frame
+                var popup = L.popup({
+                    maxWidth: service_Photo.maxWidth,
+                    maxHeight: service_Photo.maxHeight
+                }).setContent( img);
+
+                // create a marker
+                var marker = L.marker([this.latitude, this.longitude], {
+                    icon: service_Icon
+                }).addTo(group_Leaflet);
+                marker.bindPopup(popup);
+            });
+
+        }else{
+            // remove layer
+            map.addLayer(group_Leaflet);
+        }
+    }
+
+    function display_Panoramio (service_Photo, parms_Photo, service_Icon, service_Logo){
+
+                console.log( "Panoramio: ");
 
     }
 

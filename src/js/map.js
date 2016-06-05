@@ -2,6 +2,8 @@ $( document ).ready(function() {
 
     // Clear local storage data
     localStorage.clear();
+    window.map = "";
+    window.group_Leaflet = "";
 
     // Load JSON database
     $.getJSON( "db.json" )
@@ -14,8 +16,7 @@ $( document ).ready(function() {
 
         var LULC_layers = [],
             LULC_styles = [],
-            WMS_server = [],
-            photo_Services = [];
+            WMS_server = [];
 
         // console.log(legend[0].GLC_00);
 
@@ -32,16 +33,13 @@ $( document ).ready(function() {
             WMS_server[k] = DB_WMS[k].Server;
         }
 
-        // for (var l = 0; l < data[0].Photo.length; l++) {
-        //     photo_Services[l] = DB_photo[l].Server;
-        // }
 
         // Call functions
         html_Design (LULC_layers);
         leaflet_Control (LULC_layers);
         WMS_Layers (DB_WMS[0], DB_services[0], LULC_layers, LULC_styles);
         WMS_Custom ();
-        geotag_Photos (DB_photo);
+        geotag_Photos ();
 
             // Add JSON to localStorage http://stackoverflow.com/questions/22536620/jquery-posting-json-to-local-file
             // localStorage.setItem("serverData", JSON.stringify(DB_layers));

@@ -1,6 +1,3 @@
-var map = "",
-    featureGroup = "";
-
 function leaflet_Control (LULC_layers) {
 
     // zoom configuration
@@ -20,10 +17,6 @@ function leaflet_Control (LULC_layers) {
         // position: "topleft",
         // className: "customClass"  // Class to use to provide icon instead of Font Awesome
     }).addTo(map);
-
-    // geotagged photos
-    featureGroup = L.featureGroup([]).addTo(map);
-    // var featureGroup = L.markerClusterGroup();
 
     // Leaflet.NavBar-master plugin
     L.control.navbar().addTo(map);

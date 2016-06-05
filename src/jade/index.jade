@@ -15,7 +15,7 @@ html(lang="en")
         <!-- build:css1 css/main.min.css -->
         +addCSS('css/bootstrap-flex.css') 
         +addCSS('jquery-ui/themes/base/jquery-ui.css', "bower") 
-        +addCSS('jquery-ui/themes/base/jquery-ui.css', "bower") 
+        +addCSS('css-toggle-switch/dist/toggle-switch.css', "bower") 
         +addCSS('font-awesome/css/font-awesome.css', "bower") 
         <!-- endbuild -->
 
@@ -31,7 +31,7 @@ html(lang="en")
 
 
         //- <!-- build:css3 css/app.css -->
-        +addCSS('css/app.css') 
+        +addCSS('css/sass/app.css') 
         //- <!-- endbuild -->
 
         <!-- build:js1 js/leaflet.min.js -->
@@ -85,8 +85,12 @@ html(lang="en")
                               +table_boot('Land Cover Layers', 'lulc')
 
                     .settings
-                        button.button#expand Expand All
-                        button.button#setting Settings
+                        //- button.button#expand Expand All
+                        //- button.button#setting Settings
+                        +switch_button("Flickr") 
+                        +switch_button("Panoramio") 
+                        +switch_button("Geograph") 
+                        i(class="fa fa-cogs" aria-hidden="true")
 
                 #map
 
