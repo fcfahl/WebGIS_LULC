@@ -3,7 +3,9 @@ $( document ).ready(function() {
     // Clear local storage data
     localStorage.clear();
     window.map = "";
-    window.group_Leaflet = "";
+    window.group_Flickr = "";
+    window.group_Panoramio = "";
+    window.group_Geograph = "";
 
     // Load JSON database
     $.getJSON( "db.json" )

@@ -156,7 +156,7 @@ function WMS_Custom (){
              map.removeLayer(layerClicked);
         } else {
              map.addLayer(layerClicked);
-        };
+        }
     });
 
 
@@ -259,19 +259,16 @@ function geotag_Photos () {
     // switch button
     $(document).on('click', "input:checkbox(.switch_toogle)", function(event) {
 
-        var data = get_BBOX();
-        // console.log( "get_BBOX: ",  data);
-
         var service_Name = this.value;
 
         var service_Photo = DB_photo[0][service_Name];
         // console.log(photo_Service.url);
 
          if(this.checked) {
-            parse_Photos(service_Name, service_Photo, "show")
+            parse_Photos(service_Name, service_Photo, "show");
             // console.log( "show: ",  service_Name);
          }else{
-            parse_Photos(service_Name, service_Photo,"remove")
+            parse_Photos(service_Name, service_Photo,"remove");
             // console.log( "remove: ", service_Name);
          }
     });
@@ -357,38 +354,36 @@ function geotag_Photos () {
         if(action == "show") {
 
             if(service_Name == "Flickr"){
-                display_Flickr(service_Photo, parms_Photo, service_Icon, service_Logo)
+                display_Flickr(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
             }else if (service_Name == "Panoramio") {
-                display_Panoramio(service_Photo, parms_Photo, service_Icon, service_Logo)
-
+                display_Panoramio(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
             }else if (service_Name == "Geograph") {
-                console.log( "Geograph: ");
+                display_Geograph(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
             }else {
                 console.log("PHOTO SERVICE NOT FOUND");
             }
 
         }else{
-            console.log( "remove: ");
 
             if(service_Name == "Flickr"){
-                map.removeLayer(group_Leaflet);
+                map.removeLayer(group_Flickr);
             }else if (service_Name == "Panoramio") {
-                console.log( "Panoramio: ");
+                map.removeLayer(group_Panoramio);
             }else if (service_Name == "Geograph") {
-                console.log( "Geograph: ");
+                map.removeLayer(group_Geograph);
             }else {
                 console.log("PHOTO SERVICE NOT FOUND");
             }
         }
     }
 
-    function display_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo){
+    function display_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
 
         // check if the obect is empty
-        if( group_Leaflet === "") {
+        if( group_Flickr === "") {
 
             // create a new object if it is empty
-            group_Leaflet = L.featureGroup([]).addTo(map);
+            group_Flickr = L.featureGroup([]).addTo(map);
             // var featureGroup = L.markerClusterGroup();
 
             // parse the Flickr data
@@ -418,19 +413,83 @@ function geotag_Photos () {
                 // create a marker
                 var marker = L.marker([this.latitude, this.longitude], {
                     icon: service_Icon
-                }).addTo(group_Leaflet);
+                }).addTo(group_Flickr);
                 marker.bindPopup(popup);
             });
 
         }else{
             // remove layer
-            map.addLayer(group_Leaflet);
+            map.addLayer(group_Flickr);
         }
     }
 
-    function display_Panoramio (service_Photo, parms_Photo, service_Icon, service_Logo){
+    function display_Panoramio (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
 
-                console.log( "Panoramio: ");
+        // define search variables
+        if ( pSearch === "") {
+            var pTag = "public";
+        } else {
+            var pTag = "public&tag="+ pSearch;
+        }
+
+        if ( pNumber === "") {
+            var pN = "&from=0&to=50";
+        } else {
+            var pN = "&from=0&to=" + pNumber;
+        }
+
+        // get boundary coordinates
+        var data_BBOX = get_BBOX();
+
+        // check if the obect is empty
+        if( group_Panoramio === "") {
+
+            // create a new object if it is empty
+            group_Panoramio = L.featureGroup([]).addTo(map);
+
+            // create Panoraimo URL
+            var url_Panoraimo = service_Photo.url + pTag + pN + "&minx=" + data_BBOX.minx + "&miny=" + data_BBOX.maxx + "&maxx=" + data_BBOX.miny + "&maxy=" + data_BBOX.maxy + "&size=small&mapfilter=true&callback=?";
+
+            console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
+
+
+            // parse the Panoraimo data
+            var data_Photo =
+                $.ajax({
+                    url: url_Panoraimo,
+                    // The name of the callback parameter, as specified by the YQL service
+                    jsonp: "callback",
+                    // Tell jQuery we're expecting JSONP
+                    dataType: "jsonp",
+                    // Tell YQL what we want and that we want JSON
+                    data: {
+                        tag: pSearch,
+                        format: service_Photo.format
+                    },
+                    success: function(response) {
+                        return response;
+                    }
+                });
+            var result = Object.keys(data_Photo);
+            // var test = JSON.parse(data_Photo)
+            console.log("data_Photo: ", data_Photo);
+            console.log("data_Photo: ", data_Photo.responseJSON.photos);
+            // console.log("data_Photo: ", data_Photo.done);
+            // console.log("data_Photo: ", data_Photo.success);
+            // console.log(test);
+            console.log(result);
+
+
+        }else{
+            // remove layer
+            map.addLayer(group_Panoramio);
+        }
+
+    }
+
+    function display_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
+
+                console.log( "Geograph: ");
 
     }
 

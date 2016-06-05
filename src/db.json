@@ -287,7 +287,7 @@
                 },
                 "Panoramio":
                 {
-                    "url": "http://www.panoramio.com/map/get_panoramas.php?",
+                    "url": "http://www.panoramio.com/map/get_panoramas.php?set=",
                     "rest": "",
                     "key": "",
                     "method": "",
