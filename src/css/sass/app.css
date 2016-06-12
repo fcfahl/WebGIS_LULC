@@ -39,14 +39,31 @@ html, body {
           flex: 1;
           overflow-y: scroll;
           overflow-x: hidden; }
+          html .container-fluid #main #side .pannel #WMS_external, body .container-fluid #main #side .pannel #WMS_external {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center; }
+          html .container-fluid #main #side .pannel #geotag, body .container-fluid #main #side .pannel #geotag {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            align-content: space-around; }
+            html .container-fluid #main #side .pannel #geotag .switch_photo, body .container-fluid #main #side .pannel #geotag .switch_photo {
+              padding: 0 10px;
+              align-items: center;
+              height: 45px;
+              width: 80px; }
+            html .container-fluid #main #side .pannel #geotag .fa-cogs, body .container-fluid #main #side .pannel #geotag .fa-cogs {
+              padding-left: 10px; }
+            html .container-fluid #main #side .pannel #geotag span, body .container-fluid #main #side .pannel #geotag span {
+              font-size: 0.9em; }
         html .container-fluid #main #side .settings, body .container-fluid #main #side .settings {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           justify-content: center;
           align-items: center; }
-          html .container-fluid #main #side .settings .switch_photo, body .container-fluid #main #side .settings .switch_photo {
-            align-items: center;
-            height: 45px; }
       html .container-fluid #main #map, body .container-fluid #main #map {
         background: white;
         flex-grow: 1; }
@@ -71,7 +88,7 @@ body {
   body h4 {
     font-size: 0.8em; }
   body h5 {
-    font-size: 0.6em; }
+    font-size: 0.4em; }
   body .container-fluid header {
     background: #2B3856;
     text-align: center;
@@ -86,10 +103,10 @@ body {
   body .container-fluid #main {
     background: #eee; }
     body .container-fluid #main #side {
-      border-right: solid white 0.5px;
+      border-right: solid #555555 1px;
       color: #2B3856; }
       body .container-fluid #main #side .tabs {
-        border-bottom: solid white 0.5px; }
+        border-bottom: solid #555555 1px; }
         body .container-fluid #main #side .tabs .nav-link {
           padding: 8px 8px;
           min-width: 90px;
@@ -112,16 +129,10 @@ body {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
         background: #eee;
         border: 1px solid white; }
-      body .container-fluid #main #side .pannel #accordion .input-group-sm {
-        padding: 0;
-        height: 10px; }
-      body .container-fluid #main #side .pannel #accordion .group #custom {
-        font-size: 0.7em; }
-        body .container-fluid #main #side .pannel #accordion .group #custom .wms {
-          background: white;
-          height: 20px; }
-        body .container-fluid #main #side .pannel #accordion .group #custom .list-group-item {
-          font-size: 0.7em; }
+      body .container-fluid #main #side .pannel #accordion #WMS_external {
+        padding: 4px 4px; }
+        body .container-fluid #main #side .pannel #accordion #WMS_external .getCapabilities {
+          font-size: 0.65em; }
       body .container-fluid #main #side .pannel .leg, body .container-fluid #main #side .pannel .tbl {
         display: none;
         padding: 0; }
@@ -129,7 +140,7 @@ body {
           margin: 0; }
         body .container-fluid #main #side .pannel .leg .panel-heading, body .container-fluid #main #side .pannel .tbl .panel-heading {
           padding: 0;
-          border: solid white 0.5px;
+          border: solid #555555 1px;
           background: #eee;
           color: #555555; }
           body .container-fluid #main #side .pannel .leg .panel-heading .panel-title, body .container-fluid #main #side .pannel .tbl .panel-heading .panel-title {
@@ -172,15 +183,15 @@ body {
         display: none; }
         body .container-fluid #main #side .pannel .tbl .table_row {
           font-size: 0.6em; }
-      body .container-fluid #main #side .settings {
-        border-top: solid white 0.5px; }
-        body .container-fluid #main #side .settings .button {
+      body .container-fluid #main #side .settings .geotag {
+        border-top: solid #555555 1px; }
+        body .container-fluid #main #side .settings .geotag .button {
           padding: 5px;
           margin: 0 5px 0 5px;
           font-size: 0.6em;
           min-width: 100px;
           border: none; }
-        body .container-fluid #main #side .settings .switch_photo {
+        body .container-fluid #main #side .settings .geotag .switch_photo {
           width: 90px;
           padding: 5px;
           margin: 0 5px 0 5px;

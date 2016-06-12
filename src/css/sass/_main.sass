@@ -14,7 +14,8 @@ $heightMain: calc(#{$heightPage} - (#{$heightHeader} + #{$heightFooter} ))
 
 $widthSide: 300px
 
-$lineDivision: solid white 0.5px
+$lineDivision: solid rgb(85, 85, 85) 1px
+// $lineDivision: solid white 0.5px
 
 *
     box-sizing: border-box
@@ -65,18 +66,40 @@ html, body
                     overflow-y: scroll
                     overflow-x: hidden
 
+                    #WMS_external
+                        display: flex
+                        flex-direction: row
+                        align-items: center
+                        justify-content: center
+
+                    #geotag
+                        display: flex
+                        flex-direction: row
+                        justify-content: center
+                        align-items: center
+                        align-content: space-around
+
+                        .switch_photo
+                            padding: 0 10px
+                            align-items: center
+                            height: $heightSettings
+                            width: 80px
+                            // font-size: 0.4em
+                        .fa-cogs
+                            padding-left: 10px
+
+                        span
+                            font-size: 0.9em
+
                 .settings
                     display: flex
-                    flex-direction: row
+                    flex-direction: column
                     justify-content: center
                     align-items: center
 
-                    .switch_photo
 
 
-                        // align-content: space-around
-                        align-items: center
-                        height: $heightSettings
+
 
             #map
                 background: white

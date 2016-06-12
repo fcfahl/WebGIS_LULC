@@ -75,7 +75,14 @@ html(lang="en")
                     .pannel
                         #clothing-nav-content.tab-content
                             .tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab")
-                              include layers
+
+                                //- Accordion and layers parameters
+                                #accordion
+                                    +accorde('Administrative Layers', 'adm')
+                                    +accorde('Land Cover Layers', 'lulc')
+                                    +accorde('Photo Services', 'geotag')
+                                    +accorde('External WMS Layers', 'WMS_external')
+
 
                             .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab")
                               +legend_boot('Land Cover Layers', 'lulc')
@@ -84,13 +91,7 @@ html(lang="en")
                             .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab")
                               +table_boot('Land Cover Layers', 'lulc')
 
-                    .settings
-                        //- button.button#expand Expand All
-                        //- button.button#setting Settings
-                        +switch_button("Flickr") 
-                        +switch_button("Panoramio") 
-                        +switch_button("Geograph") 
-                        i(class="fa fa-cogs" aria-hidden="true")
+                    .settings                        
 
                 #map
 

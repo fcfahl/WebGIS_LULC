@@ -39,28 +39,10 @@ function html_Design (LULC_layers) {
         }
     }
 
-    // Expand All button
-    $( "#expand" ).button().on( "click", function() {
-        var label = $(this).button( "option", "label" );
-        if(label === "Expand All") {
-            $(this).button( "option", "label", "Collapse All" );
-            $('.ui-widget-content').show();
+    // toggle photo and wms buttons
+    // $( ".toggle" ).toggle( "slide" );
+    $(".toggle").animate({"left": "-=300px", "opacity":1}, "slow");
 
-            // Expand-collapse legend option
-            $('.panel-collapse:not(".in")').collapse('show');
-            // console.log( "expand button" );
-        }
-        else {
-          $(this).button( "option", "label", "Expand All" );
-            $('.ui-widget-content').hide();
-            // console.log( label );
-
-            // Expand-collapse legend option
-            $('.panel-collapse.in').collapse('hide');
-        }
-    });
-
-    expand();
 
     // Display Legend and metadata
     $(".boxlayer").change(function() {
@@ -318,7 +300,7 @@ function geotag_Photos () {
     }
 
     // parse data
-    function parse_Photos (service_Name, service_Photo, action, service_Icon, pSearch, pNumber){
+    function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
 
         // set default values
         if (pSearch === undefined) {
@@ -449,17 +431,20 @@ function geotag_Photos () {
 
     function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
 
+        var pTag = "",
+            pN =  "";
+
         // define search variables
-        if ( pSearch === "") {
-            var pTag = "public";
+        if ( pSearch === "" ) {
+            pTag = "public";
         } else {
-            var pTag = "public&tag="+ pSearch;
+            pTag = "public&tag="+ pSearch;
         }
 
-        if ( pNumber === "") {
-            var pN = "&from=0&to=50";
+        if ( pNumber === "" ) {
+            pN = "&from=0&to=50";
         } else {
-            var pN = "&from=0&to=" + pNumber;
+            pN = "&from=0&to=" + pNumber;
         }
 
         // get boundary coordinates

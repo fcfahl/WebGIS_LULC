@@ -55,795 +55,729 @@
             <div id="clothing-nav-content" class="tab-content">
               <div role="tabpanel" id="layers" aria-labelledby="layers-tab" class="tab-pane fade in active">
                 <div id="accordion">
-                                  <div class="group">
-                                    <h3>Administrative Layers</h3>
-                                    <div id="adm">
-                                      <div id="NUTS0" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="NUTS0" checked="false" rel="0" class="boxlayer">
-                                          <label for="NUTS0"><span>Country Boundaries</span></label>
-                                        </li>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="group">
-                                    <h3>Land Cover Layers</h3>
-                                    <div id="lulc">
-                                      <div id="GLC_00" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="GLC_00" checked="false" rel="0" class="boxlayer">
-                                          <label for="GLC_00"><span>Global Land Cover (2000)</span></label>
-                                        </li>
-                                      </div>
-                                      <div id="Corine_06" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="Corine_06" checked="false" rel="1" class="boxlayer">
-                                          <label for="Corine_06"><span>Corine (2006)</span></label>
-                                        </li>
-                                      </div>
-                                      <div id="Atlas_06" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="Atlas_06" checked="false" rel="2" class="boxlayer">
-                                          <label for="Atlas_06"><span>Urban Atlas (2006)</span></label>
-                                        </li>
-                                      </div>
-                                      <div id="GlobCover_09" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="GlobCover_09" checked="false" rel="3" class="boxlayer">
-                                          <label for="GlobCover_09"><span>GlobCover (2009)</span></label>
-                                        </li>
-                                      </div>
-                                      <div id="MODIS_10" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="MODIS_10" checked="false" rel="4" class="boxlayer">
-                                          <label for="MODIS_10"><span>MODIS (2010)</span></label>
-                                        </li>
-                                      </div>
-                                      <div id="CCIESA_10" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="CCIESA_10" checked="false" rel="5" class="boxlayer">
-                                          <label for="CCIESA_10"><span>Land Cover CCI (2010)</span></label>
-                                        </li>
-                                      </div>
-                                      <div id="GLand30_10" class="draggable">
-                                        <li>
-                                          <input type="checkbox" value="GLand30_10" checked="false" rel="6" class="boxlayer">
-                                          <label for="GLand30_10"><span>GlobeLand30 (2010)</span></label>
-                                        </li>
-                                      </div>
-                                    </div>
-                                  </div>
                   <div class="group">
-                    <h3>Custom Layers</h3>
-                    <div id="custom">
-                      <div role="group" aria-label="..." class="btn-group btn-group-justified"> 
-                        <div role="group" class="btn-group">
-                          <button type="button" data-toggle="modal" data-target="#modalWindow" id="modalButton" class="btn btn-primary cleanButton">WMS Layer</button>
-                        </div>
-                        <div role="group" class="btn-group">
-                          <button type="button" data-toggle="modal" data-target="#modalPhoto" id="modalButton" class="btn btn-primary cleanButton">Photos</button>
-                        </div>
+                    <h3>Administrative Layers</h3>
+                    <div id="adm">
+                      <div id="NUTS0" class="draggable">
+                        <li>
+                          <input type="checkbox" value="NUTS0" checked="false" rel="0" class="boxlayer"/>
+                          <label for="NUTS0"><span>Country Boundaries</span></label>
+                        </li>
                       </div>
-                      <div class="wmsModal">
-                        <div id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h3>Add WMS Layer</h3>
-                              </div>
-                              <div class="modal-body">
-                                <div class="wmsCapability"><span class="h5">Get Capabilities</span>
-                                  <input type="text" id="wms_capability" class="form-control">
-                                </div>
-                                <div class="wmsButton">
-                                  <button type="button" id="wms_submit" class="btn btn-primary cleanButton">Submit</button>
-                                  <button type="button" data-dismiss="modal" class="btn btn-secondary ">Close</button>
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <div class="wmsList">
-                                  <ul class="list-group"></ul>
-                                </div>
-                                <div class="wmsButtons">
-                                  <button type="button" id="wms_close" data-dismiss="modal" class="btn btn-secondary ">Close</button>
-                                  <button type="button" id="wms_add" data-dismiss="modal" class="btn btn-primary">Add Selected Layers</button>
-                                </div>
-                              </div>
-                            </div>
+                    </div>
+                  </div>
+                  <div class="group">
+                    <h3>Land Cover Layers</h3>
+                    <div id="lulc">
+                      <div id="GLC_00" class="draggable">
+                        <li>
+                          <input type="checkbox" value="GLC_00" checked="false" rel="0" class="boxlayer"/>
+                          <label for="GLC_00"><span>Global Land Cover (2000)</span></label>
+                        </li>
+                      </div>
+                      <div id="Corine_06" class="draggable">
+                        <li>
+                          <input type="checkbox" value="Corine_06" checked="false" rel="1" class="boxlayer"/>
+                          <label for="Corine_06"><span>Corine (2006)</span></label>
+                        </li>
+                      </div>
+                      <div id="Atlas_06" class="draggable">
+                        <li>
+                          <input type="checkbox" value="Atlas_06" checked="false" rel="2" class="boxlayer"/>
+                          <label for="Atlas_06"><span>Urban Atlas (2006)</span></label>
+                        </li>
+                      </div>
+                      <div id="GlobCover_09" class="draggable">
+                        <li>
+                          <input type="checkbox" value="GlobCover_09" checked="false" rel="3" class="boxlayer"/>
+                          <label for="GlobCover_09"><span>GlobCover (2009)</span></label>
+                        </li>
+                      </div>
+                      <div id="MODIS_10" class="draggable">
+                        <li>
+                          <input type="checkbox" value="MODIS_10" checked="false" rel="4" class="boxlayer"/>
+                          <label for="MODIS_10"><span>MODIS (2010)</span></label>
+                        </li>
+                      </div>
+                      <div id="CCIESA_10" class="draggable">
+                        <li>
+                          <input type="checkbox" value="CCIESA_10" checked="false" rel="5" class="boxlayer"/>
+                          <label for="CCIESA_10"><span>Land Cover CCI (2010)</span></label>
+                        </li>
+                      </div>
+                      <div id="GLand30_10" class="draggable">
+                        <li>
+                          <input type="checkbox" value="GLand30_10" checked="false" rel="6" class="boxlayer"/>
+                          <label for="GLand30_10"><span>GlobeLand30 (2010)</span></label>
+                        </li>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="group">
+                    <h3>Photo Services</h3>
+                    <div id="geotag">
+                      <div class="switch_photo">
+                        <label onclick="" class="switch-light">
+                          <input type="checkbox" value="Flickr" class="switch_toogle"/><strong>Flickr</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                        </label>
+                      </div>
+                      <div class="switch_photo">
+                        <label onclick="" class="switch-light">
+                          <input type="checkbox" value="Panoramio" class="switch_toogle"/><strong>Panoramio</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                        </label>
+                      </div>
+                      <div class="switch_photo">
+                        <label onclick="" class="switch-light">
+                          <input type="checkbox" value="Geograph" class="switch_toogle"/><strong>Geograph</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                        </label>
+                      </div><i aria-hidden="true" class="fa fa-cogs"></i>
+                    </div>
+                  </div>
+                  <div class="group">
+                    <h3>External WMS Layers</h3>
+                    <div id="WMS_external">
+                      <div class="getCapabilities">
+                        <form class="form-inline">
+                          <div class="form-group">
+                            <label for="form_capabilities" WMS="WMS" Get="Get" Capabilities="Capabilities" class="sr-only"></label>
+                            <input type="text" id="form_capabilities" placeholder="enter getcapabilities address ..." class="form-control form-control-sm"/>
                           </div>
-                        </div>
+                          <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </form>
                       </div>
-                      <div class="wmsModal">
-                        <div id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
-                          <div class="modal-dialog">
-                            <div class="modal-content modal-photo">
-                              <div class="modal-header">
-                                <h3>Add Services</h3>
-                              </div>
-                              <div class="modal-body">            
-                                <div class="photoWeb col-xs-4 col-sm-4">
-                                  <div data-toggle="buttons" class="btn-group-vertical">
-                                    <label value="addFlickr" class="btn btn-primary btn-photo">Flickr<i class="icon fa ">
-                                        <input type="checkbox" id="addFlickr" autocomplete="off"></i></label>
-                                    <label value="addPanoraimo" class="btn btn-primary btn-photo">Panoraimo<i class="icon fa ">
-                                        <input type="checkbox" id="addPanoraimo" autocomplete="off"></i></label>
-                                    <label value="addGeograph" class="btn btn-primary btn-photo">Geograph<i class="icon fa ">
-                                        <input type="checkbox" id="addGeograph" autocomplete="off"></i></label>
-                                  </div>
-                                </div>
-                                <div class="photoList col-xs-8 col-sm-8">
-                                  <form class="form-inline">
-                                    <div class="form-group">
-                                      <label for="photo_query">Search criteria</label>
-                                      <input type="text" id="photo_query" placeholder="Search criteria" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="photo_number">Max. points</label>
-                                      <input type="text" id="photo_number" class="form-control">
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
-                              <div class="modal-buttons"> 
-                                <button type="button" id="wms_close" data-dismiss="modal" class="btn btn-secondary ">Close</button>
-                                <button type="button" id="wms_add" data-dismiss="modal" class="btn btn-primary">Add Selected Services</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="wms_custom">       
-                        <ul class="list-group"></ul>
-                      </div>
-                      <div class="photo"></div>
+                      <div class="custom_Layers"></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div role="tabpanel" id="legend" aria-labelledby="legend-tab" class="tab-pane fade">
-                                <div id="leg_NUTS0" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_NUTS0" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_NUTS0" aria-expanded="true" aria-controls="leg_NUTS0" class="accordion-toggle">Country Boundaries</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_NUTS0" role="tabpanel" aria-labelledby="legH_NUTS0" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_NUTS0" data-id="NUTS0" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div id="leg_GLC_00" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_GLC_00" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GLC_00" aria-expanded="true" aria-controls="leg_GLC_00" class="accordion-toggle">Global Land Cover (2000)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_GLC_00" role="tabpanel" aria-labelledby="legH_GLC_00" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_GLC_00" data-id="GLC_00" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div><img src="img/GLC_00.svg" alt="Global Land Cover (2000)" width="280px">
-                                                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
-                                  </div>
-                                </div>
-                                <div id="leg_Corine_06" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_Corine_06" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_Corine_06" aria-expanded="true" aria-controls="leg_Corine_06" class="accordion-toggle">Corine (2006)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_Corine_06" role="tabpanel" aria-labelledby="legH_Corine_06" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_Corine_06" data-id="Corine_06" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div><img src="img/Corine_06.svg" alt="Corine (2006)" width="280px">
-                                                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
-                                  </div>
-                                </div>
-                                <div id="leg_Atlas_06" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_Atlas_06" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_Atlas_06" aria-expanded="true" aria-controls="leg_Atlas_06" class="accordion-toggle">Urban Atlas (2006)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_Atlas_06" role="tabpanel" aria-labelledby="legH_Atlas_06" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_Atlas_06" data-id="Atlas_06" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div><img src="img/Atlas_06.svg" alt="Urban Atlas (2006)" width="280px">
-                                                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
-                                  </div>
-                                </div>
-                                <div id="leg_GlobCover_09" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_GlobCover_09" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GlobCover_09" aria-expanded="true" aria-controls="leg_GlobCover_09" class="accordion-toggle">GlobCover (2009)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_GlobCover_09" role="tabpanel" aria-labelledby="legH_GlobCover_09" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_GlobCover_09" data-id="GlobCover_09" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div><img src="img/GlobCover_09.svg" alt="GlobCover (2009)" width="280px">
-                                                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
-                                  </div>
-                                </div>
-                                <div id="leg_MODIS_10" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_MODIS_10" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_MODIS_10" aria-expanded="true" aria-controls="leg_MODIS_10" class="accordion-toggle">MODIS (2010)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_MODIS_10" role="tabpanel" aria-labelledby="legH_MODIS_10" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_MODIS_10" data-id="MODIS_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div><img src="img/MODIS_10.svg" alt="MODIS (2010)" width="280px">
-                                                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
-                                  </div>
-                                </div>
-                                <div id="leg_CCIESA_10" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_CCIESA_10" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_CCIESA_10" aria-expanded="true" aria-controls="leg_CCIESA_10" class="accordion-toggle">Land Cover CCI (2010)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_CCIESA_10" role="tabpanel" aria-labelledby="legH_CCIESA_10" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_CCIESA_10" data-id="CCIESA_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div><img src="img/CCIESA_10.svg" alt="Land Cover CCI (2010)" width="280px">
-                                                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
-                                  </div>
-                                </div>
-                                <div id="leg_GLand30_10" role="tablist" aria-multiselectable="true" class="leg">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="legH_GLand30_10" rel="NaN" class="panel-heading collapsed">
-                                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GLand30_10" aria-expanded="true" aria-controls="leg_GLand30_10" class="accordion-toggle">GlobeLand30 (2010)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="leg_col_GLand30_10" role="tabpanel" aria-labelledby="legH_GLand30_10" class="panel-collapse collapse in">
-                                    <div class="opy">
-                                      <div class="opy_title">Opacity:</div>
-                                      <input id="opy_GLand30_10" data-id="GLand30_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider">
-                                    </div><img src="img/GLand30_10.svg" alt="GlobeLand30 (2010)" width="280px">
-                                                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
-                                                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
-                                  </div>
-                                </div>
+                <div id="leg_NUTS0" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_NUTS0" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_NUTS0" aria-expanded="true" aria-controls="leg_NUTS0" class="accordion-toggle">Country Boundaries</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_NUTS0" role="tabpanel" aria-labelledby="legH_NUTS0" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_NUTS0" data-id="NUTS0" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div>
+                  </div>
+                </div>
+                <div id="leg_GLC_00" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_GLC_00" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GLC_00" aria-expanded="true" aria-controls="leg_GLC_00" class="accordion-toggle">Global Land Cover (2000)</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_GLC_00" role="tabpanel" aria-labelledby="legH_GLC_00" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_GLC_00" data-id="GLC_00" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div><img src="img/GLC_00.svg" alt="Global Land Cover (2000)" width="280px"/>
+                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
+                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
+                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
+                  </div>
+                </div>
+                <div id="leg_Corine_06" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_Corine_06" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_Corine_06" aria-expanded="true" aria-controls="leg_Corine_06" class="accordion-toggle">Corine (2006)</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_Corine_06" role="tabpanel" aria-labelledby="legH_Corine_06" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_Corine_06" data-id="Corine_06" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div><img src="img/Corine_06.svg" alt="Corine (2006)" width="280px"/>
+                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
+                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
+                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
+                  </div>
+                </div>
+                <div id="leg_Atlas_06" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_Atlas_06" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_Atlas_06" aria-expanded="true" aria-controls="leg_Atlas_06" class="accordion-toggle">Urban Atlas (2006)</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_Atlas_06" role="tabpanel" aria-labelledby="legH_Atlas_06" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_Atlas_06" data-id="Atlas_06" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div><img src="img/Atlas_06.svg" alt="Urban Atlas (2006)" width="280px"/>
+                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
+                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
+                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
+                  </div>
+                </div>
+                <div id="leg_GlobCover_09" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_GlobCover_09" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GlobCover_09" aria-expanded="true" aria-controls="leg_GlobCover_09" class="accordion-toggle">GlobCover (2009)</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_GlobCover_09" role="tabpanel" aria-labelledby="legH_GlobCover_09" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_GlobCover_09" data-id="GlobCover_09" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div><img src="img/GlobCover_09.svg" alt="GlobCover (2009)" width="280px"/>
+                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
+                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
+                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
+                  </div>
+                </div>
+                <div id="leg_MODIS_10" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_MODIS_10" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_MODIS_10" aria-expanded="true" aria-controls="leg_MODIS_10" class="accordion-toggle">MODIS (2010)</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_MODIS_10" role="tabpanel" aria-labelledby="legH_MODIS_10" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_MODIS_10" data-id="MODIS_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div><img src="img/MODIS_10.svg" alt="MODIS (2010)" width="280px"/>
+                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
+                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
+                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
+                  </div>
+                </div>
+                <div id="leg_CCIESA_10" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_CCIESA_10" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_CCIESA_10" aria-expanded="true" aria-controls="leg_CCIESA_10" class="accordion-toggle">Land Cover CCI (2010)</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_CCIESA_10" role="tabpanel" aria-labelledby="legH_CCIESA_10" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_CCIESA_10" data-id="CCIESA_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div><img src="img/CCIESA_10.svg" alt="Land Cover CCI (2010)" width="280px"/>
+                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
+                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
+                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
+                  </div>
+                </div>
+                <div id="leg_GLand30_10" role="tablist" aria-multiselectable="true" class="leg">
+                  <div class="panel panel-default">
+                    <div role="tab" id="legH_GLand30_10" rel="NaN" class="panel-heading collapsed">
+                      <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#leg_col_GLand30_10" aria-expanded="true" aria-controls="leg_GLand30_10" class="accordion-toggle">GlobeLand30 (2010)</a></h3>
+                    </div>
+                  </div>
+                  <div id="leg_col_GLand30_10" role="tabpanel" aria-labelledby="legH_GLand30_10" class="panel-collapse collapse in">
+                    <div class="opy">
+                      <div class="opy_title">Opacity:</div>
+                      <input id="opy_GLand30_10" data-id="GLand30_10" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);" class="opy_slider slider"/>
+                    </div><img src="img/GLand30_10.svg" alt="GlobeLand30 (2010)" width="280px"/>
+                    <div style="width:10px;height:10px;border:1px; background #000;">RED</div>
+                    <div style="width:10px;height:10px;border:1px; background #300;">GREEN</div>
+                    <div style="width:10px;height:10px;border:1px; background #500;">BLUE</div>
+                  </div>
+                </div>
               </div>
               <div role="tabpanel" id="info" aria-labelledby="info-tab" class="tab-pane fade">
-                                <div id="tbl_NUTS0" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_NUTS0" rel="0" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_NUTS0" aria-expanded="true" aria-controls="tbl_NUTS0">Country Boundaries</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_NUTS0" role="tabpanel" aria-labelledby="tbl2_NUTS0" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>Country Boundaries</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
-                                <div id="tbl_GLC_00" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_GLC_00" rel="1" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GLC_00" aria-expanded="true" aria-controls="tbl_GLC_00">Global Land Cover (2000)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_GLC_00" role="tabpanel" aria-labelledby="tbl2_GLC_00" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>Global Land Cover (2000)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Institution</td>
-                                                          <td>EC-JRC</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Temporal coverage</td>
-                                                          <td>2000</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Coverage</td>
-                                                          <td>Global</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Sensor</td>
-                                                          <td>SPOT 4</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Input Data</td>
-                                                          <td>4 Spectral Bands. Monthly to 3 monthly NDVI composites</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Resolution</td>
-                                                          <td>1 km</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Native Coordinate System</td>
-                                                          <td>Geographic coordinates - Datum WGS84</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Technique</td>
-                                                          <td>Generally unsupervised classification</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Scheme</td>
-                                                          <td>FAO LCCS (23 classes)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Validation</td>
-                                                          <td>Statistical sampling</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Accuracy</td>
-                                                          <td>Overall accuracy of 68 %. The accuracy of the European sub product was not yet performed</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Use policy</td>
-                                                          <td>Free of charge for non-commercial use</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Data source</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
-                                <div id="tbl_Corine_06" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_Corine_06" rel="2" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_Corine_06" aria-expanded="true" aria-controls="tbl_Corine_06">Corine (2006)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_Corine_06" role="tabpanel" aria-labelledby="tbl2_Corine_06" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>Corine (2006)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Institution</td>
-                                                          <td>EEA</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Temporal coverage</td>
-                                                          <td>1990, 2000, 2006 and 2012</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Coverage</td>
-                                                          <td>Europe</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Sensor</td>
-                                                          <td>Landsat-5 MSS/TM (1990), Landsat-7 ETM (2000), SPOT-4/5 and IRS P6 LISS III (2006) and IRS P6 LISS III and RapIDEye (2012)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Input Data</td>
-                                                          <td>False-colour images + Ancillary documents</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Resolution</td>
-                                                          <td>250 and 100 m</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Native Coordinate System</td>
-                                                          <td>ETRS89 /  ETRS-LAEA (EPSG:3035)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Technique</td>
-                                                          <td>Computer-aIDed interpretation methodology</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Scheme</td>
-                                                          <td>1st level: 5 classes; 2nd level: 15 classes; 3th level: 44 classes</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Validation</td>
-                                                          <td>Statistical sampling</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Accuracy</td>
-                                                          <td>CLC 2000: Average accuracy of 74.8 %; CLC 2006: Not checked; Land Cover Change 2000-2006: overall accuracy of 87.82%</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Use policy</td>
-                                                          <td>Re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Data source</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
-                                <div id="tbl_Atlas_06" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_Atlas_06" rel="3" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_Atlas_06" aria-expanded="true" aria-controls="tbl_Atlas_06">Urban Atlas (2006)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_Atlas_06" role="tabpanel" aria-labelledby="tbl2_Atlas_06" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>Urban Atlas (2006)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Institution</td>
-                                                          <td>European Commission Directorate-General for Regional Policy and the Directorate-General for Enterprise and Industry with the support of the European Space Agency and the European Environment Agency</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Temporal coverage</td>
-                                                          <td>2005-2007</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Coverage</td>
-                                                          <td>Main cities of Europe (&gt; 100.000 inhabitants)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Sensor</td>
-                                                          <td>Earth Observation (EO) data with 2.5 m spatial resolution multispectral or pan-sharpened (multispectral merged with panchromatic) data</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Input Data</td>
-                                                          <td>Earth Observation (EO) data&lt;br&gt;Topographic Maps at a scale of 1: 50 000 or larger&lt;br&gt;COTS navigation data for the road network&lt;br&gt;Ancillary data: COTS navigation data: points of interest, land use, land cover, water areas; Google Earth (only for interpretation, not for delineation); Local city maps; Local zoning data; Field check (on-site visit); Very high resolution imagery (better than 1 m ground resolution, e.g. aerial photographs)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Resolution</td>
-                                                          <td>-</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Native Coordinate System</td>
-                                                          <td>ETRS89 /  ETRS-LAEA (EPSG:3035)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Technique</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Scheme</td>
-                                                          <td>Thematic classes based on CORINE LC nomenclature and GUS Legend</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Accuracy</td>
-                                                          <td>Minimum overall accuracy for level 1 class 1 “Artificial surfaces”: 85%&lt;br&gt;Minimum overall accuracy (all classes): 80%&lt;br&gt;Positional Accuracy: + / - 5 m</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Use policy</td>
-                                                          <td>Unless otherwise indicated, re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Data source</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
-                                <div id="tbl_GlobCover_09" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_GlobCover_09" rel="4" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GlobCover_09" aria-expanded="true" aria-controls="tbl_GlobCover_09">GlobCover (2009)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_GlobCover_09" role="tabpanel" aria-labelledby="tbl2_GlobCover_09" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>GlobCover (2009)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Institution</td>
-                                                          <td>ESA</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Temporal coverage</td>
-                                                          <td>2004-2006 and 2009</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Coverage</td>
-                                                          <td>Global</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Sensor</td>
-                                                          <td>ENVISAT</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Input Data</td>
-                                                          <td>13 Spectral Bands. Bi-monthly from 10 day composites</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Resolution</td>
-                                                          <td>300 m</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Native Coordinate System</td>
-                                                          <td>Plate-Carrée with a Geographic Lat/Lon representation</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Technique</td>
-                                                          <td>Flexible classification using local/regional expertise</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Scheme</td>
-                                                          <td>FAO LCCS (23 classes)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Validation</td>
-                                                          <td>Statistical sampling / Expert’s judgement</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Accuracy</td>
-                                                          <td>Kappa coefficient of 0.656</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Use policy</td>
-                                                          <td>Free access for educational and/or scientific purposes</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Data source</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
-                                <div id="tbl_MODIS_10" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_MODIS_10" rel="5" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_MODIS_10" aria-expanded="true" aria-controls="tbl_MODIS_10">MODIS (2010)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_MODIS_10" role="tabpanel" aria-labelledby="tbl2_MODIS_10" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>MODIS (2010)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Institution</td>
-                                                          <td>USGS</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Temporal coverage</td>
-                                                          <td>2001-2012</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Coverage</td>
-                                                          <td>Global</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Sensor</td>
-                                                          <td>Terra MODIS</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Input Data</td>
-                                                          <td>7 Spectral Bands</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Resolution</td>
-                                                          <td>500 m</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Native Coordinate System</td>
-                                                          <td>SinusoIDal</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Technique</td>
-                                                          <td>Supervised decision-tree classifier, neural networks</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Scheme</td>
-                                                          <td>MODIS land IGBP (20 classes)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Validation</td>
-                                                          <td>Statistical sampling / Confusion matrices, confIDence values</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Accuracy</td>
-                                                          <td>Overall accuracy of 74.80 %</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Use policy</td>
-                                                          <td>No restrictions on subsequent use, sale, or redistribution</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Data source</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
-                                <div id="tbl_CCIESA_10" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_CCIESA_10" rel="6" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_CCIESA_10" aria-expanded="true" aria-controls="tbl_CCIESA_10">Land Cover CCI (2010)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_CCIESA_10" role="tabpanel" aria-labelledby="tbl2_CCIESA_10" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>Land Cover CCI (2010)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Institution</td>
-                                                          <td>ESA / UCL-Geomatics</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Temporal coverage</td>
-                                                          <td>5-year epochs centered on 2000, 2005 and 2010</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Coverage</td>
-                                                          <td>Global</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Sensor</td>
-                                                          <td>AVHRR, SPOT-VGT, MERIS FR and RR</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Input Data</td>
-                                                          <td>13 of 15 MERIS spectral channels. 7-day compositing period</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Resolution</td>
-                                                          <td>300 m</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Native Coordinate System</td>
-                                                          <td>Plate-Carrée with a Geographic Lat/Lon representation</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Technique</td>
-                                                          <td>Unsupervised classification chain + machine learning classification</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Scheme</td>
-                                                          <td>UN LCCS (22 classes)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Validation</td>
-                                                          <td>Statistical sampling / Expert’s judgement</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Accuracy</td>
-                                                          <td>Overall accuracy between 73.2 % and 74.1 %</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Use policy</td>
-                                                          <td>Free access for educational and/or scientific purposes</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Data source</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
-                                <div id="tbl_GLand30_10" role="tablist" aria-multiselectable="true" class="tbl">
-                                  <div class="panel panel-default">
-                                    <div role="tab" id="tbl2_GLand30_10" rel="7" class="panel-heading collapsed">
-                                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GLand30_10" aria-expanded="true" aria-controls="tbl_GLand30_10">GlobeLand30 (2010)</a></h3>
-                                    </div>
-                                  </div>
-                                  <div id="tbl_col_GLand30_10" role="tabpanel" aria-labelledby="tbl2_GLand30_10" class="panel-collapse collapse in">
-                                                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
-                                                      <tbody>
-                                                        <tr class="table_row">
-                                                          <td>Name</td>
-                                                          <td>GlobeLand30 (2010)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Institution</td>
-                                                          <td>NGCC</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Temporal coverage</td>
-                                                          <td>12000 and 2010</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Coverage</td>
-                                                          <td>Global</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Sensor</td>
-                                                          <td>Landsat (TM, ETM+), HJ-1</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Input Data</td>
-                                                          <td>Multispectral images + Ancillary documents</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Spatial Resolution</td>
-                                                          <td>30 m</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Native Coordinate System</td>
-                                                          <td>UTM WGS84 (multiple zones)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Technique</td>
-                                                          <td>Pixel-object-knowledge (POK) based classification approach</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Classification Scheme</td>
-                                                          <td>10 land cover types</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Validation</td>
-                                                          <td>Third-party experts with a two-rank sampling strategy. Confusion Matrix and Derived Indexes for Italy region</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Accuracy</td>
-                                                          <td>Overall accuracy of 80.33 % and Kappa coefficient of  0.75 (2010). In Italy, the overall accuracy vary between  81% and 92% (compared to 5 Corine LC classes) and between  62% and 81% (compared to Corine LC subclasses)</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Use policy</td>
-                                                          <td>Information not available</td>
-                                                        </tr>
-                                                        <tr class="table_row">
-                                                          <td>Data source</td>
-                                                          <td>...</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                  </div>
-                                </div>
+                <div id="tbl_NUTS0" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_NUTS0" rel="0" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_NUTS0" aria-expanded="true" aria-controls="tbl_NUTS0">Country Boundaries</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_NUTS0" role="tabpanel" aria-labelledby="tbl2_NUTS0" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>Country Boundaries</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="tbl_GLC_00" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_GLC_00" rel="1" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GLC_00" aria-expanded="true" aria-controls="tbl_GLC_00">Global Land Cover (2000)</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_GLC_00" role="tabpanel" aria-labelledby="tbl2_GLC_00" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>Global Land Cover (2000)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Institution</td>
+                          <td>EC-JRC</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Temporal coverage</td>
+                          <td>2000</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Coverage</td>
+                          <td>Global</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Sensor</td>
+                          <td>SPOT 4</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Input Data</td>
+                          <td>4 Spectral Bands. Monthly to 3 monthly NDVI composites</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Resolution</td>
+                          <td>1 km</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Native Coordinate System</td>
+                          <td>Geographic coordinates - Datum WGS84</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Technique</td>
+                          <td>Generally unsupervised classification</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Scheme</td>
+                          <td>FAO LCCS (23 classes)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Validation</td>
+                          <td>Statistical sampling</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Accuracy</td>
+                          <td>Overall accuracy of 68 %. The accuracy of the European sub product was not yet performed</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Use policy</td>
+                          <td>Free of charge for non-commercial use</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Data source</td>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="tbl_Corine_06" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_Corine_06" rel="2" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_Corine_06" aria-expanded="true" aria-controls="tbl_Corine_06">Corine (2006)</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_Corine_06" role="tabpanel" aria-labelledby="tbl2_Corine_06" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>Corine (2006)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Institution</td>
+                          <td>EEA</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Temporal coverage</td>
+                          <td>1990, 2000, 2006 and 2012</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Coverage</td>
+                          <td>Europe</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Sensor</td>
+                          <td>Landsat-5 MSS/TM (1990), Landsat-7 ETM (2000), SPOT-4/5 and IRS P6 LISS III (2006) and IRS P6 LISS III and RapIDEye (2012)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Input Data</td>
+                          <td>False-colour images + Ancillary documents</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Resolution</td>
+                          <td>250 and 100 m</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Native Coordinate System</td>
+                          <td>ETRS89 /  ETRS-LAEA (EPSG:3035)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Technique</td>
+                          <td>Computer-aIDed interpretation methodology</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Scheme</td>
+                          <td>1st level: 5 classes; 2nd level: 15 classes; 3th level: 44 classes</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Validation</td>
+                          <td>Statistical sampling</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Accuracy</td>
+                          <td>CLC 2000: Average accuracy of 74.8 %; CLC 2006: Not checked; Land Cover Change 2000-2006: overall accuracy of 87.82%</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Use policy</td>
+                          <td>Re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Data source</td>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="tbl_Atlas_06" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_Atlas_06" rel="3" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_Atlas_06" aria-expanded="true" aria-controls="tbl_Atlas_06">Urban Atlas (2006)</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_Atlas_06" role="tabpanel" aria-labelledby="tbl2_Atlas_06" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>Urban Atlas (2006)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Institution</td>
+                          <td>European Commission Directorate-General for Regional Policy and the Directorate-General for Enterprise and Industry with the support of the European Space Agency and the European Environment Agency</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Temporal coverage</td>
+                          <td>2005-2007</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Coverage</td>
+                          <td>Main cities of Europe (&gt; 100.000 inhabitants)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Sensor</td>
+                          <td>Earth Observation (EO) data with 2.5 m spatial resolution multispectral or pan-sharpened (multispectral merged with panchromatic) data</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Input Data</td>
+                          <td>Earth Observation (EO) data&lt;br&gt;Topographic Maps at a scale of 1: 50 000 or larger&lt;br&gt;COTS navigation data for the road network&lt;br&gt;Ancillary data: COTS navigation data: points of interest, land use, land cover, water areas; Google Earth (only for interpretation, not for delineation); Local city maps; Local zoning data; Field check (on-site visit); Very high resolution imagery (better than 1 m ground resolution, e.g. aerial photographs)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Resolution</td>
+                          <td>-</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Native Coordinate System</td>
+                          <td>ETRS89 /  ETRS-LAEA (EPSG:3035)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Technique</td>
+                          <td>...</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Scheme</td>
+                          <td>Thematic classes based on CORINE LC nomenclature and GUS Legend</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Accuracy</td>
+                          <td>Minimum overall accuracy for level 1 class 1 “Artificial surfaces”: 85%&lt;br&gt;Minimum overall accuracy (all classes): 80%&lt;br&gt;Positional Accuracy: + / - 5 m</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Use policy</td>
+                          <td>Unless otherwise indicated, re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Data source</td>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="tbl_GlobCover_09" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_GlobCover_09" rel="4" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GlobCover_09" aria-expanded="true" aria-controls="tbl_GlobCover_09">GlobCover (2009)</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_GlobCover_09" role="tabpanel" aria-labelledby="tbl2_GlobCover_09" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>GlobCover (2009)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Institution</td>
+                          <td>ESA</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Temporal coverage</td>
+                          <td>2004-2006 and 2009</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Coverage</td>
+                          <td>Global</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Sensor</td>
+                          <td>ENVISAT</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Input Data</td>
+                          <td>13 Spectral Bands. Bi-monthly from 10 day composites</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Resolution</td>
+                          <td>300 m</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Native Coordinate System</td>
+                          <td>Plate-Carrée with a Geographic Lat/Lon representation</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Technique</td>
+                          <td>Flexible classification using local/regional expertise</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Scheme</td>
+                          <td>FAO LCCS (23 classes)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Validation</td>
+                          <td>Statistical sampling / Expert’s judgement</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Accuracy</td>
+                          <td>Kappa coefficient of 0.656</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Use policy</td>
+                          <td>Free access for educational and/or scientific purposes</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Data source</td>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="tbl_MODIS_10" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_MODIS_10" rel="5" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_MODIS_10" aria-expanded="true" aria-controls="tbl_MODIS_10">MODIS (2010)</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_MODIS_10" role="tabpanel" aria-labelledby="tbl2_MODIS_10" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>MODIS (2010)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Institution</td>
+                          <td>USGS</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Temporal coverage</td>
+                          <td>2001-2012</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Coverage</td>
+                          <td>Global</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Sensor</td>
+                          <td>Terra MODIS</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Input Data</td>
+                          <td>7 Spectral Bands</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Resolution</td>
+                          <td>500 m</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Native Coordinate System</td>
+                          <td>SinusoIDal</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Technique</td>
+                          <td>Supervised decision-tree classifier, neural networks</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Scheme</td>
+                          <td>MODIS land IGBP (20 classes)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Validation</td>
+                          <td>Statistical sampling / Confusion matrices, confIDence values</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Accuracy</td>
+                          <td>Overall accuracy of 74.80 %</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Use policy</td>
+                          <td>No restrictions on subsequent use, sale, or redistribution</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Data source</td>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="tbl_CCIESA_10" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_CCIESA_10" rel="6" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_CCIESA_10" aria-expanded="true" aria-controls="tbl_CCIESA_10">Land Cover CCI (2010)</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_CCIESA_10" role="tabpanel" aria-labelledby="tbl2_CCIESA_10" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>Land Cover CCI (2010)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Institution</td>
+                          <td>ESA / UCL-Geomatics</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Temporal coverage</td>
+                          <td>5-year epochs centered on 2000, 2005 and 2010</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Coverage</td>
+                          <td>Global</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Sensor</td>
+                          <td>AVHRR, SPOT-VGT, MERIS FR and RR</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Input Data</td>
+                          <td>13 of 15 MERIS spectral channels. 7-day compositing period</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Resolution</td>
+                          <td>300 m</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Native Coordinate System</td>
+                          <td>Plate-Carrée with a Geographic Lat/Lon representation</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Technique</td>
+                          <td>Unsupervised classification chain + machine learning classification</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Scheme</td>
+                          <td>UN LCCS (22 classes)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Validation</td>
+                          <td>Statistical sampling / Expert’s judgement</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Accuracy</td>
+                          <td>Overall accuracy between 73.2 % and 74.1 %</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Use policy</td>
+                          <td>Free access for educational and/or scientific purposes</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Data source</td>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="tbl_GLand30_10" role="tablist" aria-multiselectable="true" class="tbl">
+                  <div class="panel panel-default">
+                    <div role="tab" id="tbl2_GLand30_10" rel="7" class="panel-heading collapsed">
+                      <h3 class="panel-title">                   <a data-toggle="collapse" data-parent="#accordion" href="#tbl_col_GLand30_10" aria-expanded="true" aria-controls="tbl_GLand30_10">GlobeLand30 (2010)</a></h3>
+                    </div>
+                  </div>
+                  <div id="tbl_col_GLand30_10" role="tabpanel" aria-labelledby="tbl2_GLand30_10" class="panel-collapse collapse in">
+                    <table cellspacing="0" width="50%" class="table table-striped table-bordered table-hover table-sm">
+                      <tbody>
+                        <tr class="table_row">
+                          <td>Name</td>
+                          <td>GlobeLand30 (2010)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Institution</td>
+                          <td>NGCC</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Temporal coverage</td>
+                          <td>12000 and 2010</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Coverage</td>
+                          <td>Global</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Sensor</td>
+                          <td>Landsat (TM, ETM+), HJ-1</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Input Data</td>
+                          <td>Multispectral images + Ancillary documents</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Spatial Resolution</td>
+                          <td>30 m</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Native Coordinate System</td>
+                          <td>UTM WGS84 (multiple zones)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Technique</td>
+                          <td>Pixel-object-knowledge (POK) based classification approach</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Classification Scheme</td>
+                          <td>10 land cover types</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Validation</td>
+                          <td>Third-party experts with a two-rank sampling strategy. Confusion Matrix and Derived Indexes for Italy region</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Accuracy</td>
+                          <td>Overall accuracy of 80.33 % and Kappa coefficient of  0.75 (2010). In Italy, the overall accuracy vary between  81% and 92% (compared to 5 Corine LC classes) and between  62% and 81% (compared to Corine LC subclasses)</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Use policy</td>
+                          <td>Information not available</td>
+                        </tr>
+                        <tr class="table_row">
+                          <td>Data source</td>
+                          <td>...</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="settings">
-                            <div class="switch_photo">
-                              <label onclick="" class="switch-light">
-                                <input type="checkbox" value="Flickr" class="switch_toogle"><strong>Flickr</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
-                              </label>
-                            </div>
-                            <div class="switch_photo">
-                              <label onclick="" class="switch-light">
-                                <input type="checkbox" value="Panoramio" class="switch_toogle"><strong>Panoramio</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
-                              </label>
-                            </div>
-                            <div class="switch_photo">
-                              <label onclick="" class="switch-light">
-                                <input type="checkbox" value="Geograph" class="switch_toogle"><strong>Geograph</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
-                              </label>
-                            </div><i aria-hidden="true" class="fa fa-cogs"></i>
-          </div>
+          <div class="settings">                       </div>
         </div>
         <div id="map"></div>
       </div>

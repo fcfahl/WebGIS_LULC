@@ -18,7 +18,7 @@ body
     h4
         font-size: 0.8em
     h5
-        font-size: 0.6em
+        font-size: 0.4em
 
     .container-fluid
         header
@@ -81,21 +81,16 @@ body
                             background: #eee
                             border: 1px solid rgba(255, 255, 255, 1)
 
+                        #WMS_external
+                            padding: 4px 4px
 
-                        .input-group-sm
-                            padding: 0
-                            height: 10px
+                            .getCapabilities
+                                font-size: 0.65em
 
-                        .group
-                            #custom
-                                font-size: 0.7em
 
-                                .wms
-                                    background: white
-                                    height: 20px
+                            .custom_Layers
 
-                                .list-group-item
-                                    font-size: 0.7em
+                        #geotag
 
                     .leg, .tbl
                         display: none
@@ -165,25 +160,31 @@ body
                             font-size: 0.6em
 
                 .settings
-                    border-top: $lineDivision
 
-                    .button
-                        padding: 5px
-                        margin: 0 5px 0 5px
-                        font-size: 0.6em
-                        min-width: 100px
-                        border: none
+                    .geotag
+                        border-top: $lineDivision
 
-                    .switch_photo
-                        width: 90px
-                        padding: 5px
-                        margin: 0 5px 0 5px
-                        font-size: 0.5em
-                        max-width: 70px
-                        border: none
+                        .button
+                            padding: 5px
+                            margin: 0 5px 0 5px
+                            font-size: 0.6em
+                            min-width: 100px
+                            border: none
+
+                        .switch_photo
+                            width: 90px
+                            padding: 5px
+                            margin: 0 5px 0 5px
+                            font-size: 0.5em
+                            max-width: 70px
+                            border: none
 
 
         footer
             background: $baseColor
             font-size: 0.45em
             // text-align: right
+
+// .form-inline
+//     .form-control-sm
+//         width: 205px

@@ -22,24 +22,40 @@ mixin tabs_bootstrap(classLI,classA,name,tab,bool)
     li(class=classLI)
         a(class=classA href=ref role=roleA id=idA data-toggle="tab" aria-controls=name aria-expanded=bool)=tab
 
-mixin accorde(section,sort)
+mixin accorde(section,group)
   //- read db.json
   - var obj = locals[0].Layers
 
   .group
     - var index = 0
     h3=section
-    div(id=sort)
-      each layer in obj
-        - var ID = layer.ID
-        - var NM = layer.Name
-        - var cat = layer.Category
-        if cat == section
-          div(id=ID class='draggable')
-            li
-              input(type="checkbox" value=ID class="boxlayer" checked='false' rel="#{index++}")
-              label(for=ID)
-                span=NM
+    div(id=group)
+        each layer in obj
+            - var ID = layer.ID
+            - var NM = layer.Name
+            - var cat = layer.Category
+            if section == cat
+              div(id=ID class='draggable')
+                li
+                  input(type="checkbox" value=ID class="boxlayer" checked='false' rel="#{index++}")
+                  label(for=ID)
+                    span=NM
+
+        if group == 'WMS_external'
+            .getCapabilities
+                form(class="form-inline")
+                    div(class="form-group")
+                        label(class="sr-only" for="form_capabilities" WMS Get Capabilities)
+                        input(type="text", class="form-control form-control-sm", id="form_capabilities", placeholder="enter getcapabilities address ...")
+                    button(type="submit" class="btn btn-primary btn-sm") Submit
+            .custom_Layers
+
+        if group == 'geotag'
+            +switch_button("Flickr") 
+            +switch_button("Panoramio") 
+            +switch_button("Geograph") 
+            i(class="fa fa-cogs" aria-hidden="true")
+            
 
 mixin switch_button(name)
 
