@@ -41,9 +41,13 @@ html, body {
           overflow-x: hidden; }
           html .container-fluid #main #side .pannel #WMS_external, body .container-fluid #main #side .pannel #WMS_external {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: center; }
+            html .container-fluid #main #side .pannel #WMS_external .getCapabilities, body .container-fluid #main #side .pannel #WMS_external .getCapabilities {
+              align-items: left; }
+            html .container-fluid #main #side .pannel #WMS_external .custom_Layers, body .container-fluid #main #side .pannel #WMS_external .custom_Layers {
+              align-items: left; }
           html .container-fluid #main #side .pannel #geotag, body .container-fluid #main #side .pannel #geotag {
             display: flex;
             flex-direction: row;
@@ -130,9 +134,53 @@ body {
         background: #eee;
         border: 1px solid white; }
       body .container-fluid #main #side .pannel #accordion #WMS_external {
-        padding: 4px 4px; }
+        padding: 8px 2px;
+        height: 140%;
+        width: 100%;
+        overflow: hidden; }
         body .container-fluid #main #side .pannel #accordion #WMS_external .getCapabilities {
           font-size: 0.65em; }
+          body .container-fluid #main #side .pannel #accordion #WMS_external .getCapabilities .wmsModal .modal-body .wms_candidates {
+            margin: 0;
+            font-size: 1em;
+            vertical-align: middle;
+            height: 30px;
+            text-align: left; }
+            body .container-fluid #main #side .pannel #accordion #WMS_external .getCapabilities .wmsModal .modal-body .wms_candidates li {
+              height: 30px; }
+            body .container-fluid #main #side .pannel #accordion #WMS_external .getCapabilities .wmsModal .modal-body .wms_candidates label {
+              display: inline-block;
+              padding: 5px 0 0 5px;
+              vertical-align: middle;
+              font-size: 1em; }
+          body .container-fluid #main #side .pannel #accordion #WMS_external .getCapabilities .wmsModal .modal-body .wms_candidates:hover {
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+            background: #eee;
+            border: 1px solid white; }
+        body .container-fluid #main #side .pannel #accordion #WMS_external .custom_Layers {
+          padding-top: 5px;
+          margin: 5px 2px;
+          height: auto;
+          margin: 0;
+          font-size: 1em;
+          vertical-align: middle;
+          width: 95%; }
+          body .container-fluid #main #side .pannel #accordion #WMS_external .custom_Layers .wms_selected {
+            margin: 0;
+            font-size: 1em;
+            vertical-align: middle;
+            height: 30px;
+            text-align: left; }
+            body .container-fluid #main #side .pannel #accordion #WMS_external .custom_Layers .wms_selected li {
+              height: 30px; }
+            body .container-fluid #main #side .pannel #accordion #WMS_external .custom_Layers .wms_selected label {
+              display: inline-block;
+              padding: 5px 0 0 5px;
+              vertical-align: middle; }
+          body .container-fluid #main #side .pannel #accordion #WMS_external .custom_Layers .wms_selected:hover {
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+            background: #eee;
+            border: 1px solid white; }
       body .container-fluid #main #side .pannel .leg, body .container-fluid #main #side .pannel .tbl {
         display: none;
         padding: 0; }

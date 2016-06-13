@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+// http://image.discomap.eea.europa.eu/arcgis/services/UrbanAtlas/Urban_Atlas_2012/MapServer/WMSServer?service=WMS&request=GetCapabilities&version=1.3.0
+
     // Clear local storage data
     localStorage.clear();
     window.map = "";

@@ -82,13 +82,73 @@ body
                             border: 1px solid rgba(255, 255, 255, 1)
 
                         #WMS_external
-                            padding: 4px 4px
+                            padding: 8px 2px
+                            height: 140%
+                            width: 100%
+                            overflow: hidden
 
                             .getCapabilities
                                 font-size: 0.65em
+                                overflow-y:hidden
+
+                                .wmsModal
+                                    .modal-body
+                                        .wms_candidates
+                                            // padding: 5px
+                                            margin: 0
+                                            font-size: 1em
+                                            vertical-align: middle
+                                            height: 30px
+                                            text-align: left
+
+                                            li
+                                                height: 30px
+
+                                            label
+                                                display: inline-block
+                                                padding: 5px 0 0 5px
+                                                vertical-align: middle
+                                                font-size: 1em
+
+
+                                        .wms_candidates:hover
+                                            // margin-left: 5px
+                                            box-shadow: 0 0 25px rgba(0, 0, 0, .6)
+                                            background: #eee
+                                            border: 1px solid rgba(255, 255, 255, 1)
 
 
                             .custom_Layers
+                                padding-top: 5px
+                                margin: 5px 2px
+                                height: auto
+                                margin: 0
+                                font-size: 1em
+                                vertical-align: middle
+                                width: 95%
+
+                                .wms_selected
+                                    // padding: 5px
+                                    margin: 0
+                                    font-size: 1em
+                                    vertical-align: middle
+                                    height: 30px
+                                    text-align: left
+
+                                    li
+                                        height: 30px
+
+                                    label
+                                        display: inline-block
+                                        padding: 5px 0 0 5px
+                                        vertical-align: middle
+
+
+                                .wms_selected:hover
+                                    // margin-left: 5px
+                                    box-shadow: 0 0 25px rgba(0, 0, 0, .6)
+                                    background: #eee
+                                    border: 1px solid rgba(255, 255, 255, 1)
 
                         #geotag
 

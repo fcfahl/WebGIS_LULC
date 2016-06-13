@@ -13,9 +13,10 @@ html(lang="en")
         link(rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png")
 
         <!-- build:css1 css/main.min.css -->
-        +addCSS('css/bootstrap-flex.css') 
+
         +addCSS('jquery-ui/themes/base/jquery-ui.css', "bower") 
         +addCSS('css-toggle-switch/dist/toggle-switch.css', "bower") 
+        +addCSS('css/bootstrap-flex.css') 
         +addCSS('font-awesome/css/font-awesome.css', "bower") 
         <!-- endbuild -->
 
@@ -82,7 +83,6 @@ html(lang="en")
                                     +accorde('Land Cover Layers', 'lulc')
                                     +accorde('Photo Services', 'geotag')
                                     +accorde('External WMS Layers', 'WMS_external')
-
 
                             .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab")
                               +legend_boot('Land Cover Layers', 'lulc')

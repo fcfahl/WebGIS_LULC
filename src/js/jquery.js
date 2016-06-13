@@ -25,25 +25,6 @@ function html_Design (LULC_layers) {
         }
     });
 
-    // Syncronyse the expand button in all tabs
-    function expand() {
-        // Getter
-        var label = $( "#expand").button( "option", "label" );
-        // console.log(" button expand: " + label );
-
-        if(label === "Expand All") {
-            $('.panel-collapse:not(".in")').collapse('show');
-        }
-        else {
-            $('.panel-collapse.in').collapse('hide');
-        }
-    }
-
-    // toggle photo and wms buttons
-    // $( ".toggle" ).toggle( "slide" );
-    $(".toggle").animate({"left": "-=300px", "opacity":1}, "slow");
-
-
     // Display Legend and metadata
     $(".boxlayer").change(function() {
 
@@ -119,6 +100,9 @@ function html_Design (LULC_layers) {
             });
         }
     });
+
+
+
 }
 
 function WMS_Custom (){
@@ -167,15 +151,6 @@ function WMS_Custom (){
         //  $(".wms_candidates").remove();
     });
 
-    //  Hide buttons in Modal
-    $("#modalButton" ).on('click', function () {
-        $(".modal-footer").hide();
-        $(".modal-body").show();
-    });
-
-    $("#wms_close" ).on('click', function () {
-        console.log('close modal: ' );
-    });
 
     //  Add selected wms layers to Pannel
     $("#wms_add" ).on('click', function () {
@@ -200,7 +175,7 @@ function WMS_Custom (){
             // Remove ignore class to allow toggling the layer
             $('.wmsBox').removeClass( "wms_Ignore" );
 
-            $( ID ).clone().addClass( "wms_selected" ).appendTo( ".wms_custom" );
+            $( ID ).clone().addClass( "wms_selected" ).removeClass( "wms_candidates" ).appendTo( ".custom_Layers" );
 
             // Get the layer object
             var layerClicked = window[value];
@@ -216,12 +191,8 @@ function WMS_Custom (){
     //  MODAL: add custom WMS layers
     $("#wms_submit").on('click', function () {
 
-        //  Show footer after submit button is clicked
-        $(".modal-body").hide();
-        $(".modal-footer").show();
-
         var wmsLink = $('#wms_capability').val();
-        // console.log('wmsLink: ' + wmsLink);
+        console.log('wmsLink: ' + wmsLink);
 
         // Get Layer names
         // http://fuzzytolerance.info/blog/2012/03/06/2012-03-06-parsing-wms-getcapabilities-with-jquery/
@@ -229,7 +200,8 @@ function WMS_Custom (){
             type: "GET",
             url: wmsLink,
             dataType: "xml",
-            success: function(xml) { parseXML (xml);}
+            success: function(xml) {
+                parseXML (xml);}
         });
 
     });
