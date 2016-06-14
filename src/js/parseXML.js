@@ -9,14 +9,18 @@
 function create_HTML (classN, ID, name, title, ref, url){
     // create HTML element
 
+    var FontAwesome = "fa-minus-square-o";
+
     var open_div = '<div id="' +  ID + '" class="' +  classN + '"  >',
          li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class="wmsBox wms_Ignore" id="' +  ID + '">',
-         label = '<label for="'  +  ID  + '"><span>'  +  title  +  '</span></label></li>',
+         label = '<label for="'  +  ID  + '"><span>'  +  title  +  '</span></label>',
          // include a hidden class to hide the delete button
-        icon = '<span  href="'  +  ref  + '" value="' + ID  + '" class="wms_delete"><br></span> <a><i class="fa fa-minus-circle hidden"  aria-hidden="true"></i></a> ',
+        icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="' + ID  + '" onclick="remove_WMS(\'' + ID  + '\', this)" class="fa ' + FontAwesome + ' fa-fw hidden"  aria-hidden="true"></i></a></li> ',
         close_div = '</div>',
 
         html = open_div + li + label + icon + close_div;
+
+        console.log('ID: ', ID );
 
     return html;
 }
@@ -77,7 +81,7 @@ function parseXML(xml) {
             id = "wms" + index +"_" + title.slice(0,10).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ''), // clip the name and remove the special characters to create an unique ID
             ref="#" + id;
 
-        console.log(' list: ', list)
+        console.log(' list: ', list);
 
         // Create WMS object
         WMS_Object (id, title, server, service, version, layers, bbox, width, height, CRS, format, transparent, tiled, styles, zIndex);

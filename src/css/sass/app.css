@@ -8,6 +8,8 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden; }
+  html .hidden, body .hidden {
+    display: none; }
   html .container-fluid, body .container-fluid {
     display: flex;
     flex-direction: column;
@@ -177,6 +179,13 @@ body {
               display: inline-block;
               padding: 5px 0 0 5px;
               vertical-align: middle; }
+            body .container-fluid #main #side .pannel #accordion #WMS_external .custom_Layers .wms_selected .fa {
+              padding-top: 5px;
+              position: relative;
+              float: right;
+              right: 2px;
+              vertical-align: middle;
+              font-size: 15px; }
           body .container-fluid #main #side .pannel #accordion #WMS_external .custom_Layers .wms_selected:hover {
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
             background: #eee;

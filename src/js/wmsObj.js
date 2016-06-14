@@ -58,8 +58,6 @@ function wmsLeaflet (obj){
     // console.log(Corine_06);
 }
 
-
-
 function mapBBOX () {
 
     var fixed_bounds = [31, -17.5, 72, 45];

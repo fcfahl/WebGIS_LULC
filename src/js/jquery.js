@@ -126,25 +126,6 @@ function WMS_Custom (){
     });
 
 
-    $(document).on('click', ".wms_delete ", function(event) {
-
-        //  Get the ID fist to identify the event (does not work as the toggle layer function)
-        var layer = $(this).attr('value');
-
-        var layerClicked = window[layer];
-        var href = $(this).attr('href');
-        //
-        //  console.log('layerClicked: ' , layerClicked);
-        //  console.log('href: ' , href);
-
-        //   Remove map
-        if (map.hasLayer(layerClicked))
-            map.removeLayer(layerClicked);
-
-        //   Remove layer name
-        $(href).remove();
-    });
-
     // clear the layer name list on Modal
     $(".cleanButton" ).on('click', function () {
         console.log('cleanButton' );
@@ -163,17 +144,11 @@ function WMS_Custom (){
         // Lopp throught the checked checkboxes
         $.each( checkedVals, function( index, value) {
 
+            // Remove hidden class to show the delete icon
+            $('.fa').removeClass( "hidden" );
+
             // Clone selected wms layers to pannel
             var   ID = "#" + value;
-
-            // Remove hidden class to show the delete icon
-            $('.wms_delete').removeClass( "hidden-xs" );
-
-            // Remove hidden class to show the delete icon
-            $('.wms_delete').removeClass( "hidden-lg" );
-
-            // Remove ignore class to allow toggling the layer
-            $('.wmsBox').removeClass( "wms_Ignore" );
 
             $( ID ).clone().addClass( "wms_selected" ).removeClass( "wms_candidates" ).appendTo( ".custom_Layers" );
 
@@ -206,6 +181,33 @@ function WMS_Custom (){
 
     });
 
+}
+
+function remove_WMS(ID, obj) {
+
+    // var inText = document.getElemenyById(obj).innerHTML;
+    //  Get the ID fist to identify the event (does not work as the toggle layer function)
+    var layer = $(this).attr('data-value');
+
+    var layerClicked = window[layer];
+    var href = $(ID).attr('href');
+
+
+    console.log('ID: ', ID );
+    console.log('layer: ', layer );
+    console.log('layerClicked: ', layerClicked );
+    console.log('href: ', href );
+
+    //
+    //  console.log('layerClicked: ' , layerClicked);
+    //  console.log('href: ' , href);
+
+    //   Remove map
+    if (map.hasLayer(obj))
+        map.removeLayer(obj);
+
+    //   Remove Div
+    $(obj).remove();
 }
 
 function geotag_Photos () {
