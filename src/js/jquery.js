@@ -111,7 +111,7 @@ function WMS_Custom (){
         //jquery dynamically added checkbox
         //http://stackoverflow.com/questions/4692281/jquery-dynamically-added-checkbox-not-working-with-change-function
 
-    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch_toogle )", function(event) {
+    $(document).on('click', "input:checkbox(.wms_Select )", function(event) {
 
          var layerClicked = window[event.target.value];
 

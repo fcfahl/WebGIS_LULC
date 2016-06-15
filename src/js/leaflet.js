@@ -65,8 +65,8 @@ function map_Layers () {
 
         var layerClicked = window[event.target.value];
 
-       //  console.log('layerClicked: ' , layerClicked);
-       //  console.log('this for adding: ' , this);
+        console.log('layerClicked: ' , layerClicked);
+        console.log('this for adding: ' , this);
 
         if (map.hasLayer(layerClicked)) {
             map.removeLayer(layerClicked);
@@ -100,18 +100,19 @@ function WMS_Object  (id, title, server, service, version, layer, bbox, width, h
     // console.log(id);
 }
 
-function WMS_Layers (DB_WMS, DB_Service, LULC_layers, LULC_styles) {
+function WMS_Layers (DB_WMS, DB_Service, layers, styles, workspaces) {
     // there is a problem on geoserver to set up a custom style - it seems to shift the color classes for discrete colortables - for this reason it is been using only the defaul raster style
 
     // loop through LULC_Layers
-    $.each(LULC_layers, function (index, obj) {
+    $.each(layers, function (index, obj) {
 
-        var title = LULC_layers[index],
+        var title = layers[index],
             id = title,
             service = DB_Service.Type,
-            layer = DB_WMS.Workspace + title,
-            style = LULC_styles[index],
-            zIndex = 100 - index;
+            layer = workspaces[index] + ":" + title,
+            style = styles[index],
+            zIndex = 100 - index,
+            server = DB_WMS.Server + workspaces[index] + "/wms";
 
         // Add parameters to object
         WMS_Object (id, title, DB_WMS.Server, service, DB_WMS.Version, layer, DB_WMS.Bbox, DB_WMS.Width, DB_WMS.Height, DB_WMS.CRS, DB_WMS.Format, DB_WMS.Transparent, DB_WMS.Tiled, style, zIndex);

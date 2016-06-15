@@ -3,7 +3,8 @@
         "WMS_Server":
         [
             {
-                "Server": "http://localhost:8080/geoserver/",
+                "Server": "http://localhost:8080/geoserver/LULC/wms",
+                "Workspace": "LULC:",
                 "Format": "image/png",
                 "Transparent": true,
                 "Version" : "1.3.0",
@@ -19,6 +20,7 @@
             {
                 "ID": "NUTS0",
                 "Type": "WMS",
+                "Style": "NUTS0",
                 "Storage": "internal",
                 "WMS": "",
                 "Zindex": 1
@@ -26,6 +28,7 @@
             {
                 "ID": "GLC_00",
                 "Type": "WMS",
+                "Style": "raster",
                 "Storage": "internal",
                 "WMS": "",
                 "Zindex": 2
@@ -33,6 +36,7 @@
             {
                 "ID": "Corine_06",
                 "Type": "WMS",
+                "Style": "raster",
                 "Storage": "internal",
                 "WMS": "",
                 "Zindex": 3
@@ -40,6 +44,7 @@
             {
                 "ID": "Atlas_06",
                 "Type": "WFS",
+                "Style": "Atlas_06",
                 "Storage": "external",
                 "WMS": "http://image.discomap.eea.europa.eu/arcgis/services/UrbanAtlas/UA_2006/MapServer/WMSServer?service=WMS&request=GetCapabilities&version=1.3.0",
                 "Zindex": 4
@@ -47,6 +52,7 @@
             {
                 "ID": "GlobCover_09",
                 "Type": "WMS",
+                "Style": "raster",
                 "Storage": "internal",
                 "WMS": "",
                 "Zindex": 5
@@ -54,6 +60,7 @@
             {
                 "ID": "MODIS_10",
                 "Type": "WMS",
+                "Style": "raster",
                 "Storage": "internal",
                 "WMS": "",
                 "Zindex": 6
@@ -61,6 +68,7 @@
             {
                 "ID": "CCIESA_10",
                 "Type": "WMS",
+                "Style": "raster",
                 "Storage": "internal",
                 "WMS": "",
                 "Zindex": 7
@@ -68,6 +76,7 @@
             {
                 "ID": "GLand30_10",
                 "Type": "WMS",
+                "Style": "raster",
                 "Storage": "internal",
                 "WMS": "",
                 "Zindex": 8
@@ -80,8 +89,6 @@
                 "Name": "Country Boundaries",
                 "Category_ID": "ADM",
                 "Category": "Administrative Layers",
-                "Workspace": "LULC",
-                "Style": "NUTS0",
                 "Dataset": "",
                 "Institution": "",
                 "Temporal coverage": "",
@@ -103,8 +110,6 @@
                 "Name": "Global Land Cover (2000)",
                 "Category_ID": "LULC",
                 "Category": "Land Cover Layers",
-                "Workspace": "LULC",
-                "Style": "raster",
                 "Dataset": "GLC-2000",
                 "Institution": "EC-JRC",
                 "Temporal coverage": "2000",
@@ -126,8 +131,6 @@
                 "Name": "Corine (2006)",
                 "Category_ID": "LULC",
                 "Category": "Land Cover Layers",
-                "Workspace": "LULC",
-                "Style": "raster",
                 "Dataset": "Corine",
                 "Institution": "EEA",
                 "Temporal coverage": "1990, 2000, 2006 and 2012",
@@ -149,8 +152,6 @@
                 "Name": "Urban Atlas (2006)",
                 "Category_ID": "LULC",
                 "Category": "Land Cover Layers",
-                "Workspace": "LULC",
-                "Style": "Atlas_06",
                 "Dataset": "European Urban Atlas",
                 "Institution": "European Commission Directorate-General for Regional Policy and the Directorate-General for Enterprise and Industry with the support of the European Space Agency and the European Environment Agency",
                 "Temporal coverage": "2005-2007",
@@ -172,8 +173,6 @@
                 "Name": "GlobCover (2009)",
                 "Category_ID": "LULC",
                 "Category": "Land Cover Layers",
-                "Workspace": "LULC",
-                "Style": "raster",
                 "Dataset": "GlobCover",
                 "Institution": "ESA",
                 "Temporal coverage": "2004-2006 and 2009",
@@ -195,8 +194,6 @@
                 "Name": "MODIS (2010)",
                 "Category_ID": "LULC",
                 "Category": "Land Cover Layers",
-                "Workspace": "LULC",
-                "Style": "raster",
                 "Dataset": "MODIS",
                 "Institution": "USGS",
                 "Temporal coverage": "2001-2012",
@@ -218,8 +215,6 @@
                 "Name": "Land Cover CCI (2010)",
                 "Category_ID": "LULC",
                 "Category": "Land Cover Layers",
-                "Workspace": "LULC",
-                "Style": "raster",
                 "Dataset": "LC-CCI",
                 "Institution": "ESA / UCL-Geomatics",
                 "Temporal coverage": "5-year epochs centered on 2000, 2005 and 2010",
@@ -241,9 +236,7 @@
                 "Name": "GlobeLand30 (2010)",
                 "Category_ID": "LULC",
                 "Category": "Land Cover Layers",
-                "Workspace": "LULC",
-                "Style": "raster",
-                "Dataset": "LC-CCI",
+                "Dataset": "GlobeLand30",
                 "Institution": "NGCC",
                 "Temporal coverage": "12000 and 2010",
                 "Spatial Coverage": "Global",
