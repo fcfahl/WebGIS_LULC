@@ -61,7 +61,7 @@ function leaflet_Control (LULC_layers) {
 
 function map_Layers () {
 
-    $(document).on('click', "input:checkbox:not(.wms_Ignore)", function(event) {
+    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch_toogle)", function(event) {
 
         var layerClicked = window[event.target.value];
 

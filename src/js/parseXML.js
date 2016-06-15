@@ -9,7 +9,7 @@
 function create_HTML (classN, ID, name, title, ref, url){
     // create HTML element
 
-    var FontAwesome = "fa-minus-square-o";
+    var FontAwesome = " fa-minus-circle ";
 
     var open_div = '<div id="' +  ID + '" class="' +  classN + '" >',
          li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class="wmsBox wms_Ignore" id="I_' +  ID + '">',
@@ -19,8 +19,6 @@ function create_HTML (classN, ID, name, title, ref, url){
         close_div = '</div>',
 
         html = open_div + li + label + icon + close_div;
-
-
 
     return html;
 }
@@ -90,9 +88,6 @@ function parseXML(xml) {
             var html = create_HTML("wms_candidates",id,name,title,ref);
             $(".wmsList").append(html);
         }
-
-
-
     });
 
 }

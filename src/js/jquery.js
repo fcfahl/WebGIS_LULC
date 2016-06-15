@@ -100,11 +100,7 @@ function html_Design (LULC_layers) {
             });
         }
     });
-
-
-
 }
-
 
 function WMS_Custom (){
 
@@ -120,15 +116,11 @@ function WMS_Custom (){
         //  $(".wms_candidates").remove();
     });
 
-
     //  Add selected wms layers to Pannel
     $("#wms_add" ).on('click', function () {
 
         // get the checked checkboxes
-        var checkedVals = "",
-            layerClicked = "";
-
-        checkedVals = $('.wms_Ignore:checkbox:checked').map(function() {
+        var checkedVals = $('.wms_Ignore:checkbox:checked').map(function() {
             console.log('checkedVals: ', this.value );
             return this.value;
         }).get();
@@ -151,15 +143,10 @@ function WMS_Custom (){
 
             // Add the layer to the map
             map.addLayer(layerClicked);
-
-
         });
 
         // clean the wmlist to avoid duplicated IDs
         $(".wmsList" ).empty();
-
-        checkedVals = null;
-
 
     });
 
@@ -201,7 +188,7 @@ function remove_WMS(ID, obj) {
 function geotag_Photos () {
 
     // switch button
-    $(document).on('click', "input:checkbox(.switch_toogle)", function(event) {
+    $('.switch_toogle').on('click', function(event) {
 
         var service_Name = this.value;
 

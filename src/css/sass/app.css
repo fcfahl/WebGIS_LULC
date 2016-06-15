@@ -61,8 +61,8 @@ html, body {
               align-items: center;
               height: 45px;
               width: 80px; }
-            html .container-fluid #main #side .pannel #geotag .fa-cogs, body .container-fluid #main #side .pannel #geotag .fa-cogs {
-              padding-left: 10px; }
+            html .container-fluid #main #side .pannel #geotag #photo_submit, body .container-fluid #main #side .pannel #geotag #photo_submit {
+              padding: 0 5px; }
             html .container-fluid #main #side .pannel #geotag span, body .container-fluid #main #side .pannel #geotag span {
               font-size: 0.9em; }
         html .container-fluid #main #side .settings, body .container-fluid #main #side .settings {

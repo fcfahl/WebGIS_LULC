@@ -60,12 +60,15 @@ mixin accorde(section,group)
             +switch_button("Flickr") 
             +switch_button("Panoramio") 
             +switch_button("Geograph") 
-            i(class="fa fa-cogs" aria-hidden="true")
+            button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
+                i(class="fa fa-cogs" aria-hidden="true")
+
+            +photo_Modal
             
 mixin wms_Modal()
     .wmsModal
-        div(class="modal fade"  id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-            div(class="modal-dialog modal-sm" role="document")
+        div(class="modal fade"  id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
+            div(class="modal-dialog" role="document")
                 div(class="modal-content")
                     div(class="modal-header")
                         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
@@ -81,7 +84,28 @@ mixin wms_Modal()
                         button(type="button" class="btn btn-primary" id="wms_add"  data-dismiss="modal") Add Selected Layers
     
 
+mixin photo_Modal()
+    .photoModal
+        div(class="modal fade"  id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true")
+            div(class="modal-dialog" role="document")
+                div(class="modal-content  modal-sm")
+                    div(class="modal-header")
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+                        h2 Photo Search Parameters
+                    div(class="modal-body")
+                        div(class="photoList col-xs-8 col-sm-8")
+                            form(class="form-inline")
+                                .form-group
+                                    label(for="photo_query") Search criteria
+                                    input(type="text" class="form-control" id="photo_query" placeholder="Search criteria")
+                                .form-group
+                                    label(for="photo_number") Max. points
+                                    input(type="text" class="form-control" id="photo_number")
+                        
 
+                    div(class="modal-footer")
+                        button(type="button" class="btn btn-secondary " id="photo_close" data-dismiss="modal") Close
 
 mixin switch_button(name)
 

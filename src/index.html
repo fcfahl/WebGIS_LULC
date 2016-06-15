@@ -130,7 +130,37 @@
                         <label onclick="" class="switch-light">
                           <input type="checkbox" value="Geograph" class="switch_toogle"/><strong>Geograph</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
                         </label>
-                      </div><i aria-hidden="true" class="fa fa-cogs"></i>
+                      </div>
+                      <button type="button" data-toggle="modal" data-target="#modalPhoto" id="photo_submit" class="btn btn-secondary-outline btn-sm"><i aria-hidden="true" class="fa fa-cogs"></i></button>
+                      <div class="photoModal">
+                        <div id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true" class="modal fade">
+                          <div role="document" class="modal-dialog">
+                            <div class="modal-content  modal-sm">
+                              <div class="modal-header">
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+                                <h2>Photo Search Parameters</h2>
+                              </div>
+                              <div class="modal-body">
+                                <div class="photoList col-xs-8 col-sm-8">
+                                  <form class="form-inline">
+                                    <div class="form-group">
+                                      <label for="photo_query">Search criteria</label>
+                                      <input type="text" id="photo_query" placeholder="Search criteria" class="form-control"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="photo_number">Max. points</label>
+                                      <input type="text" id="photo_number" class="form-control"/>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" id="photo_close" data-dismiss="modal" class="btn btn-secondary ">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="group">
@@ -144,8 +174,8 @@
                           </div>
                           <button type="button" data-toggle="modal" data-target="#modalWindow" id="wms_submit" class="btn btn-primary btn-sm">Submit</button>
                           <div class="wmsModal">
-                            <div id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade">
-                              <div role="document" class="modal-dialog modal-sm">
+                            <div id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true" class="modal fade">
+                              <div role="document" class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
                                     <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
