@@ -11,16 +11,16 @@ function create_HTML (classN, ID, name, title, ref, url){
 
     var FontAwesome = "fa-minus-square-o";
 
-    var open_div = '<div id="' +  ID + '" class="' +  classN + '"  >',
-         li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class="wmsBox wms_Ignore" id="' +  ID + '">',
-         label = '<label for="'  +  ID  + '"><span>'  +  title  +  '</span></label>',
+    var open_div = '<div id="' +  ID + '" class="' +  classN + '" >',
+         li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class="wmsBox wms_Ignore" id="I_' +  ID + '">',
+         label = '<label for="I_'  +  ID  + '"><span>'  +  title  +  '</span></label>',
          // include a hidden class to hide the delete button
-        icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="' + ID  + '" onclick="remove_WMS(\'' + ID  + '\', this)" class="fa ' + FontAwesome + ' fa-fw hidden"  aria-hidden="true"></i></a></li> ',
+        icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="remove_WMS(\'' + ID  + '\', this)" class="fa ' + FontAwesome + ' fa-fw hidden"  aria-hidden="true"></i></a></li> ',
         close_div = '</div>',
 
         html = open_div + li + label + icon + close_div;
 
-        console.log('ID: ', ID );
+
 
     return html;
 }
@@ -78,17 +78,20 @@ function parseXML(xml) {
             styles = "",
             format = "image/png",
             zIndex = 200 - index,
-            id = "wms" + index +"_" + title.slice(0,10).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ''), // clip the name and remove the special characters to create an unique ID
+            id = ("wms" + index + title.slice(0,5) + title.substr(-5)).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '') // clip the name and remove the special characters to create an unique ID
             ref="#" + id;
 
-        console.log(' list: ', list);
+        // Create WMS object if it does not exists
+        if($(ref).length === 0)
+        {
+            WMS_Object (id, title, server, service, version, layers, bbox, width, height, CRS, format, transparent, tiled, styles, zIndex);
 
-        // Create WMS object
-        WMS_Object (id, title, server, service, version, layers, bbox, width, height, CRS, format, transparent, tiled, styles, zIndex);
+            // Add layers to pannel
+            var html = create_HTML("wms_candidates",id,name,title,ref);
+            $(".wmsList").append(html);
+        }
 
-        // Add layers to pannel
-        var html = create_HTML("wms_candidates",id,name,title,ref);
-        $(".wmsList").append(html);
+
 
     });
 

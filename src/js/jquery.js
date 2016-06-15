@@ -105,26 +105,14 @@ function html_Design (LULC_layers) {
 
 }
 
+
 function WMS_Custom (){
 
     //  Add layers to map (except those in the wms modal pannel - added class wms_Ignore to avoid adding the layer to the map before showing on the pannel)
         //jquery dynamically added checkbox
         //http://stackoverflow.com/questions/4692281/jquery-dynamically-added-checkbox-not-working-with-change-function
 
-    $(document).on('click', "input:checkbox(.wms_Select )", function(event) {
-
-         var layerClicked = window[event.target.value];
-
-         console.log('layerClicked: ' , layerClicked);
-         console.log('this for adding: ' , this);
-
-        if (map.hasLayer(layerClicked)) {
-             map.removeLayer(layerClicked);
-        } else {
-             map.addLayer(layerClicked);
-        }
-    });
-
+        map_Layers ();
 
     // clear the layer name list on Modal
     $(".cleanButton" ).on('click', function () {
@@ -137,7 +125,11 @@ function WMS_Custom (){
     $("#wms_add" ).on('click', function () {
 
         // get the checked checkboxes
-        var checkedVals = $('.wmsBox:checkbox:checked').map(function() {
+        var checkedVals = "",
+            layerClicked = "";
+
+        checkedVals = $('.wms_Ignore:checkbox:checked').map(function() {
+            console.log('checkedVals: ', this.value );
             return this.value;
         }).get();
 
@@ -148,26 +140,34 @@ function WMS_Custom (){
             $('.fa').removeClass( "hidden" );
 
             // Clone selected wms layers to pannel
-            var   ID = "#" + value;
+            var ID = "#" + value;
 
+            // clone wms layer to the pannel
             $( ID ).clone().addClass( "wms_selected" ).removeClass( "wms_candidates" ).appendTo( ".custom_Layers" );
+            $( ID + " li input[type=checkbox] ").removeClass('wms_Ignore');
 
             // Get the layer object
             var layerClicked = window[value];
 
             // Add the layer to the map
             map.addLayer(layerClicked);
+
+
         });
 
         // clean the wmlist to avoid duplicated IDs
         $(".wmsList" ).empty();
+
+        checkedVals = null;
+
+
     });
 
     //  MODAL: add custom WMS layers
     $("#wms_submit").on('click', function () {
 
         var wmsLink = $('#wms_capability').val();
-        console.log('wmsLink: ' + wmsLink);
+        // console.log('wmsLink: ' + wmsLink);
 
         // Get Layer names
         // http://fuzzytolerance.info/blog/2012/03/06/2012-03-06-parsing-wms-getcapabilities-with-jquery/
@@ -187,27 +187,15 @@ function remove_WMS(ID, obj) {
 
     // var inText = document.getElemenyById(obj).innerHTML;
     //  Get the ID fist to identify the event (does not work as the toggle layer function)
-    var layer = $(this).attr('data-value');
-
-    var layerClicked = window[layer];
-    var href = $(ID).attr('href');
-
-
-    console.log('ID: ', ID );
-    console.log('layer: ', layer );
-    console.log('layerClicked: ', layerClicked );
-    console.log('href: ', href );
-
-    //
-    //  console.log('layerClicked: ' , layerClicked);
-    //  console.log('href: ' , href);
+    var layerClicked = window[ID];
+    console.log('remove: ', ID );
 
     //   Remove map
-    if (map.hasLayer(obj))
-        map.removeLayer(obj);
+    if (map.hasLayer(layerClicked))
+        map.removeLayer(layerClicked);
 
     //   Remove Div
-    $(obj).remove();
+    $("#" + ID).remove();
 }
 
 function geotag_Photos () {

@@ -28,11 +28,8 @@ $( document ).ready(function() {
         for (var i = 0; i < data[0].Layers.length; i++) {
             layers_ID[i] = DB_layers[i].ID;
             layers_Workspaces[i] = DB_layers[i].Workspace;
+            layers_Styles[i] = DB_layers[i].Style;
             // localStorage.setItem(LULC_layers[i], "");
-        }
-
-        for (var j = 0; j < data[0].Services.length; j++) {
-            layers_Styles[j] = DB_services[j].Style;
         }
 
         for (var k = 0; k < data[0].WMS_Server.length; k++) {
@@ -43,7 +40,6 @@ $( document ).ready(function() {
         // Call functions
         html_Design (layers_ID);
         leaflet_Control (layers_ID);
-        map_Layers();
         WMS_Layers (DB_WMS[0], DB_services[0], layers_ID, layers_Styles, layers_Workspaces);
         WMS_Custom ();
         geotag_Photos ();

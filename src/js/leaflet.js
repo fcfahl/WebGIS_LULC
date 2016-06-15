@@ -66,7 +66,7 @@ function map_Layers () {
         var layerClicked = window[event.target.value];
 
         console.log('layerClicked: ' , layerClicked);
-        console.log('this for adding: ' , this);
+        // console.log('this for adding: ' , this);
 
         if (map.hasLayer(layerClicked)) {
             map.removeLayer(layerClicked);
@@ -91,7 +91,7 @@ function WMS_Object  (id, title, server, service, version, layer, bbox, width, h
         version: version,
         tiled: tiled,
         styles: style,
-        zIndex: zIndex,
+        zIndex: zIndex
         // crs: wmsLayer.CRS,
     };
 
@@ -115,7 +115,7 @@ function WMS_Layers (DB_WMS, DB_Service, layers, styles, workspaces) {
             server = DB_WMS.Server + workspaces[index] + "/wms";
 
         // Add parameters to object
-        WMS_Object (id, title, DB_WMS.Server, service, DB_WMS.Version, layer, DB_WMS.Bbox, DB_WMS.Width, DB_WMS.Height, DB_WMS.CRS, DB_WMS.Format, DB_WMS.Transparent, DB_WMS.Tiled, style, zIndex);
+        WMS_Object (id, title, server, service, DB_WMS.Version, layer, DB_WMS.Bbox, DB_WMS.Width, DB_WMS.Height, DB_WMS.CRS, DB_WMS.Format, DB_WMS.Transparent, DB_WMS.Tiled, style, zIndex);
 
     });
 }
