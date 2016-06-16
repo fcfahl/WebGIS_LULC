@@ -185,27 +185,55 @@ function remove_WMS(ID, obj) {
     $("#" + ID).remove();
 }
 
-function refresh_Photos (service_Name) {
+function refresh_Photos () {
 
-    if($("#btn_Panoraimo").is(':checked'))
+    // check if panoraimo is on
+    if ($('#btn_Pano').is(":checked")) {
 
-        var service_Name = "btn_Panoramio";
+        var service_Name = "Panoramio";
         var service_Photo = DB_photo[0][service_Name];
 
+        if (map.hasLayer(group_Panoramio)) {
+            map.removeLayer(group_Panoramio);
+        } else {
+            map.addLayer(group_Panoramio);
+        }
 
+        parse_Photos(service_Name, service_Photo, "zoom");
+        console.log("service_Name", service_Name);
+    }
 
-        // $.post("index.php", { id: id, isChecked: isChecked });
+    // check if Flickr is on
+    if ($('#btn_Flick').is(":checked")) {
 
+        var service_Name = "Flickr";
+        var service_Photo = DB_photo[0][service_Name];
 
-        // if (map.hasLayer(group_Panoramio)) {
-        //     map.removeLayer(group_Panoramio);
-        // } else {
-        //     map.addLayer(group_Panoramio);
-        // }
+        if (map.hasLayer(group_Flickr)) {
+            map.removeLayer(group_Flickr);
+        } else {
+            map.addLayer(group_Flickr);
+        }
 
+        parse_Photos(service_Name, service_Photo, "zoom");
+        console.log("service_Name", service_Name);
+    }
+
+    // check if Geograph is on
+    if ($('#btn_Geog').is(":checked")) {
+
+        var service_Name = "Geograph";
+        var service_Photo = DB_photo[0][service_Name];
+
+        if (map.hasLayer(group_Geograph)) {
+            map.removeLayer(group_Geograph);
+        } else {
+            map.addLayer(group_Geograph);
+        }
 
         // parse_Photos(service_Name, service_Photo, "zoom");
         console.log("service_Name", service_Name);
+    }
 }
 
 
@@ -255,7 +283,7 @@ function get_BBOX () {
     if(maxy > fixed_bounds[2])
         maxy = fixed_bounds[2];
 
-    console.log("NEW -> west:", minx,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
+    // console.log("NEW -> west:", minx ,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
 
     var data  = {
         "zoom": zoom,
@@ -266,11 +294,11 @@ function get_BBOX () {
         "maxx": maxx,
         "miny": miny,
         "maxy": maxy,
+        "bbox": minx + "," + miny + "," +  maxx + "," + maxy
     };
 
     return data;
 }
-
 
 // parse data
 function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
@@ -284,6 +312,13 @@ function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
         pNumber = 50;
     }
 
+    // get boundary coordinates
+    var data_BBOX = get_BBOX();
+
+    // console.log("BBOX: ", data_BBOX.bbox);
+
+    // &method=flickr.photos.search&bbox=
+
     var parms_Photo = {
         "api_key": service_Photo.key,
         "method": service_Photo.method,
@@ -293,6 +328,7 @@ function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
         "perpage": pNumber,
         "page": service_Photo.page,
         "format": service_Photo.format,
+        "bbox": data_BBOX.bbox,
         "nojsoncallback": service_Photo.jsoncallback
     };
 
@@ -334,8 +370,8 @@ function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
 
 function display_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action){
 
-    // check if the obect is empty
-    if( group_Flickr === "") {
+    // check if the obect is empty or the bbox changed
+    if( group_Flickr === "" || action === 'zoom') {
 
         // create a new object if it is empty
         group_Flickr = L.featureGroup([]).addTo(map);
@@ -355,6 +391,7 @@ function display_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo,
 
             // get the url for each photo
             var url = service_Photo.url + this.owner + '/' + this.id ;
+
             var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.title+ '<br/><a id="'+ this.id+'" title="'+ this.title+ '" rel="pano" href="'+ url + '" target="_new"><img src="'+ this.url_s+'" alt="'+this.title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+ url  + '" target="_new">'+ this.owner+'</a>'+ this.upload_date + '</font>';
 
             // console.log( "url: ", url ); // server response
