@@ -57,6 +57,13 @@ function leaflet_Control (LULC_layers) {
         position: 'bottomleft'
     }).addTo(map);
 
+    // get bbox on map zoom modification
+    map.on('moveend', function() {
+
+        refresh_Photos ();
+    });
+
+
 }
 
 function map_Layers () {

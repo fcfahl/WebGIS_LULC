@@ -185,260 +185,282 @@ function remove_WMS(ID, obj) {
     $("#" + ID).remove();
 }
 
+function refresh_Photos (service_Name) {
+
+    if($("#btn_Panoraimo").is(':checked'))
+
+        var service_Name = "btn_Panoramio";
+        var service_Photo = DB_photo[0][service_Name];
+
+
+
+        // $.post("index.php", { id: id, isChecked: isChecked });
+
+
+        // if (map.hasLayer(group_Panoramio)) {
+        //     map.removeLayer(group_Panoramio);
+        // } else {
+        //     map.addLayer(group_Panoramio);
+        // }
+
+
+        // parse_Photos(service_Name, service_Photo, "zoom");
+        console.log("service_Name", service_Name);
+}
+
+
 function geotag_Photos () {
 
     // switch button
     $('.switch_toogle').on('click', function(event) {
 
         var service_Name = this.value;
-
         var service_Photo = DB_photo[0][service_Name];
         // console.log(photo_Service.url);
 
          if(this.checked) {
             parse_Photos(service_Name, service_Photo, "show");
-            // console.log( "show: ",  service_Name);
+
          }else{
             parse_Photos(service_Name, service_Photo,"remove");
             // console.log( "remove: ", service_Name);
          }
     });
+}
+// get bbox coordinates
+function get_BBOX () {
 
-    // get bbox coordinates
-    function get_BBOX () {
+    var fixed_bounds = [31, -17.5, 72, 45];
 
-        var fixed_bounds = [31, -17.5, 72, 45];
+    var zoom = map.getZoom(),
+        bounds = map.getBounds(),
+        minx = bounds.getWest(),
+        maxx = bounds.getEast(),
+        miny = bounds.getSouth(),
+        maxy = bounds.getNorth(),
+        width = maxx - minx,
+        height = maxy - miny;
 
-        var zoom = map.getZoom(),
-            bounds = map.getBounds(),
-            minx = bounds.getWest(),
-            maxx = bounds.getEast(),
-            miny = bounds.getSouth(),
-            maxy = bounds.getNorth(),
-            width = maxx - minx,
-            height = maxy - miny;
+    // console.log("west:", minx,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
 
-        // console.log("west:", minx,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
+    if(minx < fixed_bounds[1])
+        minx = fixed_bounds[1];
 
-        if(minx < fixed_bounds[1])
-            minx = fixed_bounds[1];
+    if(maxx > fixed_bounds[3])
+        maxx = fixed_bounds[3];
 
-        if(maxx > fixed_bounds[3])
-            maxx = fixed_bounds[3];
+    if(miny < fixed_bounds[0])
+        miny = fixed_bounds[0];
 
-        if(miny < fixed_bounds[0])
-            miny = fixed_bounds[0];
+    if(maxy > fixed_bounds[2])
+        maxy = fixed_bounds[2];
 
-        if(maxy > fixed_bounds[2])
-            maxy = fixed_bounds[2];
+    console.log("NEW -> west:", minx,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
 
-        // console.log("NEW -> west:", minx,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
+    var data  = {
+        "zoom": zoom,
+        "bounds": bounds,
+        "width": width,
+        "height": height,
+        "minx": minx,
+        "maxx": maxx,
+        "miny": miny,
+        "maxy": maxy,
+    };
 
-        var data  = {
-            "zoom": zoom,
-            "bounds": bounds,
-            "width": width,
-            "height": height,
-            "minx": minx,
-            "maxx": maxx,
-            "miny": miny,
-            "maxy": maxy,
-        };
+    return data;
+}
 
-        return data;
+
+// parse data
+function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
+
+    // set default values
+    if (pSearch === undefined) {
+        pSearch = "";
     }
 
-    // parse data
-    function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
-
-        // set default values
-        if (pSearch === undefined) {
-            pSearch = "";
-        }
-
-        if (pNumber === undefined) {
-            pNumber = 50;
-        }
-
-        var parms_Photo = {
-            "api_key": service_Photo.key,
-            "method": service_Photo.method,
-            "has_geo": service_Photo.has_geo,
-            "extras": service_Photo.extras,
-            "text": pSearch,
-            "perpage": pNumber,
-            "page": service_Photo.page,
-            "format": service_Photo.format,
-            "nojsoncallback": service_Photo.jsoncallback
-        };
-
-        var service_Icon = new L.Icon({
-            iconUrl: service_Photo.marker,
-            shadowUrl: null,
-            iconAnchor: [9,9],
-            popupAnchor: [0,-10],
-            iconSize: [15, 15],
-        });
-
-        var service_Logo = service_Photo.logo;
-
-        if(action == "show") {
-
-            if(service_Name == "Flickr"){
-                display_Flickr(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
-            }else if (service_Name == "Panoramio") {
-                parse_Panoraimo(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
-            }else if (service_Name == "Geograph") {
-                display_Geograph(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber);
-            }else {
-                console.log("PHOTO SERVICE NOT FOUND");
-            }
-
-        }else{
-
-            if(service_Name == "Flickr"){
-                map.removeLayer(group_Flickr);
-            }else if (service_Name == "Panoramio") {
-                map.removeLayer(group_Panoramio);
-            }else if (service_Name == "Geograph") {
-                map.removeLayer(group_Geograph);
-            }else {
-                console.log("PHOTO SERVICE NOT FOUND");
-            }
-        }
+    if (pNumber === undefined) {
+        pNumber = 50;
     }
 
-    function display_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
+    var parms_Photo = {
+        "api_key": service_Photo.key,
+        "method": service_Photo.method,
+        "has_geo": service_Photo.has_geo,
+        "extras": service_Photo.extras,
+        "text": pSearch,
+        "perpage": pNumber,
+        "page": service_Photo.page,
+        "format": service_Photo.format,
+        "nojsoncallback": service_Photo.jsoncallback
+    };
 
-        // check if the obect is empty
-        if( group_Flickr === "") {
+    var service_Icon = new L.Icon({
+        iconUrl: service_Photo.marker,
+        shadowUrl: null,
+        iconAnchor: [9,9],
+        popupAnchor: [0,-10],
+        iconSize: [15, 15],
+    });
 
-            // create a new object if it is empty
-            group_Flickr = L.featureGroup([]).addTo(map);
-            // var featureGroup = L.markerClusterGroup();
+    var service_Logo = service_Photo.logo;
 
-            // parse the Flickr data
-            var data_Photo = JSON.parse (
-                $.ajax({
-                    url:  service_Photo.rest,
-                    data: parms_Photo,
-                    async: false
-                }).responseText
-            );
+    if(action == "remove") {
 
-            // loop through the photos
-            $.each(data_Photo.photos.photo, function() {
+        if(service_Name == "Flickr"){
+            map.removeLayer(group_Flickr);
+        }else if (service_Name == "Panoramio") {
+            map.removeLayer(group_Panoramio);
+        }else if (service_Name == "Geograph") {
+            map.removeLayer(group_Geograph);
+        }else {
+            console.log("PHOTO SERVICE NOT FOUND");
+        }
 
-                // get the url for each photo
-                var url = service_Photo.url + this.owner + '/' + this.id ;
-                var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.title+ '<br/><a id="'+ this.id+'" title="'+ this.title+ '" rel="pano" href="'+ url + '" target="_new"><img src="'+ this.url_s+'" alt="'+this.title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+ url  + '" target="_new">'+ this.owner+'</a>'+ this.upload_date + '</font>';
+    }else{
 
-                // console.log( "url: ", url ); // server response
-
-                // create a photo frame
-                var popup = L.popup({
-                    maxWidth: service_Photo.maxWidth,
-                    maxHeight: service_Photo.maxHeight
-                }).setContent( img);
-
-                // create a marker
-                var marker = L.marker([this.latitude, this.longitude], {
-                    icon: service_Icon
-                }).addTo(group_Flickr);
-                marker.bindPopup(popup);
-            });
-
-        }else{
-            // remove layer
-            map.addLayer(group_Flickr);
+        if(service_Name == "Flickr"){
+            display_Flickr(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action);
+        }else if (service_Name == "Panoramio") {
+            parse_Panoraimo(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action);
+        }else if (service_Name == "Geograph") {
+            display_Geograph(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action);
+        }else {
+            console.log("PHOTO SERVICE NOT FOUND");
         }
     }
+}
 
-    function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Logo){
+function display_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action){
 
-            console.log("data_Photo", data_Photo);
+    // check if the obect is empty
+    if( group_Flickr === "") {
+
+        // create a new object if it is empty
+        group_Flickr = L.featureGroup([]).addTo(map);
+        // var featureGroup = L.markerClusterGroup();
+
+        // parse the Flickr data
+        var data_Photo = JSON.parse (
+            $.ajax({
+                url:  service_Photo.rest,
+                data: parms_Photo,
+                async: false
+            }).responseText
+        );
 
         // loop through the photos
-        $.each(data_Photo.photos, function() {
+        $.each(data_Photo.photos.photo, function() {
 
-        var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.photo_title+ '<br/><a id="'+ this.photo_id+'" title="'+ this.photo_title+ '" rel="pano" href="'+ this.photo_url+ '" target="_new"><img src="'+ this.photo_file_url+'" alt="'+this.photo_title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.owner_url+ '" target="_new">'+ this.owner_name+'</a>'+ this.upload_date + '</font>';
+            // get the url for each photo
+            var url = service_Photo.url + this.owner + '/' + this.id ;
+            var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.title+ '<br/><a id="'+ this.id+'" title="'+ this.title+ '" rel="pano" href="'+ url + '" target="_new"><img src="'+ this.url_s+'" alt="'+this.title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+ url  + '" target="_new">'+ this.owner+'</a>'+ this.upload_date + '</font>';
 
-        // create a photo frame
-        var popup = L.popup({
-            maxWidth: service_Photo.maxWidth,
-            maxHeight: service_Photo.maxHeight
-        }).setContent( img);
+            // console.log( "url: ", url ); // server response
 
-        // create a marker
-        var marker = L.marker([this.latitude, this.longitude], {
-            icon: service_Icon
-        }).addTo(group_Panoramio);
-        marker.bindPopup(popup);
+            // create a photo frame
+            var popup = L.popup({
+                maxWidth: service_Photo.maxWidth,
+                maxHeight: service_Photo.maxHeight
+            }).setContent( img);
+
+            // create a marker
+            var marker = L.marker([this.latitude, this.longitude], {
+                icon: service_Icon
+            }).addTo(group_Flickr);
+            marker.bindPopup(popup);
         });
 
+    }else{
+        // remove layer
+        map.addLayer(group_Flickr);
+    }
+}
+
+function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Logo){
+
+        // console.log("data_Photo", data_Photo);
+
+    // loop through the photos
+    $.each(data_Photo.photos, function() {
+
+    var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.photo_title+ '<br/><a id="'+ this.photo_id+'" title="'+ this.photo_title+ '" rel="pano" href="'+ this.photo_url+ '" target="_new"><img src="'+ this.photo_file_url+'" alt="'+this.photo_title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.owner_url+ '" target="_new">'+ this.owner_name+'</a>'+ this.upload_date + '</font>';
+
+    // create a photo frame
+    var popup = L.popup({
+        maxWidth: service_Photo.maxWidth,
+        maxHeight: service_Photo.maxHeight
+    }).setContent( img);
+
+    // create a marker
+    var marker = L.marker([this.latitude, this.longitude], {
+        icon: service_Icon
+    }).addTo(group_Panoramio);
+    marker.bindPopup(popup);
+    });
+
+}
+
+function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action){
+
+    var pTag = "",
+        pN =  "";
+
+    // define search variables
+    if ( pSearch === "" ) {
+        pTag = "public";
+    } else {
+        pTag = "public&tag="+ pSearch;
     }
 
-    function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
-
-        var pTag = "",
-            pN =  "";
-
-        // define search variables
-        if ( pSearch === "" ) {
-            pTag = "public";
-        } else {
-            pTag = "public&tag="+ pSearch;
-        }
-
-        if ( pNumber === "" ) {
-            pN = "&from=0&to=50";
-        } else {
-            pN = "&from=0&to=" + pNumber;
-        }
-
-        // get boundary coordinates
-        var data_BBOX = get_BBOX();
-
-        // check if the obect is empty
-        if( group_Panoramio === "") {
-
-            // create a new object if it is empty
-            group_Panoramio = L.featureGroup([]).addTo(map);
-
-            // create Panoraimo URL
-            var url_Panoraimo = service_Photo.url + pTag + pN + "&minx=" + data_BBOX.minx + "&miny=" + data_BBOX.maxx + "&maxx=" + data_BBOX.miny + "&maxy=" + data_BBOX.maxy + "&size=small&mapfilter=true&callback=?";
-
-            console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
-
-            // parse the Panoraimo data
-            $.when ( $.ajax ({
-                    url: url_Panoraimo,
-                    // The name of the callback parameter, as specified by the YQL service
-                    jsonp: "callback",
-                    // Tell jQuery we're expecting JSONP
-                    dataType: "jsonp",
-                    // Tell YQL what we want and that we want JSON
-                    data: {
-                        tag: pSearch,
-                        format: "json",
-                    },
-                })
-            ).then(function( response ) {
-                // var  data_Photo = response;
-                display_Panoraimo(response, service_Photo, service_Icon, service_Logo);
-            });
-
-        }else{
-            // remove layer
-            map.addLayer(group_Panoramio);
-        }
-
+    if ( pNumber === "" ) {
+        pN = "&from=0&to=50";
+    } else {
+        pN = "&from=0&to=" + pNumber;
     }
 
-    function display_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber){
+    // get boundary coordinates
+    var data_BBOX = get_BBOX();
 
-                console.log( "Geograph: ");
+    // check if the obect is empty
+    if( group_Panoramio === "" || action === 'zoom') {
 
+        // create a new object if it is empty
+        group_Panoramio = L.featureGroup([]).addTo(map);
+
+        // create Panoraimo URL
+        var url_Panoraimo = service_Photo.url + pTag + pN + "&minx=" + data_BBOX.minx + "&miny=" + data_BBOX.miny + "&maxx=" + data_BBOX.maxx + "&maxy=" + data_BBOX.maxy + "&size=small&mapfilter=true&callback=?";
+
+        // console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
+
+        // parse the Panoraimo data
+        $.when ( $.ajax ({
+                url: url_Panoraimo,
+                // The name of the callback parameter, as specified by the YQL service
+                jsonp: "callback",
+                // Tell jQuery we're expecting JSONP
+                dataType: "jsonp",
+                // Tell YQL what we want and that we want JSON
+                data: {
+                    tag: pSearch,
+                    format: "json",
+                },
+            })
+        ).then(function( response ) {
+            // var  data_Photo = response;
+            display_Panoraimo(response, service_Photo, service_Icon, service_Logo);
+        });
+
+    }else{
+        // remove layer
+        map.addLayer(group_Panoramio);
     }
+
+}
+
+function display_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action){
+
+            console.log( "Geograph: ");
 
 }

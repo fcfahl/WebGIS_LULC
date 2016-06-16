@@ -8,6 +8,7 @@ $( document ).ready(function() {
     window.group_Flickr = "";
     window.group_Panoramio = "";
     window.group_Geograph = "";
+    // window.map_Bounds = "unchanged";
 
     // Load JSON database
     $.getJSON( "db.json" )

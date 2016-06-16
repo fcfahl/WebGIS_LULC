@@ -57,9 +57,9 @@ mixin accorde(section,group)
             .custom_Layers
 
         if group == 'geotag'
-            +switch_button("Flickr") 
-            +switch_button("Panoramio") 
-            +switch_button("Geograph") 
+            +switch_button("Flickr", "btn_Flickr") 
+            +switch_button("Panoramio", "btn_Panoramio") 
+            +switch_button("Geograph", "btn_Geograph") 
             button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
                 i(class="fa fa-cogs" aria-hidden="true")
 
@@ -107,11 +107,11 @@ mixin photo_Modal()
                     div(class="modal-footer")
                         button(type="button" class="btn btn-secondary " id="photo_close" data-dismiss="modal") Close
 
-mixin switch_button(name)
+mixin switch_button(name, ID)
 
     .switch_photo
         label.switch-light(onclick="" )
-            input(class="switch_toogle" type="checkbox" value=name) 
+            input(class="switch_toogle" type="checkbox" id=ID value=name) 
             strong #{name}
 
             span.well
