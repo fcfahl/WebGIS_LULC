@@ -231,11 +231,10 @@ function refresh_Photos () {
             map.addLayer(group_Geograph);
         }
 
-        // parse_Photos(service_Name, service_Photo, "zoom");
+        parse_Photos(service_Name, service_Photo, "zoom");
         console.log("service_Name", service_Name);
     }
 }
-
 
 function geotag_Photos () {
 
@@ -269,6 +268,9 @@ function get_BBOX () {
         width = maxx - minx,
         height = maxy - miny;
 
+    var center = map.getCenter()
+
+    // console.log("center lat: ", center.lat, " center lon:", center.lng);
     // console.log("west:", minx,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
 
     if(minx < fixed_bounds[1])
@@ -283,7 +285,7 @@ function get_BBOX () {
     if(maxy > fixed_bounds[2])
         maxy = fixed_bounds[2];
 
-    // console.log("NEW -> west:", minx ,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
+    console.log("NEW -> west:", minx ,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
 
     var data  = {
         "zoom": zoom,
@@ -294,7 +296,9 @@ function get_BBOX () {
         "maxx": maxx,
         "miny": miny,
         "maxy": maxy,
-        "bbox": minx + "," + miny + "," +  maxx + "," + maxy
+        "bbox": minx + "," + miny + "," +  maxx + "," + maxy,
+        "lat": center.lat,
+        "lon": center.lng
     };
 
     return data;
@@ -361,7 +365,7 @@ function parse_Photos (service_Name, service_Photo, action, pSearch, pNumber){
         }else if (service_Name == "Panoramio") {
             parse_Panoraimo(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action);
         }else if (service_Name == "Geograph") {
-            display_Geograph(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action);
+            parse_Geograph(service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action);
         }else {
             console.log("PHOTO SERVICE NOT FOUND");
         }
@@ -422,19 +426,19 @@ function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Log
     // loop through the photos
     $.each(data_Photo.photos, function() {
 
-    var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.photo_title+ '<br/><a id="'+ this.photo_id+'" title="'+ this.photo_title+ '" rel="pano" href="'+ this.photo_url+ '" target="_new"><img src="'+ this.photo_file_url+'" alt="'+this.photo_title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.owner_url+ '" target="_new">'+ this.owner_name+'</a>'+ this.upload_date + '</font>';
+        var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.photo_title+ '<br/><a id="'+ this.photo_id+'" title="'+ this.photo_title+ '" rel="pano" href="'+ this.photo_url+ '" target="_new"><img src="'+ this.photo_file_url+'" alt="'+this.photo_title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.owner_url+ '" target="_new">'+ this.owner_name+'</a>'+ this.upload_date + '</font>';
 
-    // create a photo frame
-    var popup = L.popup({
-        maxWidth: service_Photo.maxWidth,
-        maxHeight: service_Photo.maxHeight
-    }).setContent( img);
+        // create a photo frame
+        var popup = L.popup({
+            maxWidth: service_Photo.maxWidth,
+            maxHeight: service_Photo.maxHeight
+        }).setContent( img);
 
-    // create a marker
-    var marker = L.marker([this.latitude, this.longitude], {
-        icon: service_Icon
-    }).addTo(group_Panoramio);
-    marker.bindPopup(popup);
+        // create a marker
+        var marker = L.marker([this.latitude, this.longitude], {
+            icon: service_Icon
+        }).addTo(group_Panoramio);
+        marker.bindPopup(popup);
     });
 
 }
@@ -496,8 +500,77 @@ function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo
 
 }
 
-function display_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action){
+function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo){
 
-            console.log( "Geograph: ");
+    console.log("response geograph ", data_Photo);
+
+    // loop through the photos
+    $.each(data_Photo.items, function() {
+
+        var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.title+ '<br/><a id="'+ this.guid+'" title="'+ this.title+ '" rel="geograph" href="'+ this.link+ '" target="_new"><img src="'+ this.thumb+'" alt="'+this.title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.link+ '" target="_new">'+ this.author+'</a> '+ this.imageTaken + '</font>';
+
+
+        // console.log(img);
+
+        // create a photo frame
+        var popup = L.popup({
+            maxWidth: service_Photo.maxWidth,
+            maxHeight: service_Photo.maxHeight
+        }).setContent( img);
+
+        // create a marker
+        var marker = L.marker([this.lat, this.long], {
+            icon: service_Icon
+        }).addTo(group_Geograph);
+        marker.bindPopup(popup);
+    });
+}
+
+function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action){
+
+    // check if the obect is empty or the bbox changed
+    if( group_Geograph === "" || action === 'zoom') {
+
+        // create a new object if it is empty
+        group_Geograph = L.featureGroup([]).addTo(map);
+        // var featureGroup = L.markerClusterGroup();
+
+        // get boundary coordinates
+        var data_BBOX = get_BBOX();
+
+        var UK_BBOX = {
+            north:55.811741,
+            south:49.871159,
+            west:-6.37988,
+            east:1.76896
+        }
+
+        // create Geograph URL
+        // var url_Geograph = service_Photo.url + "&key=" + service_Photo.key + "&text=&perpage=100&distance=100&location=" + data_BBOX.lat.toFixed(1) + "/" + data_BBOX.lon.toFixed(1) + "&format=" + service_Photo.format ;
+
+        var url_Geograph = "http://www.geograph.org.uk/stuff/squares.json.php?bounds=((" + data_BBOX.miny.toFixed(1).toString() + "," + data_BBOX.minx.toFixed(1).toString() + "),(" + data_BBOX.maxy.toFixed(1).toString() + "," + data_BBOX.maxx.toFixed(1).toString()  +  ")&text=&perpage=100&distance=100&format=" + service_Photo.format
+
+        console.log("url_Geograph ", url_Geograph);
+
+        // parse the Geograph data
+        $.ajax({
+            type: 'GET',
+            url: url_Geograph,
+            // data: { get_param: 'value' },
+            dataType: 'jsonp',
+            async: false,
+            contentType: "application/json",
+            success: function (response) {
+                // console.log("response ", response);
+                display_Geograph(response, service_Photo, service_Icon, service_Logo);
+            }
+        });
+
+
+
+    } else {
+        // remove layer
+        map.addLayer(group_Geograph);
+    }
 
 }

@@ -312,19 +312,19 @@
                 },
                 "Geograph":
                 {
-                    "url": "",
+                    "url": "http://api.geograph.org.uk/syndicator.php?",
                     "rest": "",
-                    "key": "",
+                    "key": "e79cb167fb",
                     "method": "",
                     "has_geo": "",
                     "extras": "",
                     "text": "",
                     "perpage": "",
                     "page": "",
-                    "format": "",
+                    "format": "JSON",
                     "jsoncallback": "",
                     "logo": "",
-                    "marker": "",
+                    "marker": "http://www.panoramio.com/img/panoramio-marker.png",
                     "maxWidth": "600",
                     "maxHeight": "800"
                 }
