@@ -19,7 +19,8 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     fs = require('fs'),
     gutil = require('gulp-util'),
-    data = require('gulp-data');
+    data = require('gulp-data'),
+    Flickr = require('flickrapi');
 
 var dir_src = 'src',
     dir_dst = 'public';
