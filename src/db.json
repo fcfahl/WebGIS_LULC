@@ -322,9 +322,9 @@
                     "perpage": "",
                     "page": "",
                     "format": "JSON",
-                    "jsoncallback": "",
-                    "logo": "",
-                    "marker": "http://www.panoramio.com/img/panoramio-marker.png",
+                    "jsoncallback": "jsonp",
+                    "logo": "http://s1.geograph.org.uk/templates/basic/img/logo.gif",
+                    "marker": "img/icons/circle.svg",
                     "maxWidth": "600",
                     "maxHeight": "800"
                 }

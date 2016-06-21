@@ -297,6 +297,7 @@ function get_BBOX () {
         "miny": miny,
         "maxy": maxy,
         "bbox": minx + "," + miny + "," +  maxx + "," + maxy,
+        "bbox_Geograph": miny + "," + minx + "," +  maxy + "," + maxx,
         "lat": center.lat,
         "lon": center.lng
     };
@@ -500,30 +501,102 @@ function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo
 
 }
 
+// source http://www.nearby.org.uk/tests/GeoTools2.html
+function getWgs84FromGrid(query) {
+	var gridref = query.toUpperCase().match(/^\s*(\w{1,2}\d{2,10})/);
+        if (!gridref) {
+                return false;
+        }
+	var grid=new GT_OSGB();
+	var ok = false;
+	if (grid.parseGridRef(gridref[1])) {
+		ok = true;
+	} else {
+		grid=new GT_Irish();
+		ok = grid.parseGridRef(gridref[1])
+	}
+        if (ok) {
+		//convert to a wgs84 coordinate
+		return grid.getWGS84(true);
+        } else {
+                return false;
+        }
+
+}
+
 function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo){
 
     console.log("response geograph ", data_Photo);
 
-    // loop through the photos
-    $.each(data_Photo.items, function() {
+    var geograph_ID = [];
 
-        var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.title+ '<br/><a id="'+ this.guid+'" title="'+ this.title+ '" rel="geograph" href="'+ this.link+ '" target="_new"><img src="'+ this.thumb+'" alt="'+this.title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.link+ '" target="_new">'+ this.author+'</a> '+ this.imageTaken + '</font>';
-
-
-        // console.log(img);
-
-        // create a photo frame
-        var popup = L.popup({
-            maxWidth: service_Photo.maxWidth,
-            maxHeight: service_Photo.maxHeight
-        }).setContent( img);
-
-        // create a marker
-        var marker = L.marker([this.lat, this.long], {
-            icon: service_Icon
-        }).addTo(group_Geograph);
-        marker.bindPopup(popup);
+    // parse the photo IDs (this is necessary prior to parse the photos because the Facets API does not return the proper lat long coordinates)
+    $.each(data_Photo.matches, function(index, obj) {
+        geograph_ID[index] = this.id
     });
+
+    $.each(geograph_ID, function(index, obj) {
+        // var grid = this.attrs.grid_reference
+
+        // console.log("this geograph ", this);
+
+        var photo_URL =  "http://api.geograph.org.uk/api/photo/" + obj + "/" + service_Photo.key + "&?output=json"
+
+        // // parse the Geograph data
+        $.when ( $.ajax ({
+            type: 'GET',
+            url: photo_URL,
+            dataType: 'jsonp',
+            cache: true,
+            async: true,
+            contentType: "application/json"
+            })
+        ).then(function( photo ) {
+
+
+            // var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ photo.title+ '<br/><a id="'+ this.id +'" title="'+ photo.title+ photo.taken + '" rel="pano" href="'+ photo.imgserver + photo.image + '" target="_new"><img src="'+ photo.imgserver + photo.image + '" alt="'+ photo.title+ '</font>';
+
+
+            var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ photo.title+ '<br/><a id="'+this.id+'" title="'+ photo.title+ photo.taken +'" rel="pano" href="'+ photo.imgserver + photo.image+ '" target="_new"><img src="'+ photo.imgserver + photo.image+'" alt="'+photo.title+'" width="180"/></a><br/>&copy;&nbsp;<a href="'+this.owner_url+ '" target="_new">'+ photo.realname+'</a>'+ photo.taken + '</font>';
+
+            console.log("img ", photo);
+
+            // create a photo frame
+            var popup = L.popup({
+                maxWidth: service_Photo.maxWidth,
+                maxHeight: service_Photo.maxHeight
+            }).setContent( img);
+
+            // create a marker
+            var marker = L.marker([photo.wgs84_lat,photo.wgs84_long], {
+                icon: service_Icon
+            }).addTo(group_Geograph);
+            marker.bindPopup(popup);
+
+        });
+
+
+        // var osgb = new GT_OSGB();
+        // var wgs84=osgb.getWGS84();
+        // var lat = wgs84.latitude;
+        // var lon = wgs84.longitude;
+        //
+        // console.log(wgs84.latitude, wgs84.longitude);
+        //
+        // // getWgs84FromGrid (grid);
+        //
+        //
+        // var img = '<img src=" ' +  service_Logo + ' "><br/><font color="red">'+ this.attrs.title+ '<br/><a id="'+ this.attrs.placename_id+'" title="'+ this.attrs.title+ this.imageTaken + '</font>';
+        //
+        // // console.log(img);
+        // console.log(this.attrs.wgs84_lat, this.attrs.wgs84_long);
+        //
+        //
+        //
+
+    });
+
+    console.log("ID: ", geograph_ID);
 }
 
 function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, pSearch, pNumber, action){
@@ -545,28 +618,69 @@ function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo,
             east:1.76896
         }
 
+        // var geograph_Select = "takenday,realname,title,grid_reference,wgs84_lat,wgs84_long,contexts,subjects,tags,place,county,country,placename_id"
+        var geograph_Select = "*"
+        var geograph_Limit = 50
+
+        var geograph_Geo="52.950583,-3.936389,2000"
+
+
+        // http://www.geograph.org.uk/photo/5001671
+
         // create Geograph URL
         // var url_Geograph = service_Photo.url + "&key=" + service_Photo.key + "&text=&perpage=100&distance=100&location=" + data_BBOX.lat.toFixed(1) + "/" + data_BBOX.lon.toFixed(1) + "&format=" + service_Photo.format ;
 
-        var url_Geograph = "http://www.geograph.org.uk/stuff/squares.json.php?bounds=((" + data_BBOX.miny.toFixed(1).toString() + "," + data_BBOX.minx.toFixed(1).toString() + "),(" + data_BBOX.maxy.toFixed(1).toString() + "," + data_BBOX.maxx.toFixed(1).toString()  +  ")&text=&perpage=100&distance=100&format=" + service_Photo.format
+        // var url_Geograph = "http://www.geograph.org.uk/stuff/squares.json.php?bounds=((" + data_BBOX.miny.toFixed(1).toString() + "," + data_BBOX.minx.toFixed(1).toString() + "),(" + data_BBOX.maxy.toFixed(1).toString() + "," + data_BBOX.maxx.toFixed(1).toString()  +  ")&text=&perpage=100&distance=100&format=" + service_Photo.format
+
+        // var url_Geograph = "http://api.geograph.org.uk/api-facet.php?a=1&pretty=1&select=" + geograph_Select + "&limit=" + geograph_Limit + "&bounds=" + data_BBOX.bbox_Geograph
+        var url_Geograph = "http://api.geograph.org.uk/api-facet.php?a=1&pretty=1&limit=" + geograph_Limit + "&bounds=" + data_BBOX.bbox_Geograph
+
+
+
+
+
+
+
+
+// http://api.geograph.org.uk/api-facet.php?q=bridge&a=1&pretty=1&group=takenyear&groupsort=%40count+DESC&rank=2&select=takenmonth
+
 
         console.log("url_Geograph ", url_Geograph);
 
+
         // parse the Geograph data
-        $.ajax({
+        //  var geograph_ID = $.ajax({
+        //     type: 'GET',
+        //     url: url_Geograph,
+        //     // data: { get_param: 'value' },
+        //     dataType: 'jsonp',
+        //     async: true,
+        //     contentType: "application/json",
+        //     error: function (XMLHttpRequest, textStatus, errorThrown) {
+        //         console.log('error');
+        //     },
+        //     success: function (response) {
+        //         console.log("response JSON ", response);
+        //         return response;
+        //     }
+        // }).responseJSON;
+
+
+        // // parse the Geograph data
+        $.when ( $.ajax ({
             type: 'GET',
             url: url_Geograph,
-            // data: { get_param: 'value' },
             dataType: 'jsonp',
-            async: false,
-            contentType: "application/json",
-            success: function (response) {
-                // console.log("response ", response);
-                display_Geograph(response, service_Photo, service_Icon, service_Logo);
-            }
+            cache: true,
+            async: true,
+            contentType: "application/json"
+            })
+        ).then(function( response ) {
+            display_Geograph(response, service_Photo, service_Icon, service_Logo);
         });
 
 
+        // console.log("geograph_ID ", geograph_ID);
 
     } else {
         // remove layer
@@ -574,3 +688,23 @@ function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo,
     }
 
 }
+
+// function _get_gridsquare(gridref,callback) {
+//
+//     if (gridref.length > 5) {
+//         GridRef = /\b([a-zA-Z]{2}) ?(\d{2,5})[ \.]?(\d{2,5})\b/;
+//         match = GridRef.exec(gridref);
+//         var numbers= match[2]+''+match[3];
+//         if (numbers.length % 2 == 0) {
+//             halve = numbers.length /2;
+//             easting = numbers.substr(0, 2);
+//             northing = numbers.substr(halve, 2);
+//             gridref = match[1].toUpperCase()+easting+northing;
+//         }
+//     }
+//
+//     var url = "http://api.geograph.org.uk/api/Gridref/"+encodeURIComponent(gridref)+"?output=json&callback=?";
+//
+//             _get_url(url,callback);
+// }
+//
