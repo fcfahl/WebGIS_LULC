@@ -59,7 +59,11 @@ function leaflet_Control (LULC_layers) {
 
     // get bbox on map zoom modification
     map.on('moveend', function() {
+        refresh_Photos ();
+    });
 
+    // reflesh map on photo modal close
+    $("#photo_close").on('click', function() {
         refresh_Photos ();
     });
 

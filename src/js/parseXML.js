@@ -76,7 +76,7 @@ function parseXML(xml) {
             styles = "",
             format = "image/png",
             zIndex = 200 - index,
-            id = ("wms" + index + title.slice(0,5) + title.substr(-5)).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '') // clip the name and remove the special characters to create an unique ID
+            id = ("wms" + index + title.slice(0,5) + title.substr(-5)).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ''); // clip the name and remove the special characters to create an unique ID
             ref="#" + id;
 
         // Create WMS object if it does not exists

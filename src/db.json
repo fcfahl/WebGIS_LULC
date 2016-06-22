@@ -281,7 +281,7 @@
                     "key": "78a6ce549b86483a335a3377a3765ef0",
                     "method": "flickr.photos.search",
                     "has_geo": "1",
-                    "extras": "geo,url_s",
+                    "extras": "geo,url_s,date_taken,license",
                     "text": "",
                     "perpage": "",
                     "page": "1",

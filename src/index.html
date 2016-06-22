@@ -135,27 +135,35 @@
                       <div class="photoModal">
                         <div id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true" class="modal fade">
                           <div role="document" class="modal-dialog">
-                            <div class="modal-content  modal-sm">
+                            <div class="modal-content">
                               <div class="modal-header">
                                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
                                 <h2>Photo Search Parameters</h2>
                               </div>
                               <div class="modal-body">
-                                <div class="photoList col-xs-8 col-sm-8">
-                                  <form class="form-inline">
-                                    <div class="form-group">
-                                      <label for="photo_query">Search criteria</label>
-                                      <input type="text" id="photo_query" placeholder="Search criteria" class="form-control"/>
+                                <div class="photoList">
+                                  <form>
+                                    <div class="form-group row">
+                                      <label for="photo_query" class="col-sm-5 form-control-label">Photo text: </label>
+                                      <input type="text" id="photo_query" placeholder="e.g. forest" value="" class="col-sm-6 form-control"/>
                                     </div>
-                                    <div class="form-group">
-                                      <label for="photo_number">Max. points</label>
-                                      <input type="text" id="photo_number" class="form-control"/>
+                                    <div class="form-group row">
+                                      <label for="photo_tag" class="col-sm-5 form-control-label">Photo tag:</label>
+                                      <input type="text" id="photo_tag" placeholder="e.g. outdoor" value="" class="col-sm-6 form-control"/>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label for="photo_number" class="col-sm-5 form-control-label">Number of photos (max=50):</label>
+                                      <input type="text" id="photo_number" placeholder="50" value="50" class="col-sm-6 form-control"/>
+                                    </div>
+                                    <div class="form-group row">
+                                      <label for="photo_year" class="col-sm-5 form-control-label">Date of the photo (year):</label>
+                                      <input type="text" id="photo_year" placeholder="e.g. 2015" value="" class="col-sm-6 form-control"/>
                                     </div>
                                   </form>
                                 </div>
                               </div>
                               <div class="modal-footer">
-                                <button type="button" id="photo_close" data-dismiss="modal" class="btn btn-secondary ">Close</button>
+                                <button type="button" id="photo_close" data-dismiss="modal" class="btn btn-primary ">Close</button>
                               </div>
                             </div>
                           </div>
@@ -903,8 +911,7 @@
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/tether/dist/js/tether.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="libs/Openlayers3.16.0/ol.js"></script>
-    <script src="../node_modules/flickrapi/browser/flickrapi.js"> </script><!-- endbuild -->
+    <script src="libs/Openlayers3.16.0/ol.js"></script><!-- endbuild -->
     <!-- build:js3 js/app.min.js -->
     <script src="js/map.js"></script>
     <script src="js/jquery.js"></script>

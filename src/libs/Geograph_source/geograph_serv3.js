@@ -2136,28 +2136,28 @@ function addFilter(facet,value,display,inclusive,skipautoload) {
    var classNmae = inclusive?'plus':'minus';
    $('#filterbar').append('<li id="filter'+idx+'" class="'+classNmae+' finger" onclick="toggleFilterInclusive('+idx+')" title="click to toggle positive/negative on this filter ('+facet+')"><a href="#" onclick="return deleteFilter('+idx+',event);" title="delete filter">&#215;</a><input type="checkbox" checked onclick="toggleFilterActive('+idx+',event)" title="click to toggle Enabled/Disabled on this filter"> '+display+'</li>');
 
-$('#filter'+idx).draggable({
-   revert: 'invalid',
-   opacity: .75,
-   containment: '#filterbar',
-   cursor: 'move',
-   cursorAt: { top: 35, left: 45 }
-});
-$('#filter'+idx).droppable({
-   drop: function(event, ui) {
-       mergeFilters(
-          parseInt($(this).attr('id').replace(/filter/,''),10),
-          parseInt(ui.draggable.attr('id').replace(/filter/,''),10),
-          false,
-          event
-       );
-   },
-   activeClass: 'isDroppable',
-   accept: function(target) {
-       targetIdx = parseInt(target.attr('id').replace(/filter/,''),10);
-       return (filters[targetIdx][F_FACET] == facet);
-   }
-});
+    $('#filter'+idx).draggable({
+       revert: 'invalid',
+       opacity: .75,
+       containment: '#filterbar',
+       cursor: 'move',
+       cursorAt: { top: 35, left: 45 }
+    });
+    $('#filter'+idx).droppable({
+       drop: function(event, ui) {
+           mergeFilters(
+              parseInt($(this).attr('id').replace(/filter/,''),10),
+              parseInt(ui.draggable.attr('id').replace(/filter/,''),10),
+              false,
+              event
+           );
+       },
+       activeClass: 'isDroppable',
+       accept: function(target) {
+           targetIdx = parseInt(target.attr('id').replace(/filter/,''),10);
+           return (filters[targetIdx][F_FACET] == facet);
+       }
+    });
 
    if (!skipautoload) {
       if (ctrlHeldDown) { // use a global, rather then e.ctrlKey, just to save having to be passed a event object

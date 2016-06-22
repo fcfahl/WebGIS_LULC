@@ -88,24 +88,30 @@ mixin photo_Modal()
     .photoModal
         div(class="modal fade"  id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true")
             div(class="modal-dialog" role="document")
-                div(class="modal-content  modal-sm")
+                div(class="modal-content")
                     div(class="modal-header")
                         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
                             span(aria-hidden="true") &times;
                         h2 Photo Search Parameters
                     div(class="modal-body")
-                        div(class="photoList col-xs-8 col-sm-8")
-                            form(class="form-inline")
-                                .form-group
-                                    label(for="photo_query") Search criteria
-                                    input(type="text" class="form-control" id="photo_query" placeholder="Search criteria")
-                                .form-group
-                                    label(for="photo_number") Max. points
-                                    input(type="text" class="form-control" id="photo_number")
-                        
+                        div(class="photoList")
+                            form
+                                .form-group.row
+                                    label(class="col-sm-5 form-control-label" for="photo_query") Photo text: 
+                                    input(type="text" class="col-sm-6 form-control" id="photo_query" placeholder="e.g. forest" value="")
+                                .form-group.row
+                                    label(class="col-sm-5 form-control-label" for="photo_tag") Photo tag:
+                                    input(type="text" class="col-sm-6 form-control" id="photo_tag" placeholder="e.g. outdoor" value="")
+                                .form-group.row
+                                    label(class="col-sm-5 form-control-label" for="photo_number") Number of photos (max=50):
+                                    input(type="text" class="col-sm-6 form-control" id="photo_number" placeholder="50" value="50")
+                                .form-group.row
+                                    label(class="col-sm-5 form-control-label" for="photo_year") Date of the photo (year):
+                                    input(type="text" class="col-sm-6 form-control" id="photo_year" placeholder="e.g. 2015" value="")
+                            
 
                     div(class="modal-footer")
-                        button(type="button" class="btn btn-secondary " id="photo_close" data-dismiss="modal") Close
+                        button(type="button" class="btn btn-primary " id="photo_close" data-dismiss="modal") Close
 
 mixin switch_button(name, ID)
 
