@@ -30,6 +30,7 @@
     "Leaflet.ZoomBox": "^0.2.0",
     "Leaflet.NavBar": "leaflet-navbar#^1.0.0",
     "leaflet-minimap": "^3.3.1",
-    "css-toggle-switch": "^4.0.2"
+    "css-toggle-switch": "^4.0.2",
+    "leaflet.markercluster": "^0.5.0"
   }
 }

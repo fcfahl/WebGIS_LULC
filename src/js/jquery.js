@@ -185,7 +185,11 @@ function remove_WMS(ID, obj) {
     $("#" + ID).remove();
 }
 
-function refresh_Photos () {
+function refresh_Photos (refresh_action) {
+
+    // update page number
+    $( "#page-number" ).html( "Page " + photo_Page)
+
 
     // check if panoraimo is on
     if ($('#btn_Pano').is(":checked")) {
@@ -239,7 +243,7 @@ function refresh_Photos () {
 function geotag_Photos () {
 
     // switch button
-    $('.switch_toogle').on('click', function(event) {
+    $('.switch-toogle').on('click', function(event) {
 
         var service_Name = this.value;
         var service_Photo = DB_photo[0][service_Name];
@@ -305,7 +309,46 @@ function get_BBOX () {
     return data;
 }
 
-// parse data
+function leaflet_Markers (service_Photo, service_Icon, group, lat, lon, img){
+
+    // create a leaflet popup frame
+    var popup = L.popup({
+        maxWidth: service_Photo.maxWidth,
+        maxHeight: service_Photo.maxHeight
+    }).setContent( img);
+
+    // create a leaflet marker
+    var marker = L.marker([lat, lon], {
+        icon: service_Icon
+    }).addTo(group);
+    marker.bindPopup(popup);
+
+    // var marker = L.markerClusterGroup([lat, lon], {
+    //     icon: service_Icon
+    // }).addTo(group);
+    // marker.bindPopup(popup);
+
+
+    // var markerClusters = L.markerClusterGroup();
+    //
+    // for ( var i = 0; i < markers.length; ++i )
+    // {
+    // var popup = markers[i].name +
+    //           '<br/>' + markers[i].city +
+    //           '<br/><b>IATA/FAA:</b> ' + markers[i].iata_faa +
+    //           '<br/><b>ICAO:</b> ' + markers[i].icao +
+    //           '<br/><b>Altitude:</b> ' + Math.round( markers[i].alt * 0.3048 ) + ' m' +
+    //           '<br/><b>Timezone:</b> ' + markers[i].tz;
+    //
+    // var m = L.marker( [markers[i].lat, markers[i].lng], {icon: myIcon} )
+    //               .bindPopup( popup );
+    //
+    // markerClusters.addLayer( m );
+    // }
+    //
+    // map.addLayer( markerClusters );
+}
+
 function parse_Photos (service_Name, service_Photo, action){
 
     // get photo search criteria values
@@ -373,14 +416,10 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
         // loop through the photos
         $.each(data_Photo.photos.photo, function() {
 
-            console.log("flickr response: ", this);
+            // console.log("flickr response: ", this);
 
-
-
-
-            var flickr_Year = Date.parse(this.datetaken)
-            console.log("flickr_Year: ", flickr_Year / 365);
-
+            // var flickr_Year = Date.parse(this.datetaken)
+            // console.log("flickr_Year: ", flickr_Year / 365);
 
             // create a html frame
             var photo_owner = service_Photo.url + this.owner ;
@@ -390,26 +429,23 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
             var photo_logo = '<img src=" ' +  service_Logo + '" ><br/>';
             var photo_title =  '<p>' + this.title + '</p><br/>';
 
-            var photo_ref =  '<a id="' + this.id + '" title="'+ this.title  + '" rel="pano" href="' + photo_url + '" target="_new">';
+            var photo_credits=  '<span>&copy;&nbsp;<a href="' + photo_owner + '" target="_new">'+ this.owner + "</a></span>";
+
+            if (this.description._content === "") {
+                var photo_caption =  '<p><span>Tags: ' + this.tags + '<br/>Taken on ' + this.datetaken  + '</span></p>';
+
+            } else {
+                var photo_caption=  '<p><span>Description: ' + this.description._content + '<br/>Tags: ' + this.tags + '<br/>Taken on ' + this.datetaken  + '</span></p>';
+            }
+
             var photo_img =  '<img src="'+ this.url_s + '" alt=' + this.title + photo_width + '/>';
+            var photo_ref =  '<a id="' + this.id + '" title="'+ this.title  + '" rel="pano" href="' + photo_url + '" target="_new">' + photo_img + '</a><br/>';
 
-            var photo_caption = '<span>&copy;&nbsp;<a href="' + photo_owner + '" target="_new">'+ this.owner + '</a><br/> Taken on '+ this.datetaken  + '</span>';
+            var img = "<div class=photo_frame>" + photo_logo + photo_title + photo_ref + photo_credits + photo_caption + "</div>";
 
-            var img = "<div class=photo_frame>" + photo_logo + photo_title + photo_ref + photo_img + '</a><br/>' + photo_caption + "</div>";
+            leaflet_Markers (service_Photo, service_Icon, group_Flickr, this.latitude, this.longitude, img);
 
-            // create a leaflet popup frame
-            var popup = L.popup({
-                maxWidth: service_Photo.maxWidth,
-                maxHeight: service_Photo.maxHeight
-            }).setContent( img);
-
-            // create a leaflet marker
-            var marker = L.marker([this.latitude, this.longitude], {
-                icon: service_Icon
-            }).addTo(group_Flickr);
-            marker.bindPopup(popup);
         });
-
 
 }
 
@@ -430,7 +466,7 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
             // create a new object if it is empty
             group_Flickr = L.featureGroup([]).addTo(map);
 
-            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key + "&text=" +  photo_Text + "&tags=" +  photo_Tag + "&per_page=" + photo_Number + "&min_taken_date=" + photo_Year + "&max_taken_date=" + photo_Year +1;
+            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key + "&text=" +  photo_Text + "&tags=" +  photo_Tag + "&per_page=" + photo_Number ;
 
             console.log(flickr_url);
 
@@ -464,26 +500,17 @@ function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Log
         var photo_logo = '<img src=" ' +  service_Logo + '" ><br/>';
         var photo_title =  '<p>' + this.photo_title + '</p><br/>';
 
-        var photo_ref =  '<a id="' + this.photo_id + '" title="'+this.photo_title  + '" rel="pano" href="' + this.photo_url + '" target="_new">';
+        var photo_credits=  '<span>&copy;&nbsp;<a href="' + this.owner_url + '" target="_new">'+ this.owner_name + "</a></span><br/><span>Photos provided by Panoramio are under the copyright of their owners</span>";
+        var photo_caption =  '<p><span>Tags: ' + this.tags + '<br/>Uploaded on ' +this.upload_date  + '</span></p>';
+
         var photo_img =  '<img src="'+ this.photo_file_url + '" alt=' + this.photo_title + photo_width + '/>';
+        var photo_ref =  '<a id="' + this.photo_id + '" title="'+ this.photo_title  + '" rel="pano" href="' + this.photo_url + '" target="_new">' + photo_img + '</a><br/>';
 
-        var photo_caption = '<span>&copy;&nbsp;<a href="' + this.owner_url + '" target="_new">'+ this.owner_name + '</a><br/> Uploaded on '+ this.upload_date + '</span>';
+        var img = "<div class=photo_frame>" + photo_logo + photo_title + photo_ref + photo_credits + photo_caption + "</div>";
 
-        var img = "<div class=photo_frame>" + photo_logo + photo_title + photo_ref + photo_img + '</a><br/>' + photo_caption + "</div>";
+        leaflet_Markers (service_Photo, service_Icon, group_Panoramio, this.latitude, this.longitude, img);
 
-        // create a leaflet popup frame
-        var popup = L.popup({
-            maxWidth: service_Photo.maxWidth,
-            maxHeight: service_Photo.maxHeight
-        }).setContent( img);
-
-        // create a marker
-        var marker = L.marker([this.latitude, this.longitude], {
-            icon: service_Icon
-        }).addTo(group_Panoramio);
-        marker.bindPopup(popup);
     });
-
 }
 
 function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
@@ -578,33 +605,20 @@ function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo
 
             var creativecommons = "http://creativecommons.org/licenses/by-sa/2.0/";
 
+            var photo_credits=  '<span>&copy;&nbsp;<a href="' + photo.imgserver + photo.profile_link  + '" target="_new">'+ photo.realname + '</a> and licensed for reuse under this <a href="' + creativecommons + '" target="CC"> Creative Commons Licence"</a></span>';
+            var photo_caption =  '<p><span>Tags: ' + photo.tags + '<br/>Taken on ' + photo.taken  + '</span></p>';
+
             var photo_link = "http://www.geograph.org.uk/photo/" + obj;
-            var photo_ref =  '<a id="' + obj + '" title="'+ photo.title + '" rel="pano" href="' + photo_link + '" target="_new">';
-            var photo_img =  '<img src="'+ photo.imgserver + photo.image + '" alt=' + photo.title + photo_width + '/>';
 
-            var photo_caption = '<span>&copy;&nbsp;<a href="' + photo.imgserver + photo.profile_link + '" target="_new">'+ photo.realname +'</a> and licensed for reuse under this <a href="' + creativecommons + '" target="CC"> Creative Commons Licence" </a><br/>Taken on '+ photo.taken + '</span>';
+            var photo_img =  '<img src="'+  photo.imgserver + photo.image + '" alt=' + photo.realname + photo_width + '/>';
+            var photo_ref =  '<a id="' + obj + '" title="'+ photo.title + '" rel="pano" href="' + photo_link + '" target="_new">' + photo_img + '</a><br/>';
 
-            var img = "<div class=photo_frame>" + photo_logo + photo_title + photo_ref + photo_img + '</a><br/>' + photo_caption + "</div>";
+            var img = "<div class=photo_frame>" + photo_logo + photo_title + photo_ref + photo_credits + photo_caption + "</div>";
 
-            // create a leaflet popup frame
-            var popup = L.popup({
-                maxWidth: service_Photo.maxWidth,
-                maxHeight: service_Photo.maxHeight
-            }).setContent(img);
-
-            // create a leaflet marker
-            var marker = L.marker([photo.wgs84_lat,photo.wgs84_long], {
-                icon: service_Icon
-            }).addTo(group_Geograph);
-            marker.bindPopup(popup);
-
-            console.log("img: ", photo);
+            leaflet_Markers (service_Photo, service_Icon, group_Geograph, photo.wgs84_lat, photo.wgs84_long, img);
 
         });
-
     });
-
-
 }
 
 function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
@@ -628,13 +642,11 @@ function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo,
 
         // var geograph_Select = "takenday,realname,title,grid_reference,wgs84_lat,wgs84_long,contexts,subjects,tags,place,county,country,placename_id"
         var geograph_Select = "*";
-        var geograph_Limit = 5;
+        var geograph_Limit = photo_Number;
 
-        var geograph_Geo="52.950583,-3.936389,2000";
+        // var geograph_Geo="52.950583,-3.936389,2000";
 
         var url_Geograph = "http://api.geograph.org.uk/api-facet.php?a=1&pretty=1&limit=" + geograph_Limit + "&bounds=" + data_BBOX.bbox_Geograph;
-
-
 
         console.log("url_Geograph ", url_Geograph);
 

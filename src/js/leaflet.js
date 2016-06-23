@@ -64,15 +64,28 @@ function leaflet_Control (LULC_layers) {
 
     // reflesh map on photo modal close
     $("#photo_close").on('click', function() {
-        refresh_Photos ();
+        refresh_Photos ("refresh");
     });
 
+    // change the photo pages
+    $("#bt-page-back").on('click', function() {
+        photo_Page -= 1
+        if (photo_Page<1){
+            photo_Page = 1
+        }
+        refresh_Photos ("backward");
+    });
+
+    $("#bt-page-forw").on('click', function() {
+        photo_Page += 1
+        refresh_Photos ("forward");
+    });
 
 }
 
 function map_Layers () {
 
-    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch_toogle)", function(event) {
+    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch-toogle)", function(event) {
 
         var layerClicked = window[event.target.value];
 

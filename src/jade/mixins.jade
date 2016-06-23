@@ -57,11 +57,26 @@ mixin accorde(section,group)
             .custom_Layers
 
         if group == 'geotag'
-            +switch_button("Flickr", "btn_Flick") 
-            +switch_button("Panoramio", "btn_Pano") 
-            +switch_button("Geograph", "btn_Geog") 
-            button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
-                i(class="fa fa-cogs" aria-hidden="true")
+            div(class="switch-buttons")
+                +switch_button("Flickr", "btn_Flick") 
+                +switch_button("Panoramio", "btn_Pano") 
+                +switch_button("Geograph", "btn_Geog") 
+                
+
+            div(class="photo-control")
+                div(class="page-buttons")
+                    div(class="photo-page-back")
+                        button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-back")
+                            i(class="fa fa-backward" aria-hidden="true")
+                    div(class="photo-page-text" id="page-number")
+                        spam Page 1
+                    div(class="photo-page-forw")
+                        button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-forw")
+                            i(class="fa fa-forward" aria-hidden="true")
+                    div(class="photo-settings")
+                        button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
+                            i(class="fa fa-cogs" aria-hidden="true")
+        
 
             +photo_Modal
             
@@ -98,16 +113,16 @@ mixin photo_Modal()
                             form
                                 .form-group.row
                                     label(class="col-sm-5 form-control-label" for="photo_query") Photo text: 
-                                    input(type="text" class="col-sm-6 form-control" id="photo_query" placeholder="e.g. forest" value="")
+                                    input(type="text" class="col-sm-6 form-control" id="photo_query" placeholder="free text search on title, description and tags" value="")
                                 .form-group.row
                                     label(class="col-sm-5 form-control-label" for="photo_tag") Photo tag:
-                                    input(type="text" class="col-sm-6 form-control" id="photo_tag" placeholder="e.g. outdoor" value="")
+                                    input(type="text" class="col-sm-6 form-control" id="photo_tag" placeholder="comma-delimited list of tags" value="")
                                 .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_number") Number of photos (max=50):
-                                    input(type="text" class="col-sm-6 form-control" id="photo_number" placeholder="50" value="50")
+                                    label(class="col-sm-5 form-control-label" for="photo_number") Number of photos:
+                                    input(type="text" class="col-sm-6 form-control" id="photo_number" placeholder="max=50" value="")
                                 .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_year") Date of the photo (year):
-                                    input(type="text" class="col-sm-6 form-control" id="photo_year" placeholder="e.g. 2015" value="")
+                                    label(class="col-sm-5 form-control-label" for="photo_year") Year of the photo:
+                                    input(type="text" class="col-sm-6 form-control" id="photo_year" placeholder="" value="")
                             
 
                     div(class="modal-footer")
@@ -115,9 +130,9 @@ mixin photo_Modal()
 
 mixin switch_button(name, ID)
 
-    .switch_photo
+    .switch-photo
         label.switch-light(onclick="" )
-            input(class="switch_toogle" type="checkbox" id=ID value=name) 
+            input(class="switch-toogle" type="checkbox" id=ID value=name) 
             strong #{name}
 
             span.well

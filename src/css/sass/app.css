@@ -52,19 +52,56 @@ html, body {
               align-items: left; }
           html .container-fluid #main #side .pannel #geotag, body .container-fluid #main #side .pannel #geotag {
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             align-content: space-around; }
-            html .container-fluid #main #side .pannel #geotag .switch_photo, body .container-fluid #main #side .pannel #geotag .switch_photo {
-              padding: 0 10px;
+            html .container-fluid #main #side .pannel #geotag .switch-buttons, body .container-fluid #main #side .pannel #geotag .switch-buttons {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
               align-items: center;
-              height: 45px;
-              width: 80px; }
-            html .container-fluid #main #side .pannel #geotag #photo_submit, body .container-fluid #main #side .pannel #geotag #photo_submit {
-              padding: 0 5px; }
-            html .container-fluid #main #side .pannel #geotag span, body .container-fluid #main #side .pannel #geotag span {
-              font-size: 0.9em; }
+              align-content: space-around; }
+              html .container-fluid #main #side .pannel #geotag .switch-buttons .switch-photo, body .container-fluid #main #side .pannel #geotag .switch-buttons .switch-photo {
+                padding: 0 10px;
+                align-items: center;
+                height: 45px;
+                width: 80px; }
+              html .container-fluid #main #side .pannel #geotag .switch-buttons #photo_submit, body .container-fluid #main #side .pannel #geotag .switch-buttons #photo_submit {
+                padding: 0 5px; }
+              html .container-fluid #main #side .pannel #geotag .switch-buttons span, body .container-fluid #main #side .pannel #geotag .switch-buttons span {
+                font-size: 0.9em; }
+            html .container-fluid #main #side .pannel #geotag .photo-control, body .container-fluid #main #side .pannel #geotag .photo-control {
+              padding-top: 10px; }
+              html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                align-content: space-around; }
+                html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-page-back, html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-page-forw, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-page-back, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-page-forw {
+                  padding: 0 5px; }
+                html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-page-text, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-page-text {
+                  margin: 0;
+                  flex-grow: 1;
+                  border-style: solid;
+                  border-width: 1px;
+                  border-color: #969696;
+                  align-items: center;
+                  height: 25px;
+                  font-size: 12px;
+                  text-align: center;
+                  vertical-align: middle;
+                  line-height: 25px; }
+                html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-settings, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .photo-settings {
+                  padding: 0 5px;
+                  margin-right: 5px; }
+                html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .btn, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .btn {
+                  border: 0; }
+                html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .btn-secondary-outline, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .btn-secondary-outline {
+                  color: black; }
+                html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-cogs, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-cogs {
+                  font-size: 1.2em; }
+                html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-backward, html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-forward, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-backward, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-forward {
+                  font-size: 0.8em; }
         html .container-fluid #main #side .settings, body .container-fluid #main #side .settings {
           display: flex;
           flex-direction: column;
@@ -83,7 +120,11 @@ html, body {
             margin: 0;
             font-size: bold; }
           html .container-fluid #main #map .photo_frame span, body .container-fluid #main #map .photo_frame span {
-            color: black; }
+            color: black;
+            font-size: 12px; }
+      html .container-fluid #main ::-webkit-input-placeholder, body .container-fluid #main ::-webkit-input-placeholder {
+        font-size: 12px;
+        text-align: left; }
     html .container-fluid footer, body .container-fluid footer {
       height: 15px; }
 

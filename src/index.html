@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="bower_components/leaflet-minimap/dist/Control.MiniMap.min.css"/>
     <link rel="stylesheet" type="text/css" href="libs/Leaflet-IconLayers-master/src/iconLayers.css"/>
     <link rel="stylesheet" type="text/css" href="libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/leaflet.markercluster/dist/MarkerCluster.css"/>
     
     
     <link rel="stylesheet" type="text/css" href="css/sass/app.css"/>
@@ -32,7 +33,8 @@
     <script src="libs/Leaflet-IconLayers-master/src/providers.js"> </script>
     <script src="libs/Leaflet-IconLayers-master/src/iconLayers.js"> </script>
     <script src="libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js"> </script>
-    <script src="libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js"> </script><!-- endbuild -->
+    <script src="libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js"> </script>
+    <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"> </script><!-- endbuild -->
   </head>
   <body>
     <div class="container-fluid">
@@ -116,22 +118,39 @@
                   <div class="group">
                     <h3>Photo Services</h3>
                     <div id="geotag">
-                      <div class="switch_photo">
-                        <label onclick="" class="switch-light">
-                          <input type="checkbox" id="btn_Flick" value="Flickr" class="switch_toogle"/><strong>Flickr</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
-                        </label>
+                      <div class="switch-buttons">
+                        <div class="switch-photo">
+                          <label onclick="" class="switch-light">
+                            <input type="checkbox" id="btn_Flick" value="Flickr" class="switch-toogle"/><strong>Flickr</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                          </label>
+                        </div>
+                        <div class="switch-photo">
+                          <label onclick="" class="switch-light">
+                            <input type="checkbox" id="btn_Pano" value="Panoramio" class="switch-toogle"/><strong>Panoramio</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                          </label>
+                        </div>
+                        <div class="switch-photo">
+                          <label onclick="" class="switch-light">
+                            <input type="checkbox" id="btn_Geog" value="Geograph" class="switch-toogle"/><strong>Geograph</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
+                          </label>
+                        </div>
                       </div>
-                      <div class="switch_photo">
-                        <label onclick="" class="switch-light">
-                          <input type="checkbox" id="btn_Pano" value="Panoramio" class="switch_toogle"/><strong>Panoramio</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
-                        </label>
+                      <div class="photo-control">
+                        <div class="page-buttons">
+                          <div class="photo-page-back">
+                            <button type="button" id="bt-page-back" class="btn btn-secondary-outline btn-sm"><i aria-hidden="true" class="fa fa-backward"></i></button>
+                          </div>
+                          <div id="page-number" class="photo-page-text">
+                            <spam>Page 1</spam>
+                          </div>
+                          <div class="photo-page-forw">
+                            <button type="button" id="bt-page-forw" class="btn btn-secondary-outline btn-sm"><i aria-hidden="true" class="fa fa-forward"></i></button>
+                          </div>
+                          <div class="photo-settings">
+                            <button type="button" data-toggle="modal" data-target="#modalPhoto" id="photo_submit" class="btn btn-secondary-outline btn-sm"><i aria-hidden="true" class="fa fa-cogs"></i></button>
+                          </div>
+                        </div>
                       </div>
-                      <div class="switch_photo">
-                        <label onclick="" class="switch-light">
-                          <input type="checkbox" id="btn_Geog" value="Geograph" class="switch_toogle"/><strong>Geograph</strong><span class="well"><span>Off</span><span>On</span><a class="btn btn-primary"></a></span>
-                        </label>
-                      </div>
-                      <button type="button" data-toggle="modal" data-target="#modalPhoto" id="photo_submit" class="btn btn-secondary-outline btn-sm"><i aria-hidden="true" class="fa fa-cogs"></i></button>
                       <div class="photoModal">
                         <div id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true" class="modal fade">
                           <div role="document" class="modal-dialog">
@@ -145,19 +164,19 @@
                                   <form>
                                     <div class="form-group row">
                                       <label for="photo_query" class="col-sm-5 form-control-label">Photo text: </label>
-                                      <input type="text" id="photo_query" placeholder="e.g. forest" value="" class="col-sm-6 form-control"/>
+                                      <input type="text" id="photo_query" placeholder="free text search on title, description and tags" value="" class="col-sm-6 form-control"/>
                                     </div>
                                     <div class="form-group row">
                                       <label for="photo_tag" class="col-sm-5 form-control-label">Photo tag:</label>
-                                      <input type="text" id="photo_tag" placeholder="e.g. outdoor" value="" class="col-sm-6 form-control"/>
+                                      <input type="text" id="photo_tag" placeholder="comma-delimited list of tags" value="" class="col-sm-6 form-control"/>
                                     </div>
                                     <div class="form-group row">
-                                      <label for="photo_number" class="col-sm-5 form-control-label">Number of photos (max=50):</label>
-                                      <input type="text" id="photo_number" placeholder="50" value="50" class="col-sm-6 form-control"/>
+                                      <label for="photo_number" class="col-sm-5 form-control-label">Number of photos:</label>
+                                      <input type="text" id="photo_number" placeholder="max=50" value="" class="col-sm-6 form-control"/>
                                     </div>
                                     <div class="form-group row">
-                                      <label for="photo_year" class="col-sm-5 form-control-label">Date of the photo (year):</label>
-                                      <input type="text" id="photo_year" placeholder="e.g. 2015" value="" class="col-sm-6 form-control"/>
+                                      <label for="photo_year" class="col-sm-5 form-control-label">Year of the photo:</label>
+                                      <input type="text" id="photo_year" placeholder="" value="" class="col-sm-6 form-control"/>
                                     </div>
                                   </form>
                                 </div>

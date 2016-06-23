@@ -83,26 +83,72 @@ html, body
 
                     #geotag
                         display: flex
-                        flex-direction: row
-                        justify-content: center
-                        align-items: center
+                        flex-direction: column
                         align-content: space-around
 
-                        .switch_photo
-                            padding: 0 10px
+                        .switch-buttons
+                            display: flex
+                            flex-direction: row
+                            justify-content: center
                             align-items: center
-                            height: $heightSettings
-                            width: 80px
-                            // font-size: 0.4em
+                            align-content: space-around
 
-                        #photo_submit
-                            padding: 0 5px
+                            .switch-photo
+                                padding: 0 10px
+                                align-items: center
+                                height: $heightSettings
+                                width: 80px
+                                // font-size: 0.4em
 
-                        span
-                            font-size: 0.9em
+                            #photo_submit
+                                padding: 0 5px
+
+                            span
+                                font-size: 0.9em
+
+                        .photo-control
+                            padding-top: 10px
 
 
+                            .page-buttons
+                                display: flex
+                                flex-direction: row
+                                justify-content: center
+                                align-items: center
+                                align-content: space-around
 
+                                .photo-page-back, .photo-page-forw
+                                    padding: 0 5px
+
+                                .photo-page-text
+                                    margin: 0
+                                    flex-grow: 1
+                                    border-style: solid
+                                    border-width: 1px
+                                    border-color: rgb(150,150,150)
+                                    align-items: center
+                                    height: 25px
+                                    font-size: 12px
+                                    text-align: center
+                                    vertical-align: middle
+                                    line-height: 25px
+
+                                .photo-settings
+                                    padding: 0 5px
+                                    margin-right: 5px
+
+                                .btn
+                                    border: 0
+                                    // height: 15px
+
+                                .btn-secondary-outline
+                                    color: black
+
+                                .fa-cogs
+                                    font-size: 1.2em
+
+                                .fa-backward, .fa-forward
+                                    font-size: 0.8em
                 .settings
                     display: flex
                     flex-direction: column
@@ -124,12 +170,17 @@ html, body
                     p
                         color: red
                         font-size: 14px
-                        padding: 12px 0 0 0 
+                        padding: 12px 0 0 0
                         margin: 0
                         font-size: bold
 
                     span
                         color: black
+                        font-size: 12px
+
+            ::-webkit-input-placeholder
+                font-size: 12px
+                text-align: left
 
 
         footer
