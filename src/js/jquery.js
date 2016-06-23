@@ -466,7 +466,7 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
             // create a new object if it is empty
             group_Flickr = L.featureGroup([]).addTo(map);
 
-            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key + "&text=" +  photo_Text + "&tags=" +  photo_Tag + "&per_page=" + photo_Number ;
+            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key + "&text=" +  photo_Text + "&tags=" +  photo_Tag + "&per_page=" + photo_Number + "&page=" + photo_Page;
 
             console.log(flickr_url);
 
@@ -478,7 +478,6 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
                     data: parms_Photo
                 })
             ).then(function( response ) {
-                // var  data_Photo = response;
                 display_Flickr(response, service_Photo, service_Icon, service_Logo);
             });
 
