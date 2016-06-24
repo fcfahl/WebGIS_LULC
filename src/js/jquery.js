@@ -302,8 +302,10 @@ function get_BBOX () {
         "maxy": maxy,
         "bbox": minx + "," + miny + "," +  maxx + "," + maxy,
         "bbox_Geograph": miny + "," + minx + "," +  maxy + "," + maxx,
+        "bbox_Panoramio": {'sw': {'lat': + miny, 'lng': + minx }, 'ne': {'lat':  + maxy , 'lng': + maxx }},
         "lat": center.lat,
         "lon": center.lng
+
     };
 
     return data;
@@ -416,10 +418,7 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
         // loop through the photos
         $.each(data_Photo.photos.photo, function() {
 
-            console.log("flickr response: ", this);
-
-            // var flickr_Year = Date.parse(this.datetaken)
-            // console.log("flickr_Year: ", flickr_Year / 365);
+            // console.log("flickr response: ", this);
 
             // create a html frame
             var photo_owner = service_Photo.url + this.owner ;
@@ -451,11 +450,20 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
 
 function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
 
+        // define date search criteria
+        var search_Date = ";"
+        if (photo_Year) {
+            var photo_Year_start = "1/1/" + photo_Year;
+            var photo_Year_end = "12/31/" + photo_Year;
 
-        var d = new Date(photo_Year)
-        var d2 = Date.parse(d)
+            var date_Start = new Date(photo_Year_start).getTime() / 1000;
+            var date_End = new Date(photo_Year_end).getTime() / 1000;
 
-        console.log("year: ", d2);
+            console.log("date_Start: ", date_Start);
+            console.log("date_End: ", date_End);
+
+            search_Date = '&min_taken_date=' + date_Start + '&max_taken_date=' + date_End;
+        }
 
         // get boundary coordinates
         var data_BBOX = get_BBOX();
@@ -466,7 +474,7 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
             // create a new object if it is empty
             group_Flickr = L.featureGroup([]).addTo(map);
 
-            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key   + "&per_page=" + photo_Number + "&page=" + photo_Page + "&text=" +  photo_Text; + "&tags=" +  photo_Tag;;
+            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key   + "&per_page=" + photo_Number + "&page=" + photo_Page + search_Date + "&text=" +  photo_Text; + "&tags=" +  photo_Tag ;
 
             console.log(flickr_url);
 
@@ -489,7 +497,7 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
 
 function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Logo){
 
-        // console.log("data_Photo", data_Photo);
+        console.log("data_Photo", data_Photo);
 
     // loop through the photos
     $.each(data_Photo.photos, function() {
@@ -538,6 +546,19 @@ function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo
     // get boundary coordinates
     var data_BBOX = get_BBOX();
 
+    var myRequest = {
+    //   'tag': photo_Tag,
+      'rect': data_BBOX.bbox_Panoramio
+    };
+
+    var myOptions = {
+      'width': 300,
+      'height': 200
+    };
+
+    var widget = new panoramio.PhotoListWidget('a', myRequest, myOptions);
+    console.log( "widget: ", widget.getPhotos() );
+
     // check if the obect is empty
     if( group_Panoramio === "" || action === 'zoom') {
 
@@ -547,7 +568,7 @@ function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo
         // create Panoraimo URL
         var url_Panoraimo = service_Photo.url + pTag + pN + "&minx=" + data_BBOX.minx + "&miny=" + data_BBOX.miny + "&maxx=" + data_BBOX.maxx + "&maxy=" + data_BBOX.maxy + "&size=small&mapfilter=true&callback=?";
 
-        console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
+        // console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
 
         // parse the Panoraimo data
         $.when ( $.ajax ({
@@ -559,6 +580,7 @@ function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo
                 // Tell YQL what we want and that we want JSON
                 data: {
                     tag: pTag,
+                    upload_date: photo_Year,
                     format: "json",
                 },
             })
@@ -614,7 +636,21 @@ function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo
             var creativecommons = "http://creativecommons.org/licenses/by-sa/2.0/";
 
             var photo_credits=  '<span>&copy;&nbsp;<a href="' + photo.imgserver + photo.profile_link  + '" target="_new">'+ photo.realname + '</a> and licensed for reuse under this <a href="' + creativecommons + '" target="CC"> Creative Commons Licence"</a></span>';
-            var photo_caption =  '<p><span>Tags: ' + photo.tags + '<br/>Taken on ' + photo.taken  + '</span></p>';
+
+            // clean tags
+            var clean_Tags = "";
+            if (photo.tags){
+
+                var clean_Split =  photo.tags.split('?');
+                clean_Tags = "Tags: ";
+
+                for ( i = 0; i < clean_Split.length; i++) {
+                    if (clean_Split[i].startsWith("top:"))
+                        clean_Tags += clean_Split[i].replace(/top:/ig, " ") + "; ";
+                }
+            }
+
+            var photo_caption =  '<p><span>' + clean_Tags + '<br/>Taken on ' + photo.taken  + '</span></p>';
 
             var photo_link = "http://www.geograph.org.uk/photo/" + obj;
 

@@ -294,8 +294,8 @@
                 },
                 "Panoramio":
                 {
-                    "url": "http://www.panoramio.com/map/get_panoramas.php?set=",
-                    "rest": "",
+                    "url": "http://www.panoramio.com/wapi/wapi.js?v=1",
+                    "rest": "http://www.panoramio.com/map/get_panoramas.php?set=",
                     "key": "",
                     "method": "",
                     "has_geo": "",
