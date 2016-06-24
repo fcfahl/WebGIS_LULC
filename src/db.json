@@ -324,7 +324,7 @@
                     "format": "JSON",
                     "jsoncallback": "jsonp",
                     "logo": "http://s1.geograph.org.uk/templates/basic/img/logo.gif",
-                    "marker": "img/icons/circle.svg",
+                    "marker": "img/icons/circle.png",
                     "maxWidth": "600",
                     "maxHeight": "800"
                 }
