@@ -43,6 +43,7 @@ $( document ).ready(function() {
         html_Design (layers_ID);
         leaflet_Control (layers_ID);
         WMS_Layers (DB_WMS[0], DB_services[0], layers_ID, layers_Styles, layers_Workspaces);
+        WFS_Parse();
         WMS_Custom ();
         geotag_Photos ();
 

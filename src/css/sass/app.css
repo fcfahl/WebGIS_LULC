@@ -102,6 +102,16 @@ html, body {
                   font-size: 1.2em; }
                 html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-backward, html .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-forward, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-backward, body .container-fluid #main #side .pannel #geotag .photo-control .page-buttons .fa-forward {
                   font-size: 0.8em; }
+            html .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer, body .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer {
+              display: flex;
+              flex-direction: row; }
+              html .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer .col-1, body .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer .col-1 {
+                flex-grow: 1;
+                text-align: left;
+                vertical-align: middle;
+                font-size: 0.9em; }
+              html .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer .col-2, body .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer .col-2 {
+                padding: 0 10px; }
         html .container-fluid #main #side .settings, body .container-fluid #main #side .settings {
           display: flex;
           flex-direction: column;

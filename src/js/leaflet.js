@@ -69,15 +69,15 @@ function leaflet_Control (LULC_layers) {
 
     // change the photo pages
     $("#bt-page-back").on('click', function() {
-        photo_Page -= 1
+        photo_Page -= 1;
         if (photo_Page<1){
-            photo_Page = 1
+            photo_Page = 1;
         }
         refresh_Photos ("backward");
     });
 
     $("#bt-page-forw").on('click', function() {
-        photo_Page += 1
+        photo_Page += 1;
         refresh_Photos ("forward");
     });
 
@@ -144,173 +144,58 @@ function WMS_Layers (DB_WMS, DB_Service, layers, styles, workspaces) {
     });
 }
 
+function getJson (data){
+        console.log("getJson ",data);
+}
 
+function WFS_Parse () {
 
-function WFS_Layers () {
+        var geojsonLayer = new L.GeoJSON();
 
-    //   WFS Implementation
-      //
-      var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
-
-      var defaultParameters = {
-          service : 'WFS',
-          version : '2.0.0',
-          request : 'GetFeature',
-          typeName : 'LULC:paris',
-          outputFormat : 'text/javascript',
-          format_options : 'callback:getJson',
-          SrsName : 'EPSG:3035'
-      };
-
-    //
-    // var Atlas_06 = L.tileLayer.wms(server, {
-    //     layers: 'LULC:Atlas_06',
-    //     format: 'image/png',
-    //     transparent: true,
-    //     version: '1.3.0',
-    //     tiled:true,
-    //     zIndex: "28",
-    //     minZoom: 8
-    // });
-    //
-
-    //     var polyStyle = {
-    //     "color": "#ffffff",
-    //     "weight": 0,
-    //     "fillOpacity": 0.75
-    // };
-    //
-    //
-    var geojsonLayer = new L.GeoJSON();
-
-          function getJson(data) {
-              console.log(data);
-              geojsonLayer.addData(data, {style: polyStyle});
-          }
-
-          $.ajax({
-              url: "http://localhost:8080/geoserver/LULC/ows?service=WFS&version=2.0.0&request=GetFeature&typeName=LULC:NUTS0&maxFeatures=50&outputFormat=json&format_options=callback:getJson",
-              dataType: 'json',
-              jsonpCallback: 'getJson',
-              success: getJson
-          });
-
-          map.addLayer(geojsonLayer);
-
-
-
-
-    function onEachFeature(feature, layer) {
-    // does this feature have a property named dz?
-    if (feature.properties && feature.properties.Country) {
-        layer.bindPopup(feature.properties.Country);
-    }
-    layer.on({
-                    //mouseover: highlightFeature,
-                    //mouseout: resetHighlight,
-                    click: clickfunction
-                });
-    }
-
-
-
-
-
-
-
-    // console.log (URL)
-
-
-
-
-
-    // Create an empty layer where we will load the polygons
-        var featureLayer = new L.GeoJSON();
-        // Set a default style for out the polygons will appear
-        var defaultStyle = {
-            color: "#2262CC",
-            weight: 2,
-            opacity: 0.6,
-            fillOpacity: 0.1,
-            fillColor: "#2262CC"
+        var WMS_style = {
+                "clickable": true,
+                "color": "#ff3333" ,
+                "fillColor": "#734d26",
+                "weight": 1.0,
+                "opacity": 0.6,
+                "fillOpacity": 0.3
         };
-        // Define what happens to each polygon just before it is loaded on to
-        // the map. This is Leaflet's special way of goofing around with your
-        // data, setting styles and regulating user interactions.
-        var onEachFeature = function(feature, layer) {
-            // All we're doing for now is loading the default style.
-            // But stay tuned.
-            layer.setStyle(defaultStyle);
-        };
-        // Add the GeoJSON to the layer. `boundaries` is defined in the external
-        // GeoJSON file that I've loaded in the <head> of this HTML document.
 
+        function display_Json(data) {
 
-
+                L.geoJson(data, {
+                        style: WMS_style
+                }).addTo(map);
+        }
 
 
         var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
 
         var defaultParameters = {
-            service : 'WFS',
-            version : '1.0.0',
-            request : 'GetFeature',
-            typeName : 'LULC:NUTS0',
-            outputFormat : 'text/javascript',
-            format_options : 'callback:getJson',
-            SrsName : 'EPSG:3035'
+                service : 'WFS',
+                version : '1.0.0',
+                request : 'GetFeature',
+                typeName : 'LULC:paris',
+                outputFormat : 'text/javascript',
+                format_options : 'callback:getJson',
+                SrsName : 'EPSG:4326'
         };
 
         var parameters = L.Util.extend(defaultParameters);
         var URL = owsrootUrl + L.Util.getParamString(parameters);
 
-        function getJson(data) {
-            // console.log(data)
-            var featureLayer = L.geoJson(data, {
-                // And link up the function to run when loading each feature
-                onEachFeature: onEachFeature
-            });
-        }
-
-        // Finally, add the layer to the map.
-        map.addLayer(featureLayer);
-
-        $.ajax({
-            url: URL,
-            dataType: 'jsonp',
-            jsonpCallback: 'getJson',
-            success: getJson
+        // parse the WFS data
+         $.ajax ({
+                type: 'GET',
+                url: URL,
+                dataType: 'jsonp',
+                cache: true,
+                async: true,
+                format: "text/javascript",
+                jsonpCallback: 'getJson',
+                success: display_Json
         });
 
-        var parameters = L.Util.extend(defaultParameters);
-
-        var URL = owsrootUrl + L.Util.getParamString(parameters);
-
-        var ajax = $.ajax({
-            url : URL,
-            dataType : 'jsonp',
-            jsonpCallback : 'parseResponse',
-            success : WFSLayer
-        });
-
-        function WFSLayer(data) {
-
-        var fuffi= L.geoJson(data, {
-        style: function (feature) {
-            return {color: 'black',
-                fillColor: '#ff0000',
-                fillOpacity: 0.10};
-            }
-        }).addTo(map);
-
-         // loading indicator end
-         currentControl.removeClass('disabled');
-                        text.css('visibility', 'visible');
-                        indicator.css('display', 'none');
-            loadMore.fadeOut(2500);
-        // loading indicator end
-        map.fitBounds(fuffi.getBounds());
-        }
 
 
 }

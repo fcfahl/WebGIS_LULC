@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet GeoJSON Example</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+</head>
+<body>
+	<div id="map" style="width: 600px; height: 400px"></div>
+
+	<!-- <script src="sample-geojson.js" type="text/javascript"></script> -->
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+	<script>
+      // / zoom configuration
+      var   southWest = L.latLng(31, -17.5),
+           northEast = L.latLng(72, 45),
+           centerView= L.latLng(56, 20),
+           zoomLevel = 4;
+
+      map = L.map('map').setView(centerView, zoomLevel);
+      map.fitBounds([southWest, northEast]);
+
+      var myStyle = {
+              "clickable": true,
+              "color": "#ff3333" ,
+              "fillColor": "#734d26",
+              "weight": 1.0,
+              "opacity": 0.6,
+              "fillOpacity": 0.3
+          };
+
+      //     var geojsonLayer = new L.GeoJSON({
+      //         style: style
+      //     }).addTo(map);
+
+
+
+
+          function handleJson(data) {
+            console.log(JSON.stringify(data))
+            // geojsonLayer.addData(JSON.parse(JSON.stringify(data)));
+
+      //       var geojsonLayer = new L.geoJson( data, {
+      //             "type": "MultiPolygon",
+      //             style: myStyle
+      //      }).addTo(map);
+
+           var geojsonFeature = {
+               "type": "Feature",
+               "geometry": {
+                     "type": "MultiPolygon",
+                       "coordinates": [
+                         [[[0, 0], [20, 0], [20, 20], [0, 20], [0, 0]]],
+                         [[[40, 40], [60, 40], [60, 60], [40, 60], [40, 40]],
+                          [[60, 60], [60, 80], [80, 80], [80, 60], [60, 60]]]
+                         ]
+
+                  }
+           };
+           L.geoJson(geojsonFeature, {
+              style: myStyle
+          }).addTo(map);
+
+          L.geoJson(data, {
+             style: myStyle
+         }).addTo(map);
+
+          }
+
+
+
+
+          var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
+
+          var defaultParameters = {
+                  service : 'WFS',
+                  version : '1.0.0',
+                  request : 'GetFeature',
+                  typeName : 'LULC:france',
+                  outputFormat : 'text/javascript',
+                  format_options : 'callback:getJson',
+                  SrsName : 'EPSG:4326'
+          };
+
+          var parameters = L.Util.extend(defaultParameters);
+          var URL = owsrootUrl + L.Util.getParamString(parameters);
+
+          // parse the WFS data
+           $.ajax ({
+                  type: 'GET',
+                  url: URL,
+                  dataType: 'jsonp',
+                  cache: true,
+                  async: true,
+                  format: "application/json",
+                  jsonpCallback: 'getJson',
+                  success: handleJson
+          });
+
+      //     map.addLayer(geojsonLayer);
+
+
+
+
+	</script>
+</body>
+</html>

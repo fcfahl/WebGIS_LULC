@@ -27,7 +27,7 @@ html(lang="en")
         +addCSS('leaflet-minimap/dist/Control.MiniMap.min.css', "bower")
         +addCSS('libs/Leaflet-IconLayers-master/src/iconLayers.css')
         +addCSS('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css')
-        +addCSS('leaflet.markercluster/dist/MarkerCluster.css', "bower") 
+        //- +addCSS('leaflet.markercluster/dist/MarkerCluster.css', "bower") 
         //- <!-- endbuild -->
 
 
@@ -52,8 +52,10 @@ html(lang="en")
 
         +addPlugin('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js')    
         +addPlugin('libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js')    
+        +addPlugin('libs/leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js')    
+        //- +addPlugin('libs/Leaflet-WFST-master/dist/Leaflet-WFST.min.js')    
 
-        +addPlugin('leaflet.markercluster/dist/leaflet.markercluster.js', "bower")   
+        //- +addPlugin('leaflet.markercluster/dist/leaflet.markercluster.js', "bower")   
 
         <!-- endbuild -->
 
@@ -108,7 +110,7 @@ html(lang="en")
         script(src="bower_components/tether/dist/js/tether.js")
         script(src="bower_components/bootstrap/dist/js/bootstrap.js")
         script(src="libs/Openlayers3.16.0/ol.js")
-        script(src="http://www.panoramio.com/wapi/wapi.js?v=1")
+        //- script(src="http://www.panoramio.com/wapi/wapi.js?v=1")
         //- script(src="../node_modules/flickrapi/browser/flickrapi.js") 
         <!-- endbuild -->
 

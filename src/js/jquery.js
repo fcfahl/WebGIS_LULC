@@ -9,7 +9,7 @@ function html_Design (LULC_layers) {
         header: "> div > h3",
         heightStyle: "content",
         collapsible: true,
-        active: 2,
+        active: 1,
         icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" },
     })
     .sortable({
@@ -188,14 +188,14 @@ function remove_WMS(ID, obj) {
 function refresh_Photos (refresh_action) {
 
     // update page number
-    $( "#page-number" ).html( "Page " + photo_Page)
+    $( "#page-number" ).html( "Page " + photo_Page);
 
 
     // check if panoraimo is on
     if ($('#btn_Pano').is(":checked")) {
 
-        var service_Name = "Panoramio";
-        var service_Photo = DB_photo[0][service_Name];
+        service_Name = "Panoramio";
+        service_Photo = DB_photo[0][service_Name];
 
         if (map.hasLayer(group_Panoramio)) {
             map.removeLayer(group_Panoramio);
@@ -210,8 +210,8 @@ function refresh_Photos (refresh_action) {
     // check if Flickr is on
     if ($('#btn_Flick').is(":checked")) {
 
-        var service_Name = "Flickr";
-        var service_Photo = DB_photo[0][service_Name];
+        service_Name = "Flickr";
+        service_Photo = DB_photo[0][service_Name];
 
         if (map.hasLayer(group_Flickr)) {
             map.removeLayer(group_Flickr);
@@ -226,8 +226,8 @@ function refresh_Photos (refresh_action) {
     // check if Geograph is on
     if ($('#btn_Geog').is(":checked")) {
 
-        var service_Name = "Geograph";
-        var service_Photo = DB_photo[0][service_Name];
+        service_Name = "Geograph";
+        service_Photo = DB_photo[0][service_Name];
 
         if (map.hasLayer(group_Geograph)) {
             map.removeLayer(group_Geograph);
@@ -302,10 +302,9 @@ function get_BBOX () {
         "maxy": maxy,
         "bbox": minx + "," + miny + "," +  maxx + "," + maxy,
         "bbox_Geograph": miny + "," + minx + "," +  maxy + "," + maxx,
-        "bbox_Panoramio": {'sw': {'lat': + miny, 'lng': + minx }, 'ne': {'lat':  + maxy , 'lng': + maxx }},
+        "bbox_Panoramio": "&minx=" + minx + "&miny=" + miny + "&maxx=" + maxx + "&maxy=" + maxy,
         "lat": center.lat,
         "lon": center.lng
-
     };
 
     return data;
@@ -359,23 +358,10 @@ function parse_Photos (service_Name, service_Photo, action){
     photo_Number = $("#photo_number").val();
     photo_Year = $("#photo_year").val();
 
-    console.log("photo_Text: ", photo_Text, " photo_Tag: ", photo_Tag, " photo_Number: ", photo_Text, " photo_Year: ", photo_Year);
+    // console.log("photo_Text: ", photo_Text, " photo_Tag: ", photo_Tag, " photo_Number: ", photo_Text, " photo_Year: ", photo_Year);
 
     // get boundary coordinates
     var data_BBOX = get_BBOX();
-
-    var parms_Photo = {
-        "api_key": service_Photo.key,
-        "method": service_Photo.method,
-        "has_geo": service_Photo.has_geo,
-        "extras": service_Photo.extras,
-        "text": service_Photo.text,
-        // "perpage": service_Photo.perpage,
-        // "page": service_Photo.page,
-        "format": service_Photo.format,
-        "bbox": data_BBOX.bbox,
-        "nojsoncallback": service_Photo.jsoncallback
-    };
 
     var service_Icon = new L.Icon({
         iconUrl: service_Photo.marker,
@@ -402,11 +388,11 @@ function parse_Photos (service_Name, service_Photo, action){
     }else{
 
         if(service_Name == "Flickr"){
-            parse_Flickr(service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year);
+            parse_Flickr(service_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year);
         }else if (service_Name == "Panoramio") {
-            parse_Panoraimo(service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year);
+            parse_Panoraimo(service_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year);
         }else if (service_Name == "Geograph") {
-            parse_Geograph(service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year);
+            parse_Geograph(service_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year);
         }else {
             console.log("PHOTO SERVICE NOT FOUND");
         }
@@ -430,11 +416,12 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
 
             var photo_credits=  '<span>&copy;&nbsp;<a href="' + photo_owner + '" target="_new">'+ this.owner + "</a></span>";
 
+            var photo_caption="";
             if (this.description._content === "") {
-                var photo_caption =  '<p><span>Tags: ' + this.tags + '<br/>Taken on ' + this.datetaken  + '</span></p>';
+                photo_caption =  '<p><span>Tags: ' + this.tags + '<br/>Taken on ' + this.datetaken  + '</span></p>';
 
             } else {
-                var photo_caption=  '<p><span>Description: ' + this.description._content + '<br/>Tags: ' + this.tags + '<br/>Taken on ' + this.datetaken  + '</span></p>';
+                photo_caption=  '<p><span>Description: ' + this.description._content + '<br/>Tags: ' + this.tags + '<br/>Taken on ' + this.datetaken  + '</span></p>';
             }
 
             var photo_img =  '<img src="'+ this.url_s + '" alt=' + this.title + photo_width + '/>';
@@ -448,22 +435,7 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
 
 }
 
-function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
-
-        // define date search criteria
-        var search_Date = ";"
-        if (photo_Year) {
-            var photo_Year_start = "1/1/" + photo_Year;
-            var photo_Year_end = "12/31/" + photo_Year;
-
-            var date_Start = new Date(photo_Year_start).getTime() / 1000;
-            var date_End = new Date(photo_Year_end).getTime() / 1000;
-
-            console.log("date_Start: ", date_Start);
-            console.log("date_End: ", date_End);
-
-            search_Date = '&min_taken_date=' + date_Start + '&max_taken_date=' + date_End;
-        }
+function parse_Flickr (service_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
 
         // get boundary coordinates
         var data_BBOX = get_BBOX();
@@ -474,7 +446,30 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
             // create a new object if it is empty
             group_Flickr = L.featureGroup([]).addTo(map);
 
-            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key   + "&per_page=" + photo_Number + "&page=" + photo_Page + search_Date + "&text=" +  photo_Text; + "&tags=" +  photo_Tag ;
+            // define search criteria
+
+            var search_Text = "",
+                search_Tag = "",
+                search_Year = "";
+
+            if ( photo_Text )
+                search_Text = '&text=' + photo_Text;
+
+            if ( photo_Tag )
+                search_Tag = '&tags=' + photo_Tag;
+
+            if (photo_Year) {
+                var photo_Year_start = "1/1/" + photo_Year;
+                var photo_Year_end = "12/31/" + photo_Year;
+
+                var date_Start = new Date(photo_Year_start).getTime() / 1000;
+                var date_End = new Date(photo_Year_end).getTime() / 1000;
+
+                search_Year = '&min_taken_date=' + date_Start + '&max_taken_date=' + date_End;
+            }
+
+            // BUG: it is better to define the parameters on the URL than inside the parse function to avoid to get too many duplicated results
+            flickr_url = service_Photo.rest + "?method=" + service_Photo.method + "&api_key=" + service_Photo.key   + "&per_page=" + photo_Number + "&page=" + photo_Page + search_Text + search_Tag + search_Year ;
 
             console.log(flickr_url);
 
@@ -483,7 +478,15 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
                     url:  flickr_url,
                     cache: true,
                     async: true,
-                    data: parms_Photo
+                    data: {
+                        // "api_key": service_Photo.key,
+                        // "method": service_Photo.method,
+                        "has_geo": service_Photo.has_geo,
+                        "extras": service_Photo.extras,
+                        "format": service_Photo.format,
+                        "bbox": data_BBOX.bbox,
+                        "nojsoncallback": service_Photo.jsoncallback
+                    }
                 })
             ).then(function( response ) {
                 display_Flickr(response, service_Photo, service_Icon, service_Logo);
@@ -497,10 +500,12 @@ function parse_Flickr (service_Photo, parms_Photo, service_Icon, service_Logo, a
 
 function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Logo){
 
-        console.log("data_Photo", data_Photo);
+        // console.log("data_Photo", data_Photo);
 
     // loop through the photos
     $.each(data_Photo.photos, function() {
+
+    // console.log(this);
 
         // create a html frame
         var photo_width =  '" width=250" ';
@@ -508,7 +513,7 @@ function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Log
         var photo_title =  '<p>' + this.photo_title + '</p><br/>';
 
         var photo_credits=  '<span>&copy;&nbsp;<a href="' + this.owner_url + '" target="_new">'+ this.owner_name + "</a></span><br/><span>Photos provided by Panoramio are under the copyright of their owners</span>";
-        var photo_caption =  '<p><span>Tags: ' + this.tags + '<br/>Uploaded on ' +this.upload_date  + '</span></p>';
+        var photo_caption =  '<p><span>Uploaded on ' +this.upload_date  + '</span></p>';
 
         var photo_img =  '<img src="'+ this.photo_file_url + '" alt=' + this.photo_title + photo_width + '/>';
         var photo_ref =  '<a id="' + this.photo_id + '" title="'+ this.photo_title  + '" rel="pano" href="' + this.photo_url + '" target="_new">' + photo_img + '</a><br/>';
@@ -520,44 +525,32 @@ function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Log
     });
 }
 
-function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
+function parse_Panoraimo (service_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
 
-
-    // define search variables
-    if ( photo_Tag === "" ) {
-        pTag = "public";
-    } else {
+    // define search variables (not working on Panoramio)
+    if ( photo_Tag ) {
         pTag = "public&tag="+ photo_Tag;
+    } else {
+        pTag = "public";
     }
 
-    if ( photo_Page == 1 ) {
-        var page_min = 0;
-        var page_max = photo_Number;
+    var page_min = "",
+        page_max = "";
 
+    if ( photo_Page == 1 ) {
+        page_min = 0;
+        page_max = photo_Number;
     } else {
-        var page_min = parseInt(photo_Number) * parseInt(photo_Page) - parseInt(photo_Number) + 1 ;
-        var page_max = parseInt(photo_Number) * parseInt(photo_Page) + 1;
+        page_min = parseInt(photo_Number) * parseInt(photo_Page) - parseInt(photo_Number) + 1 ;
+        page_max = parseInt(photo_Number) * parseInt(photo_Page) + 1;
     }
 
     var pN = '&from=' + page_min + '&to=' + page_max;
 
-    console.log("pN" , pN, " page_min ", page_min, " page_max ", page_max);
+    // console.log("pN" , pN, " page_min ", page_min, " page_max ", page_max);
 
     // get boundary coordinates
     var data_BBOX = get_BBOX();
-
-    var myRequest = {
-    //   'tag': photo_Tag,
-      'rect': data_BBOX.bbox_Panoramio
-    };
-
-    var myOptions = {
-      'width': 300,
-      'height': 200
-    };
-
-    var widget = new panoramio.PhotoListWidget('a', myRequest, myOptions);
-    console.log( "widget: ", widget.getPhotos() );
 
     // check if the obect is empty
     if( group_Panoramio === "" || action === 'zoom') {
@@ -566,26 +559,23 @@ function parse_Panoraimo (service_Photo, parms_Photo, service_Icon, service_Logo
         group_Panoramio = L.featureGroup([]).addTo(map);
 
         // create Panoraimo URL
-        var url_Panoraimo = service_Photo.url + pTag + pN + "&minx=" + data_BBOX.minx + "&miny=" + data_BBOX.miny + "&maxx=" + data_BBOX.maxx + "&maxy=" + data_BBOX.maxy + "&size=small&mapfilter=true&callback=?";
+        var url_Panoraimo = service_Photo.url + pTag + pN + data_BBOX.bbox_Panoramio + "&size=small&mapfilter=true&callback=?";
 
-        // console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
+        console.log( "url_Panoraimo: ", url_Panoraimo ); // server response
 
-        // parse the Panoraimo data
+        // parse the Panoramio data
         $.when ( $.ajax ({
                 url: url_Panoraimo,
-                // The name of the callback parameter, as specified by the YQL service
                 jsonp: "callback",
-                // Tell jQuery we're expecting JSONP
                 dataType: "jsonp",
-                // Tell YQL what we want and that we want JSON
                 data: {
-                    tag: pTag,
+                    tag: photo_Tag,
                     upload_date: photo_Year,
                     format: "json",
                 },
             })
         ).then(function( response ) {
-            // var  data_Photo = response;
+            console.log("response", response);
             display_Panoraimo(response, service_Photo, service_Icon, service_Logo);
         });
 
@@ -611,9 +601,9 @@ function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo
     $.each(geograph_ID, function(index, obj) {
         // var grid = this.attrs.grid_reference
 
-        // console.log("this geograph ", this);
+        console.log("this geograph ", this);
 
-        var photo_URL =  "http://api.geograph.org.uk/api/photo/" + obj + "/" + service_Photo.key + "&?output=json";
+        var photo_URL =  "http://api.geograph.org.uk/api/photo/" + obj + "/" + service_Photo.key + "&output=json";
 
         // // parse the Geograph data
         $.when ( $.ajax ({
@@ -665,7 +655,7 @@ function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo
     });
 }
 
-function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
+function parse_Geograph (service_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
 
     // check if the obect is empty or the bbox changed
     if( group_Geograph === "" || action === 'zoom') {
@@ -684,25 +674,27 @@ function parse_Geograph (service_Photo, parms_Photo, service_Icon, service_Logo,
             east:1.76896
         };
 
-        var geograph_Select = "takenday,realname,title,grid_reference,wgs84_lat,wgs84_long,contexts,subjects,tags,place,county,country,placename_id"
+        var geograph_Select = "takenday,realname,title,grid_reference,wgs84_lat,wgs84_long,contexts,subjects,tags,place,county,country,placename_id";
         // var geograph_Select = "*";
 
         // define number of photos criteria
+        var offset = "";
         if ( photo_Page == 1 ) {
-            var offset = 0;
+            offset = 0;
         } else {
-            var offset = parseInt(photo_Number) * parseInt(photo_Page) - parseInt(photo_Number) ;
+            offset = parseInt(photo_Number) * parseInt(photo_Page) - parseInt(photo_Number) ;
         }
 
         // define search criteria (see http://sphinxsearch.com/docs/current.html#matching-modes)
+        var seach_Text, seach_Tag, seach_Year = "";
         if ( photo_Text )
-            var seach_Text = '@title ' + photo_Text;
+            seach_Text = '@title ' + photo_Text;
 
         if ( photo_Tag )
-            var seach_Tag = '@tags ' + photo_Tag;
+            seach_Tag = '@tags ' + photo_Tag;
 
         if ( photo_Year )
-            var seach_Year = '@takenyear ' + photo_Year;
+            seach_Year = '@takenyear ' + photo_Year;
 
 
         var seach_Criteria = "&q=" + $.grep([seach_Text, seach_Tag, photo_Year], Boolean).join(" ");

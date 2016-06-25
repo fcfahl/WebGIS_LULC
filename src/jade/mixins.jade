@@ -100,7 +100,7 @@ mixin wms_Modal()
     
 
 mixin photo_Modal()
-    .photoModal
+    .photo-Modal
         div(class="modal fade"  id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true")
             div(class="modal-dialog" role="document")
                 div(class="modal-content")
@@ -112,21 +112,23 @@ mixin photo_Modal()
                         div(class="photoList")
                             form
                                 .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_query") Photo text: 
+                                    label(class="col-sm-5 form-control-label" for="photo_query") Photo text*: 
                                     input(type="text" class="col-sm-6 form-control" id="photo_query" placeholder="free text search on title, description and tags" value="")
                                 .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_tag") Photo tag:
+                                    label(class="col-sm-5 form-control-label" for="photo_tag") Photo tag*:
                                     input(type="text" class="col-sm-6 form-control" id="photo_tag" placeholder="comma-delimited list of tags" value="")
                                 .form-group.row
                                     label(class="col-sm-5 form-control-label" for="photo_number") Number of photos:
                                     input(type="text" class="col-sm-6 form-control" id="photo_number" placeholder="max=50" value="10")
                                 .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_year") Year of the photo:
+                                    label(class="col-sm-5 form-control-label" for="photo_year") Year of the photo*:
                                     input(type="text" class="col-sm-6 form-control" id="photo_year" placeholder="" value="")
-                            
-
+                        
                     div(class="modal-footer")
-                        button(type="button" class="btn btn-primary " id="photo_close" data-dismiss="modal") Close
+                        .col-1
+                            h4 * Search criteria not available for Panoramio
+                        .col-2
+                            button(type="button" class="btn btn-primary " id="photo_close" data-dismiss="modal") Close
 
 mixin switch_button(name, ID)
 
