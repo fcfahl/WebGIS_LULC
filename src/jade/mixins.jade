@@ -84,6 +84,11 @@ mixin accorde(section,group)
             each land_class in classes[0]
                 - var Code = land_class.Code
                 p  "#{Code}"
+                div(id=ID class='draggable')
+                  li
+                    input(type="checkbox" value=Code class="boxlayer" checked='false' rel="#{index++}")
+                    label(for=ID)
+                      span=NM
         
 mixin wms_Modal()
     .wmsModal
