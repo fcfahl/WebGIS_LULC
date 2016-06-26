@@ -25,6 +25,7 @@ mixin tabs_bootstrap(classLI,classA,name,tab,bool)
 mixin accorde(section,group)
   //- read db.json
   - var obj = locals[0].Layers
+  - var classes = locals[0].UrbanAtlas_06
 
   .group
     - var index = 0
@@ -77,9 +78,13 @@ mixin accorde(section,group)
                         button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
                             i(class="fa fa-cogs" aria-hidden="true")
         
-
             +photo_Modal
-            
+
+        if group == 'atlas'
+            each land_class in classes[0]
+                - var Code = land_class.Code
+                p  "#{Code}"
+        
 mixin wms_Modal()
     .wmsModal
         div(class="modal fade"  id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")

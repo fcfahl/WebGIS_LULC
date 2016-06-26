@@ -53,7 +53,7 @@ html(lang="en")
         +addPlugin('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js')    
         +addPlugin('libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js')    
         +addPlugin('libs/leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js')    
-        //- +addPlugin('libs/Leaflet-WFST-master/dist/Leaflet-WFST.min.js')    
+        +addPlugin('libs/Leaflet-WFST-master/dist/Leaflet-WFST.min.js')    
 
         //- +addPlugin('leaflet.markercluster/dist/leaflet.markercluster.js', "bower")   
 
@@ -85,6 +85,7 @@ html(lang="en")
                                 //- Accordion and layers parameters
                                 #accordion
                                     +accorde('Administrative Layers', 'adm')
+                                    +accorde('Urban Atlas', 'atlas')
                                     +accorde('Land Cover Layers', 'lulc')
                                     +accorde('Photo Services', 'geotag')
                                     +accorde('External WMS Layers', 'WMS_external')

@@ -148,23 +148,33 @@ function getJson (data){
         console.log("getJson ",data);
 }
 
-function WFS_Parse () {
+function WFS_Parse (class_Atlas) {
+
+        console.log("ATLAS: ", class_Atlas);
 
         var geojsonLayer = new L.GeoJSON();
 
-        var WMS_style = {
-                "clickable": true,
-                "color": "#ff3333" ,
-                "fillColor": "#734d26",
-                "weight": 1.0,
-                "opacity": 0.6,
-                "fillOpacity": 0.3
-        };
 
         function display_Json(data) {
 
+                var WMS_style = {
+                        "clickable": true,
+                        "color": "#ff3333" ,
+                        "fillColor": "#734d26",
+                        "weight": 1.0,
+                        "opacity": 0.6,
+                        "fillOpacity": 0.3
+                };
+
                 L.geoJson(data, {
-                        style: WMS_style
+                        style: WMS_style,
+                        onEachFeature: function (feature, layer) {
+                                popupOptions = {
+                                        "maxWidth": 200
+                                };
+                                layer.bindPopup("Class: " + feature.properties.item, popupOptions);
+
+                        }
                 }).addTo(map);
         }
 
@@ -178,23 +188,24 @@ function WFS_Parse () {
                 typeName : 'LULC:paris',
                 outputFormat : 'text/javascript',
                 format_options : 'callback:getJson',
-                SrsName : 'EPSG:4326'
+                SrsName : 'EPSG:4326',
+                cql_filter: "code='50000' "
         };
 
         var parameters = L.Util.extend(defaultParameters);
         var URL = owsrootUrl + L.Util.getParamString(parameters);
 
         // parse the WFS data
-         $.ajax ({
-                type: 'GET',
-                url: URL,
-                dataType: 'jsonp',
-                cache: true,
-                async: true,
-                format: "text/javascript",
-                jsonpCallback: 'getJson',
-                success: display_Json
-        });
+        //  $.ajax ({
+        //         type: 'GET',
+        //         url: URL,
+        //         dataType: 'jsonp',
+        //         cache: true,
+        //         async: true,
+        //         format: "text/javascript",
+        //         jsonpCallback: 'getJson',
+        //         success: display_Json
+        // });
 
 
 

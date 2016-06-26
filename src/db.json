@@ -147,8 +147,8 @@
             {
                 "ID": "Atlas_06",
                 "Name": "Urban Atlas (2006)",
-                "Category_ID": "LULC",
-                "Category": "Land Cover Layers",
+                "Category_ID": "atlas",
+                "Category": "Urban Atlas",
                 "Workspace": "LULC",
                 "Style": "Atlas_06",
                 "Dataset": "European Urban Atlas",
@@ -258,6 +258,137 @@
                 "Use policy": "Information not available",
                 "Data source": "...",
                 "Legend": "yes"
+            }
+        ],
+        "UrbanAtlas_06":
+        [
+            {
+                "Urban Fabric":
+                {
+                    "Code": "11100",
+                    "Class": "Continuous Urban Fabric (S.L. > 80%)",
+                    "Color": "140,0,0"
+                },
+                "Dense Urban Fabric":
+                {
+                    "Code": "11210",
+                    "Class": "Discontinuous Dense Urban Fabric (S.L. : 50% -  80%)",
+                    "Color": "209,0,0"
+                },
+                "Medium Density Urban Fabric":
+                {
+                    "Code": "11220",
+                    "Class": "Discontinuous Medium Density Urban Fabric (S.L. : 30% - 50%)",
+                    "Color": "255,0,0"
+                },
+                "Low Density Urban Fabric":
+                {
+                    "Code": "11230",
+                    "Class": "Discontinuous Low Density Urban Fabric (S.L. : 10% - 30%)",
+                    "Color": "255,128,128"
+                },
+                "Very Low Density Urban Fabric ":
+                {
+                    "Code": "11240",
+                    "Class": "Discontinuous Very Low Density Urban Fabric (S.L. < 10%)",
+                    "Color": "255,191,191"
+                },
+                "Isolated Structures":
+                {
+                    "Code": "11300",
+                    "Class": "Discontinuous Very Low Density Urban Fabric (S.L. < 10%)",
+                    "Color": "204,102,102"
+                },
+                "Industrial, commercial":
+                {
+                    "Code": "12100",
+                    "Class": "Industrial, commercial, public, military and private units",
+                    "Color": "201,78,241"
+                },
+                "Fast transit roads":
+                {
+                    "Code": "12210",
+                    "Class": "Fast transit roads and associated land",
+                    "Color": "255,85,0"
+                },
+                "Other roads":
+                {
+                    "Code": "12220",
+                    "Class": "Other roads and associated land",
+                    "Color": "255,166,128"
+                },
+                "Railways":
+                {
+                    "Code": "12230",
+                    "Class": "Other roads and associated land",
+                    "Color": "102,102,102"
+                },
+                "Port areas":
+                {
+                    "Code": "12300",
+                    "Class": "Port areas",
+                    "Color": "229,189,254"
+                },
+                "Airports":
+                {
+                    "Code": "12400",
+                    "Class": "Airports",
+                    "Color": "229,204,230"
+                },
+                "Mineral extraction":
+                {
+                    "Code": "13100",
+                    "Class": "Mineral extraction and dump sites",
+                    "Color": "135,89,68"
+                },
+                "Construction sites":
+                {
+                    "Code": "13300",
+                    "Class": "Construction sites",
+                    "Color": "204,168,102"
+                },
+                "No current use":
+                {
+                    "Code": "13400",
+                    "Class": "Land without current use",
+                    "Color": "135,68,68"
+                },
+                "Green urban areas":
+                {
+                    "Code": "14100",
+                    "Class": "Green urban areas",
+                    "Color": "153,230,0"
+                },
+                "Sports and leisure facilities":
+                {
+                    "Code": "14200",
+                    "Class": "Sports and leisure facilities",
+                    "Color": "211,255,115"
+                },
+                "Agricultural areas":
+                {
+                    "Code": "20000",
+                    "Class": "Agricultural + Semi-natural areas + Wetlands",
+                    "Color": "254,255,168"
+                },
+                "Forests":
+                {
+                    "Code": "30000",
+                    "Class": "Forests",
+                    "Color": "0,128,0"
+                },
+                "Wetlands":
+                {
+                    "Code": "40000",
+                    "Class": "Wetlands",
+                    "Color": "166,167,255"
+                },
+                "Water bodies":
+                {
+                    "Code": "50000",
+                    "Class": "Water bodies",
+                    "Color": "0,204,240"
+                }
             }
         ],
         "Legend":

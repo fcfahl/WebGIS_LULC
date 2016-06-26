@@ -317,6 +317,8 @@ body {
           font-size: 0.5em;
           max-width: 70px;
           border: none; }
+  body .container-fluid #map .leaflet-popup {
+    color: black; }
   body .container-fluid footer {
     background: #2B3856;
     font-size: 0.45em; }

@@ -18,11 +18,13 @@ $( document ).ready(function() {
             DB_services = data[0].Services,
             DB_WMS = data[0].WMS_Server,
             DB_legend = data[0].Legend;
-            DB_photo = data[0].Photo;
+            DB_photo = data[0].Photo,
+            DB_UrbanAtlas= data[0].UrbanAtlas_06;
 
         var layers_ID = [],
             layers_Styles = [],
             layers_Workspaces = [],
+            classes_UrbanAtlas = [],
             WMS_server = [];
 
         // console.log(legend[0].GLC_00);
@@ -34,6 +36,11 @@ $( document ).ready(function() {
             // localStorage.setItem(LULC_layers[i], "");
         }
 
+        // for (var j= 0; j< data[0].WMS_Server.length; j++) {
+        //     classes_UrbanAtlas[k] = DB_UrbanAtlas[j].Server;
+        // }
+
+
         for (var k = 0; k < data[0].WMS_Server.length; k++) {
             WMS_server[k] = DB_WMS[k].Server;
         }
@@ -43,7 +50,7 @@ $( document ).ready(function() {
         html_Design (layers_ID);
         leaflet_Control (layers_ID);
         WMS_Layers (DB_WMS[0], DB_services[0], layers_ID, layers_Styles, layers_Workspaces);
-        WFS_Parse();
+        WFS_Parse(DB_UrbanAtlas[0]);
         WMS_Custom ();
         geotag_Photos ();
 

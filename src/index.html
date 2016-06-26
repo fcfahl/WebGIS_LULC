@@ -34,6 +34,7 @@
     <script src="libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js"> </script>
     <script src="libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js"> </script>
     <script src="libs/leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"> </script>
+    <script src="libs/Leaflet-WFST-master/dist/Leaflet-WFST.min.js"> </script>
     <!-- endbuild -->
   </head>
   <body>
@@ -69,6 +70,38 @@
                     </div>
                   </div>
                   <div class="group">
+                    <h3>Urban Atlas</h3>
+                    <div id="atlas">
+                      <div id="Atlas_06" class="draggable">
+                        <li>
+                          <input type="checkbox" value="Atlas_06" checked="false" rel="0" class="boxlayer"/>
+                          <label for="Atlas_06"><span>Urban Atlas (2006)</span></label>
+                        </li>
+                      </div>
+                      <p> "11100"</p>
+                      <p> "11210"</p>
+                      <p> "11220"</p>
+                      <p> "11230"</p>
+                      <p> "11240"</p>
+                      <p> "11300"</p>
+                      <p> "12100"</p>
+                      <p> "12210"</p>
+                      <p> "12220"</p>
+                      <p> "12230"</p>
+                      <p> "12300"</p>
+                      <p> "12400"</p>
+                      <p> "13100"</p>
+                      <p> "13300"</p>
+                      <p> "13400"</p>
+                      <p> "14100"</p>
+                      <p> "14200"</p>
+                      <p> "20000"</p>
+                      <p> "30000"</p>
+                      <p> "40000"</p>
+                      <p> "50000"</p>
+                    </div>
+                  </div>
+                  <div class="group">
                     <h3>Land Cover Layers</h3>
                     <div id="lulc">
                       <div id="GLC_00" class="draggable">
@@ -83,33 +116,27 @@
                           <label for="Corine_06"><span>Corine (2006)</span></label>
                         </li>
                       </div>
-                      <div id="Atlas_06" class="draggable">
-                        <li>
-                          <input type="checkbox" value="Atlas_06" checked="false" rel="2" class="boxlayer"/>
-                          <label for="Atlas_06"><span>Urban Atlas (2006)</span></label>
-                        </li>
-                      </div>
                       <div id="GlobCover_09" class="draggable">
                         <li>
-                          <input type="checkbox" value="GlobCover_09" checked="false" rel="3" class="boxlayer"/>
+                          <input type="checkbox" value="GlobCover_09" checked="false" rel="2" class="boxlayer"/>
                           <label for="GlobCover_09"><span>GlobCover (2009)</span></label>
                         </li>
                       </div>
                       <div id="MODIS_10" class="draggable">
                         <li>
-                          <input type="checkbox" value="MODIS_10" checked="false" rel="4" class="boxlayer"/>
+                          <input type="checkbox" value="MODIS_10" checked="false" rel="3" class="boxlayer"/>
                           <label for="MODIS_10"><span>MODIS (2010)</span></label>
                         </li>
                       </div>
                       <div id="CCIESA_10" class="draggable">
                         <li>
-                          <input type="checkbox" value="CCIESA_10" checked="false" rel="5" class="boxlayer"/>
+                          <input type="checkbox" value="CCIESA_10" checked="false" rel="4" class="boxlayer"/>
                           <label for="CCIESA_10"><span>Land Cover CCI (2010)</span></label>
                         </li>
                       </div>
                       <div id="GLand30_10" class="draggable">
                         <li>
-                          <input type="checkbox" value="GLand30_10" checked="false" rel="6" class="boxlayer"/>
+                          <input type="checkbox" value="GLand30_10" checked="false" rel="5" class="boxlayer"/>
                           <label for="GLand30_10"><span>GlobeLand30 (2010)</span></label>
                         </li>
                       </div>
