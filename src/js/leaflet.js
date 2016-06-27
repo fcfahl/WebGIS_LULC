@@ -162,20 +162,35 @@ function WFS_Parse (class_Atlas) {
                         "color": "#ff3333" ,
                         "fillColor": "#734d26",
                         "weight": 1.0,
-                        "opacity": 0.6,
-                        "fillOpacity": 0.3
+                        "opacity": 0,
+                        "fillOpacity": 0.2
                 };
 
-                L.geoJson(data, {
+                var city_label = L.geoJson(data, {
                         style: WMS_style,
                         onEachFeature: function (feature, layer) {
                                 popupOptions = {
                                         "maxWidth": 200
                                 };
-                                layer.bindPopup("Class: " + feature.properties.item, popupOptions);
+                                layer.bindPopup(feature.properties.cities, popupOptions);
 
                         }
                 }).addTo(map);
+
+
+                city_label.on('click', function(e) {
+
+                    var city_name = e.layer.feature.properties.cities;
+
+                    var city_ID = e.layer.feature.properties.luz;
+
+                     console.log(city_name)
+                     console.log(city_ID)
+
+                     $('#atlas-cities').val(city_name);
+                     $('#atlas-cities').attr( 'data-id',city_ID);
+
+                });
         }
 
 
@@ -183,30 +198,28 @@ function WFS_Parse (class_Atlas) {
 
         var defaultParameters = {
                 service : 'WFS',
-                version : '1.0.0',
+                version : '2.0.0',
                 request : 'GetFeature',
-                typeName : 'LULC:paris',
+                typeName : 'LULC:atlas06_extent',
                 outputFormat : 'text/javascript',
                 format_options : 'callback:getJson',
-                SrsName : 'EPSG:4326',
-                cql_filter: "code='50000' "
+                // cql_filter: "code='50000' ",
+                SrsName : 'EPSG:4326'
         };
 
         var parameters = L.Util.extend(defaultParameters);
         var URL = owsrootUrl + L.Util.getParamString(parameters);
 
         // parse the WFS data
-        //  $.ajax ({
-        //         type: 'GET',
-        //         url: URL,
-        //         dataType: 'jsonp',
-        //         cache: true,
-        //         async: true,
-        //         format: "text/javascript",
-        //         jsonpCallback: 'getJson',
-        //         success: display_Json
-        // });
-
-
+         $.ajax ({
+                type: 'GET',
+                url: URL,
+                dataType: 'jsonp',
+                cache: true,
+                async: true,
+                format: "text/javascript",
+                jsonpCallback: 'getJson',
+                success: display_Json
+        });
 
 }

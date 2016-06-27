@@ -19,7 +19,7 @@ $( document ).ready(function() {
             DB_WMS = data[0].WMS_Server,
             DB_legend = data[0].Legend;
             DB_photo = data[0].Photo,
-            DB_UrbanAtlas= data[0].UrbanAtlas_06;
+            DB_UrbanAtlas = data[0].UrbanAtlas_06;
 
         var layers_ID = [],
             layers_Styles = [],

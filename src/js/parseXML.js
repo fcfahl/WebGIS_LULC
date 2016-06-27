@@ -7,18 +7,50 @@
 // http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_geologica.map&service=wms&request=getCapabilities&version=1.3.0
 
 function create_HTML (classN, ID, name, title, ref, url){
+
+    var icon_setting = "";
+
+    if (classN == "atlas-layers-names"){
+
+        class_Checkbox="atlas-checkbox";
+        onclick_Function="remove_Atlas";
+        onclick_Model="open_AtlasModel";
+        class_Hidden = " fa-fw ";
+        var FontAwesome_setting = " fa fa-cog ";
+
+    }else{
+
+        class_Checkbox='"wmsBox wms_Ignore"'
+        onclick_Function="remove_WMS";
+        class_Hidden = " fa-fw hidden "
+
+    }
+
+
     // create HTML element
 
-    var FontAwesome = " fa-minus-circle ";
+        var FontAwesome = " fa-minus-circle ";
 
-    var open_div = '<div id="' +  ID + '" class="' +  classN + '" >',
-         li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class="wmsBox wms_Ignore" id="I_' +  ID + '">',
-         label = '<label for="I_'  +  ID  + '"><span>'  +  title  +  '</span></label>',
-         // include a hidden class to hide the delete button
-        icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="remove_WMS(\'' + ID  + '\', this)" class="fa ' + FontAwesome + ' fa-fw hidden"  aria-hidden="true"></i></a></li> ',
-        close_div = '</div>',
+        // var open_div = '<div id="' +  ID + '" class="' +  classN + '" >',
+        //      li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class="wmsBox wms_Ignore" id="I_' +  ID + '">',
+        //      label = '<label for="I_'  +  ID  + '"><span>'  +  title  +  '</span></label>',
+        //      // include a hidden class to hide the delete button
+        //     icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="remove_WMS(\'' + ID  + '\', this)" class="fa ' + FontAwesome + ' fa-fw hidden"  aria-hidden="true"></i></a></li> ',
+        //     close_div = '</div>',
 
-        html = open_div + li + label + icon + close_div;
+        var open_div = '<div id="' +  ID + '" class="' +  classN + '" >';
+        var li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class=' + class_Checkbox + ' id="I_' +  ID + '">';
+        var label = '<label for="I_'  +  ID  + '"><span>'  +  title  +  '</span></label>';
+
+             // include a hidden class to hide the delete button
+        var icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Function + '(\'' + ID  + '\', this)" class="fa ' + FontAwesome + class_Hidden + '"  aria-hidden="true"></i></a> ';
+
+        if (FontAwesome_setting)
+            icon_setting = '<span class="btn_setting"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Model + '(\'' + ID  + '\', this)" class="fa' + FontAwesome_setting  + '"  aria-hidden="true"></i></a> ';
+
+        var close_div = '</li></div>';
+
+        var html = open_div + li + label + icon_setting + icon + close_div;
 
     return html;
 }

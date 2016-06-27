@@ -112,6 +112,15 @@ html, body {
                 font-size: 0.9em; }
               html .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer .col-2, body .container-fluid #main #side .pannel #geotag .photo-Modal .modal-footer .col-2 {
                 padding: 0 10px; }
+          html .container-fluid #main #side .pannel #atlas, body .container-fluid #main #side .pannel #atlas {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center; }
+            html .container-fluid #main #side .pannel #atlas .atlas-select, body .container-fluid #main #side .pannel #atlas .atlas-select {
+              align-items: left; }
+            html .container-fluid #main #side .pannel #atlas .atlas-layers, body .container-fluid #main #side .pannel #atlas .atlas-layers {
+              align-items: left; }
         html .container-fluid #main #side .settings, body .container-fluid #main #side .settings {
           display: flex;
           flex-direction: column;
@@ -252,6 +261,21 @@ body {
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
             background: #eee;
             border: 1px solid white; }
+      body .container-fluid #main #side .pannel #accordion #atlas {
+        padding: 8px 2px;
+        height: 140%;
+        width: 100%;
+        overflow: hidden; }
+        body .container-fluid #main #side .pannel #accordion #atlas .atlas-select {
+          font-size: 0.65em; }
+        body .container-fluid #main #side .pannel #accordion #atlas .atlas-layers {
+          padding-top: 5px;
+          margin: 5px 2px;
+          height: auto;
+          margin: 0;
+          font-size: 1em;
+          vertical-align: middle;
+          width: 95%; }
       body .container-fluid #main #side .pannel .leg, body .container-fluid #main #side .pannel .tbl {
         display: none;
         padding: 0; }

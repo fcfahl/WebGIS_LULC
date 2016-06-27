@@ -43,53 +43,103 @@ mixin accorde(section,group)
                     span=NM
 
         if group == 'WMS_external'
-            .getCapabilities
-                form(class="form-inline")
-                    div(class="form-group")
-                        label(class="sr-only" for="form_capabilities" WMS Get Capabilities)
-                        input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_ecopedologica.map&service=wms&request=getCapabilities&version=1.3.0")
-
-                        //- http://image.discomap.eea.europa.eu/arcgis/services/UrbanAtlas/Urban_Atlas_2012/MapServer/WMSServer?service=WMS&request=GetCapabilities&version=1.3.0
-
-                    button(type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalWindow" id="wms_submit") Submit
-
-                    +wms_Modal
-            
-            .custom_Layers
+            +Capabilities
 
         if group == 'geotag'
-            div(class="switch-buttons")
-                +switch_button("Flickr", "btn_Flick") 
-                +switch_button("Panoramio", "btn_Pano") 
-                +switch_button("Geograph", "btn_Geog") 
-                
-
-            div(class="photo-control")
-                div(class="page-buttons")
-                    div(class="photo-page-back")
-                        button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-back")
-                            i(class="fa fa-backward" aria-hidden="true")
-                    div(class="photo-page-text" id="page-number")
-                        spam Page 1
-                    div(class="photo-page-forw")
-                        button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-forw")
-                            i(class="fa fa-forward" aria-hidden="true")
-                    div(class="photo-settings")
-                        button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
-                            i(class="fa fa-cogs" aria-hidden="true")
-        
+            +Geotag        
             +photo_Modal
 
         if group == 'atlas'
-            each land_class in classes[0]
-                - var Code = land_class.Code
-                p  "#{Code}"
-                div(id=ID class='draggable')
-                  li
-                    input(type="checkbox" value=Code class="boxlayer" checked='false' rel="#{index++}")
-                    label(for=ID)
-                      span=NM
+            +Atlas(classes[0])
+            
+mixin Capabilities()
+    .getCapabilities
+        form(class="form-inline")
+            div(class="form-group")
+                label(class="sr-only" for="form_capabilities" WMS Get Capabilities)
+                input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_ecopedologica.map&service=wms&request=getCapabilities&version=1.3.0")
+
+                //- http://image.discomap.eea.europa.eu/arcgis/services/UrbanAtlas/Urban_Atlas_2012/MapServer/WMSServer?service=WMS&request=GetCapabilities&version=1.3.0
+
+            button(type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalWindow" id="wms_submit") Submit
+
+            +wms_Modal
+
+    .custom_Layers
+
+mixin Geotag()
+    div(class="switch-buttons")
+        +switch_button("Flickr", "btn_Flick") 
+        +switch_button("Panoramio", "btn_Pano") 
+        +switch_button("Geograph", "btn_Geog") 
         
+
+    div(class="photo-control")
+        div(class="page-buttons")
+            div(class="photo-page-back")
+                button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-back")
+                    i(class="fa fa-backward" aria-hidden="true")
+            div(class="photo-page-text" id="page-number")
+                spam Page 1
+            div(class="photo-page-forw")
+                button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-forw")
+                    i(class="fa fa-forward" aria-hidden="true")
+            div(class="photo-settings")
+                button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
+                    i(class="fa fa-cogs" aria-hidden="true")
+    
+mixin Atlas(land)
+
+    .atlas-select
+        form(class="form-inline")
+            div(class="form-group")
+                label(for="atlas-select-cities" Add Layer: )
+                input(type="text", class="form-control form-control-sm", id="atlas-cities", placeholder="click over the city location")
+            button(type="button" class="btn btn-primary btn-sm" data-name="" data-id="" id="atlas_add") Add
+            //- button(type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalAtlas"  id="atlas_submit") Submit
+
+        //- +atlas_Modal
+
+    .atlas-layers
+        
+        //- div(class="atlas-select-layer" id="atlas-name-layer")
+        //-     spam Page 1
+
+    //- each land_class in land
+    //-     - var Code = land_class.Code
+        //- p  "#{Code}"
+        //- div(id=ID class='draggable')
+        //-   li
+            //- input(type="checkbox" value=Code class="boxlayer" checked='false' rel="#{index++}")
+            //- label(for=ID)
+            //-   span=NM
+
+mixin atlas_Modal ()
+    .atlasModal
+        div(class="modal fade"  id="modalAtlas" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
+            div(class="modal-dialog" role="document")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+                        h2 Display Atlas Layers
+                    div(class="modal-body")
+                        .atlasList
+                            ul(class="list-group")
+
+                                input(type="checkbox" value="atlas_layer_WMS" class="boxlayer" checked='false')
+                                label(for="atlas_layer_WMS")
+                                  span="Display as WMS layer (faster)"
+
+                                input(type="checkbox" value="atlas_layer_WFS" class="boxlayer" checked='false')
+                                label(for="atlas_layer_WFS")
+                                  span="Display as WFS layer (slower)"
+                            
+
+                    div(class="modal-footer")
+                        button(type="button" class="btn btn-primary " id="atlas_close" data-dismiss="modal") Close
+
+    
 mixin wms_Modal()
     .wmsModal
         div(class="modal fade"  id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
@@ -108,7 +158,6 @@ mixin wms_Modal()
                         button(type="button" class="btn btn-secondary " id="wms_close" data-dismiss="modal") Close
                         button(type="button" class="btn btn-primary" id="wms_add"  data-dismiss="modal") Add Selected Layers
     
-
 mixin photo_Modal()
     .photo-Modal
         div(class="modal fade"  id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true")
@@ -221,7 +270,6 @@ mixin mk_table (ID)
                     tr(class="table_row")
                         td #{key}
                         td #{val}
-
 
 mixin mk_legend (ID)
 

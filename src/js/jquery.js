@@ -100,6 +100,10 @@ function html_Design (LULC_layers) {
             });
         }
     });
+
+
+    // add atlas function
+    $("#atlas_add").on("click", add_Atlas);
 }
 
 function WMS_Custom (){
@@ -184,6 +188,43 @@ function remove_WMS(ID, obj) {
     //   Remove Div
     $("#" + ID).remove();
 }
+
+function add_Atlas(){
+
+    // retrieve input values
+    var city_name = $('#atlas-cities').val();
+    var city_ID = $('#atlas-cities').attr( 'data-id');
+    console.log("city_name: ", city_name);
+    console.log("city_ID: ", city_ID);
+
+
+    var ID = "#" + city_ID;
+
+    // Clone selected wms layers to pannel
+
+
+    var html = create_HTML("atlas-layers-names", city_ID, city_name, city_name, ID);
+    $(".atlas-layers").append(html);
+
+    //
+    // // clone wms layer to the pannel
+    // $( ID ).clone().addClass( "wms_selected" ).removeClass( "wms_candidates" ).appendTo( ".custom_Layers" );
+    // $( ID + " li input[type=checkbox] ").removeClass('wms_Ignore');
+
+
+
+}
+
+function remove_Atlas (layer){
+
+    console.log("remove atlas: ", layer);
+}
+
+function open_AtlasModel (layer){
+
+    console.log("open model: ", layer);
+}
+
 
 function refresh_Photos (refresh_action) {
 
