@@ -210,10 +210,14 @@ function remove_Atlas (layer){
 
 function open_AtlasModel (layer, name){
 
-    var ID = "#" + layer
+    var ID = "#" + layer;
+    var modal_ID = "#" + name;
     console.log("open model: ", name);
 
-    create_Modal (layer)
+    create_Modal (layer, name)
+
+    $(modal_ID).modal();
+    $(modal_ID).modal('show');
 }
 
 

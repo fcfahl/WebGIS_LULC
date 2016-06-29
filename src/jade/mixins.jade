@@ -101,6 +101,9 @@ mixin Atlas(land)
         //- +atlas_Modal
 
     .atlas-layers
+
+    .atlas-template
+        +atlas_Modal
         
         //- div(class="atlas-select-layer" id="atlas-name-layer")
         //-     spam Page 1
@@ -115,29 +118,28 @@ mixin Atlas(land)
             //-   span=NM
 
 mixin atlas_Modal ()
-    .atlasModal
-        div(class="modal fade"  id="modalAtlas" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
-            div(class="modal-dialog" role="document")
-                div(class="modal-content")
-                    div(class="modal-header")
-                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-                            span(aria-hidden="true") &times;
-                        h2 Display Atlas Layers
-                    div(class="modal-body")
-                        .atlasList
-                            ul(class="list-group")
+    div(class="modal fade"  id="modal-template" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
+        div(class="modal-dialog" role="document")
+            div(class="modal-content")
+                div(class="modal-header")
+                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") &times;
+                    h2 Display Atlas Layers
+                div(class="modal-body")
+                    .atlasList
+                        ul(class="list-group")
 
-                                input(type="checkbox" value="atlas_layer_WMS" class="boxlayer" checked='false')
-                                label(for="atlas_layer_WMS")
-                                  span="Display as WMS layer (faster)"
+                            input(type="checkbox" value="atlas_layer_WMS" class="boxlayer" checked='false')
+                            label(for="atlas_layer_WMS")
+                              span="Display as WMS layer (faster)"
 
-                                input(type="checkbox" value="atlas_layer_WFS" class="boxlayer" checked='false')
-                                label(for="atlas_layer_WFS")
-                                  span="Display as WFS layer (slower)"
-                            
+                            input(type="checkbox" value="atlas_layer_WFS" class="boxlayer" checked='false')
+                            label(for="atlas_layer_WFS")
+                              span="Display as WFS layer (slower)"
+                        
 
-                    div(class="modal-footer")
-                        button(type="button" class="btn btn-primary " id="atlas_close" data-dismiss="modal") Close
+                div(class="modal-footer")
+                    button(type="button" class="btn btn-primary " id="atlas_close" data-dismiss="modal") Close
 
     
 mixin wms_Modal()

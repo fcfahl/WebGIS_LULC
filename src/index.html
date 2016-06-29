@@ -87,7 +87,31 @@
                           <button type="button" data-name="" data-id="" id="atlas_add" class="btn btn-primary btn-sm">Add</button>
                         </form>
                       </div>
-                      <div class="atlas-layers">
+                      <div class="atlas-layers"></div>
+                      <div class="atlas-template">
+                        <div id="modal-template" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true" class="modal fade">
+                          <div role="document" class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+                                <h2>Display Atlas Layers</h2>
+                              </div>
+                              <div class="modal-body">
+                                <div class="atlasList">
+                                  <ul class="list-group">
+                                    <input type="checkbox" value="atlas_layer_WMS" checked="false" class="boxlayer"/>
+                                    <label for="atlas_layer_WMS"><span>Display as WMS layer (faster)</span></label>
+                                    <input type="checkbox" value="atlas_layer_WFS" checked="false" class="boxlayer"/>
+                                    <label for="atlas_layer_WFS"><span>Display as WFS layer (slower)</span></label>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" id="atlas_close" data-dismiss="modal" class="btn btn-primary ">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
