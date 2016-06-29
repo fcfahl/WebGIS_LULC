@@ -194,25 +194,13 @@ function add_Atlas(){
     // retrieve input values
     var city_name = $('#atlas-cities').val();
     var city_ID = $('#atlas-cities').attr( 'data-id');
-    console.log("city_name: ", city_name);
-    console.log("city_ID: ", city_ID);
-
-
     var ID = "#" + city_ID;
 
-    // Clone selected wms layers to pannel
-
-
-    var html = create_HTML("atlas-layers-names", city_ID, city_name, city_name, ID);
-    $(".atlas-layers").append(html);
-
-    //
-    // // clone wms layer to the pannel
-    // $( ID ).clone().addClass( "wms_selected" ).removeClass( "wms_candidates" ).appendTo( ".custom_Layers" );
-    // $( ID + " li input[type=checkbox] ").removeClass('wms_Ignore');
-
-
-
+    // Create checkbox entry if it does not exist
+    if ($(ID).length == 0){
+        var html = create_HTML("atlas-layers-names", city_ID, city_name, city_name, ID);
+        $(".atlas-layers").append(html);
+    }
 }
 
 function remove_Atlas (layer){
@@ -220,9 +208,12 @@ function remove_Atlas (layer){
     console.log("remove atlas: ", layer);
 }
 
-function open_AtlasModel (layer){
+function open_AtlasModel (layer, name){
 
-    console.log("open model: ", layer);
+    var ID = "#" + layer
+    console.log("open model: ", name);
+
+    create_Modal (layer)
 }
 
 

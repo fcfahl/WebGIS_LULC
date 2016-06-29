@@ -4,6 +4,35 @@
 // 3: using third parties libraries (e.g. https://github.com/w8r/wms-capabilities)
 
 
+
+function create_Modal(ID, name){
+
+    modal_ID = "#Modal_" + name
+
+    html =  '<div id="' + modal_ID + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirm-modal" aria-hidden="true">';
+        html += '<div class="modal-dialog" role="document">';
+            html += '<div class="modal-content">';
+                html += '<div class="modal-header">';
+                    html += '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
+                        html += '<span aria-hidden="true">';
+                    html += '<h2> Activate layer: ' + name + '</h2>';
+                html += '</div>';
+
+                html += '<div class="modal-body">';
+                    html += '<div class="wfs-modal">';
+
+                    html += '</div>';
+                html += '</div>';
+
+                html += '<div class="modal-footer">';
+                    html += '<button type="button" class="btn btn-primary " data-dismiss="modal" aria-label="Close">Close</button>';
+                html += '</div>';
+
+    $(modal_ID).html(html);
+    $("#modalWindow").modal();
+    $("#dynamicModal").modal('show');
+}
+
 // http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_geologica.map&service=wms&request=getCapabilities&version=1.3.0
 
 function create_HTML (classN, ID, name, title, ref, url){
@@ -13,7 +42,7 @@ function create_HTML (classN, ID, name, title, ref, url){
     if (classN == "atlas-layers-names"){
 
         class_Checkbox="atlas-checkbox";
-        onclick_Function="remove_Atlas";
+        onclick_Function="remove_WMS";
         onclick_Model="open_AtlasModel";
         class_Hidden = " fa-fw ";
         var FontAwesome_setting = " fa fa-cog ";
@@ -46,7 +75,7 @@ function create_HTML (classN, ID, name, title, ref, url){
         var icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Function + '(\'' + ID  + '\', this)" class="fa ' + FontAwesome + class_Hidden + '"  aria-hidden="true"></i></a> ';
 
         if (FontAwesome_setting)
-            icon_setting = '<span class="btn_setting"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Model + '(\'' + ID  + '\', this)" class="fa' + FontAwesome_setting  + '"  aria-hidden="true"></i></a> ';
+            icon_setting = '<span class="btn_setting"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Model + '(\'' + ID  + '\', ' + '\'' + name + '\'' + ', this)" class="fa' + FontAwesome_setting  + '"  aria-hidden="true"></i></a> ';
 
         var close_div = '</li></div>';
 
