@@ -11,7 +11,7 @@ function create_Modal(name){
     var modal_ID = "Modal_" + name;
     var clone = $('#modal-template').clone().attr("id", modal_ID).insertAfter(".atlas-template");
     $(clone).attr("id", modal_ID)
-    $("#" + modal_ID).find(".atlas-header").replaceWith("<h2>Display Atlas Layers: " + name + "</h2>");
+    $("#" + modal_ID).find(".atlas-header").replaceWith("<h2>Urban Atlas: " + name + "</h2>");
 
     $(clone).modal();
 
