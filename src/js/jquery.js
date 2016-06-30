@@ -198,6 +198,10 @@ function add_Atlas(){
 
     // Create checkbox entry if it does not exist
     if ($(ID).length == 0){
+
+        // duplicate model from template
+        create_Modal (city_name);
+
         var html = create_HTML("atlas-layers-names", city_ID, city_name, city_name, ID);
         $(".atlas-layers").append(html);
     }
@@ -206,18 +210,6 @@ function add_Atlas(){
 function remove_Atlas (layer){
 
     console.log("remove atlas: ", layer);
-}
-
-function open_AtlasModel (layer, name){
-
-    var ID = "#" + layer;
-    var modal_ID = "#" + name;
-    console.log("open model: ", name);
-
-    create_Modal (layer, name)
-
-    $(modal_ID).modal();
-    $(modal_ID).modal('show');
 }
 
 

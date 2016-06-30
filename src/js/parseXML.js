@@ -5,43 +5,17 @@
 
 
 
-function create_Modal(ID, name){
+function create_Modal(name){
 
-    modal_ID = "#Modal_" + name
+    // duplicate model from template
+    var modal_ID = "Modal_" + name;
+    var clone = $('#modal-template').clone().attr("id", modal_ID).insertAfter(".atlas-template");
+    $(clone).attr("id", modal_ID)
+    $("#" + modal_ID).find(".atlas-header").replaceWith("<h2>Display Atlas Layers: " + name + "</h2>");
 
-    $('#modal-template').clone().appendTo( "#modal_ID" ).attr('#modal-template', modal_ID);
+    $(clone).modal();
 
-// .attr('#modal-template', modal_ID)
-    // addClass( "wms_selected" ).removeClass( "wms_candidates" ).appendTo( ".custom_Layers" );
-    // $( ID + " li input[type=checkbox] ").removeClass('wms_Ignore');
 
-    // var html =  '<div id="' + modal_ID + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirm-modal" aria-hidden="true">';
-    //     html += '<div class="modal-dialog" role="document">';
-    //         html += '<div class="modal-content">';
-    //             html += '<div class="modal-header">';
-    //                 html += '<button type="button" class="close" data-dismiss="modal" aria-label="Close">';
-    //                     html += '<span aria-hidden="true">';
-    //                 html += '<h2> Activate layer: ' + name + '</h2>';
-    //             html += '</div>';
-    //
-    //             html += '<div class="modal-body">';
-    //                 html += '<div class="wfs-modal">';
-    //
-    //                 html += '</div>';
-    //             html += '</div>';
-    //
-    //             html += '<div class="modal-footer">';
-    //                 html += '<button type="button" class="btn btn-primary " data-dismiss="modal" aria-label="Close">Close</button>';
-    //             html += '</div>';
-    //
-    //         html += '</div>';
-    //     html += '</div>';
-    // html += '</div>';
-    //
-    // console.log("modal_ID", modal_ID);
-    // $(modal_ID).html(html);
-    // $(modal_ID).modal();
-    // $(modal_ID).modal('show');
 }
 
 // http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_geologica.map&service=wms&request=getCapabilities&version=1.3.0
@@ -54,10 +28,11 @@ function create_HTML (classN, ID, name, title, ref, url){
 
         class_Checkbox="atlas-checkbox";
         onclick_Function="remove_WMS";
-        onclick_Model="open_AtlasModel";
+        onclick_Model="";
         class_Hidden = " fa-fw ";
         var FontAwesome_setting = " fa fa-cog ";
-        var modal = 'data-toggle="modal" data-target="#' + name + '"'
+        // var modal = 'data-toggle="modal" data-target="#modal-template"'
+        var modal = 'data-toggle="modal" data-target="#Modal_' + name + '"'
 
     }else{
 
@@ -86,7 +61,7 @@ function create_HTML (classN, ID, name, title, ref, url){
         var icon = '<span class="btn_delete"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Function + '(\'' + ID  + '\', this)" class="fa ' + FontAwesome + class_Hidden + '"  aria-hidden="true"></i></a> ';
 
         if (FontAwesome_setting)
-            icon_setting = '<span class="btn_setting"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Model + '(\'' + ID  + '\', ' + '\'' + name + '\'' + ', this)" class="fa' + FontAwesome_setting  + '"  aria-hidden="true" + ' + modal + '></i></a> ';
+            icon_setting = '<span class="btn_setting"><br></span> <a> <i href="'  +  ref  + '" value="B_' + ID  + '" onclick="' + onclick_Model + '(\'' + ID  + '\', ' + '\'' + name + '\'' + ', this)" class="fa' + FontAwesome_setting  + '"  aria-hidden="true" ' + modal + '></i></a> ';
 
         var close_div = '</li></div>';
 
