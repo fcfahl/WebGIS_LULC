@@ -89,25 +89,117 @@
                       </div>
                       <div class="atlas-layers"></div>
                       <div class="atlas-template">
-                        <div id="modal-template" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true" class="modal fade">
-                          <div role="document" class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
-                                <h2 class="atlas-header">Urban Atlas: </h2>
-                              </div>
-                              <div class="modal-body">
-                                <div class="atlasList">
-                                  <ul class="list-group">
-                                    <input type="checkbox" value="atlas_layer_WMS" checked="false" class="boxlayer"/>
-                                    <label for="atlas_layer_WMS"><span>Display as WMS layer (faster)</span></label>
-                                    <input type="checkbox" value="atlas_layer_WFS" checked="false" class="boxlayer"/>
-                                    <label for="atlas_layer_WFS"><span>Display as WFS layer (slower)</span></label>
-                                  </ul>
+                        <div class="atlas-group">
+                          <div id="modal-template" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true" class="modal fade">
+                            <div role="document" class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+                                  <h2 class="atlas-header">Urban Atlas: </h2>
                                 </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" id="atlas_close" data-dismiss="modal" class="btn btn-primary ">Close</button>
+                                <div class="modal-body">
+                                  <div class="atlasList">
+                                    <ul>
+                                      <div class="box_WMS">
+                                        <input type="checkbox" value="atlas_layer_WMS" checked="false" id="toBeReplaced_WMS" class="WMS_atlasbox"/>
+                                        <label for="atlas_layer_WMS"><span>Display as WMS layer (faster)</span></label>
+                                      </div>
+                                      <div class="box_WFS">
+                                        <input type="checkbox" value="atlas_layer_WFS" checked="false" id="toBeReplaced_WFS" class="WFS_atlasbox"/>
+                                        <label for="atlas_layer_WFS"><span>Display as WFS layer (slower)</span></label>
+                                      </div>
+                                      <div class="boxes_WFS">
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_11100" value="11100" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_11100"><span>Continuous Urban Fabric (S.L. &gt; 80%)</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_11210" value="11210" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_11210"><span>Discontinuous Dense Urban Fabric (S.L. : 50% -  80%)</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_11220" value="11220" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_11220"><span>Discontinuous Medium Density Urban Fabric (S.L. : 30% - 50%)</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_11230" value="11230" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_11230"><span>Discontinuous Low Density Urban Fabric (S.L. : 10% - 30%)</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_11240" value="11240" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_11240"><span>Discontinuous Very Low Density Urban Fabric (S.L. &lt; 10%)</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_11300" value="11300" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_11300"><span>Isolated Structures</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_12100" value="12100" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_12100"><span>Industrial, commercial, public, military and private units</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_12210" value="12210" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_12210"><span>Fast transit roads and associated land</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_12220" value="12220" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_12220"><span>Other roads and associated land</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_12230" value="12230" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_12230"><span>Railways and associated land</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_12300" value="12300" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_12300"><span>Port areas</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_12400" value="12400" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_12400"><span>Airports</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_13100" value="13100" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_13100"><span>Mineral extraction and dump sites</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_13300" value="13300" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_13300"><span>Construction sites</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_13400" value="13400" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_13400"><span>Land without current use</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_14100" value="14100" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_14100"><span>Green urban areas</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_14200" value="14200" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_14200"><span>Sports and leisure facilities</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_20000" value="20000" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_20000"><span>Agricultural + Semi-natural areas + Wetlands</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_30000" value="30000" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_30000"><span>Forests</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_40000" value="40000" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_40000"><span>Wetlands</span></label>
+                                        </div>
+                                        <div class="classes_WFS">
+                                          <input type="checkbox" checked="false" id="WFS_50000" value="50000" data-name="toBeReplaced_city_name" class="WFS_atlasbox-class"/>
+                                          <label for="WFS_50000"><span>Water bodies</span></label>
+                                        </div>
+                                      </div>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" id="atlas_close" data-dismiss="modal" class="btn btn-primary ">Close</button>
+                                </div>
                               </div>
                             </div>
                           </div>

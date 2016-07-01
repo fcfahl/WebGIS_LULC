@@ -9,9 +9,19 @@ function create_Modal(name){
 
     // duplicate model from template
     var modal_ID = "Modal_" + name;
-    var clone = $('#modal-template').clone().attr("id", modal_ID).insertAfter(".atlas-template");
+    var WMS_ID = "WMS_" + name;
+    var WFS_ID = "WFS_" + name;
+
+    var clone = $('#modal-template').clone().attr("id", modal_ID).appendTo(".atlas-group");
     $(clone).attr("id", modal_ID)
+
+    // replace model values with specific values from the city
     $("#" + modal_ID).find(".atlas-header").replaceWith("<h2>Urban Atlas: " + name + "</h2>");
+
+    $("#" + modal_ID).find("#toBeReplaced_WMS").attr("id", WMS_ID).attr("value", name);
+    $("#" + modal_ID).find("#toBeReplaced_WFS").attr("id", WFS_ID).attr("value", name);
+
+    $("#" + modal_ID).find(".WFS_atlasbox-class").attr("data-name", name);
 
     $(clone).modal();
 

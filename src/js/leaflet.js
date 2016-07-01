@@ -86,7 +86,7 @@ function leaflet_Control (LULC_layers) {
 function map_Layers () {
 
     // $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch-toogle, .atlas-checkbox)", function(event) {
-    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch-toogle)", function(event) {
+    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch-toogle, .WMS_atlasbox, .WFS_atlasbox, .WFS_atlasbox-class)", function(event) {
 
         var layerClicked = window[event.target.value];
 
@@ -99,9 +99,12 @@ function map_Layers () {
             map.addLayer(layerClicked);
         }
     });
+
+
+
 }
 
-function WMS_Object  (id, title, server, service, version, layer, bbox, width, height, CRS, format, transparent, tiled, style, zIndex){
+function WMS_Object  (id, title, server, service, version, layer, bbox, width, height, CRS, format, transparent, tiled, style, zIndex, filter){
 
     // create geoserver URL
     var get_Map = server + "?service=" + service + "&version=" + version + "&request=GetMap&layers=" + layer + "&bbox=" + bbox + "&width=" + width + "&height=" + height + "&srs=" +  CRS + "&format=" + format;
@@ -116,13 +119,14 @@ function WMS_Object  (id, title, server, service, version, layer, bbox, width, h
         version: version,
         tiled: tiled,
         styles: style,
+        cql_filter: filter,
         zIndex: zIndex
         // crs: wmsLayer.CRS,
     };
 
     // create Leaflet object
     window[id] = L.tileLayer.wms(server, arg);
-    // console.log(id);
+    console.log("ID wmsobject: ", id);
 }
 
 function WMS_Layers (DB_WMS, DB_Service, layers, styles, workspaces) {
@@ -137,10 +141,11 @@ function WMS_Layers (DB_WMS, DB_Service, layers, styles, workspaces) {
             layer = workspaces[index] + ":" + title,
             style = styles[index],
             zIndex = 100 - index,
+            filter = "",
             server = DB_WMS.Server + workspaces[index] + "/wms";
 
         // Add parameters to object
-        WMS_Object (id, title, server, service, DB_WMS.Version, layer, DB_WMS.Bbox, DB_WMS.Width, DB_WMS.Height, DB_WMS.CRS, DB_WMS.Format, DB_WMS.Transparent, DB_WMS.Tiled, style, zIndex);
+        WMS_Object (id, title, server, service, DB_WMS.Version, layer, DB_WMS.Bbox, DB_WMS.Width, DB_WMS.Height, DB_WMS.CRS, DB_WMS.Format, DB_WMS.Transparent, DB_WMS.Tiled, style, zIndex, filter);
 
     });
 }
@@ -149,78 +154,83 @@ function getJson (data){
         console.log("getJson ",data);
 }
 
+function get_Atlas_Boundaries (class_Atlas) {
+
+    var geojsonLayer = new L.GeoJSON();
+
+    function display_Json(data) {
+
+            var WMS_style = {
+                    "clickable": true,
+                    "color": "#ff3333" ,
+                    "fillColor": "#734d26",
+                    "weight": 1.0,
+                    "opacity": 0,
+                    "fillOpacity": 0.2
+            };
+
+            var city_label = L.geoJson(data, {
+                    // style: WMS_style,
+                    // onEachFeature: function (feature, layer) {
+                            // popupOptions = {
+                                    // "maxWidth": 200
+                            // };
+                            // layer.bindPopup(feature.properties.cities, popupOptions);
+
+                    // }
+            }).addTo(map);
+
+
+            city_label.on('click', function(e) {
+
+                var city_name = e.layer.feature.properties.cities;
+
+                var city_ID = e.layer.feature.properties.luz;
+
+                 console.log(city_name)
+                 console.log(city_ID)
+
+                 $('#atlas-cities').val(city_name);
+                 $('#atlas-cities').attr( 'data-id',city_ID);
+
+            });
+    }
+
+
+    var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
+
+    var defaultParameters = {
+            service : 'WFS',
+            version : '2.0.0',
+            request : 'GetFeature',
+            typeName : 'LULC:atlas06_extent',
+            outputFormat : 'text/javascript',
+            format_options : 'callback:getJson',
+            // cql_filter: "code='50000' ",
+            SrsName : 'EPSG:4326'
+    };
+
+    var parameters = L.Util.extend(defaultParameters);
+    var URL = owsrootUrl + L.Util.getParamString(parameters);
+
+    // parse the WFS data
+     $.ajax ({
+            type: 'GET',
+            url: URL,
+            dataType: 'jsonp',
+            cache: true,
+            async: true,
+            format: "text/javascript",
+            jsonpCallback: 'getJson',
+            success: display_Json
+    });
+
+}
+
 function WFS_Parse (class_Atlas) {
 
-        console.log("ATLAS: ", class_Atlas);
-
-        var geojsonLayer = new L.GeoJSON();
+        // console.log("ATLAS: ", class_Atlas);
 
 
-        function display_Json(data) {
-
-                var WMS_style = {
-                        "clickable": true,
-                        "color": "#ff3333" ,
-                        "fillColor": "#734d26",
-                        "weight": 1.0,
-                        "opacity": 0,
-                        "fillOpacity": 0.2
-                };
-
-                var city_label = L.geoJson(data, {
-                        style: WMS_style,
-                        onEachFeature: function (feature, layer) {
-                                popupOptions = {
-                                        "maxWidth": 200
-                                };
-                                layer.bindPopup(feature.properties.cities, popupOptions);
-
-                        }
-                }).addTo(map);
-
-
-                city_label.on('click', function(e) {
-
-                    var city_name = e.layer.feature.properties.cities;
-
-                    var city_ID = e.layer.feature.properties.luz;
-
-                     console.log(city_name)
-                     console.log(city_ID)
-
-                     $('#atlas-cities').val(city_name);
-                     $('#atlas-cities').attr( 'data-id',city_ID);
-
-                });
-        }
-
-
-        var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
-
-        var defaultParameters = {
-                service : 'WFS',
-                version : '2.0.0',
-                request : 'GetFeature',
-                typeName : 'LULC:atlas06_extent',
-                outputFormat : 'text/javascript',
-                format_options : 'callback:getJson',
-                // cql_filter: "code='50000' ",
-                SrsName : 'EPSG:4326'
-        };
-
-        var parameters = L.Util.extend(defaultParameters);
-        var URL = owsrootUrl + L.Util.getParamString(parameters);
-
-        // parse the WFS data
-         $.ajax ({
-                type: 'GET',
-                url: URL,
-                dataType: 'jsonp',
-                cache: true,
-                async: true,
-                format: "text/javascript",
-                jsonpCallback: 'getJson',
-                success: display_Json
-        });
 
 }

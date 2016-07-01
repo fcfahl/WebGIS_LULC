@@ -263,153 +263,130 @@
         "UrbanAtlas_06":
         [
             {
-                "11100":
-                {
-                    "Name": "Urban Fabric",
-                    "Code": "11100",
-                    "Class": "Continuous Urban Fabric (S.L. > 80%)",
-                    "Color": "140,0,0"
-                },
-                "11210":
-                {
-                    "Name": "Dense Urban Fabric",
-                    "Code": "11210",
-                    "Class": "Discontinuous Dense Urban Fabric (S.L. : 50% -  80%)",
-                    "Color": "209,0,0"
-                },
-                "11220":
-                {
-                    "Name": "Medium Density Urban Fabric",
-                    "Code": "11220",
-                    "Class": "Discontinuous Medium Density Urban Fabric (S.L. : 30% - 50%)",
-                    "Color": "255,0,0"
-                },
-                "11230":
-                {
-                    "Name": "Low Density Urban Fabric",
-                    "Code": "11230",
-                    "Class": "Discontinuous Low Density Urban Fabric (S.L. : 10% - 30%)",
-                    "Color": "255,128,128"
-                },
-                "11240":
-                {
-                    "Name": "Very Low Density Urban Fabric ",
-                    "Code": "11240",
-                    "Class": "Discontinuous Very Low Density Urban Fabric (S.L. < 10%)",
-                    "Color": "255,191,191"
-                },
-                "11300":
-                {
-                    "Name": "Isolated Structures",
-                    "Code": "11300",
-                    "Class": "Discontinuous Very Low Density Urban Fabric (S.L. < 10%)",
-                    "Color": "204,102,102"
-                },
-                "12100":
-                {
-                    "Name": "Industrial, commercial",
-                    "Code": "12100",
-                    "Class": "Industrial, commercial, public, military and private units",
-                    "Color": "201,78,241"
-                },
-                "12210":
-                {
-                    "Name": "Fast transit roads",
-                    "Code": "12210",
-                    "Class": "Fast transit roads and associated land",
-                    "Color": "255,85,0"
-                },
-                "12220":
-                {
-                    "Name": "Other roads",
-                    "Code": "12220",
-                    "Class": "Other roads and associated land",
-                    "Color": "255,166,128"
-                },
-                "12230":
-                {
-                    "Name": "Railways",
-                    "Code": "12230",
-                    "Class": "Other roads and associated land",
-                    "Color": "102,102,102"
-                },
-                "12300":
-                {
-                    "Name": "Port areas",
-                    "Code": "12300",
-                    "Class": "Port areas",
-                    "Color": "229,189,254"
-                },
-                "12400":
-                {
-                    "Name": "Airports",
-                    "Code": "12400",
-                    "Class": "Airports",
-                    "Color": "229,204,230"
-                },
-                "13100":
-                {
-                    "Name": "Mineral extraction",
-                    "Code": "13100",
-                    "Class": "Mineral extraction and dump sites",
-                    "Color": "135,89,68"
-                },
-                "13300":
-                {
-                    "Name": "Construction sites",
-                    "Code": "13300",
-                    "Class": "Construction sites",
-                    "Color": "204,168,102"
-                },
-                "13400":
-                {
-                    "Name": "No current use",
-                    "Code": "13400",
-                    "Class": "Land without current use",
-                    "Color": "135,68,68"
-                },
-                "14100":
-                {
-                    "Name": "Green urban areas",
-                    "Code": "14100",
-                    "Class": "Green urban areas",
-                    "Color": "153,230,0"
-                },
-                "14200":
-                {
-                    "Name": "Sports and leisure facilities",
-                    "Code": "14200",
-                    "Class": "Sports and leisure facilities",
-                    "Color": "211,255,115"
-                },
-                "20000":
-                {
-                    "Name": "Agricultural areas",
-                    "Code": "20000",
-                    "Class": "Agricultural + Semi-natural areas + Wetlands",
-                    "Color": "254,255,168"
-                },
-                "30000":
-                {
-                    "Name": "Forests",
-                    "Code": "30000",
-                    "Class": "Forests",
-                    "Color": "0,128,0"
-                },
-                "40000":
-                {
-                    "Name": "Wetlands",
-                    "Code": "40000",
-                    "Class": "Wetlands",
-                    "Color": "166,167,255"
-                },
-                "50000":
-                {
-                    "Name": "Water bodies",
-                    "Code": "50000",
-                    "Class": "Water bodies",
-                    "Color": "0,204,240"
-                }
+                "Name": "Urban Fabric",
+                "Code": "11100",
+                "Class": "Continuous Urban Fabric (S.L. > 80%)",
+                "Color": "140,0,0"
+            },
+            {
+                "Name": "Dense Urban Fabric",
+                "Code": "11210",
+                "Class": "Discontinuous Dense Urban Fabric (S.L. : 50% -  80%)",
+                "Color": "209,0,0"
+            },
+            {
+                "Name": "Medium Density Urban Fabric",
+                "Code": "11220",
+                "Class": "Discontinuous Medium Density Urban Fabric (S.L. : 30% - 50%)",
+                "Color": "255,0,0"
+            },
+            {
+                "Name": "Low Density Urban Fabric",
+                "Code": "11230",
+                "Class": "Discontinuous Low Density Urban Fabric (S.L. : 10% - 30%)",
+                "Color": "255,128,128"
+            },
+            {
+                "Name": "Very Low Density Urban Fabric ",
+                "Code": "11240",
+                "Class": "Discontinuous Very Low Density Urban Fabric (S.L. < 10%)",
+                "Color": "255,191,191"
+            },
+            {
+                "Name": "Isolated Structures",
+                "Code": "11300",
+                "Class": "Isolated Structures",
+                "Color": "204,102,102"
+            },
+            {
+                "Name": "Industrial, commercial",
+                "Code": "12100",
+                "Class": "Industrial, commercial, public, military and private units",
+                "Color": "201,78,241"
+            },
+            {
+                "Name": "Fast transit roads",
+                "Code": "12210",
+                "Class": "Fast transit roads and associated land",
+                "Color": "255,85,0"
+            },
+            {
+                "Name": "Other roads",
+                "Code": "12220",
+                "Class": "Other roads and associated land",
+                "Color": "255,166,128"
+            },
+            {
+                "Name": "Railways",
+                "Code": "12230",
+                "Class": "Railways and associated land",
+                "Color": "102,102,102"
+            },
+            {
+                "Name": "Port areas",
+                "Code": "12300",
+                "Class": "Port areas",
+                "Color": "229,189,254"
+            },
+            {
+                "Name": "Airports",
+                "Code": "12400",
+                "Class": "Airports",
+                "Color": "229,204,230"
+            },
+            {
+                "Name": "Mineral extraction",
+                "Code": "13100",
+                "Class": "Mineral extraction and dump sites",
+                "Color": "135,89,68"
+            },
+            {
+                "Name": "Construction sites",
+                "Code": "13300",
+                "Class": "Construction sites",
+                "Color": "204,168,102"
+            },
+            {
+                "Name": "No current use",
+                "Code": "13400",
+                "Class": "Land without current use",
+                "Color": "135,68,68"
+            },
+            {
+                "Name": "Green urban areas",
+                "Code": "14100",
+                "Class": "Green urban areas",
+                "Color": "153,230,0"
+            },
+            {
+                "Name": "Sports and leisure facilities",
+                "Code": "14200",
+                "Class": "Sports and leisure facilities",
+                "Color": "211,255,115"
+            },
+            {
+                "Name": "Agricultural areas",
+                "Code": "20000",
+                "Class": "Agricultural + Semi-natural areas + Wetlands",
+                "Color": "254,255,168"
+            },
+            {
+                "Name": "Forests",
+                "Code": "30000",
+                "Class": "Forests",
+                "Color": "0,128,0"
+            },
+            {
+                "Name": "Wetlands",
+                "Code": "40000",
+                "Class": "Wetlands",
+                "Color": "166,167,255"
+            },
+            {
+                "Name": "Water bodies",
+                "Code": "50000",
+                "Class": "Water bodies",
+                "Color": "0,204,240"
             }
         ],
         "Legend":

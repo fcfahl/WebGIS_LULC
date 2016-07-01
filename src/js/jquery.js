@@ -1,4 +1,4 @@
-function html_Design (LULC_layers) {
+function html_Design (LULC_layers, DB_WMS) {
 
     // Uncheck the checkboxes (problem in Firefox)
     $('input:checkbox').removeAttr('checked');
@@ -103,7 +103,9 @@ function html_Design (LULC_layers) {
 
 
     // add atlas function
-    $("#atlas_add").on("click", add_Atlas);
+    $("#atlas_add").on("click", function() {
+        add_Atlas (DB_WMS)
+    });
 }
 
 function WMS_Custom (){
@@ -189,7 +191,7 @@ function remove_WMS(ID, obj) {
     $("#" + ID).remove();
 }
 
-function add_Atlas(){
+function add_Atlas(DB_WMS){
 
     // retrieve input values
     var city_name = $('#atlas-cities').val();
@@ -205,13 +207,59 @@ function add_Atlas(){
         var html = create_HTML("atlas-layers-names", city_ID, city_name, city_name, ID);
         $(".atlas-layers").append(html);
     }
+
+
+    $(".WMS_atlasbox").on('click', function() {
+
+        console.log('WMS_atlasbox: ' , this);
+
+        var title = 'paris',
+            id = 'paris',
+            service = "WMS",
+            layer = "LULC:paris"
+            style = "Atlas_06",
+            zIndex = 100,
+            code ='50000'
+            server = "http://localhost:8080/geoserver/LULC/wms";
+
+        // Add parameters to object
+         WMS_Object (id, title, server, service, DB_WMS.Version, layer, DB_WMS.Bbox, DB_WMS.Width, DB_WMS.Height, DB_WMS.CRS, DB_WMS.Format, DB_WMS.Transparent, DB_WMS.Tiled, style, zIndex, filter);
+
+        var test =  window['paris'];
+
+        console.log('WMS_Object: ' , test);
+
+        if (map.hasLayer(test)) {
+            map.removeLayer(test);
+        } else {
+            map.addLayer(test);
+        }
+    });
+
+    $(".WFS_atlasbox").on('click', function() {
+
+        console.log('WFS_atlasbox: ' , this);
+        // console.log('this for adding: ' , this);
+
+        // if (map.hasLayer(layerClicked)) {
+        //     map.removeLayer(layerClicked);
+        // } else {
+        //     map.addLayer(layerClicked);
+        // }
+    });
+
+    $(".WFS_atlasbox-class").on('click', function() {
+
+        console.log('WFS_atlasbox-class: ' , this);
+        // console.log('this for adding: ' , this);
+
+        // if (map.hasLayer(layerClicked)) {
+        //     map.removeLayer(layerClicked);
+        // } else {
+        //     map.addLayer(layerClicked);
+        // }
+    });
 }
-
-function remove_Atlas (layer){
-
-    console.log("remove atlas: ", layer);
-}
-
 
 function refresh_Photos (refresh_action) {
 

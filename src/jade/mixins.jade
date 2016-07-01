@@ -103,7 +103,8 @@ mixin Atlas(land)
     .atlas-layers
 
     .atlas-template
-        +atlas_Modal
+        .atlas-group
+            +atlas_Modal
         
         //- div(class="atlas-select-layer" id="atlas-name-layer")
         //-     spam Page 1
@@ -117,7 +118,7 @@ mixin Atlas(land)
             //- label(for=ID)
             //-   span=NM
 
-mixin atlas_Modal ()
+mixin atlas_Modal ()    
     div(class="modal fade"  id="modal-template" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
         div(class="modal-dialog" role="document")
             div(class="modal-content")
@@ -127,20 +128,36 @@ mixin atlas_Modal ()
                     h2(class="atlas-header") Urban Atlas: 
                 div(class="modal-body")
                     .atlasList
-                        ul(class="list-group")
+                        ul
+                            div(class="box_WMS")
+                                input(type="checkbox" value="atlas_layer_WMS" class="WMS_atlasbox" checked='false' id="toBeReplaced_WMS")
+                                label(for="atlas_layer_WMS")
+                                  span="Display as WMS layer (faster)"
 
-                            input(type="checkbox" value="atlas_layer_WMS" class="boxlayer" checked='false')
-                            label(for="atlas_layer_WMS")
-                              span="Display as WMS layer (faster)"
+                            div(class="box_WFS")
+                                input(type="checkbox" value="atlas_layer_WFS" class="WFS_atlasbox" checked='false' id="toBeReplaced_WFS")
+                                label(for="atlas_layer_WFS")
+                                  span="Display as WFS layer (slower)"
 
-                            input(type="checkbox" value="atlas_layer_WFS" class="boxlayer" checked='false')
-                            label(for="atlas_layer_WFS")
-                              span="Display as WFS layer (slower)"
-                        
+                            div(class="boxes_WFS")
+                                +WFS_checkbox_classes
 
                 div(class="modal-footer")
                     button(type="button" class="btn btn-primary " id="atlas_close" data-dismiss="modal") Close
 
+mixin WFS_checkbox_classes()
+
+  //- read db.json
+  - var obj = locals[0].UrbanAtlas_06
+
+  each layer in obj
+    - var ID = "WFS_" + layer.Code
+    - var code = layer.Code
+
+    div(class="classes_WFS")
+        input(type="checkbox" class="WFS_atlasbox-class" checked='false' id=ID value=code data-name="toBeReplaced_city_name")
+        label(for=ID)
+          span=layer.Class
     
 mixin wms_Modal()
     .wmsModal

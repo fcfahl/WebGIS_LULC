@@ -47,10 +47,11 @@ $( document ).ready(function() {
 
 
         // Call functions
-        html_Design (layers_ID);
+        html_Design (layers_ID, DB_WMS[0]);
         leaflet_Control (layers_ID);
         WMS_Layers (DB_WMS[0], DB_services[0], layers_ID, layers_Styles, layers_Workspaces);
-        WFS_Parse(DB_UrbanAtlas[0]);
+        get_Atlas_Boundaries(DB_UrbanAtlas[0]);
+        // WFS_Parse(DB_UrbanAtlas[0]);
         WMS_Custom ();
         geotag_Photos ();
 
