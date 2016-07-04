@@ -13,7 +13,7 @@ function create_Modal(name){
     var WFS_ID = "WFS_" + name;
 
     var clone = $('#modal-template').clone().attr("id", modal_ID).appendTo(".atlas-group");
-    $(clone).attr("id", modal_ID)
+    $(clone).attr("id", modal_ID);
 
     // replace model values with specific values from the city
     $("#" + modal_ID).find(".atlas-header").replaceWith("<h2>Urban Atlas: " + name + "</h2>");
@@ -21,7 +21,7 @@ function create_Modal(name){
     $("#" + modal_ID).find("#toBeReplaced_WMS").attr("id", WMS_ID).attr("value", name);
     $("#" + modal_ID).find("#toBeReplaced_WFS").attr("id", WFS_ID).attr("value", name);
 
-    $("#" + modal_ID).find(".WFS_atlasbox-class").attr("data-name", name);
+    $("#" + modal_ID).find(".atlasbox-class").attr("data-name", name);
 
     $(clone).modal();
 
@@ -42,13 +42,13 @@ function create_HTML (classN, ID, name, title, ref, url){
         class_Hidden = " fa-fw ";
         var FontAwesome_setting = " fa fa-cog ";
         // var modal = 'data-toggle="modal" data-target="#modal-template"'
-        var modal = 'data-toggle="modal" data-target="#Modal_' + name + '"'
+        var modal = 'data-toggle="modal" data-target="#Modal_' + name + '"';
 
     }else{
 
-        class_Checkbox='"wmsBox wms_Ignore"'
+        class_Checkbox='"wmsBox wms_Ignore"';
         onclick_Function="remove_WMS";
-        class_Hidden = " fa-fw hidden "
+        class_Hidden = " fa-fw hidden ";
 
     }
 

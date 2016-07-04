@@ -14,46 +14,59 @@ $( document ).ready(function() {
     // Load JSON database
     $.getJSON( "db.json" )
     .done(function( data ) {
-        var DB_layers = data[0].Layers,
-            DB_services = data[0].Services,
-            DB_WMS = data[0].WMS_Server,
-            DB_legend = data[0].Legend;
-            DB_photo = data[0].Photo,
-            DB_UrbanAtlas = data[0].UrbanAtlas_06;
 
-        var layers_ID = [],
-            layers_Styles = [],
-            layers_Workspaces = [],
-            classes_UrbanAtlas = [],
-            WMS_server = [];
+        // parse db.json
+        var DB_Server = data.Servers,
+            DB_layers = data.Layers,
+            DB_UrbanAtlas = data.UrbanAtlas_06,
+            DB_legend = data.Legend,
+            DB_photo = data.Photo;
+
+        // define variables
+        var layer_List = [],
+            server_List = [],
+            atlas_List = [],
+            legend_List = [],
+            photo_List = [];
 
         // console.log(legend[0].GLC_00);
 
-        for (var i = 0; i < data[0].Layers.length; i++) {
-            layers_ID[i] = DB_layers[i].ID;
-            layers_Workspaces[i] = DB_layers[i].Workspace;
-            layers_Styles[i] = DB_layers[i].Style;
-            // localStorage.setItem(LULC_layers[i], "");
-        }
+        // get key  names
+        $.each(DB_layers, function(key, value) {
+            layer_List.push(key);
+        });
 
-        // for (var j= 0; j< data[0].WMS_Server.length; j++) {
-        //     classes_UrbanAtlas[k] = DB_UrbanAtlas[j].Server;
-        // }
+        $.each(DB_Server, function(key, value) {
+            server_List.push(key);
+        });
 
+        $.each(DB_UrbanAtlas, function(key, value) {
+            atlas_List.push(key);
+        });
 
-        for (var k = 0; k < data[0].WMS_Server.length; k++) {
-            WMS_server[k] = DB_WMS[k].Server;
-        }
+        $.each(DB_legend, function(key, value) {
+            legend_List.push(key);
+        });
 
+        $.each(DB_photo, function(key, value) {
+            photo_List.push(key);
+        });
 
         // Call functions
-        html_Design (layers_ID, DB_WMS[0]);
-        leaflet_Control (layers_ID);
-        WMS_Layers (DB_WMS[0], DB_services[0], layers_ID, layers_Styles, layers_Workspaces);
-        get_Atlas_Boundaries(DB_UrbanAtlas[0]);
-        // WFS_Parse(DB_UrbanAtlas[0]);
-        WMS_Custom ();
-        geotag_Photos ();
+        html_Design ();
+        leaflet_Control (DB_photo);
+        LULC_Layers (DB_layers, layer_List,  DB_Server, server_List);
+        map_Layers();
+        geotag_Photos (DB_photo);
+
+        WFS_Layers (DB_UrbanAtlas, atlas_List, DB_Server);
+        WMS_external ();
+
+        // WMS_Layers (DB_WMS[0], DB_services[0], layers_ID, layers_Styles, layers_Workspaces);
+        // get_Atlas_Boundaries(DB_UrbanAtlas[0]);
+        // // WFS_Parse(DB_UrbanAtlas[0]);
+        // WMS_Custom ();
+
 
             // Add JSON to localStorage http://stackoverflow.com/questions/22536620/jquery-posting-json-to-local-file
             // localStorage.setItem("serverData", JSON.stringify(DB_layers));
@@ -62,17 +75,18 @@ $( document ).ready(function() {
         var err = textStatus + ", " + error;
         console.log( "Load JSON DB Failed: " + err );
     });
+
 });
 
-// Opacity parameter (must be ouside of document ready function otherwise it will not work)
-function update_Opacity(layer) {
-    var ID_layer = layer.getAttribute('data-id');
-    var myVar = eval(ID_layer);
-    var _leaflet_id = layer.id;
+    // Opacity parameter (must be ouside of document ready function otherwise it will not work)
+    function update_Opacity(layer) {
+        var ID_layer = layer.getAttribute('data-id');
+        var myVar = eval(ID_layer);
+        var _leaflet_id = layer.id;
 
-    console.log ('Value: ' + layer.value + ', layer: ' + _leaflet_id + ', id: ' + ID_layer);
+        console.log ('Value: ' + layer.value + ', layer: ' + _leaflet_id + ', id: ' + ID_layer);
 
-    if (_leaflet_id) {
-        myVar.setOpacity(layer.value);
+        if (_leaflet_id) {
+            myVar.setOpacity(layer.value);
+        }
     }
-}
