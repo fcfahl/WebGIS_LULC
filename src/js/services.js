@@ -211,8 +211,6 @@ function service_Selector (DB_Server){
                 server = serverDB.URL + "LULC/wms";
             //
 
-
-
             var layerClicked = window[ID];
 
             console.log(layerClicked);
