@@ -83,14 +83,14 @@ function WMS_Object  (id, server, service, version, layer, bbox, width, height, 
         version: version,
         tiled: tiled,
         styles: "",
-        cql_filter: filter,
+        // cql_filter: filter,
         // crs: CRS,
         zIndex: zIndex
     };
 
     // create Leaflet object
     window[id] = L.tileLayer.wms(server, arg);
-    // console.log("ID wmsobject: ", id);
+    console.log("ID wmsobject: ", this);
 }
 
 function WFS_Layers (DB_UrbanAtlas, atlas_List, DB_Server) {
