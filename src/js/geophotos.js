@@ -1,7 +1,7 @@
 function geotag_Photos (DB_photo) {
 
     // switch button
-    $('.switch-toogle').on('click', function(event) {
+    $('.switch-toogle-photo').on('click', function(event) {
 
         var service_Name = this.value;
         var service_Photo = DB_photo[service_Name];

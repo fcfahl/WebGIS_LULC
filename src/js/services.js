@@ -1,21 +1,20 @@
-
-
-
 function add_Atlas(DB_WMS){
 
         // retrieve input values
         var city_name = $('#atlas-cities').val();
         var city_ID = $('#atlas-cities').attr( 'data-id');
         var ID = "#" + city_ID;
+        var checked = true;
 
         // Create checkbox entry if it does not exist
-        if ($(ID).length === 0){
+        if ($(ID).length === 0 && $('#atlas-cities').attr("data-id") != null ){
 
             // duplicate model from template
             clone_AtlasModal (city_name);
 
-            var html = create_HTML("atlas-layers-names", city_ID, city_name, city_name, ID);
+            var html = create_HTML("atlas-layers-names", city_ID, city_name, city_name, ID, checked);
             $(".atlas-layers").append(html);
+
         }
 }
 
@@ -55,7 +54,7 @@ function LULC_Layers (DB_layers, layer_List,  DB_Server, server_List) {
             layer = layerDB.Workspace + ":" + id,
             style = layerDB.Style,
             zIndex = 100 - index,
-            filter = "",
+            filter = null;
             CRS = 'EPSG\:3035',
             server = serverDB.URL + layerDB.Workspace + "/wms";
 
@@ -83,8 +82,8 @@ function WMS_Object  (id, server, service, version, layer, bbox, width, height, 
         transparent: transparent,
         version: version,
         tiled: tiled,
-        styles: style,
-        // cql_filter: filter,
+        styles: "",
+        cql_filter: filter,
         // crs: CRS,
         zIndex: zIndex
     };
@@ -103,8 +102,6 @@ function WFS_Layers (DB_UrbanAtlas, atlas_List, DB_Server) {
     get_WFS(WFS_url, city_BBOX, city_Workspace);
 
 }
-
-
 
 function set_StyleWFS (click, color, fillColor, weight, opacity, fillOpacity) {
     return {
@@ -137,7 +134,7 @@ function get_WFS (WFS_url, layer, workspace) {
 
 function retrieve_WFS (URL) {
 
-        console.log("url: ", URL);
+        // console.log("url: ", URL);
 
          $.ajax ({
                 type: 'GET',
@@ -184,126 +181,91 @@ function display_JSON(data) {
     }).addTo(map);
 }
 
-
-
-
-
-// $(".WFS_atlasbox").on('click', function() {
-//
-//     function display_WFS(data) {
-//
-//             var WMS_style = {
-//                     "clickable": true,
-//                     "color": "#ff3333" ,
-//                     "fillColor": "#734d26",
-//                     "weight": 2,
-//                     "opacity": 0.8,
-//                     "fillOpacity": 0.8
-//             };
-//
-//             L.geoJson(data, {
-//                     style: WMS_style
-//             }).addTo(map);
-//
-//     }
-//
-//     var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
-//
-//     var defaultParameters = {
-//             service : 'WFS',
-//             version : '2.0.0',
-//             request : 'GetFeature',
-//             typeName : 'LULC:paris',
-//             outputFormat : 'text/javascript',
-//             format_options : 'callback:getJson',
-//             cql_filter: "code='30000'",
-//             SrsName : 'EPSG:4326'
-//     };
-//
-//     var parameters = L.Util.extend(defaultParameters);
-//     var URL = owsrootUrl + L.Util.getParamString(parameters);
-//
-//     console.log("URL WFS:" , URL );
-//
-//
-//     // parse the WFS data
-//      $.ajax ({
-//             type: 'GET',
-//             url: URL,
-//             dataType: 'jsonp',
-//             cache: true,
-//             async: true,
-//             format: "text/javascript",
-//             jsonpCallback: 'getJson',
-//             success: display_WFS
-//     });
-//
-// });
-
-// $(".atlasbox-class").on('click', function() {
-//
-//     var code =  this.value;
-//     var filter =  "code='" + code + "'";
-//     console.log('WFS_atlasbox-class: ' , filter);
-//
-//     function display_WFS(data) {
-//
-//             var WMS_style = {
-//                     "clickable": true,
-//                     "color": "#ff3333" ,
-//                     "fillColor": "#734d26",
-//                     "weight": 2,
-//                     "opacity": 0.8,
-//                     "fillOpacity": 0.8
-//             };
-//
-//             L.geoJson(data, {
-//                     style: WMS_style
-//             }).addTo(map);
-//
-//     }
-//
-//     var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
-//
-//     var defaultParameters = {
-//             service : 'WFS',
-//             version : '2.0.0',
-//             request : 'GetFeature',
-//             typeName : 'LULC:paris',
-//             outputFormat : 'text/javascript',
-//             format_options : 'callback:getJson',
-//             cql_filter: filter,
-//             SrsName : 'EPSG:4326'
-//     };
-//
-//     var parameters = L.Util.extend(defaultParameters);
-//     var URL = owsrootUrl + L.Util.getParamString(parameters);
-//
-//     console.log("URL WFS:" , URL );
-//
-//
-//     // parse the WFS data
-//      $.ajax ({
-//             type: 'GET',
-//             url: URL,
-//             dataType: 'jsonp',
-//             cache: true,
-//             async: true,
-//             format: "text/javascript",
-//             jsonpCallback: 'getJson',
-//             success: display_WFS
-//     });
-//
-// });
-
-
-
 function getJson (data){
         console.log("getJson ",data);
 }
 
+function service_Selector (DB_Server){
+    // switch button for urban atlas
+    $(document).on('click', ".atlasbox-class", function(){
+
+        var value = $( this ).val();
+        var color = $( this ).attr("data-color");
+        var city = $( this ).attr("data-name");
+        var type = $( this ).attr("data-type");
+        var ID = type + city + value;
+        var serverDB = DB_Server[type];
+
+        // console.log(  " ID --> ", ID, "value --> ", value, " color --> ", color, " city --> ", city, " type --> ", type, " serverDB --> ", serverDB);
+
+        if ( type =="WMS") {
+            value_Service =  "WMS";
 
 
+            var service = "WMS",
+                layer = "LULC:paris",
+                style = "Atlas_06",
+                zIndex = 1000,
+                filter = "code='" + value + "'",
+                CRS = 'EPSG\:3035',
+                server = serverDB.URL + "LULC/wms";
+            //
+
+
+
+            var layerClicked = window[ID];
+
+            console.log(layerClicked);
+
+            if ($(layerClicked).length === 0){
+
+                console.log("undefined -> ");
+
+                // // Add parameters to object
+                WMS_Object (ID, server, service, serverDB.Version, layer, serverDB.Bbox, serverDB.Width, serverDB.Height, serverDB.CRS, serverDB.Format, serverDB.Transparent, serverDB.Tiled, style, zIndex, filter, CRS);
+
+                layerClicked = window[ID];
+
+                console.log("now defined -> ", layerClicked);
+
+            } else {
+                console.log("already exists-> ", layerClicked);
+
+            }
+
+
+
+
+            add_Leaflet_Layer (layerClicked);
+
+            // http://localhost:8080/geoserver/LULC/wms?service=WMS&version=1.3.0&request=GetMap&layers=LULC:paris&styles=&bbox=3697144.7,2805533.88,3846587.23,2937132.0&width=768&height=676&srs=EPSG:3035&format=application/openlayers#
+
+        } else {
+            value_Service =  "WFS";
+        }
+
+        // console.log(  value_Service, " --> ", this);
+
+
+
+    });
+
+    $(document).on('click', "#btnService", function(){
+
+            if ($('#btnService').val()=="WMS") {
+                value_Service =  "WFS";
+            } else {
+                value_Service =  "WMS";
+            }
+
+            $( '#btnService' ).val(value_Service);
+            $( '.atlasbox-class' ).attr("data-type", value_Service);
+
+            // console.log(  value_Service, " --> ", this);
+
+    });
+
+}
         // $(".WMS_atlasbox").on('click', function() {
         //
         //     console.log('WMS_atlasbox: ' , this);
@@ -329,4 +291,117 @@ function getJson (data){
         //     // } else {
         //     //     map.addLayer(test);
         //     // }
+        // });
+
+
+
+
+
+
+        // $(".WFS_atlasbox").on('click', function() {
+        //
+        //     function display_WFS(data) {
+        //
+        //             var WMS_style = {
+        //                     "clickable": true,
+        //                     "color": "#ff3333" ,
+        //                     "fillColor": "#734d26",
+        //                     "weight": 2,
+        //                     "opacity": 0.8,
+        //                     "fillOpacity": 0.8
+        //             };
+        //
+        //             L.geoJson(data, {
+        //                     style: WMS_style
+        //             }).addTo(map);
+        //
+        //     }
+        //
+        //     var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
+        //
+        //     var defaultParameters = {
+        //             service : 'WFS',
+        //             version : '2.0.0',
+        //             request : 'GetFeature',
+        //             typeName : 'LULC:paris',
+        //             outputFormat : 'text/javascript',
+        //             format_options : 'callback:getJson',
+        //             cql_filter: "code='30000'",
+        //             SrsName : 'EPSG:4326'
+        //     };
+        //
+        //     var parameters = L.Util.extend(defaultParameters);
+        //     var URL = owsrootUrl + L.Util.getParamString(parameters);
+        //
+        //     console.log("URL WFS:" , URL );
+        //
+        //
+        //     // parse the WFS data
+        //      $.ajax ({
+        //             type: 'GET',
+        //             url: URL,
+        //             dataType: 'jsonp',
+        //             cache: true,
+        //             async: true,
+        //             format: "text/javascript",
+        //             jsonpCallback: 'getJson',
+        //             success: display_WFS
+        //     });
+        //
+        // });
+
+        // $(".atlasbox-class").on('click', function() {
+        //
+        //     var code =  this.value;
+        //     var filter =  "code='" + code + "'";
+        //     console.log('WFS_atlasbox-class: ' , filter);
+        //
+        //     function display_WFS(data) {
+        //
+        //             var WMS_style = {
+        //                     "clickable": true,
+        //                     "color": "#ff3333" ,
+        //                     "fillColor": "#734d26",
+        //                     "weight": 2,
+        //                     "opacity": 0.8,
+        //                     "fillOpacity": 0.8
+        //             };
+        //
+        //             L.geoJson(data, {
+        //                     style: WMS_style
+        //             }).addTo(map);
+        //
+        //     }
+        //
+        //     var owsrootUrl = 'http://localhost:8080/geoserver/LULC/ows';
+        //
+        //     var defaultParameters = {
+        //             service : 'WFS',
+        //             version : '2.0.0',
+        //             request : 'GetFeature',
+        //             typeName : 'LULC:paris',
+        //             outputFormat : 'text/javascript',
+        //             format_options : 'callback:getJson',
+        //             cql_filter: filter,
+        //             SrsName : 'EPSG:4326'
+        //     };
+        //
+        //     var parameters = L.Util.extend(defaultParameters);
+        //     var URL = owsrootUrl + L.Util.getParamString(parameters);
+        //
+        //     console.log("URL WFS:" , URL );
+        //
+        //
+        //     // parse the WFS data
+        //      $.ajax ({
+        //             type: 'GET',
+        //             url: URL,
+        //             dataType: 'jsonp',
+        //             cache: true,
+        //             async: true,
+        //             format: "text/javascript",
+        //             jsonpCallback: 'getJson',
+        //             success: display_WFS
+        //     });
+        //
         // });

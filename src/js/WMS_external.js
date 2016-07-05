@@ -85,7 +85,7 @@ function remove_WMS(ID, obj) {
 
 // http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_geologica.map&service=wms&request=getCapabilities&version=1.3.0
 
-function create_HTML (classN, ID, name, title, ref, url){
+function create_HTML (classN, ID, name, title, ref, checked){
 
     var icon_setting = "";
 
@@ -107,6 +107,12 @@ function create_HTML (classN, ID, name, title, ref, url){
 
     }
 
+    if (checked === true){
+        check = "checked";
+    }else{
+        check = "";
+    }
+
     // create HTML element
 
         var FontAwesome = " fa-minus-circle ";
@@ -119,7 +125,11 @@ function create_HTML (classN, ID, name, title, ref, url){
         //     close_div = '</div>',
 
         var open_div = '<div id="' +  ID + '" class="' +  classN + '" >';
-        var li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class=' + class_Checkbox + ' id="I_' +  ID + '">';
+        // var li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class=' + class_Checkbox + ' id="I_' +  ID + '" checked = false >';
+
+        var li =  '<li><input type="checkbox" value="' + ID  + '" autocomplete="off" class=' + class_Checkbox + ' id="I_' +  ID + '" ' + check + '>';
+
+
         var label = '<label for="I_'  +  ID  + '"><span>'  +  title  +  '</span></label>';
 
              // include a hidden class to hide the delete button
@@ -189,15 +199,17 @@ function parseXML(xml) {
             format = "image/png",
             zIndex = 200 - index,
             id = ("wms" + index + title.slice(0,5) + title.substr(-5)).replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ''); // clip the name and remove the special characters to create an unique ID
+            filter = null,
+            check = false,
             ref="#" + id;
 
         // Create WMS object if it does not exists
         if($(ref).length === 0)
         {
-            WMS_Object (id, title, server, service, version, layers, bbox, width, height, CRS, format, transparent, tiled, styles, zIndex);
+            WMS_Object (id, server, service, version, layers, bbox, width, height, CRS, format, transparent, tiled, styles, zIndex, filter);
 
             // Add layers to pannel
-            var html = create_HTML("wms_candidates",id,name,title,ref);
+            var html = create_HTML("wms_candidates",id,name,title,ref, check);
             $(".wmsList").append(html);
         }
     });

@@ -191,7 +191,7 @@ function leaflet_Control (DB_photo) {
 function map_Layers () {
 
     // $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch-toogle, .atlas-checkbox)", function(event) {
-    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch-toogle, .WMS_atlasbox, .WFS_atlasbox, .atlasbox-class)", function(event) {
+    $(document).on('click', "input:checkbox:not(.wms_Ignore, .switch-toogle-photo, .WMS_atlasbox, .WFS_atlasbox, .atlasbox-class, #btnService, .atlas-checkbox)", function(event) {
 
         var layerClicked = window[event.target.value];
 
@@ -201,25 +201,6 @@ function map_Layers () {
         add_Leaflet_Layer (layerClicked);
 
     });
-
-    // $(document).on('click', "input:checkbox(#service-toogle)", function(){
-    //
-    // var value_Service = "WMS;"
-    //
-    // if ($(this).is(":checked")) {
-    //     console.log( "WMS CHECKED: ");
-    //     value_Service =  "WMS";
-    // } else {
-    //     console.log( "WFS CHECKED: ");
-    //     value_Service =  "WFS";
-    // }
-    //
-    //     $( "input:checkbox(#service-toogle)" ).val(value_Service);
-    //     $( "input:checkbox(.atlasbox-class)" ).attr("data-type", value_Service);
-    //
-    //      console.log( value_Service, this);
-    //
-    // });
 
 }
 
@@ -233,37 +214,3 @@ function add_Leaflet_Layer (layerName) {
         console.log('add layer: ' , layerName);
     }
 }
-
-$(document).on('click', ".atlasbox-class", function(){
-
-    if ($('#btnService').is(":checked")) {
-        console.log( "WMS CHECKED: ");
-        value_Service =  "WMS";
-    } else {
-        console.log( "WFS CHECKED: ");
-        value_Service =  "WFS";
-    }
-
-});
-
-
-$(document).on('click', "#btnService", function(){
-
-
-
-
-        if ($('#btnService').val()=="WMS") {
-            console.log( "WFS CHECKED: ");
-            value_Service =  "WFS";
-        } else {
-            console.log( "WMS CHECKED: ");
-            value_Service =  "WMS";
-        }
-
-        $( '#btnService' ).val(value_Service);
-        $( '.atlasbox-class' ).attr("data-type", value_Service);
-
-        console.log(this);
-
-
-});

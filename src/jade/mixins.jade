@@ -157,7 +157,7 @@ mixin switch_button(name, ID)
 
     .switch-photo
         label.switch-light(onclick="" )
-            input(class="switch-toogle" type="checkbox" id=ID value=name) 
+            input(class="switch-toogle switch-toogle-photo" type="checkbox" id=ID value=name) 
             strong #{name}
 
             span.well
@@ -178,7 +178,7 @@ mixin Atlas()
         .atlasSwitch
             .switch-buttons
                 label.switch-light(onclick="" )
-                    input(class="switch-toogle" type="checkbox" id="btnService" value="WMS" ) 
+                    input(class="switch-toogle switch-toogle-wms" type="checkbox" id="btnService" value="WMS" ) 
                     strong ...........................
 
                     span.well
@@ -213,7 +213,7 @@ mixin checkbox_Atlas ()
         - var class_Name = locals.UrbanAtlas_06[code].Class
         - var class_Color = locals.UrbanAtlas_06[code].Color
 
-        div(class="classes_WFS")
-            input(type="checkbox" class="atlasbox-class" checked='false' id=ID value=code data-name="toBeReplaced_city_name" data-color=class_Color data-type="WMS")
+        div(class="class-List-Atlas")
+            input(type="checkbox" class="atlasbox-class" checked='false' value=code data-name="toBeReplaced_city_name" data-color=class_Color data-type="WMS")
             label(for=ID)
                 span #{class_Name}

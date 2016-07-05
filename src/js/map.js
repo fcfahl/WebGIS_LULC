@@ -58,7 +58,7 @@ $( document ).ready(function() {
         LULC_Layers (DB_layers, layer_List,  DB_Server, server_List);
         map_Layers();
         geotag_Photos (DB_photo);
-
+        service_Selector (DB_Server);
         WFS_Layers (DB_UrbanAtlas, atlas_List, DB_Server);
         WMS_external ();
 
