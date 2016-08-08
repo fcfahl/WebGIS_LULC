@@ -48,7 +48,7 @@ function html_Design () {
     function sortPannel() {
 
         var $legCache = $('#legend');
-        var $tblCache = $('#tables');
+        var $tblCache = $('#info');
 
         $legCache.find('.leg').sort(function (a, b) {
             return +a.getAttribute('rel') - +b.getAttribute('rel');
@@ -71,7 +71,6 @@ function html_Design () {
                 index = i,
                 ID_leg = ("#leg_" + name),
                 ID_table = ("#tbl_" + name),
-                ID_opacity = ("#opy_" + name),
                 index_ID = (100 - index);
 
                 // update Json object
@@ -83,18 +82,11 @@ function html_Design () {
                 window[name].setZIndex(index_ID);
 
                 // Let ADM always on top
-                window["NUTS0"].setZIndex(500);
-
-                //  console.log("index: " +  index);
-                //  console.log("ID_leg: " + ID_leg);
+                window.NUTS0.setZIndex(500);
 
                 // Redefine rel value based on the new div sequence
                 $(ID_leg).attr('rel', index);
                 $(ID_table).attr('rel', index);
-
-                var test =$(ID_leg).attr('rel');
-                // console.clear()
-                // console.log(ID_leg + ": rel: " + test);
 
                 sortPannel();
             });

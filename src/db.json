@@ -371,15 +371,6 @@
             "Color": "0,204,240"
         }
     },
-    "Legend":
-    {
-        "GLC_00":
-        {
-            "#000": "RED",
-            "#300": "GREEN",
-            "#500": "BLUE"
-        }
-    },
     "Photo":
     {
         "Flickr":
@@ -435,7 +426,7 @@
             "format": "JSON",
             "jsoncallback": "jsonp",
             "logo": "http://s1.geograph.org.uk/templates/basic/img/logo.gif",
-            "marker": "img/icons/circle.png",
+            "marker": "img/icons/circle_add_16px.png",
             "maxWidth": "600",
             "maxHeight": "800"
         }

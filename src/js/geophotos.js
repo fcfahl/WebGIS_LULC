@@ -9,10 +9,10 @@ function geotag_Photos (DB_photo) {
 
          if(this.checked) {
             parse_Photos(service_Name, service_Photo, "show");
-
+            console.log( "add: ", service_Name);
          }else{
             parse_Photos(service_Name, service_Photo,"remove");
-            // console.log( "remove: ", service_Name);
+            console.log( "remove: ", service_Name);
          }
     });
 }
@@ -32,9 +32,6 @@ function get_BBOX () {
 
     var center = map.getCenter();
 
-    // console.log("center lat: ", center.lat, " center lon:", center.lng);
-    // console.log("west:", minx,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
-
     if(minx < fixed_bounds[1])
         minx = fixed_bounds[1];
 
@@ -46,8 +43,6 @@ function get_BBOX () {
 
     if(maxy > fixed_bounds[2])
         maxy = fixed_bounds[2];
-
-    // console.log("NEW -> west:", minx ,  " | " , "East:", maxx,  " | ", "South:", miny,  " | ", "North:", maxy,  " | ", "zoom:", zoom);
 
     var data  = {
         "zoom": zoom,
@@ -81,31 +76,6 @@ function leaflet_Markers (service_Photo, service_Icon, group, lat, lon, img){
         icon: service_Icon
     }).addTo(group);
     marker.bindPopup(popup);
-
-    // var marker = L.markerClusterGroup([lat, lon], {
-    //     icon: service_Icon
-    // }).addTo(group);
-    // marker.bindPopup(popup);
-
-
-    // var markerClusters = L.markerClusterGroup();
-    //
-    // for ( var i = 0; i < markers.length; ++i )
-    // {
-    // var popup = markers[i].name +
-    //           '<br/>' + markers[i].city +
-    //           '<br/><b>IATA/FAA:</b> ' + markers[i].iata_faa +
-    //           '<br/><b>ICAO:</b> ' + markers[i].icao +
-    //           '<br/><b>Altitude:</b> ' + Math.round( markers[i].alt * 0.3048 ) + ' m' +
-    //           '<br/><b>Timezone:</b> ' + markers[i].tz;
-    //
-    // var m = L.marker( [markers[i].lat, markers[i].lng], {icon: myIcon} )
-    //               .bindPopup( popup );
-    //
-    // markerClusters.addLayer( m );
-    // }
-    //
-    // map.addLayer( markerClusters );
 }
 
 function parse_Photos (service_Name, service_Photo, action){
@@ -115,8 +85,6 @@ function parse_Photos (service_Name, service_Photo, action){
     photo_Tag = $("#photo_tag").val();
     photo_Number = $("#photo_number").val();
     photo_Year = $("#photo_year").val();
-
-    // console.log("photo_Text: ", photo_Text, " photo_Tag: ", photo_Tag, " photo_Number: ", photo_Text, " photo_Year: ", photo_Year);
 
     // get boundary coordinates
     var data_BBOX = get_BBOX();
@@ -162,8 +130,6 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
         // loop through the photos
         $.each(data_Photo.photos.photo, function() {
 
-            // console.log("flickr response: ", this);
-
             // create a html frame
             var photo_owner = service_Photo.url + this.owner ;
             var photo_url = photo_owner + '/' + this.id ;
@@ -190,7 +156,6 @@ function display_Flickr (data_Photo, service_Photo, service_Icon, service_Logo){
             leaflet_Markers (service_Photo, service_Icon, group_Flickr, this.latitude, this.longitude, img);
 
         });
-
 }
 
 function parse_Flickr (service_Photo, service_Icon, service_Logo, action, photo_Text, photo_Tag, photo_Number, photo_Year){
@@ -205,7 +170,6 @@ function parse_Flickr (service_Photo, service_Icon, service_Logo, action, photo_
             group_Flickr = L.featureGroup([]).addTo(map);
 
             // define search criteria
-
             var search_Text = "",
                 search_Tag = "",
                 search_Year = "";
@@ -258,12 +222,8 @@ function parse_Flickr (service_Photo, service_Icon, service_Logo, action, photo_
 
 function display_Panoraimo (data_Photo, service_Photo, service_Icon, service_Logo){
 
-        // console.log("data_Photo", data_Photo);
-
     // loop through the photos
     $.each(data_Photo.photos, function() {
-
-    // console.log(this);
 
         // create a html frame
         var photo_width =  '" width=250" ';
@@ -346,8 +306,6 @@ function parse_Panoraimo (service_Photo, service_Icon, service_Logo, action, pho
 
 function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo){
 
-    // console.log("response geograph ", data_Photo);
-
     var geograph_ID = [];
 
     // parse the photo IDs (this is necessary prior to parse the photos because the Facets API does not return the proper lat long coordinates)
@@ -355,18 +313,16 @@ function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo
         geograph_ID[index] = this.id;
     });
 
+    console.log(" geograph_ID ", geograph_ID);
 
     $.each(geograph_ID, function(index, obj) {
-        // var grid = this.attrs.grid_reference
 
-        console.log("this geograph ", this);
-
-        var photo_URL =  "http://api.geograph.org.uk/api/photo/" + obj + "/" + service_Photo.key + "&output=json";
+        var geograph_URL =  "http://api.geograph.org.uk/api/photo/" + obj + "/" + service_Photo.key + "?output=json";
 
         // // parse the Geograph data
         $.when ( $.ajax ({
             type: 'GET',
-            url: photo_URL,
+            url: geograph_URL,
             dataType: 'jsonp',
             cache: true,
             async: true,
@@ -374,7 +330,7 @@ function display_Geograph (data_Photo, service_Photo, service_Icon, service_Logo
             })
         ).then(function( photo ) {
 
-            // console.log("this photo ", photo);
+            console.log("this photo ", photo);
 
             // create a html frame
             var photo_width =  '" width=250" ';
@@ -420,7 +376,6 @@ function parse_Geograph (service_Photo, service_Icon, service_Logo, action, phot
 
         // create a new object if it is empty
         group_Geograph = L.featureGroup([]).addTo(map);
-        // var featureGroup = L.markerClusterGroup();
 
         // get boundary coordinates
         var data_BBOX = get_BBOX();
@@ -454,13 +409,11 @@ function parse_Geograph (service_Photo, service_Icon, service_Logo, action, phot
         if ( photo_Year )
             seach_Year = '@takenyear ' + photo_Year;
 
-
         var seach_Criteria = "&q=" + $.grep([seach_Text, seach_Tag, photo_Year], Boolean).join(" ");
 
         console.log("seach_Criteria" , seach_Criteria);
 
-
-        var url_Geograph = "http://api.geograph.org.uk/api-facet.php?a=1&pretty=1&limit=" + photo_Number + "&offset=" + offset + seach_Criteria +"&bounds=" + data_BBOX.bbox_Geograph + '&sort=title + ASC';
+        var url_Geograph = "http://api.geograph.org.uk/api-facet.php?a=1&pretty=1&limit=" + photo_Number + "&offset=" + offset + seach_Criteria +"&bounds=" + data_BBOX.bbox_Geograph + '&sort=title+ASC';
 
         console.log("url_Geograph ", url_Geograph);
 
@@ -477,12 +430,10 @@ function parse_Geograph (service_Photo, service_Icon, service_Logo, action, phot
             display_Geograph(response, service_Photo, service_Icon, service_Logo);
         });
 
-
     } else {
         // remove layer
         map.addLayer(group_Geograph);
     }
-
 }
 
 function refresh_Photos (DB_photo, refresh_action) {

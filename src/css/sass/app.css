@@ -313,7 +313,7 @@ body {
           margin: 0; }
         body .container-fluid #main #side .pannel .leg .panel-heading, body .container-fluid #main #side .pannel .tbl .panel-heading {
           padding: 0;
-          border: solid #555555 1px;
+          border: none;
           background: #eee;
           color: #555555; }
           body .container-fluid #main #side .pannel .leg .panel-heading .panel-title, body .container-fluid #main #side .pannel .tbl .panel-heading .panel-title {
@@ -352,6 +352,10 @@ body {
             position: relative;
             float: left;
             width: 60%; }
+          body .container-fluid #main #side .pannel .leg .opy .leg-img, body .container-fluid #main #side .pannel .tbl .opy .leg-img {
+            width: 100%;
+            padding-top: 10px;
+            overflow-x: scroll; }
       body .container-fluid #main #side .pannel .tbl {
         display: none; }
         body .container-fluid #main #side .pannel .tbl .table_row {

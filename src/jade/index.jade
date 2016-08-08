@@ -12,13 +12,12 @@ html(lang="en")
         meta(charset="utf-8")
         link(rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png")
 
-        <!-- build:css1 css/main.min.css -->
-
+        //- <!-- build:css1 css/main.min.css -->
         +addCSS('jquery-ui/themes/base/jquery-ui.css', "bower") 
         +addCSS('css-toggle-switch/dist/toggle-switch.css', "bower") 
         +addCSS('css/bootstrap-flex.css') 
         +addCSS('font-awesome/css/font-awesome.css', "bower") 
-        <!-- endbuild -->
+        //- <!-- endbuild -->
 
         //- <!-- build:css2 css/app.css -->
         +addCSS('leaflet/dist/leaflet.css', "bower")   
@@ -27,10 +26,7 @@ html(lang="en")
         +addCSS('leaflet-minimap/dist/Control.MiniMap.min.css', "bower")
         +addCSS('libs/Leaflet-IconLayers-master/src/iconLayers.css')
         +addCSS('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css')
-        //- +addCSS('leaflet.markercluster/dist/MarkerCluster.css', "bower") 
         //- <!-- endbuild -->
-
-
 
         //- <!-- build:css3 css/app.css -->
         +addCSS('css/sass/app.css') 
@@ -54,8 +50,6 @@ html(lang="en")
         +addPlugin('libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js')    
         +addPlugin('libs/leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js')    
         +addPlugin('libs/Leaflet-WFST-master/dist/Leaflet-WFST.min.js')    
-
-        //- +addPlugin('leaflet.markercluster/dist/leaflet.markercluster.js', "bower")   
 
         <!-- endbuild -->
 
@@ -85,17 +79,16 @@ html(lang="en")
                                 //- Accordion and layers parameters
                                 #accordion
                                     +accorde('Administrative Layers', 'adm')
-                                    +accorde('Urban Atlas', 'atlas')
                                     +accorde('Land Cover Layers', 'lulc')
                                     +accorde('Photo Services', 'geotag')
                                     +accorde('External WMS Layers', 'WMS_external')
 
                             .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab")
-                            //-   +legend_boot('Land Cover Layers', 'lulc')
+                              +legend_boot('Land Cover Layers', 'lulc')
 
 
                             .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab")
-                            //-   +table_boot('Land Cover Layers', 'lulc')
+                              +table_boot('Land Cover Layers', 'lulc')
 
                     .settings                        
 
@@ -111,22 +104,11 @@ html(lang="en")
         script(src="bower_components/tether/dist/js/tether.js")
         script(src="bower_components/bootstrap/dist/js/bootstrap.js")
         script(src="libs/Openlayers3.16.0/ol.js")
-        //- script(src="http://www.panoramio.com/wapi/wapi.js?v=1")
-        //- script(src="../node_modules/flickrapi/browser/flickrapi.js") 
         <!-- endbuild -->
 
         <!-- build:js3 js/app.min.js -->
-        //- script(src="js/wmsObj.js")
-
         script(src="js/map.js")
         script(src="js/app.js")
-        script(src="js/services.js")
         script(src="js/WMS_external.js")
-        //- script(src="js/WFS.js")
-        //- script(src="js/jquery.js")
-        //- script(src="js/leaflet.js")
-        //- script(src="js/parseXML.js")
         script(src="js/geophotos.js")
-
-        //- script(src="js/WFS.js")
         <!-- endbuild -->

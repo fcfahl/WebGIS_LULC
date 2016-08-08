@@ -41,6 +41,76 @@ mixin tabs_bootstrap(classLI,classA,name,tab,bool)
     li(class=classLI)
         a(class=classA href=ref role=roleA id=idA data-toggle="tab" aria-controls=name aria-expanded=bool)=tab
 
+mixin legend_boot(section,sort,layers)
+
+    - var index = 0
+
+    for  ly in layers_ID
+        - var id =  locals.Layers[ly].ID
+        - var leg_ID = "leg_" + id
+        - var opy_ID = "opy_" + id
+        - var heading = "leg_" + id
+        - var collapse = "leg_col_" + id
+        - var ref_collapse = "#leg_col_" + id
+        - var NM = locals.Layers[ly].Name
+        - var ref = "img/"  +   id  + ".svg"
+        - var legend = locals.Layers[ly].Legend
+
+        if legend == "yes"
+
+            div(id=leg_ID class="leg" role="tablist" aria-multiselectable="true")
+                .panel.panel-default
+                    .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
+                        h3.panel-title
+                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID class="accordion-toggle")=NM    
+
+                    div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
+                        .opy
+                            .opy_title Opacity:
+                            input(id=opy_ID class="opy_slider slider" data-id=id type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);")
+
+                            .leg-img
+                                img(src=ref alt=NM)
+
+mixin table_boot(section,sort,layers)
+
+    - var index = 1
+
+    for  ly in layers_ID
+        - var id =  locals.Layers[ly].ID
+        - var tbl_ID = "tbl_" + id
+        - var heading = "tbl2_" + id
+        - var collapse = "tbl_col_" + id
+        - var ref_collapse = "#tbl_col_" + id
+        - var NM = locals.Layers[ly].Name
+        - var legend = locals.Layers[ly].Legend
+
+        if legend == "yes"
+
+            div(id=tbl_ID class="tbl" role="tablist" aria-multiselectable="true")
+                .panel.panel-default
+                    .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
+                        h3.panel-title
+                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=tbl_ID)=NM
+                div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
+                    +mk_table(id)
+
+mixin mk_table (ID)
+
+    for  ly in layers_ID
+        - var table =  locals.Layers[ly].ID
+        - var table_ID =  "tbl_" +  locals.Layers[ly].ID
+        - var name =  locals.Layers[ly].Name
+
+        if ID == table
+            table(id=table_ID class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="50%")
+                tbody
+                    for  val, key in locals.Layers[ly]
+                        if key !== 'Type' && key !== 'Legend' && key !== 'Category_ID' && key !== 'Category'  && key !== 'Dataset'  && key !== 'ID'  && key !== 'Workspace'  && key !== 'Style' && key !== 'Data source'  && val !== '' 
+                            tr(class="table_row")
+                                td #{key}
+                                td #{val}
+
 mixin accorde(section,group)
 
   .group
@@ -73,9 +143,8 @@ mixin Capabilities()
         form(class="form-inline")
             div(class="form-group")
                 label(class="sr-only" for="form_capabilities" WMS Get Capabilities)
-                input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_ecopedologica.map&service=wms&request=getCapabilities&version=1.3.0")
-
-                //- http://image.discomap.eea.europa.eu/arcgis/services/UrbanAtlas/Urban_Atlas_2012/MapServer/WMSServer?service=WMS&request=GetCapabilities&version=1.3.0
+                input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="")
+                //- input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_ecopedologica.map&service=wms&request=getCapabilities&version=1.3.0")
 
             button(type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalWindow" id="wms_submit") Submit
 
