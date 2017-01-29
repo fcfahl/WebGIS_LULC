@@ -57,3 +57,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# WebGIS modules and libraries
+/home/fcfahl/GIS/07_WebGIS/LULC/node_modules/
+/home/fcfahl/GIS/07_WebGIS/LULC/src/bower_components/
+
