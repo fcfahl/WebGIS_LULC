@@ -52,13 +52,13 @@
             "Data source": "",
             "Legend": "no"
         },
-        "GLC_00":
+        "GLC_2000_EPSG3857":
         {
-            "ID": "GLC_00",
+            "ID": "GLC_2000_EPSG3857",
             "Name": "Global Land Cover (2000)",
             "Category_ID": "LULC",
             "Category": "Land Cover Layers",
-            "Workspace": "LULC",
+            "Workspace": "EPSG3857",
             "Style": "raster",
             "Dataset": "GLC-2000",
             "Institution": "EC-JRC",

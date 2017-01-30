@@ -1,0 +1,262 @@
+{
+  "Layers": {
+    "GLC": {
+      "2000": {
+        "ID": "GLC_2000"
+      }
+    },
+    "GlobCover": {
+      "2005": {
+        "ID": "GlobCover_2005"
+      },
+      "2009": {
+        "ID": "GlobCover_2009"
+      }
+    },
+    "ESA": {
+      "2000": {
+        "ID": "ESA_2000"
+      },
+      "2005": {
+        "ID": "ESA_2005"
+      },
+      "2010": {
+        "ID": "ESA_2010"
+      }
+    },
+    "GLand30": {
+      "2000": {
+        "ID": "GLand30_2000"
+      },
+      "2010": {
+        "ID": "GLand30_2010"
+      }
+    },
+    "Corine": {
+      "1990": {
+        "ID": "Corine_1990"
+      },
+      "2000": {
+        "ID": "Corine_2000"
+      },
+      "2006": {
+        "ID": "Corine_2006"
+      },
+      "2012": {
+        "ID": "Corine_2012"
+      }
+    },
+    "GHSL": {
+      "1975": {
+        "ID": "GHSL_1975"
+      },
+      "1990": {
+        "ID": "GHSL_1990"
+      },
+      "2000": {
+        "ID": "GHSL_2000"
+      },
+      "2015": {
+        "ID": "GHSL_2015"
+      }
+    },
+    "UrbanAtlas": {
+      "2006": {
+        "ID": "UrbanAtlas_2006"
+      },
+      "2012": {
+        "ID": "UrbanAtlas_2012"
+      }
+    },
+    "MODIS_Type1": {
+      "2001": {
+        "ID": "MODIS_Type1_2001"
+      },
+      "2002": {
+        "ID": "MODIS_Type1_2002"
+      },
+      "2003": {
+        "ID": "MODIS_Type1_2003"
+      },
+      "2004": {
+        "ID": "MODIS_Type1_2004"
+      },
+      "2005": {
+        "ID": "MODIS_Type1_2005"
+      },
+      "2006": {
+        "ID": "MODIS_Type1_2006"
+      },
+      "2007": {
+        "ID": "MODIS_Type1_2007"
+      },
+      "2008": {
+        "ID": "MODIS_Type1_2008"
+      },
+      "2009": {
+        "ID": "MODIS_Type1_2009"
+      },
+      "2010": {
+        "ID": "MODIS_Type1_2010"
+      },
+      "2011": {
+        "ID": "MODIS_Type1_2011"
+      },
+      "2012": {
+        "ID": "MODIS_Type1_2012"
+      }
+    },
+    "MODIS_Type2": {
+      "2001": {
+        "ID": "MODIS_Type2_2001"
+      },
+      "2002": {
+        "ID": "MODIS_Type2_2002"
+      },
+      "2003": {
+        "ID": "MODIS_Type2_2003"
+      },
+      "2004": {
+        "ID": "MODIS_Type2_2004"
+      },
+      "2005": {
+        "ID": "MODIS_Type2_2005"
+      },
+      "2006": {
+        "ID": "MODIS_Type2_2006"
+      },
+      "2007": {
+        "ID": "MODIS_Type2_2007"
+      },
+      "2008": {
+        "ID": "MODIS_Type2_2008"
+      },
+      "2009": {
+        "ID": "MODIS_Type2_2009"
+      },
+      "2010": {
+        "ID": "MODIS_Type2_2010"
+      },
+      "2011": {
+        "ID": "MODIS_Type2_2011"
+      },
+      "2012": {
+        "ID": "MODIS_Type2_2012"
+      }
+    },
+    "MODIS_Type3": {
+      "2001": {
+        "ID": "MODIS_Type3_2001"
+      },
+      "2002": {
+        "ID": "MODIS_Type3_2002"
+      },
+      "2003": {
+        "ID": "MODIS_Type3_2003"
+      },
+      "2004": {
+        "ID": "MODIS_Type3_2004"
+      },
+      "2005": {
+        "ID": "MODIS_Type3_2005"
+      },
+      "2006": {
+        "ID": "MODIS_Type3_2006"
+      },
+      "2007": {
+        "ID": "MODIS_Type3_2007"
+      },
+      "2008": {
+        "ID": "MODIS_Type3_2008"
+      },
+      "2009": {
+        "ID": "MODIS_Type3_2009"
+      },
+      "2010": {
+        "ID": "MODIS_Type3_2010"
+      },
+      "2011": {
+        "ID": "MODIS_Type3_2011"
+      },
+      "2012": {
+        "ID": "MODIS_Type3_2012"
+      }
+    },
+    "MODIS_Type4": {
+      "2001": {
+        "ID": "MODIS_Type4_2001"
+      },
+      "2002": {
+        "ID": "MODIS_Type4_2002"
+      },
+      "2003": {
+        "ID": "MODIS_Type4_2003"
+      },
+      "2004": {
+        "ID": "MODIS_Type4_2004"
+      },
+      "2005": {
+        "ID": "MODIS_Type4_2005"
+      },
+      "2006": {
+        "ID": "MODIS_Type4_2006"
+      },
+      "2007": {
+        "ID": "MODIS_Type4_2007"
+      },
+      "2008": {
+        "ID": "MODIS_Type4_2008"
+      },
+      "2009": {
+        "ID": "MODIS_Type4_2009"
+      },
+      "2010": {
+        "ID": "MODIS_Type4_2010"
+      },
+      "2011": {
+        "ID": "MODIS_Type4_2011"
+      },
+      "2012": {
+        "ID": "MODIS_Type4_2012"
+      }
+    },
+    "MODIS_Type5": {
+      "2001": {
+        "ID": "MODIS_Type5_2001"
+      },
+      "2002": {
+        "ID": "MODIS_Type5_2002"
+      },
+      "2003": {
+        "ID": "MODIS_Type5_2003"
+      },
+      "2004": {
+        "ID": "MODIS_Type5_2004"
+      },
+      "2005": {
+        "ID": "MODIS_Type5_2005"
+      },
+      "2006": {
+        "ID": "MODIS_Type5_2006"
+      },
+      "2007": {
+        "ID": "MODIS_Type5_2007"
+      },
+      "2008": {
+        "ID": "MODIS_Type5_2008"
+      },
+      "2009": {
+        "ID": "MODIS_Type5_2009"
+      },
+      "2010": {
+        "ID": "MODIS_Type5_2010"
+      },
+      "2011": {
+        "ID": "MODIS_Type5_2011"
+      },
+      "2012": {
+        "ID": "MODIS_Type5_2012"
+      }
+    }
+  }
+}
