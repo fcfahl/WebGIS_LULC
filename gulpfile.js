@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     imagemin = require('gulp-imagemin'),
@@ -18,7 +20,7 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     fs = require('fs'),
     gutil = require('gulp-util'),
-    data = require('gulp-data'),
+    merge = require('gulp-merge-json'),
     Flickr = require('flickrapi');
 
 var dir_src = 'src',
@@ -35,6 +37,7 @@ var from = {
     css_file: dir_src + '/css/app.css',
     fonts: dir_src + '/bower_components/font-awesome/**/*.{ttf,woff,eof,svg}*',
     img: dir_src + '/img/**/*',
+    json_files: dir_src + '/json/**/*.json',
     json: dir_src + '/db.json',
     jade: dir_src + '/jade/index.jade',
     jade_files: dir_src + '/jade/**/*.jade',
@@ -52,9 +55,19 @@ var to = {
     json: dir_dst + '/db.json'
 };
 
-var json_Layers = JSON.parse(fs.readFileSync("./" + from.json)),
-    json_Data = json_Layers.Layers;
-    // console.log('CONFIG ', json_Data);
+
+gulp.task('merge_json', function(){
+  gulp.src(from.json_files)
+      .pipe(merge('db.json'))
+      .pipe(gulp.dest("./" + from.dir))
+
+
+      // var json_Layers = JSON.parse(fs.readFileSync("./" + from.json)),
+      // json_Data = json_Layers.Layers;
+      // console.log('CONFIG ', json_Data);
+
+});
+
 
 // SASS compiler
 gulp.task('sass', function(){
@@ -77,7 +90,7 @@ gulp.task('jshint', function() {
 // Jade compiler + Load json
 // https://codepen.io/hoichi/post/json-to-jade-in-gulp
 // http://stackoverflow.com/questions/31614931/how-to-parse-the-external-json-in-gulp-jade
-gulp.task('jade', function() {
+gulp.task('jade',  function() {
     gulp.src(from.jade)
         // .pipe(data(function(file) {
         //           return require('./src/db.json');
@@ -118,7 +131,7 @@ gulp.task('watch', function (){
 
 // Default task
 gulp.task('build', function () {
-  runSequence(['sass', 'jshint', 'jade']);
+  runSequence(['merge_json', 'sass', 'jshint', 'jade']);
 })
 
 // Default task
