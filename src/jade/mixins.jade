@@ -1,19 +1,31 @@
 //- VARIABLES
 
-- var  layers =  []
+- var  layers_Name =  []
 - var  layers_ID =  []
 - var  servers =  []
 - var  atlas =  []
+- var  metadata =  []
 
-for value in locals.Layers
-    - layers.push ( value.Name)
-    - layers_ID.push ( value.ID)
 
-for value in locals.Servers
+
+for value in locals.layers
+    - layers_ID.push (value[0].ID)
+    //- - console.log (locals.layers[3])
+    
+for value in locals.metadata
+    - layers_Name.push (value.Name)
+    //- - console.log (value.Name)    
+
+for value in locals.servers
     - servers.push (value.Server)
+    //- - console.log (value.Server) 
+    
+each key in locals.layers   
+    - console.log (key[0])
+    
+//- for value in locals.UrbanAtlas_06
+//-     - atlas.push (value.Code)
 
-for value in locals.UrbanAtlas_06
-    - atlas.push (value.Code)
 
 
 //- MIXINS
@@ -118,9 +130,9 @@ mixin accorde(section,group)
     h3=section
     div(id=group)
         for  layer in layers_ID
-            - var ID = locals.Layers[layer].ID
-            - var NM =  locals.Layers[layer].Name
-            - var cat =  locals.Layers[layer].Category
+            - var ID = locals.layers[layer].ID
+            - var NM =  locals.layers[layer].Name
+            - var cat =  locals.layers[layer].Category
             if section == cat
               div(id=ID class='draggable')
                 li

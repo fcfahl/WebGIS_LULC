@@ -24,17 +24,18 @@ var gulp = require('gulp'),
     Flickr = require('flickrapi');
 
 var dir_src = 'src',
-    dir_dst = 'public';
+    dir_dst = '/var/www/html/public/';
 
 var from = {
     dir: dir_src,
     html: dir_src + '/index.html',
     js: dir_src + '/js',
     js_files: dir_src + '/js/**/*.js',
+    libs: dir_src + '/libs/**/*',
     sass: dir_src + '/css/**/*.sass',
     sass_files: dir_src + '/css/**/*.sass',
     css: dir_src + '/css',
-    css_file: dir_src + '/css/app.css',
+    css_file: dir_src + '/css/**/*.css',
     fonts: dir_src + '/bower_components/font-awesome/**/*.{ttf,woff,eof,svg}*',
     img: dir_src + '/img/**/*',
     json_files: dir_src + '/json/**/*.json',
@@ -42,18 +43,33 @@ var from = {
     jade: dir_src + '/jade/index.jade',
     jade_files: dir_src + '/jade/**/*.jade',
     bootstrap_sass: dir_src + '/bower_components/bootstrap/scss/bootstrap-flex.scss',
-    bootstrap_css: dir_src + '/bower_components/bootstrap/dist/css'
+    bootstrap_css: dir_src + '/bower_components/bootstrap/dist/css',
+    bower: dir_src + '/bower_components/**/*'
 };
 
 var to = {
     dir: dir_dst,
     html: dir_dst + '/index.html',
     js: dir_dst + '/js',
+    libs: dir_dst + '/libs',
     css: dir_dst + '/css',
     fonts: '',
     img: dir_dst + '/img',
-    json: dir_dst + '/db.json'
+    json: dir_dst + '/db.json',
+    bower: dir_dst + '/bower_components'
 };
+
+
+gulp.task('copyFiles', function() {
+  // copy any html files in source/ to public/
+  gulp.src(from.html).pipe(gulp.dest(to.dir));
+  gulp.src(from.json).pipe(gulp.dest(to.dir));
+  gulp.src(from.js_files).pipe(gulp.dest(to.js));
+  gulp.src(from.css_file).pipe(gulp.dest(to.css));
+  gulp.src(from.img).pipe(gulp.dest(to.img));
+  gulp.src(from.bower).pipe(gulp.dest(to.bower));
+  gulp.src(from.libs).pipe(gulp.dest(to.libs));
+});
 
 
 gulp.task('merge_json', function(){
@@ -136,6 +152,6 @@ gulp.task('build', function () {
 
 // Default task
 gulp.task('default', ['build'], function () {
-  gulp.start('watch','webserver');
+  gulp.start('watch','webserver', 'copyFiles');
   // gulp.start('browserSync', 'watch','webserver');
 })

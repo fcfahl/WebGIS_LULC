@@ -71,25 +71,25 @@ html(lang="en")
                             +tabs_bootstrap('nav-item','nav-link active','layers','Layers','true')
                             +tabs_bootstrap('nav-item','nav-link','legend','Legend','false')
                             +tabs_bootstrap('nav-item','nav-link','info','Metadata','false')
-
+                        
                     .pannel
                         #clothing-nav-content.tab-content
-                            .tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab")
+                          .tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab")
 
-                                //- Accordion and layers parameters
-                                #accordion
-                                    +accorde('Administrative Layers', 'adm')
-                                    +accorde('Land Cover Layers', 'lulc')
-                                    +accorde('Photo Services', 'geotag')
-                                    +accorde('External WMS Layers', 'WMS_external')
+                            //- Accordion and layers parameters
+                            #accordion
+                              //- +accorde('Administrative Layers', 'adm')
+                              //- +accorde('Land Cover Layers', 'lulc')
+                              //- +accorde('Photo Services', 'geotag')
+                              //- +accorde('External WMS Layers', 'WMS_external')
 
-                            .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab")
-                              +legend_boot('Land Cover Layers', 'lulc')
+                          .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab")
+                            //- +legend_boot('Land Cover Layers', 'lulc')
 
 
-                            .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab")
-                              +table_boot('Land Cover Layers', 'lulc')
-
+                          .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab")
+                            //- +table_boot('Land Cover Layers', 'lulc')
+                
                     .settings                        
 
                 #map
