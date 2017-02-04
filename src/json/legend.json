@@ -1,0 +1,44 @@
+{ "legend":
+  {
+	"GLC":
+		{
+      "show": "yes" ,
+      "img": "GLC.svg"
+    },
+  "GlobCover":
+    {
+      "show": "yes" ,
+      "img": "GlobCover.svg"
+    },
+  "ESA":
+    {
+      "show": "yes" ,
+      "img": "CCIESA.svg"
+    },
+  "GLand30":
+    {
+      "show": "yes" ,
+      "img": "GLand30.svg"
+    },
+  "Corine":
+    {
+      "show": "yes" ,
+      "img": "Corine.svg"
+    },
+  "GHSL":
+    {
+      "show": "yes" ,
+      "img": "GHSL.svg"
+    },
+  "UrbanAtlas":
+    {
+      "show": "yes" ,
+      "img": "UrbanAtlas.svg"
+    },
+  "MODIS":
+    {
+      "show": "yes" ,
+      "img": "MODIS.svg"
+    }
+  }
+}

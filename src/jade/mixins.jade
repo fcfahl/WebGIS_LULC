@@ -1,27 +1,42 @@
 //- VARIABLES
-
 - var  layers_Name =  []
 - var  layers_ID =  []
-- var  servers =  []
+- var  layers =  locals.layers
+- var  metadata =  locals.metadata
+- var  servers =  locals.servers
+- var  legend =  locals.legend
 - var  atlas =  []
-- var  metadata =  []
 
 
+// JSON Keys
+- var key_JSON = Object.keys(locals)
+- var key_Layers = Object.keys(layers)
+- var key_Servers = Object.keys(servers)
 
-for value in locals.layers
-    - layers_ID.push (value[0].ID)
-    //- - console.log (locals.layers[3])
+
+// Extract JSON values
+for key in key_Layers
+  for value in layers[key]
+    //- - console.log (value)
+    - layers_ID.push (value.ID)
     
-for value in locals.metadata
-    - layers_Name.push (value.Name)
-    //- - console.log (value.Name)    
+for value in metadata
+  - layers_Name.push (value.Name)
 
-for value in locals.servers
-    - servers.push (value.Server)
-    //- - console.log (value.Server) 
-    
-each key in locals.layers   
-    - console.log (key[0])
+
+        
+        
+
+//- for value in metadata
+//-     //- - layers_Name.push (value.Name)
+//-     - console.log (value.Name)    
+//- 
+//- for value in db.servers
+//-     - servers.push (value.Server)
+//-     //- - console.log (value.Server) 
+//-     
+//- each key in db.layers   
+//-     //- - console.log (key[0])
     
 //- for value in locals.UrbanAtlas_06
 //-     - atlas.push (value.Code)
@@ -53,28 +68,30 @@ mixin tabs_bootstrap(classLI,classA,name,tab,bool)
     li(class=classLI)
         a(class=classA href=ref role=roleA id=idA data-toggle="tab" aria-controls=name aria-expanded=bool)=tab
 
-mixin legend_boot(section,sort,layers)
+mixin legend_boot(section,sort)
 
     - var index = 0
 
-    for  ly in layers_ID
-        - var id =  locals.Layers[ly].ID
-        - var leg_ID = "leg_" + id
-        - var opy_ID = "opy_" + id
-        - var heading = "leg_" + id
-        - var collapse = "leg_col_" + id
-        - var ref_collapse = "#leg_col_" + id
-        - var NM = locals.Layers[ly].Name
-        - var ref = "img/"  +   id  + ".svg"
-        - var legend = locals.Layers[ly].Legend
+    for  key in key_Layers
+    
+        - var ID = layers[key][0].ID
+        - var leg_ID = "leg_" + ID
+        - var opy_ID = "opy_" + ID
+        - var heading = "leg_" + ID
+        - var collapse = "leg_col_" + ID
+        - var ref_collapse = "#leg_col_" + ID
+        - var name =  metadata[key].Name
+        - var show = legend[key].show
+        - var svg = legend[key].img
+        - var ref = "img/"  +  svg  
 
-        if legend == "yes"
+        if show == "yes"
 
             div(id=leg_ID class="leg" role="tablist" aria-multiselectable="true")
                 .panel.panel-default
                     .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
                         h3.panel-title
-                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID class="accordion-toggle")=NM    
+                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID class="accordion-toggle")=name    
 
                     div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
                         .opy
@@ -82,46 +99,45 @@ mixin legend_boot(section,sort,layers)
                             input(id=opy_ID class="opy_slider slider" data-id=id type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);")
 
                             .leg-img
-                                img(src=ref alt=NM)
+                                img(src=ref alt=name)
 
-mixin table_boot(section,sort,layers)
+mixin table_boot(section,sort)
 
     - var index = 1
 
-    for  ly in layers_ID
-        - var id =  locals.Layers[ly].ID
-        - var tbl_ID = "tbl_" + id
-        - var heading = "tbl2_" + id
-        - var collapse = "tbl_col_" + id
-        - var ref_collapse = "#tbl_col_" + id
-        - var NM = locals.Layers[ly].Name
-        - var legend = locals.Layers[ly].Legend
+    for  key in key_Layers
+    
+        - var ID = layers[key][0].ID
+        - var tbl_ID = "tbl_" + ID
+        - var heading = "tbl2_" + ID
+        - var collapse = "tbl_col_" + ID
+        - var ref_collapse = "#tbl_col_" + ID
+        - var name =  metadata[key].Name
+        - var show = legend[key].show
 
-        if legend == "yes"
-
+        if show == "yes"
+        
             div(id=tbl_ID class="tbl" role="tablist" aria-multiselectable="true")
                 .panel.panel-default
                     .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
                         h3.panel-title
-                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=tbl_ID)=NM
+                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=tbl_ID)=name
                 div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
-                    +mk_table(id)
+                    +mk_table(key)
 
-mixin mk_table (ID)
+mixin mk_table (key)
 
-    for  ly in layers_ID
-        - var table =  locals.Layers[ly].ID
-        - var table_ID =  "tbl_" +  locals.Layers[ly].ID
-        - var name =  locals.Layers[ly].Name
+    - var table_ID =  "tbl_" +  key
+    - var name =  metadata[key].Name
 
-        if ID == table
-            table(id=table_ID class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="50%")
-                tbody
-                    for  val, key in locals.Layers[ly]
-                        if key !== 'Type' && key !== 'Legend' && key !== 'Category_ID' && key !== 'Category'  && key !== 'Dataset'  && key !== 'ID'  && key !== 'Workspace'  && key !== 'Style' && key !== 'Data source'  && val !== '' 
-                            tr(class="table_row")
-                                td #{key}
-                                td #{val}
+      if ID == table
+          table(id=table_ID class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="50%")
+              tbody
+                  for  val, key2 in metadata[key]
+                      if key2 !== 'Type' && key2 !== 'Legend' && key2 !== 'Category_ID' && key2 !== 'Category'  && key2 !== 'Dataset'  && key2 !== 'ID'  && key2 !== 'Workspace'  && key2 !== 'Style' && key2 !== 'Data source'  && val !== '' 
+                          tr(class="table_row")
+                              td #{key2}
+                              td #{val}
 
 mixin accorde(section,group)
 
@@ -129,24 +145,36 @@ mixin accorde(section,group)
     - var index = 0
     h3=section
     div(id=group)
-        for  layer in layers_ID
-            - var ID = locals.layers[layer].ID
-            - var NM =  locals.layers[layer].Name
-            - var cat =  locals.layers[layer].Category
-            if section == cat
-              div(id=ID class='draggable')
-                li
-                  input(type="checkbox" value=ID class="boxlayer" checked='false' rel="#{index++}")
-                  label(for=ID)
-                    span=NM
-
+    
+        if group == 'adm' 
+        
+        
+            - console.log ("")         
+        
+        if group == 'lulc' 
+        
+            for key in key_Layers            
+                for value in layers[key]
+            
+                  - var ID = value.ID
+                  - var year = value.year
+                  - var name = key + " " + year
+                  - var cat =  metadata[key].Category
+                
+                  if section == cat
+                    div(id=ID class='draggable')
+                      li
+                        input(type="checkbox" value=ID class="boxlayer" checked='false' rel="#{index++}")
+                        label(for=ID)
+                          span=name
+        
         if group == 'WMS_external'
             +Capabilities
         
         if group == 'geotag'
             +Geotag        
             +photo_Modal
-
+        
         if group == 'atlas'
             +Atlas
 

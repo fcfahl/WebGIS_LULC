@@ -86,47 +86,7 @@
 				"ID": "UrbanAtlas_2012"
 			}
 		],
-		"MODIS_Type1": [
-			{
-				"year": "2001",
-				"ID": "MODIS_Type1_2001"
-			},
-			{
-				"year": "2002",
-				"ID": "MODIS_Type1_2002"
-			},
-			{
-				"year": "2003",
-				"ID": "MODIS_Type1_2003"
-			},
-			{
-				"year": "2004",
-				"ID": "MODIS_Type1_2004"
-			},
-			{
-				"year": "2005",
-				"ID": "MODIS_Type1_2005"
-			},
-			{
-				"year": "2006",
-				"ID": "MODIS_Type1_2006"
-			},
-			{
-				"year": "2007",
-				"ID": "MODIS_Type1_2007"
-			},
-			{
-				"year": "2008",
-				"ID": "MODIS_Type1_2008"
-			},
-			{
-				"year": "2009",
-				"ID": "MODIS_Type1_2009"
-			},
-			{
-				"year": "2010",
-				"ID": "MODIS_Type1_2010"
-			},
+		"MODIS": [
 			{
 				"year": "2011",
 				"ID": "MODIS_Type1_2011"
@@ -135,207 +95,41 @@
 				"year": "2012",
 				"ID": "MODIS_Type1_2012"
 			}
-		],
-		"MODIS_Type2": [
-			{
-				"year": "2001",
-				"ID": "MODIS_Type2_2001"
-			},
-			{
-				"year": "2002",
-				"ID": "MODIS_Type2_2002"
-			},
-			{
-				"year": "2003",
-				"ID": "MODIS_Type2_2003"
-			},
-			{
-				"year": "2004",
-				"ID": "MODIS_Type2_2004"
-			},
-			{
-				"year": "2005",
-				"ID": "MODIS_Type2_2005"
-			},
-			{
-				"year": "2006",
-				"ID": "MODIS_Type2_2006"
-			},
-			{
-				"year": "2007",
-				"ID": "MODIS_Type2_2007"
-			},
-			{
-				"year": "2008",
-				"ID": "MODIS_Type2_2008"
-			},
-			{
-				"year": "2009",
-				"ID": "MODIS_Type2_2009"
-			},
-			{
-				"year": "2010",
-				"ID": "MODIS_Type2_2010"
-			},
-			{
-				"year": "2011",
-				"ID": "MODIS_Type2_2011"
-			},
-			{
-				"year": "2012",
-				"ID": "MODIS_Type2_2012"
-			}
-		],
-		"MODIS_Type3": [
-			{
-				"year": "2001",
-				"ID": "MODIS_Type3_2001"
-			},
-			{
-				"year": "2002",
-				"ID": "MODIS_Type3_2002"
-			},
-			{
-				"year": "2003",
-				"ID": "MODIS_Type3_2003"
-			},
-			{
-				"year": "2004",
-				"ID": "MODIS_Type3_2004"
-			},
-			{
-				"year": "2005",
-				"ID": "MODIS_Type3_2005"
-			},
-			{
-				"year": "2006",
-				"ID": "MODIS_Type3_2006"
-			},
-			{
-				"year": "2007",
-				"ID": "MODIS_Type3_2007"
-			},
-			{
-				"year": "2008",
-				"ID": "MODIS_Type3_2008"
-			},
-			{
-				"year": "2009",
-				"ID": "MODIS_Type3_2009"
-			},
-			{
-				"year": "2010",
-				"ID": "MODIS_Type3_2010"
-			},
-			{
-				"year": "2011",
-				"ID": "MODIS_Type3_2011"
-			},
-			{
-				"year": "2012",
-				"ID": "MODIS_Type3_2012"
-			}
-		],
-		"MODIS_Type4": [
-			{
-				"year": "2001",
-				"ID": "MODIS_Type4_2001"
-			},
-			{
-				"year": "2002",
-				"ID": "MODIS_Type4_2002"
-			},
-			{
-				"year": "2003",
-				"ID": "MODIS_Type4_2003"
-			},
-			{
-				"year": "2004",
-				"ID": "MODIS_Type4_2004"
-			},
-			{
-				"year": "2005",
-				"ID": "MODIS_Type4_2005"
-			},
-			{
-				"year": "2006",
-				"ID": "MODIS_Type4_2006"
-			},
-			{
-				"year": "2007",
-				"ID": "MODIS_Type4_2007"
-			},
-			{
-				"year": "2008",
-				"ID": "MODIS_Type4_2008"
-			},
-			{
-				"year": "2009",
-				"ID": "MODIS_Type4_2009"
-			},
-			{
-				"year": "2010",
-				"ID": "MODIS_Type4_2010"
-			},
-			{
-				"year": "2011",
-				"ID": "MODIS_Type4_2011"
-			},
-			{
-				"year": "2012",
-				"ID": "MODIS_Type4_2012"
-			}
-		],
-		"MODIS_Type5": [
-			{
-				"year": "2001",
-				"ID": "MODIS_Type5_2001"
-			},
-			{
-				"year": "2002",
-				"ID": "MODIS_Type5_2002"
-			},
-			{
-				"year": "2003",
-				"ID": "MODIS_Type5_2003"
-			},
-			{
-				"year": "2004",
-				"ID": "MODIS_Type5_2004"
-			},
-			{
-				"year": "2005",
-				"ID": "MODIS_Type5_2005"
-			},
-			{
-				"year": "2006",
-				"ID": "MODIS_Type5_2006"
-			},
-			{
-				"year": "2007",
-				"ID": "MODIS_Type5_2007"
-			},
-			{
-				"year": "2008",
-				"ID": "MODIS_Type5_2008"
-			},
-			{
-				"year": "2009",
-				"ID": "MODIS_Type5_2009"
-			},
-			{
-				"year": "2010",
-				"ID": "MODIS_Type5_2010"
-			},
-			{
-				"year": "2011",
-				"ID": "MODIS_Type5_2011"
-			},
-			{
-				"year": "2012",
-				"ID": "MODIS_Type5_2012"
-			}
 		]
+	},
+	"legend": {
+		"GLC": {
+			"show": "yes",
+			"img": "GLC.svg"
+		},
+		"GlobCover": {
+			"show": "yes",
+			"img": "GlobCover.svg"
+		},
+		"ESA": {
+			"show": "yes",
+			"img": "CCIESA.svg"
+		},
+		"GLand30": {
+			"show": "yes",
+			"img": "GLand30.svg"
+		},
+		"Corine": {
+			"show": "yes",
+			"img": "Corine.svg"
+		},
+		"GHSL": {
+			"show": "yes",
+			"img": "GHSL.svg"
+		},
+		"UrbanAtlas": {
+			"show": "yes",
+			"img": "UrbanAtlas.svg"
+		},
+		"MODIS": {
+			"show": "yes",
+			"img": "MODIS.svg"
+		}
 	},
 	"metadata": {
 		"GLC": {
@@ -513,6 +307,62 @@
 			"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 			"Data source": "...",
 			"Legend": "yes"
+		}
+	},
+	"photo": {
+		"Flickr": {
+			"service": "Flickr",
+			"url": "https://www.flickr.com/photos/",
+			"rest": "https://api.flickr.com/services/rest/",
+			"key": "78a6ce549b86483a335a3377a3765ef0",
+			"method": "flickr.photos.search",
+			"has_geo": "1",
+			"extras": "description,geo,url_s,date_taken,license,tags",
+			"text": "",
+			"perpage": 50,
+			"page": "1",
+			"format": "json",
+			"jsoncallback": "1",
+			"logo": "https://s.yimg.com/pw/images/goodies/white-flickr.png",
+			"marker": "https://s.yimg.com/pw/images/goodies/white-small-circle.png",
+			"maxWidth": "600",
+			"maxHeight": "800"
+		},
+		"Panoramio": {
+			"service": "Panoramio",
+			"url": "http://www.panoramio.com/map/get_panoramas.php?set=",
+			"rest": "",
+			"key": "",
+			"method": "",
+			"has_geo": "",
+			"extras": "",
+			"text": "",
+			"perpage": 50,
+			"page": "",
+			"format": "json",
+			"jsoncallback": "jsonp",
+			"logo": "http://www.panoramio.com/img/glass/components/logo_bar/panoramio.png",
+			"marker": "http://www.panoramio.com/img/panoramio-marker.png",
+			"maxWidth": "600",
+			"maxHeight": "800"
+		},
+		"Geograph": {
+			"service": "Geograph",
+			"url": "http://api.geograph.org.uk/syndicator.php?",
+			"rest": "",
+			"key": "e79cb167fb",
+			"method": "",
+			"has_geo": "",
+			"extras": "",
+			"text": "",
+			"perpage": 50,
+			"page": "",
+			"format": "JSON",
+			"jsoncallback": "jsonp",
+			"logo": "http://s1.geograph.org.uk/templates/basic/img/logo.gif",
+			"marker": "img/icons/circle_add_16px.png",
+			"maxWidth": "600",
+			"maxHeight": "800"
 		}
 	},
 	"servers": {

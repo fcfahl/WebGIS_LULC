@@ -112,21 +112,34 @@ gulp.task('jade',  function() {
         //           return require('./src/db.json');
         //         } ))
         .pipe(jade({
-            pretty: true,
+            pretty: false,
             locals: JSON.parse(fs.readFileSync("./" + from.json, { encoding: 'utf8' }) )
         }).on('error', gutil.log))
         .pipe(gulp.dest("./" + from.dir))
 });
 
 
+// gulp.task('jade', function() {
+//   return gulp.src(from.jade)
+//     .pipe(data( function(file) {
+//                   return JSON.parse(
+//                     fs.readFileSync("./" + from.json)
+//                   );
+//                 } ))
+//     .pipe(jade())
+//     .pipe(gulp.dest("./" + from.dir));
+// });
+
+
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: from.dir,
-      reloadDelay: 100
+      reloadDelay: 10
     }
   })
 });
+
 
 gulp.task('webserver', function() {
   connect.server({
@@ -152,6 +165,6 @@ gulp.task('build', function () {
 
 // Default task
 gulp.task('default', ['build'], function () {
-  gulp.start('watch','webserver', 'copyFiles');
+  gulp.start('watch',  'webserver', 'copyFiles');
   // gulp.start('browserSync', 'watch','webserver');
 })

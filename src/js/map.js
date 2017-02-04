@@ -12,13 +12,17 @@ $( document ).ready(function() {
     // window.map_Bounds = "unchanged";
 
     // Load JSON database
-    $.getJSON( "db.json" )
+
+    // var DB_location = "http://localhost/public/db.json";
+
+
+    $.getJSON( 'db.json' )
     .done(function( data ) {
 
         // parse db.json
-        var DB_Server = data.Servers,
-            DB_layers = data.Layers,
-            DB_photo = data.Photo;
+        var DB_Server = data.servers,
+            DB_layers = data.layers,
+            DB_photo = data.photo;
 
         // define variables
         var layer_List = [],
