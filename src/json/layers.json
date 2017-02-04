@@ -1,5 +1,9 @@
 { "layers":
   {
+  "NUTS0":
+    [
+      { "year": "2013", "ID": "NUTS0" }
+    ],
 	"GLC":
 		[
 			{ "year": "2000", "ID": "GLC_2000" }

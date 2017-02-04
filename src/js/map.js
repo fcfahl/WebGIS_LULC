@@ -13,9 +13,6 @@ $( document ).ready(function() {
 
     // Load JSON database
 
-    // var DB_location = "http://localhost/public/db.json";
-
-
     $.getJSON( 'db.json' )
     .done(function( data ) {
 
@@ -30,8 +27,10 @@ $( document ).ready(function() {
             photo_List = [];
 
         // get key  names
-        $.each(DB_layers, function(key, value) {
-            layer_List.push(key);
+        $.each(DB_layers, function(key1, value1) {
+          $.each(value1, function(key2, value2) {
+              layer_List.push(value2.ID);
+          });
         });
 
         $.each(DB_Server, function(key, value) {
@@ -70,26 +69,27 @@ function update_Opacity(layer) {
     }
 }
 
-function LULC_Layers (DB_layers, layer_List,  DB_Server, server_List) {
+function LULC_Layers (DB_layers, layer_List2,  DB_Server, server_List) {
     // there is a problem on geoserver to set up a custom style - it seems to shift the color classes for discrete colortables - for this reason it is been using only the defaul raster style
 
     var serverDB = DB_Server.WMS;
+    var workspace = serverDB.Workspace1;
 
     // loop through LULC_Layers
-    for (var index in layer_List) {
+    // for (var index in layer_List2) {
+    $.each(layer_List2, function(key, value) {
 
-        var layerDB = DB_layers[layer_List[index]];
-
-        var id =  layerDB.ID,
+        var id =  value,
             service = "WMS",
-            layer = layerDB.Workspace + ":" + id,
-            style = layerDB.Style,
-            zIndex = 100 - index,
-            server = serverDB.URL + layerDB.Workspace + "/wms";
+            layer = workspace + ":" + id,
+            style = "raster",
+            // style = id,
+            zIndex = 100 - key,
+            server = serverDB.URL + workspace + "/wms";
 
         // Add parameters to object
-        WMS_Object (id, server, service, serverDB.Version, layer, serverDB.Bbox, serverDB.Width, serverDB.Height, serverDB.CRS, serverDB.Format, serverDB.Transparent, serverDB.Tiled, style, zIndex);
-    }
+        WMS_Object (id, server, service, serverDB.Version, id, serverDB.Bbox, serverDB.Width, serverDB.Height, serverDB.CRS, serverDB.Format, serverDB.Transparent, serverDB.Tiled, style, zIndex);
+    });
 }
 
 function WMS_Object  (id, server, service, version, layer, bbox, width, height, CRS, format, transparent, tiled, style, zIndex){

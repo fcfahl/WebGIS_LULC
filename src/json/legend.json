@@ -1,5 +1,10 @@
 { "legend":
   {
+  "NUTS0":
+    {
+      "show": "no" ,
+      "img": ""
+    },
 	"GLC":
 		{
       "show": "yes" ,
