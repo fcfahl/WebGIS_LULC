@@ -1,7 +1,7 @@
 {
   "metadata":
   {
-  "NUTS0":
+  "NUTS":
     {
         "Name": "Country Boundaries",
         "Category_ID": "ADM",
@@ -134,27 +134,27 @@
         "Legend": "yes"
     },
   "GHSL":
-  {
-      "Name": "",
-      "Category_ID": "",
-      "Category": "",
-      "Style": "",
-      "Dataset": "",
-      "Institution": "",
-      "Temporal coverage": "",
-      "Spatial Coverage": "",
-      "Sensor": "",
-      "Input Data": "",
-      "Spatial Resolution": "-",
-      "Native Coordinate System": "",
-      "Classification Technique": "...",
-      "Classification Scheme": "",
-      "Validation": "",
-      "Accuracy": "",
-      "Use policy": "",
-      "Data source": "...",
-      "Legend": "yes"
-  },
+    {
+        "Name": "",
+        "Category_ID": "",
+        "Category": "",
+        "Style": "",
+        "Dataset": "",
+        "Institution": "",
+        "Temporal coverage": "",
+        "Spatial Coverage": "",
+        "Sensor": "",
+        "Input Data": "",
+        "Spatial Resolution": "-",
+        "Native Coordinate System": "",
+        "Classification Technique": "...",
+        "Classification Scheme": "",
+        "Validation": "",
+        "Accuracy": "",
+        "Use policy": "",
+        "Data source": "...",
+        "Legend": "yes"
+    },
   "UrbanAtlas":
     {
         "Name": "Urban Atlas",
@@ -177,7 +177,7 @@
         "Data source": "...",
         "Legend": "yes"
     },
-  "MODIS":
+  "MODIS_Type1":
     {
         "Name": "MODIS",
         "Category_ID": "LULC",
@@ -199,6 +199,5 @@
         "Data source": "...",
         "Legend": "yes"
     }
-
   }
 }

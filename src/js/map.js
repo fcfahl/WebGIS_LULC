@@ -28,8 +28,8 @@ $( document ).ready(function() {
 
         // get key  names
         $.each(DB_layers, function(key1, value1) {
-          $.each(value1, function(key2, value2) {
-              layer_List.push(value2.ID);
+          $.each(value1.items, function(key2, value2) {
+                  layer_List.push(value2.ID);
           });
         });
 

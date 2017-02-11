@@ -28,21 +28,21 @@ function html_Design () {
     // Display Legend and metadata
     $(".boxlayer").change(function() {
 
-        var value = $(this).attr("value");
-        var index = $(this).attr("rel");
+        var group = $(this).attr("data-key");
+        var leg = "#" + $(this).attr("data-legend");
+        var tbl = "#" + $(this).attr("data-table");
 
-        var leg = "#leg_" + value;
-        var tbl = "#tbl_" + value;
-
-        if(this.checked) {
+        if ($("input[data-key='" + group + "']:checked").val()) {
+            // console.log(group, '  is checked!');
             $(leg).show();
             $(tbl).show();
-            //  console.log( leg );
-        }else{
-            $(leg).hide();
-            $(tbl).hide();
-            // console.log( tbl );
         }
+        else {
+        //    console.log('Nothing is checked!');
+           $(leg).hide();
+           $(tbl).hide();
+        }
+
     });
 
     function sortPannel() {
@@ -187,8 +187,8 @@ function map_Layers () {
 
         var layerClicked = window[event.target.value];
 
-        // console.log('layerClicked: ' , layerClicked);
-        // console.log('this for adding: ' , this);
+        console.log('layerClicked: ' , layerClicked);
+        console.log('this for adding: ' , this);
 
         add_Leaflet_Layer (layerClicked);
 

@@ -1,52 +1,266 @@
 { "layers":
   {
   "NUTS0":
-    [
-      { "year": "2013", "ID": "NUTS0" }
-    ],
+    {
+      "name": "NUTS Level 0",
+      "category": "ADM",
+      "type": "vector",
+      "group": "Administrative Layers",
+      "key": "NUTS",
+      "metadata": "no",
+      "legend": "no",
+      "items":
+        [
+          { "year": "2006", "ID": "NUTS0", "active":"yes" }
+        ]
+    },
+  "NUTS2":
+    {
+      "name": "NUTS Level 2",
+      "category": "ADM",
+      "type": "vector",
+      "group": "Administrative Layers",
+      "key": "NUTS",
+      "metadata": "no",
+      "legend": "no",
+      "items":
+        [
+          { "year": "2006", "ID": "NUTS2", "active":"yes" }
+        ]
+    },
 	"GLC":
-		[
-			{ "year": "2000", "ID": "GLC_2000" }
-		],
+    {
+      "name": "Global Land Cover (2000)",
+      "category": "LULC",
+      "type": "raster",
+      "group": "GLC",
+      "key": "GLC",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "2000", "ID": "GLC_2000", "active":"yes" }
+        ]
+    },
   "GlobCover":
-    [
-      { "year": "2005", "ID": "GlobCover_2005" },
-      { "year": "2009", "ID": "GlobCover_2009" }
-    ],
+    {
+      "name": "GlobCover",
+      "category": "LULC",
+      "type": "raster",
+      "group": "GlobCover",
+      "key": "GlobCover",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "2005", "ID": "GlobCover_2005", "active":"yes" },
+          { "year": "2009", "ID": "GlobCover_2009", "active":"yes" }
+        ]
+    },
   "ESA":
-    [
-      { "year": "2000", "ID": "ESA_2000" },
-      { "year": "2005", "ID": "ESA_2005" },
-      { "year": "2010", "ID": "ESA_2010" }
-    ],
+    {
+      "name": "Land Cover CCI",
+      "category": "LULC",
+      "type": "raster",
+      "group": "ESA",
+      "key": "ESA",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "2000", "ID": "ESA_2000", "active":"yes" },
+          { "year": "2005", "ID": "ESA_2005", "active":"yes" },
+          { "year": "2010", "ID": "ESA_2010", "active":"yes" }
+        ]
+    },
   "GLand30":
-    [
-      { "year": "2000", "ID": "GLand30_2000" },
-      { "year": "2010", "ID": "GLand30_2010" }
-    ],
+    {
+      "name": "Global Land 30",
+      "category": "LULC",
+      "type": "raster",
+      "group": "GLand30",
+      "key": "GLand30",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "2000", "ID": "GLand30_2000", "active":"yes" },
+          { "year": "2010", "ID": "GLand30_2010", "active":"yes" }
+        ]
+    },
   "Corine":
-    [
-      { "year": "1990", "ID": "Corine_1990" },
-      { "year": "2000", "ID": "Corine_2000" },
-      { "year": "2006", "ID": "Corine_2006" },
-      { "year": "2012", "ID": "Corine_2012" }
-    ],
+    {
+      "name": "Corine",
+      "category": "LULC",
+      "type": "raster",
+      "group": "Corine",
+      "key": "Corine",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "1990", "ID": "Corine_1990", "active":"yes" },
+          { "year": "2000", "ID": "Corine_2000", "active":"yes" },
+          { "year": "2006", "ID": "Corine_2006", "active":"yes" },
+          { "year": "2012", "ID": "Corine_2012", "active":"yes" }
+        ]
+    },
   "GHSL":
-    [
-      { "year": "1975", "ID": "GHSL_1975" },
-      { "year": "1990", "ID": "GHSL_1990" },
-      { "year": "2000", "ID": "GHSL_2000" },
-      { "year": "2015", "ID": "GHSL_2015" }
-    ],
+    {
+      "name": "Global Human Settlement Layer",
+      "category": "LULC",
+      "type": "raster",
+      "group": "GHSL",
+      "key": "GHSL",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "1975", "ID": "GHSL_1975", "active":"yes" },
+          { "year": "1990", "ID": "GHSL_1990", "active":"yes" },
+          { "year": "2000", "ID": "GHSL_2000", "active":"yes" },
+          { "year": "2015", "ID": "GHSL_2015", "active":"yes" }
+        ]
+    },
   "UrbanAtlas":
-    [
-      { "year": "2006", "ID": "UrbanAtlas_2006" },
-      { "year": "2012", "ID": "UrbanAtlas_2012" }
-    ],
-  "MODIS":
-    [
-      { "year": "2011", "ID": "MODIS_Type1_2011" },
-      { "year": "2012", "ID": "MODIS_Type1_2012" }
-    ]
+    {
+      "name": "Urban Atlas",
+      "category": "LULC",
+      "type": "raster",
+      "group": "UrbanAtlas",
+      "key": "UrbanAtlas",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "2006", "ID": "UrbanAtlas_2006", "active":"no" },
+          { "year": "2012", "ID": "UrbanAtlas_2012", "active":"no" }
+        ]
+    },
+  "MODIS_Type1":
+    {
+      "name": "MODIS Type 1",
+      "category": "LULC",
+      "type": "raster",
+      "group": "MODIS",
+      "key": "MODIS_Type1",
+      "metadata": "yes",
+      "legend": "yes",
+      "items":
+        [
+          { "year": "2001", "ID": "MODIS_Type1_2001", "active":"yes" },
+          { "year": "2002", "ID": "MODIS_Type1_2002", "active":"no" },
+          { "year": "2003", "ID": "MODIS_Type1_2003", "active":"no" },
+          { "year": "2004", "ID": "MODIS_Type1_2004", "active":"no" },
+          { "year": "2005", "ID": "MODIS_Type1_2005", "active":"no" },
+          { "year": "2006", "ID": "MODIS_Type1_2006", "active":"no" },
+          { "year": "2007", "ID": "MODIS_Type1_2007", "active":"no" },
+          { "year": "2008", "ID": "MODIS_Type1_2008", "active":"no" },
+          { "year": "2009", "ID": "MODIS_Type1_2009", "active":"no" },
+          { "year": "2010", "ID": "MODIS_Type1_2010", "active":"no" },
+          { "year": "2011", "ID": "MODIS_Type1_2011", "active":"no" },
+          { "year": "2012", "ID": "MODIS_Type1_2012", "active":"yes" }
+        ]
+    },
+  "MODIS_Type2":
+    {
+      "name": "MODIS Type 2",
+      "category": "LULC",
+      "type": "raster",
+      "group": "MODIS",
+      "key": "MODIS_Type2",
+      "metadata": "no",
+      "legend": "no",
+      "items":
+        [
+          { "year": "2001", "ID": "MODIS_Type2_2001", "active":"no" },
+          { "year": "2002", "ID": "MODIS_Type2_2002", "active":"no" },
+          { "year": "2003", "ID": "MODIS_Type2_2003", "active":"no" },
+          { "year": "2004", "ID": "MODIS_Type2_2004", "active":"no" },
+          { "year": "2005", "ID": "MODIS_Type2_2005", "active":"no" },
+          { "year": "2006", "ID": "MODIS_Type2_2006", "active":"no" },
+          { "year": "2007", "ID": "MODIS_Type2_2007", "active":"no" },
+          { "year": "2008", "ID": "MODIS_Type2_2008", "active":"no" },
+          { "year": "2009", "ID": "MODIS_Type2_2009", "active":"no" },
+          { "year": "2010", "ID": "MODIS_Type2_2010", "active":"no" },
+          { "year": "2011", "ID": "MODIS_Type2_2011", "active":"no" },
+          { "year": "2012", "ID": "MODIS_Type2_2012", "active":"no" }
+        ]
+    },
+  "MODIS_Type3":
+    {
+      "name": "MODIS Type 3",
+      "category": "LULC",
+      "type": "raster",
+      "group": "MODIS",
+      "key": "MODIS_Type3",
+      "metadata": "no",
+      "legend": "no",
+      "items":
+        [
+          { "year": "2001", "ID": "MODIS_Type3_2001", "active":"no" },
+          { "year": "2002", "ID": "MODIS_Type3_2002", "active":"no" },
+          { "year": "2003", "ID": "MODIS_Type3_2003", "active":"no" },
+          { "year": "2004", "ID": "MODIS_Type3_2004", "active":"no" },
+          { "year": "2005", "ID": "MODIS_Type3_2005", "active":"no" },
+          { "year": "2006", "ID": "MODIS_Type3_2006", "active":"no" },
+          { "year": "2007", "ID": "MODIS_Type3_2007", "active":"no" },
+          { "year": "2008", "ID": "MODIS_Type3_2008", "active":"no" },
+          { "year": "2009", "ID": "MODIS_Type3_2009", "active":"no" },
+          { "year": "2010", "ID": "MODIS_Type3_2010", "active":"no" },
+          { "year": "2011", "ID": "MODIS_Type3_2011", "active":"no" },
+          { "year": "2012", "ID": "MODIS_Type3_2012", "active":"no" }
+        ]
+    },
+  "MODIS_Type4":
+    {
+      "name": "MODIS Type 4",
+      "category": "LULC",
+      "type": "raster",
+      "group": "MODIS",
+      "key": "MODIS_Type4",
+      "metadata": "no",
+      "legend": "no",
+      "items":
+        [
+          { "year": "2001", "ID": "MODIS_Type4_2001", "active":"no" },
+          { "year": "2002", "ID": "MODIS_Type4_2002", "active":"no" },
+          { "year": "2003", "ID": "MODIS_Type4_2003", "active":"no" },
+          { "year": "2004", "ID": "MODIS_Type4_2004", "active":"no" },
+          { "year": "2005", "ID": "MODIS_Type4_2005", "active":"no" },
+          { "year": "2006", "ID": "MODIS_Type4_2006", "active":"no" },
+          { "year": "2007", "ID": "MODIS_Type4_2007", "active":"no" },
+          { "year": "2008", "ID": "MODIS_Type4_2008", "active":"no" },
+          { "year": "2009", "ID": "MODIS_Type4_2009", "active":"no" },
+          { "year": "2010", "ID": "MODIS_Type4_2010", "active":"no" },
+          { "year": "2011", "ID": "MODIS_Type4_2011", "active":"no" },
+          { "year": "2012", "ID": "MODIS_Type4_2012", "active":"no" }
+        ]
+    },
+  "MODIS_Type5":
+    {
+      "name": "MODIS Type 5",
+      "category": "LULC",
+      "type": "raster",
+      "group": "MODIS",
+      "key": "MODIS_Type5",
+      "metadata": "no",
+      "legend": "no",
+      "items":
+        [
+          { "year": "2001", "ID": "MODIS_Type5_2001", "active":"no" },
+          { "year": "2002", "ID": "MODIS_Type5_2002", "active":"no" },
+          { "year": "2003", "ID": "MODIS_Type5_2003", "active":"no" },
+          { "year": "2004", "ID": "MODIS_Type5_2004", "active":"no" },
+          { "year": "2005", "ID": "MODIS_Type5_2005", "active":"no" },
+          { "year": "2006", "ID": "MODIS_Type5_2006", "active":"no" },
+          { "year": "2007", "ID": "MODIS_Type5_2007", "active":"no" },
+          { "year": "2008", "ID": "MODIS_Type5_2008", "active":"no" },
+          { "year": "2009", "ID": "MODIS_Type5_2009", "active":"no" },
+          { "year": "2010", "ID": "MODIS_Type5_2010", "active":"no" },
+          { "year": "2011", "ID": "MODIS_Type5_2011", "active":"no" },
+          { "year": "2012", "ID": "MODIS_Type5_2012", "active":"no" }
+        ]
+    }
   }
 }

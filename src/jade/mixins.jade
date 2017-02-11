@@ -1,6 +1,7 @@
 //- VARIABLES
 - var  layers_Name =  []
 - var  layers_ID =  []
+- var  layers_Array =  []
 - var  layers =  locals.layers
 - var  metadata =  locals.metadata
 - var  servers =  locals.servers
@@ -10,34 +11,35 @@
 
 // JSON Keys
 - var key_JSON = Object.keys(locals)
-- var key_Layers = Object.keys(layers)
+- var key_Layers = Object.keys(locals.layers)
 - var key_Servers = Object.keys(servers)
 
+//- - console.log (layers["NUTS"].items[0].year)
 
 // Extract JSON values
 for key in key_Layers
-  for value in layers[key]
-    //- - console.log (value)
-    - layers_ID.push (value.ID)
-    
-for value in metadata
-  - layers_Name.push (value.Name)
+	- layers_Name.push (layers[key].name)
+	for values in layers[key].items
+		- layers_Array.push (values)
+
+for values in layers_Array
+	- layers_ID.push (values.ID)
 
 
-        
-        
 
+//-
+//-
 //- for value in metadata
 //-     //- - layers_Name.push (value.Name)
-//-     - console.log (value.Name)    
-//- 
+//-     - console.log (value.Name)
+//-
 //- for value in db.servers
 //-     - servers.push (value.Server)
-//-     //- - console.log (value.Server) 
-//-     
-//- each key in db.layers   
+//-     //- - console.log (value.Server)
+//-
+//- each key in db.layers
 //-     //- - console.log (key[0])
-    
+//-
 //- for value in locals.UrbanAtlas_06
 //-     - atlas.push (value.Code)
 
@@ -45,279 +47,298 @@ for value in metadata
 
 //- MIXINS
 mixin addPlugin(name, type)
-    //- leaflet plugins
-    - if (type == 'bower')
-      - var folder = 'bower_components/' + name
-    - else
-      - var folder = name
+	//- leaflet plugins
+	- if (type == 'bower')
+		- var folder = 'bower_components/' + name
+	- else
+		- var folder = name
 
-    script(src=folder) 
+	script(src=folder)
 
 mixin addCSS(name, type)
-    //- leaflet plugins
-    - if (type == 'bower')
-      - var folder = 'bower_components/'  + name
-    - else
-      - var folder = name
-    link(rel="stylesheet" type="text/css" href=folder)
+	//- leaflet plugins
+	- if (type == 'bower')
+		- var folder = 'bower_components/'  + name
+	- else
+		- var folder = name
+	link(rel="stylesheet" type="text/css" href=folder)
 
 mixin tabs_bootstrap(classLI,classA,name,tab,bool)
-    - var idA = name + "-tab"
-    - var ref = "#" + name
+	- var idA = name + "-tab"
+	- var ref = "#" + name
 
-    li(class=classLI)
-        a(class=classA href=ref role=roleA id=idA data-toggle="tab" aria-controls=name aria-expanded=bool)=tab
+	li(class=classLI)
+		a(class=classA href=ref role=roleA id=idA data-toggle="tab" aria-controls=name aria-expanded=bool)=tab
 
-mixin legend_boot(section,sort)
-
-    - var index = 0
-
-    for  key in key_Layers
-    
-        - var ID = layers[key][0].ID
-        - var leg_ID = "leg_" + ID
-        - var opy_ID = "opy_" + ID
-        - var heading = "leg_" + ID
-        - var collapse = "leg_col_" + ID
-        - var ref_collapse = "#leg_col_" + ID
-        - var name =  metadata[key].Name
-        - var show = legend[key].show
-        - var svg = legend[key].img
-        - var ref = "img/"  +  svg  
-
-        if show == "yes"
-
-            div(id=leg_ID class="leg" role="tablist" aria-multiselectable="true")
-                .panel.panel-default
-                    .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
-                        h3.panel-title
-                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID class="accordion-toggle")=name    
-
-                    div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
-                        .opy
-                            .opy_title Opacity:
-                            input(id=opy_ID class="opy_slider slider" data-id=ID type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);")
-
-                            .leg-img
-                                img(src=ref alt=name)
 
 mixin table_boot(section,sort)
 
-    - var index = 1
+	- var index = 0
 
-    for  key in key_Layers
-    
-        - var ID = layers[key][0].ID
-        - var tbl_ID = "tbl_" + ID
-        - var heading = "tbl2_" + ID
-        - var collapse = "tbl_col_" + ID
-        - var ref_collapse = "#tbl_col_" + ID
-        - var name =  metadata[key].Name
-        - var show = legend[key].show
+	for value, key in metadata
+		if (layers[key] !== undefined)
 
-        if show == "yes"
-        
-            div(id=tbl_ID class="tbl" role="tablist" aria-multiselectable="true")
-                .panel.panel-default
-                    .panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
-                        h3.panel-title
-                            a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=tbl_ID)=name
-                div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
-                    +mk_table(key)
+			- var parse = layers[key]
+			- var ID = parse.key
+			- var show = parse.metadata
+			- var name = parse.name
+
+			- var tbl_ID = "tbl_" + ID
+			- var head_ID = "head_" + ID
+			- var collapse = "col_" + ID
+			- var ref_collapse = "#col_" + ID
+
+			if show == "yes"
+
+				div(id=tbl_ID class="tbl" role="tablist" aria-multiselectable="true")
+					.panel.panel-default
+						.panel-heading.collapsed(role="tab" id=heading rel="#{index++}")
+							h3.panel-title
+								a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=tbl_ID)=name
+					div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading )
+						+mk_table(key)
 
 mixin mk_table (key)
 
-    - var table_ID =  "tbl_" +  key
-    - var name =  metadata[key].Name
+	- var table_ID =  "tbl_" +  key
+	- var name =  metadata[key].Name
 
-      if ID == table
-          table(id=table_ID class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="50%")
-              tbody
-                  for  val, key2 in metadata[key]
-                      if key2 !== 'Type' && key2 !== 'Legend' && key2 !== 'Category_ID' && key2 !== 'Category'  && key2 !== 'Dataset'  && key2 !== 'ID'  && key2 !== 'Workspace'  && key2 !== 'Style' && key2 !== 'Data source'  && val !== '' 
-                          tr(class="table_row")
-                              td #{key2}
-                              td #{val}
+		if ID == table
+			table(id=table_ID class="table table-striped table-bordered table-hover table-sm" cellspacing="0" width="50%")
+				tbody
+					for  val, key2 in metadata[key]
+						if key2 !== 'Type' && key2 !== 'Legend' && key2 !== 'Category_ID' && key2 !== 'Category'  && key2 !== 'Dataset'  && key2 !== 'ID'  && key2 !== 'Workspace'  && key2 !== 'Style' && key2 !== 'Data source'  && val !== ''
+							tr(class="table_row")
+								td #{key2}
+								td #{val}
+
+mixin legend_boot(section,group)
+
+	- var index = 0
+
+	for value, key in legend
+		- var svg = value.img
+		- var ref = "img/" + svg
+
+		if (layers[key] !== undefined)
+			- var parse = layers[key]
+			- var ID = parse.key
+
+			- var show = parse.legend
+			- var name = parse.name
+			- var leg_ID = "leg_" + parse.key
+			- var head_ID = "head_" + parse.key
+			- var opy_ID = "opy_" + parse.key
+			- var collapse = "col_" + parse.key
+			- var ref_collapse = "#col_" + parse.key
+
+			if show == "yes"
+
+				div(id=leg_ID class="leg" role="tablist" aria-multiselectable="true")
+					.panel.panel-default
+						.panel-heading.collapsed(role="tab" id=head_ID rel="#{index++}")
+							h3.panel-title
+								a(data-toggle="collapse" data-parent="#accordion" href=ref_collapse aria-expanded="true" aria-controls=ID class="accordion-toggle")=name
+
+						div(id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=head_ID )
+
+							.opy
+								.opy_title Opacity:
+								input(id=opy_ID class="opy_slider slider" data-id="ID" type="range" min="0" max="1" step="0.1" value="1" autocomplete="off" onchange="update_Opacity(this);")
+
+								.leg-img
+									img(src=ref alt=name)
+
 
 mixin accorde(section,group)
 
-  .group
-    - var index = 0
-    h3=section
-    div(id=group)
-        
-        if group == 'lulc' || group == 'adm'
-        
-            for key in key_Layers            
-                for value in layers[key]
-            
-                  - var ID = value.ID
-                  - var year = value.year
-                  - var name = key + " " + year
-                  - var cat =  metadata[key].Category
-                
-                  if section == cat
-                    div(id=ID class='draggable')
-                      li
-                        input(type="checkbox" value=ID class="boxlayer" checked='false' rel="#{index++}")
-                        label(for=ID)
-                          span=name
-        
-        if group == 'WMS_external'
-            +Capabilities
-        
-        if group == 'geotag'
-            +Geotag        
-            +photo_Modal
-        
-        if group == 'atlas'
-            +Atlas
+	.group
+		- var index = 0
+		h3=section
+		div(id=group)
+
+			if group == 'LULC' || group == 'ADM'
+
+				for value, key in layers
+					- var cat =  value.category
+					- var name = value.name
+					- var legend = value.legend
+					- var legend_ID = "leg_" + value.key
+					- var table_ID = "tbl_" + value.key
+					- var checkbox_Class = "boxlayer box_" + value.key
+
+					for item, key in value.items
+						- var ID = item.ID
+						- var year = item.year
+						- var valid = item.active
+						- var layer_Name = name + " " + year
+
+						if group == cat && valid =="yes"
+							//- - console.log (layer_Name, ID)
+
+							//- create input box
+							div(id=ID class='draggable')
+								li
+									input(type="checkbox" value=ID class=checkbox_Class data-key=value.key data-legend=legend_ID data-table=table_ID checked='false' rel="#{index++}")
+									label(for=ID)
+										span=layer_Name
+
+
+			if group == 'WMS_external'
+				+Capabilities
+
+			if group == 'geotag'
+				+Geotag
+				+photo_Modal
+
+			if group == 'atlas'
+				+Atlas
 
 mixin Capabilities()
-    .getCapabilities
-        form(class="form-inline")
-            div(class="form-group")
-                label(class="sr-only" for="form_capabilities" WMS Get Capabilities)
-                input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="")
-                //- input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_ecopedologica.map&service=wms&request=getCapabilities&version=1.3.0")
+	.getCapabilities
+		form(class="form-inline")
+			div(class="form-group")
+				label(class="sr-only" for="form_capabilities" WMS Get Capabilities)
+				input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="")
+				//- input(type="text", class="form-control form-control", id="wms_capability", placeholder="enter getcapabilities address", value="http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/Vettoriali/Carta_ecopedologica.map&service=wms&request=getCapabilities&version=1.3.0")
 
-            button(type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalWindow" id="wms_submit") Submit
+			button(type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalWindow" id="wms_submit") Submit
 
-            +wms_Modal
+			+wms_Modal
 
-    .custom_Layers
+	.custom_Layers
 
 mixin wms_Modal()
-    .wmsModal
-        div(class="modal fade"  id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
-            div(class="modal-dialog" role="document")
-                div(class="modal-content")
-                    div(class="modal-header")
-                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-                            span(aria-hidden="true") &times;
-                        h2 Available WMS Layers
-                    div(class="modal-body")
-                        .wmsList
-                            ul(class="list-group")
-                            
+	.wmsModal
+		div(class="modal fade"  id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
+			div(class="modal-dialog" role="document")
+				div(class="modal-content")
+					div(class="modal-header")
+						button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+							span(aria-hidden="true") &times;
+						h2 Available WMS Layers
+					div(class="modal-body")
+						.wmsList
+							ul(class="list-group")
 
-                    div(class="modal-footer")
-                        button(type="button" class="btn btn-secondary " id="wms_close" data-dismiss="modal") Close
-                        button(type="button" class="btn btn-primary" id="wms_add"  data-dismiss="modal") Add Selected Layers
+
+					div(class="modal-footer")
+						button(type="button" class="btn btn-secondary " id="wms_close" data-dismiss="modal") Close
+						button(type="button" class="btn btn-primary" id="wms_add"  data-dismiss="modal") Add Selected Layers
 
 mixin Geotag()
-    div(class="switch-buttons")
-        +switch_button("Flickr", "btn_Flick") 
-        +switch_button("Panoramio", "btn_Pano") 
-        +switch_button("Geograph", "btn_Geog") 
-        
+	div(class="switch-buttons")
+		+switch_button("Flickr", "btn_Flick")
+		+switch_button("Panoramio", "btn_Pano")
+		+switch_button("Geograph", "btn_Geog")
 
-    div(class="photo-control")
-        div(class="page-buttons")
-            div(class="photo-page-back")
-                button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-back")
-                    i(class="fa fa-backward" aria-hidden="true")
-            div(class="photo-page-text" id="page-number")
-                spam Page 1
-            div(class="photo-page-forw")
-                button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-forw")
-                    i(class="fa fa-forward" aria-hidden="true")
-            div(class="photo-settings")
-                button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
-                    i(class="fa fa-cogs" aria-hidden="true")
-                            
+
+	div(class="photo-control")
+		div(class="page-buttons")
+			div(class="photo-page-back")
+				button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-back")
+					i(class="fa fa-backward" aria-hidden="true")
+			div(class="photo-page-text" id="page-number")
+				spam Page 1
+			div(class="photo-page-forw")
+				button(type="button" class="btn btn-secondary-outline btn-sm" id="bt-page-forw")
+					i(class="fa fa-forward" aria-hidden="true")
+			div(class="photo-settings")
+				button(type="button" class="btn btn-secondary-outline btn-sm" data-toggle="modal" data-target="#modalPhoto" id="photo_submit")
+					i(class="fa fa-cogs" aria-hidden="true")
+
 mixin photo_Modal()
-    .photo-Modal
-        div(class="modal fade"  id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true")
-            div(class="modal-dialog" role="document")
-                div(class="modal-content")
-                    div(class="modal-header")
-                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-                            span(aria-hidden="true") &times;
-                        h2 Photo Search Parameters
-                    div(class="modal-body")
-                        div(class="photoList")
-                            form
-                                .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_query") Photo text*: 
-                                    input(type="text" class="col-sm-6 form-control" id="photo_query" placeholder="free text search on title, description and tags" value="")
-                                .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_tag") Photo tag*:
-                                    input(type="text" class="col-sm-6 form-control" id="photo_tag" placeholder="comma-delimited list of tags" value="")
-                                .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_number") Number of photos:
-                                    input(type="text" class="col-sm-6 form-control" id="photo_number" placeholder="max=50" value="10")
-                                .form-group.row
-                                    label(class="col-sm-5 form-control-label" for="photo_year") Year of the photo*:
-                                    input(type="text" class="col-sm-6 form-control" id="photo_year" placeholder="" value="")
-                        
-                    div(class="modal-footer")
-                        .col-1
-                            h4 * Search criteria not available for Panoramio
-                        .col-2
-                            button(type="button" class="btn btn-primary " id="photo_close" data-dismiss="modal") Close
+	.photo-Modal
+		div(class="modal fade"  id="modalPhoto" tabindex="-1" role="dialog" aria-labelledby="geotag" aria-hidden="true")
+			div(class="modal-dialog" role="document")
+				div(class="modal-content")
+					div(class="modal-header")
+						button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+							span(aria-hidden="true") &times;
+						h2 Photo Search Parameters
+					div(class="modal-body")
+						div(class="photoList")
+							form
+								.form-group.row
+									label(class="col-sm-5 form-control-label" for="photo_query") Photo text*:
+									input(type="text" class="col-sm-6 form-control" id="photo_query" placeholder="free text search on title, description and tags" value="")
+								.form-group.row
+									label(class="col-sm-5 form-control-label" for="photo_tag") Photo tag*:
+									input(type="text" class="col-sm-6 form-control" id="photo_tag" placeholder="comma-delimited list of tags" value="")
+								.form-group.row
+									label(class="col-sm-5 form-control-label" for="photo_number") Number of photos:
+									input(type="text" class="col-sm-6 form-control" id="photo_number" placeholder="max=50" value="10")
+								.form-group.row
+									label(class="col-sm-5 form-control-label" for="photo_year") Year of the photo*:
+									input(type="text" class="col-sm-6 form-control" id="photo_year" placeholder="" value="")
+
+					div(class="modal-footer")
+						.col-1
+							h4 * Search criteria not available for Panoramio
+						.col-2
+							button(type="button" class="btn btn-primary " id="photo_close" data-dismiss="modal") Close
 
 mixin switch_button(name, ID)
 
-    .switch-photo
-        label.switch-light(onclick="" )
-            input(class="switch-toogle switch-toogle-photo" type="checkbox" id=ID value=name) 
-            strong #{name}
+	.switch-photo
+		label.switch-light(onclick="" )
+			input(class="switch-toogle switch-toogle-photo" type="checkbox" id=ID value=name)
+			strong #{name}
 
-            span.well
-                span Off
-                span On
-                a.btn.btn-primary
+			span.well
+				span Off
+				span On
+				a.btn.btn-primary
 
 mixin Atlas()
 
-    .atlas-select
-        form(class="form-inline")
-            div(class="form-group")
-                label(for="atlas-select-cities" Add Layer: )
-                input(type="text", class="form-control form-control-sm", id="atlas-cities", placeholder="click over the city location")
-            button(type="button" class="btn btn-primary btn-sm" data-name="" data-id="" id="atlas_add") Add
+	.atlas-select
+		form(class="form-inline")
+			div(class="form-group")
+				label(for="atlas-select-cities" Add Layer: )
+				input(type="text", class="form-control form-control-sm", id="atlas-cities", placeholder="click over the city location")
+			button(type="button" class="btn btn-primary btn-sm" data-name="" data-id="" id="atlas_add") Add
 
-    .atlas-layers
-        .atlasSwitch
-            .switch-buttons
-                label.switch-light(onclick="" )
-                    input(class="switch-toogle switch-toogle-wms" type="checkbox" id="btnService" value="WMS" ) 
-                    strong ...........................
+	.atlas-layers
+		.atlasSwitch
+			.switch-buttons
+				label.switch-light(onclick="" )
+					input(class="switch-toogle switch-toogle-wms" type="checkbox" id="btnService" value="WMS" )
+					strong ...........................
 
-                    span.well
-                        span WMS
-                        span WFS
-                        a.btn.btn-primary
+					span.well
+						span WMS
+						span WFS
+						a.btn.btn-primary
 
 
-    .atlas-template
-        .atlas-group
-            +modal_Atlas
+	.atlas-template
+		.atlas-group
+			+modal_Atlas
 
-mixin modal_Atlas ()    
-    div(class="modal fade"  id="modal-template" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
-        div(class="modal-dialog" role="document")
-            div(class="modal-content")
-                div(class="modal-header")
-                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-                        span(aria-hidden="true") &times;
-                    h2(class="atlas-header") Urban Atlas: 
-                div(class="modal-body")
-    
-                    .atlasList
-                        +checkbox_Atlas
+mixin modal_Atlas ()
+	div(class="modal fade"  id="modal-template" tabindex="-1" role="dialog" aria-labelledby="wms" aria-hidden="true")
+		div(class="modal-dialog" role="document")
+			div(class="modal-content")
+				div(class="modal-header")
+					button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+						span(aria-hidden="true") &times;
+					h2(class="atlas-header") Urban Atlas:
+				div(class="modal-body")
 
-                div(class="modal-footer")
-                    button(type="button" class="btn btn-primary " id="atlas_close" data-dismiss="modal") Close
+					.atlasList
+						+checkbox_Atlas
+
+				div(class="modal-footer")
+					button(type="button" class="btn btn-primary " id="atlas_close" data-dismiss="modal") Close
 
 mixin checkbox_Atlas ()
 
-    for code in atlas
-        - var class_Name = locals.UrbanAtlas_06[code].Class
-        - var class_Color = locals.UrbanAtlas_06[code].Color
+	for code in atlas
+		- var class_Name = locals.UrbanAtlas_06[code].Class
+		- var class_Color = locals.UrbanAtlas_06[code].Color
 
-        div(class="class-List-Atlas")
-            input(type="checkbox" class="atlasbox-class" checked='false' value=code data-name="toBeReplaced_city_name" data-color=class_Color data-type="WMS")
-            label(for=ID)
-                span #{class_Name}
+		div(class="class-List-Atlas")
+			input(type="checkbox" class="atlasbox-class" checked='false' value=code data-name="toBeReplaced_city_name" data-color=class_Color data-type="WMS")
+			label(for=ID)
+				span #{class_Name}

@@ -4,111 +4,110 @@ include mixins
 doctype html
 html(lang="en")
 
-    head
-        title "LULC Maps of Europe"
-        meta(name="keywords" content=".....")
-        meta(name="author" content="Fernando Fahl")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(charset="utf-8")
-        link(rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png")
+	head
+		title "LULC Maps of Europe"
+		meta(name="keywords" content=".....")
+		meta(name="author" content="Fernando Fahl")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(charset="utf-8")
+		link(rel="shortcut icon" type="image/x-icon" href="img/logo/polimi.png")
 
-        //- <!-- build:css1 css/main.min.css -->
-        +addCSS('jquery-ui/themes/base/jquery-ui.css', "bower") 
-        +addCSS('css-toggle-switch/dist/toggle-switch.css', "bower") 
-        +addCSS('css/bootstrap-flex.css') 
-        +addCSS('font-awesome/css/font-awesome.css', "bower") 
-        //- <!-- endbuild -->
+		//- <!-- build:css1 css/main.min.css -->
+		+addCSS('jquery-ui/themes/base/jquery-ui.css', "bower")
+		+addCSS('css-toggle-switch/dist/toggle-switch.css', "bower")
+		+addCSS('css/bootstrap-flex.css')
+		+addCSS('font-awesome/css/font-awesome.css', "bower")
+		//- <!-- endbuild -->
 
-        //- <!-- build:css2 css/app.css -->
-        +addCSS('leaflet/dist/leaflet.css', "bower")   
-        +addCSS('Leaflet.ZoomBox/L.Control.ZoomBox.css', "bower")   
-        +addCSS('Leaflet.NavBar/src/Leaflet.NavBar.css', "bower")
-        +addCSS('leaflet-minimap/dist/Control.MiniMap.min.css', "bower")
-        +addCSS('libs/Leaflet-IconLayers-master/src/iconLayers.css')
-        +addCSS('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css')
-        //- <!-- endbuild -->
+		//- <!-- build:css2 css/app.css -->
+		+addCSS('leaflet/dist/leaflet.css', "bower")
+		+addCSS('Leaflet.ZoomBox/L.Control.ZoomBox.css', "bower")
+		+addCSS('Leaflet.NavBar/src/Leaflet.NavBar.css', "bower")
+		+addCSS('leaflet-minimap/dist/Control.MiniMap.min.css', "bower")
+		+addCSS('libs/Leaflet-IconLayers-master/src/iconLayers.css')
+		+addCSS('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.css')
+		//- <!-- endbuild -->
 
-        //- <!-- build:css3 css/app.css -->
-        +addCSS('css/sass/app.css') 
-        //- <!-- endbuild -->
+		//- <!-- build:css3 css/app.css -->
+		+addCSS('css/sass/app.css')
+		//- <!-- endbuild -->
 
-        <!-- build:js1 js/leaflet.min.js -->
-        +addPlugin('leaflet/dist/leaflet.js', "bower")  
-        +addPlugin('leaflet-plugins/layer/tile/Bing.js', "bower")        
-        +addPlugin('leaflet-plugins/layer/tile/Google.js', "bower")  
- 
-        +addPlugin('leaflet-providers/leaflet-providers.js', "bower") 
-  
-        +addPlugin('Leaflet.ZoomBox/L.Control.ZoomBox.min.js', "bower")   
-        +addPlugin('Leaflet.NavBar/src/Leaflet.NavBar.js', "bower")
-        +addPlugin('leaflet-minimap/dist/Control.MiniMap.min.js', "bower")
+		<!-- build:js1 js/leaflet.min.js -->
+		+addPlugin('leaflet/dist/leaflet.js', "bower")
+		+addPlugin('leaflet-plugins/layer/tile/Bing.js', "bower")
+		+addPlugin('leaflet-plugins/layer/tile/Google.js', "bower")
 
-        +addPlugin('libs/Leaflet-IconLayers-master/src/providers.js') 
-        +addPlugin('libs/Leaflet-IconLayers-master/src/iconLayers.js') 
+		+addPlugin('leaflet-providers/leaflet-providers.js', "bower")
 
-        +addPlugin('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js')    
-        +addPlugin('libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js')    
-        +addPlugin('libs/leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js')    
-        +addPlugin('libs/Leaflet-WFST-master/dist/Leaflet-WFST.min.js')    
+		+addPlugin('Leaflet.ZoomBox/L.Control.ZoomBox.min.js', "bower")
+		+addPlugin('Leaflet.NavBar/src/Leaflet.NavBar.js', "bower")
+		+addPlugin('leaflet-minimap/dist/Control.MiniMap.min.js', "bower")
 
-        <!-- endbuild -->
+		+addPlugin('libs/Leaflet-IconLayers-master/src/providers.js')
+		+addPlugin('libs/Leaflet-IconLayers-master/src/iconLayers.js')
 
-    body
+		+addPlugin('libs/leaflet-graphicscale-master/dist/Leaflet.GraphicScale.min.js')
+		+addPlugin('libs/Leaflet.ZoomLabel-master/src/L.Control.ZoomLabel.js')
+		+addPlugin('libs/leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js')
+		+addPlugin('libs/Leaflet-WFST-master/dist/Leaflet-WFST.min.js')
 
-        .container-fluid
+		<!-- endbuild -->
 
-            header
-                .logo
-                    a(href="javascript:void(0)")
-                        img(src="img/logo/logo_polimi_white.png" alt="Logo Image")
-                .title
-                    h2 Land Use and Land Cover Maps of Europe
+	body
 
-            #main
-                #side
-                    .tabs
-                        ul(id="clothing-nav" class="nav nav-tabs" role="tablist")
-                            +tabs_bootstrap('nav-item','nav-link active','layers','Layers','true')
-                            +tabs_bootstrap('nav-item','nav-link','legend','Legend','false')
-                            +tabs_bootstrap('nav-item','nav-link','info','Metadata','false')
-                        
-                    .pannel
-                        #clothing-nav-content.tab-content
-                          .tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab")
+		.container-fluid
 
-                            //- Accordion and layers parameters
-                            #accordion
-                              +accorde('Administrative Layers', 'adm')
-                              +accorde('Land Cover Layers', 'lulc')
-                              +accorde('Photo Services', 'geotag')
-                              +accorde('External WMS Layers', 'WMS_external')
+			header
+				.logo
+					a(href="javascript:void(0)")
+						img(src="img/logo/logo_polimi_white.png" alt="Logo Image")
+				.title
+					h2 Land Use and Land Cover Maps of Europe
 
-                          .tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab")
-                            +legend_boot('Land Cover Layers', 'lulc')
+			#main
+				#side
+					.tabs
+						ul(id="clothing-nav" class="nav nav-tabs" role="tablist")
+							+tabs_bootstrap('nav-item','nav-link active','layers','Layers','true')
+							+tabs_bootstrap('nav-item','nav-link','legend','Legend','false')
+							+tabs_bootstrap('nav-item','nav-link','info','Metadata','false')
 
+					.pannel
+						#clothing-nav-content.tab-content
+							.tab-pane.fade.in.active(role="tabpanel" id="layers" aria-labelledby="layers-tab")
 
-                          .tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab")
-                            +table_boot('Land Cover Layers', 'lulc')
-                
-                    .settings                        
+								//- Accordion and layers parameters
+								#accordion
+									+accorde('Administrative Layers', 'ADM')
+									+accorde('Land Cover Layers', 'LULC')
+									+accorde('Photo Services', 'geotag')
+									+accorde('External WMS Layers', 'WMS_external')
 
-                #map
+							.tab-pane.fade(role="tabpanel" id="legend" aria-labelledby="legend-tab")
+								+legend_boot('Land Cover Layers', 'LULC')
 
-            footer
-                #a
+							.tab-pane.fade(role="tabpanel" id="info" aria-labelledby="info-tab")
+								+table_boot('Land Cover Layers', 'lulc')
 
-        // Script section
-        <!-- build:js2 js/libs.min.js -->
-        script(src="bower_components/jquery/dist/jquery.js")
-        script(src="bower_components/jquery-ui/jquery-ui.js")
-        script(src="bower_components/tether/dist/js/tether.js")
-        script(src="bower_components/bootstrap/dist/js/bootstrap.js")
-        script(src="libs/Openlayers3.16.0/ol.js")
-        <!-- endbuild -->
+					.settings
 
-        <!-- build:js3 js/app.min.js -->
-        script(src="js/map.js")
-        script(src="js/app.js")
-        script(src="js/WMS_external.js")
-        script(src="js/geophotos.js")
-        <!-- endbuild -->
+				#map
+
+		footer
+			#a
+
+		// Script section
+		<!-- build:js2 js/libs.min.js -->
+		script(src="bower_components/jquery/dist/jquery.js")
+		script(src="bower_components/jquery-ui/jquery-ui.js")
+		script(src="bower_components/tether/dist/js/tether.js")
+		script(src="bower_components/bootstrap/dist/js/bootstrap.js")
+		script(src="libs/Openlayers3.16.0/ol.js")
+		<!-- endbuild -->
+
+		<!-- build:js3 js/app.min.js -->
+		script(src="js/map.js")
+		script(src="js/app.js")
+		script(src="js/WMS_external.js")
+		script(src="js/geophotos.js")
+		<!-- endbuild -->
