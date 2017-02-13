@@ -1,0 +1,43 @@
+{ "layers":
+	{
+		"Corine":
+		{
+      "name": "Corine",
+      "category": "LULC",
+      "type": "raster",
+      "group": "Corine",
+      "key": "Corine",
+      "metadata": "yes",
+      "legend": "yes",
+			"img": "Corine.svg",
+			"items":
+			[
+        { "year": "1990", "ID": "Corine_1990", "active":"yes" },
+        { "year": "2000", "ID": "Corine_2000", "active":"yes" },
+        { "year": "2006", "ID": "Corine_2006", "active":"yes" },
+        { "year": "2012", "ID": "Corine_2012", "active":"yes" }
+			],
+			"metadata":
+        {
+        "Name": "Corine",
+        "Category_ID": "LULC",
+        "Category": "Land Cover Layers",
+        "Style": "raster",
+        "Dataset": "Corine",
+        "Institution": "EEA",
+        "Temporal coverage": "1990, 2000, 2006 and 2012",
+        "Spatial Coverage": "Europe",
+        "Sensor": "Landsat-5 MSS/TM (1990), Landsat-7 ETM (2000), SPOT-4/5 and IRS P6 LISS III (2006) and IRS P6 LISS III and RapIDEye (2012)",
+        "Input Data": "False-colour images + Ancillary documents",
+        "Spatial Resolution": "250 and 100 m",
+        "Native Coordinate System": "ETRS89 /  ETRS-LAEA (EPSG:3035)",
+        "Classification Technique": "Computer-aIDed interpretation methodology",
+        "Classification Scheme": "1st level: 5 classes; 2nd level: 15 classes; 3th level: 44 classes",
+        "Validation": "Statistical sampling",
+        "Accuracy": "CLC 2000: Average accuracy of 74.8 %; CLC 2006: Not checked; Land Cover Change 2000-2006: overall accuracy of 87.82%",
+        "Use policy": "Re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
+        "Data source": "..."
+			}
+		}
+	}
+}

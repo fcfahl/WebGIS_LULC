@@ -1,0 +1,43 @@
+{ "layers":
+	{
+		"GHSL":
+		{
+			"name": "Global Land Cover (2000)",
+			"category": "LULC",
+			"type": "raster",
+			"group": "GLC",
+			"key": "GLC",
+			"metadata": "yes",
+			"legend": "yes",
+			"img": "GHSL.svg",
+			"items":
+			[
+        { "year": "1975", "ID": "GHSL_1975", "active":"yes" },
+        { "year": "1990", "ID": "GHSL_1990", "active":"yes" },
+        { "year": "2000", "ID": "GHSL_2000", "active":"yes" },
+        { "year": "2015", "ID": "GHSL_2015", "active":"yes" }
+			],
+			"metadata":
+        {
+        "Name": "",
+        "Category_ID": "",
+        "Category": "",
+        "Style": "",
+        "Dataset": "",
+        "Institution": "",
+        "Temporal coverage": "",
+        "Spatial Coverage": "",
+        "Sensor": "",
+        "Input Data": "",
+        "Spatial Resolution": "-",
+        "Native Coordinate System": "",
+        "Classification Technique": "...",
+        "Classification Scheme": "",
+        "Validation": "",
+        "Accuracy": "",
+        "Use policy": "",
+        "Data source": "..."
+			}
+		}
+	}
+}

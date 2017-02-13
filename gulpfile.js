@@ -165,6 +165,7 @@ gulp.task('build', function () {
 
 // Default task
 gulp.task('default', ['build'], function () {
-  gulp.start('watch',  'webserver', 'copyFiles');
+  gulp.start('watch',  'webserver');
+  //gulp.start('watch',  'webserver', 'copyFiles');
   // gulp.start('browserSync', 'watch','webserver');
 })

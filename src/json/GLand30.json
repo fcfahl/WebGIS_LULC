@@ -1,0 +1,41 @@
+{ "layers":
+	{
+		"GLand30":
+		{
+      "name": "Global Land 30",
+      "category": "LULC",
+      "type": "raster",
+      "group": "GLand30",
+      "key": "GLand30",
+      "metadata": "yes",
+      "legend": "yes",
+			"img": "GLand30.svg",
+			"items":
+			[
+          { "year": "2000", "ID": "GLand30_2000", "active":"yes" },
+          { "year": "2010", "ID": "GLand30_2010", "active":"yes" }
+			],
+			"metadata":
+        {
+        "Name": "GlobeLand30",
+        "Category_ID": "LULC",
+        "Category": "Land Cover Layers",
+        "Style": "raster",
+        "Dataset": "LC-CCI",
+        "Institution": "NGCC",
+        "Temporal coverage": "12000 and 2010",
+        "Spatial Coverage": "Global",
+        "Sensor": "Landsat (TM, ETM+), HJ-1",
+        "Input Data": "Multispectral images + Ancillary documents",
+        "Spatial Resolution": "30 m",
+        "Native Coordinate System": "UTM WGS84 (multiple zones)",
+        "Classification Technique": "Pixel-object-knowledge (POK) based classification approach",
+        "Classification Scheme": "10 land cover types",
+        "Validation": "Third-party experts with a two-rank sampling strategy. Confusion Matrix and Derived Indexes for Italy region",
+        "Accuracy": "Overall accuracy of 80.33 % and Kappa coefficient of  0.75 (2010). In Italy, the overall accuracy vary between  81% and 92% (compared to 5 Corine LC classes) and between  62% and 81% (compared to Corine LC subclasses)",
+        "Use policy": "Information not available",
+        "Data source": "..."
+			}
+		}
+	}
+}

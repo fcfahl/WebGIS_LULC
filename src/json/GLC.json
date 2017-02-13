@@ -1,0 +1,40 @@
+{ "layers":
+	{
+		"GLC":
+		{
+			"name": "Global Land Cover (2000)",
+			"category": "LULC",
+			"type": "raster",
+			"group": "GLC",
+			"key": "GLC",
+			"metadata": "yes",
+			"legend": "yes",
+			"img": "GLC.svg",
+			"items":
+			[
+				{ "year": "2000", "ID": "GLC_2000", "active":"yes" }
+			],
+			"metadata":
+        {
+				"Name": "Global Land Cover (2000)",
+        "Category_ID": "LULC",
+        "Category": "Land Cover Layers",
+        "Style": "raster",
+        "Dataset": "GLC-2000",
+        "Institution": "EC-JRC",
+        "Temporal coverage": "2000",
+        "Spatial Coverage": "Global",
+        "Sensor": "SPOT 4",
+        "Input Data": "4 Spectral Bands. Monthly to 3 monthly NDVI composites",
+        "Spatial Resolution": "1 km",
+        "Native Coordinate System": "Geographic coordinates - Datum WGS84",
+        "Classification Technique": "Generally unsupervised classification",
+        "Classification Scheme": "FAO LCCS (23 classes)",
+        "Validation": "Statistical sampling",
+        "Accuracy": "Overall accuracy of 68 %. The accuracy of the European sub product was not yet performed",
+        "Use policy": "Free of charge for non-commercial use",
+        "Data source": "..."
+			}
+		}
+	}
+}

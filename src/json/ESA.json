@@ -1,0 +1,42 @@
+{ "layers":
+	{
+		"ESA":
+		{
+      "name": "Land Cover CCI",
+      "category": "LULC",
+      "type": "raster",
+      "group": "ESA",
+      "key": "ESA",
+      "metadata": "yes",
+      "legend": "yes",
+			"img": "CCIESA.svg",
+			"items":
+			[
+        { "year": "2000", "ID": "ESA_2000", "active":"yes" },
+        { "year": "2005", "ID": "ESA_2005", "active":"yes" },
+        { "year": "2010", "ID": "ESA_2010", "active":"yes" }
+			],
+			"metadata":
+        {
+        "Name": "Land Cover CCI",
+        "Category_ID": "LULC",
+        "Category": "Land Cover Layers",
+        "Style": "raster",
+        "Dataset": "LC-CCI",
+        "Institution": "ESA / UCL-Geomatics",
+        "Temporal coverage": "5-year epochs centered on 2000, 2005 and 2010",
+        "Spatial Coverage": "Global",
+        "Sensor": "AVHRR, SPOT-VGT, MERIS FR and RR",
+        "Input Data": "13 of 15 MERIS spectral channels. 7-day compositing period",
+        "Spatial Resolution": "300 m",
+        "Native Coordinate System": "Plate-Carrée with a Geographic Lat/Lon representation",
+        "Classification Technique": "Unsupervised classification chain + machine learning classification",
+        "Classification Scheme": "UN LCCS (22 classes)",
+        "Validation": "Statistical sampling / Expert’s judgement",
+        "Accuracy": "Overall accuracy between 73.2 % and 74.1 %",
+        "Use policy": "Free access for educational and/or scientific purposes",
+        "Data source": "..."
+			}
+		}
+	}
+}

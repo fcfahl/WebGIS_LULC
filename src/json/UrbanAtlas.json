@@ -1,0 +1,41 @@
+{ "layers":
+	{
+		"UrbanAtlas":
+		{
+      "name": "Urban Atlas",
+      "category": "LULC",
+      "type": "raster",
+      "group": "UrbanAtlas",
+      "key": "UrbanAtlas",
+      "metadata": "yes",
+      "legend": "yes",
+			"img": "UrbanAtlas.svg",
+			"items":
+			[
+        { "year": "2006", "ID": "UrbanAtlas_2006", "active":"no" },
+        { "year": "2012", "ID": "UrbanAtlas_2012", "active":"no" }
+			],
+			"metadata":
+        {
+        "Name": "Urban Atlas",
+        "Category_ID": "atlas",
+        "Category": "Urban Atlas",
+        "Style": "Atlas_06",
+        "Dataset": "European Urban Atlas",
+        "Institution": "European Commission Directorate-General for Regional Policy and the Directorate-General for Enterprise and Industry with the support of the European Space Agency and the European Environment Agency",
+        "Temporal coverage": "2005-2007",
+        "Spatial Coverage": "Main cities of Europe (> 100.000 inhabitants)",
+        "Sensor": "Earth Observation (EO) data with 2.5 m spatial resolution multispectral or pan-sharpened (multispectral merged with panchromatic) data",
+        "Input Data": "Earth Observation (EO) data<br>Topographic Maps at a scale of 1: 50 000 or larger<br>COTS navigation data for the road network<br>Ancillary data: COTS navigation data: points of interest, land use, land cover, water areas; Google Earth (only for interpretation, not for delineation); Local city maps; Local zoning data; Field check (on-site visit); Very high resolution imagery (better than 1 m ground resolution, e.g. aerial photographs)",
+        "Spatial Resolution": "-",
+        "Native Coordinate System": "ETRS89 /  ETRS-LAEA (EPSG:3035)",
+        "Classification Technique": "...",
+        "Classification Scheme": "Thematic classes based on CORINE LC nomenclature and GUS Legend",
+        "Validation": "",
+        "Accuracy": "Minimum overall accuracy for level 1 class 1 “Artificial surfaces”: 85%<br>Minimum overall accuracy (all classes): 80%<br>Positional Accuracy: + / - 5 m",
+        "Use policy": "Unless otherwise indicated, re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
+        "Data source": "..."
+			}
+		}
+	}
+}
