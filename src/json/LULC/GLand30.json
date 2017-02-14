@@ -1,27 +1,23 @@
-{ "layers":
+{ "LULC":
 	{
 		"GLand30":
 		{
       "name": "Global Land 30",
       "category": "LULC",
+      "dataset": "GLand30",
+      "group": "Land Cover Layers",
       "type": "raster",
-      "group": "GLand30",
-      "key": "GLand30",
-      "metadata": "yes",
-      "legend": "yes",
+      "style": "raster",
+      "show_legend": "yes",
 			"img": "GLand30.svg",
-			"items":
+			"layers":
 			[
           { "year": "2000", "ID": "GLand30_2000", "active":"yes" },
           { "year": "2010", "ID": "GLand30_2010", "active":"yes" }
 			],
+      "show_metadata": "yes",
 			"metadata":
         {
-        "Name": "GlobeLand30",
-        "Category_ID": "LULC",
-        "Category": "Land Cover Layers",
-        "Style": "raster",
-        "Dataset": "LC-CCI",
         "Institution": "NGCC",
         "Temporal coverage": "12000 and 2010",
         "Spatial Coverage": "Global",

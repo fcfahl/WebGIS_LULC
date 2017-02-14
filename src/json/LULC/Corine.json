@@ -1,29 +1,25 @@
-{ "layers":
+{ "LULC":
 	{
-		"Corine":
+	"Corine":
 		{
       "name": "Corine",
       "category": "LULC",
+      "dataset": "Corine",
+      "group": "Land Cover Layers",
       "type": "raster",
-      "group": "Corine",
-      "key": "Corine",
-      "metadata": "yes",
-      "legend": "yes",
+      "style": "raster",
+      "show_legend": "yes",
 			"img": "Corine.svg",
-			"items":
+			"layers":
 			[
         { "year": "1990", "ID": "Corine_1990", "active":"yes" },
         { "year": "2000", "ID": "Corine_2000", "active":"yes" },
         { "year": "2006", "ID": "Corine_2006", "active":"yes" },
         { "year": "2012", "ID": "Corine_2012", "active":"yes" }
 			],
+      "show_metadata": "yes",
 			"metadata":
         {
-        "Name": "Corine",
-        "Category_ID": "LULC",
-        "Category": "Land Cover Layers",
-        "Style": "raster",
-        "Dataset": "Corine",
         "Institution": "EEA",
         "Temporal coverage": "1990, 2000, 2006 and 2012",
         "Spatial Coverage": "Europe",

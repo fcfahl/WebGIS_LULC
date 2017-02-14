@@ -1,16 +1,16 @@
-{ "layers":
+{ "LULC":
 	{
 		"MODIS_Type1":
 		{
       "name": "MODIS Type 1",
       "category": "LULC",
+      "dataset": "MODIS",
+      "group": "Land Cover Layers",
       "type": "raster",
-      "group": "MODIS",
-      "key": "MODIS_Type1",
-      "metadata": "yes",
-      "legend": "yes",
+      "style": "raster",
+      "show_legend": "yes",
 			"img": "MODIS.svg",
-			"items":
+			"layers":
 			[
         { "year": "2001", "ID": "MODIS_Type1_2001", "active":"yes" },
         { "year": "2002", "ID": "MODIS_Type1_2002", "active":"no" },
@@ -25,13 +25,9 @@
         { "year": "2011", "ID": "MODIS_Type1_2011", "active":"no" },
         { "year": "2012", "ID": "MODIS_Type1_2012", "active":"yes" }
 			],
+      "show_metadata": "yes",
 			"metadata":
         {
-        "Name": "MODIS",
-        "Category_ID": "LULC",
-        "Category": "Land Cover Layers",
-        "Style": "raster",
-        "Dataset": "MODIS",
         "Institution": "USGS",
         "Temporal coverage": "2001-2012",
         "Spatial Coverage": "Global",

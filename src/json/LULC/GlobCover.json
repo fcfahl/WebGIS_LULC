@@ -1,0 +1,37 @@
+{ "LULC":
+	{
+		"GLC":
+		{
+      "name": "GlobCover",
+      "category": "LULC",
+      "dataset": "GlobCover",
+      "group": "Land Cover Layers",
+      "type": "raster",
+      "style": "raster",
+      "show_legend": "yes",
+			"img": "GlobCover.svg",
+			"layers":
+			[
+        { "year": "2005", "ID": "GlobCover_2005", "active":"yes" },
+        { "year": "2009", "ID": "GlobCover_2009", "active":"yes" }
+			],
+      "show_metadata": "yes",
+			"metadata":
+        {
+        "Institution": "ESA",
+        "Temporal coverage": "2004-2006 and 2009",
+        "Spatial Coverage": "Global",
+        "Sensor": "ENVISAT",
+        "Input Data": "13 Spectral Bands. Bi-monthly from 10 day composites",
+        "Spatial Resolution": "300 m",
+        "Native Coordinate System": "Plate-Carrée with a Geographic Lat/Lon representation",
+        "Classification Technique": "Flexible classification using local/regional expertise",
+        "Classification Scheme": "FAO LCCS (23 classes)",
+        "Validation": "Statistical sampling / Expert’s judgement",
+        "Accuracy": "Kappa coefficient of 0.656",
+        "Use policy": "Free access for educational and/or scientific purposes",
+        "Data source": "..."
+			}
+		}
+	}
+}

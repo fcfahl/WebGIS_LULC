@@ -1,26 +1,22 @@
-{ "layers":
+{ "LULC":
 	{
 		"GLC":
 		{
-			"name": "Global Land Cover (2000)",
-			"category": "LULC",
-			"type": "raster",
-			"group": "GLC",
-			"key": "GLC",
-			"metadata": "yes",
-			"legend": "yes",
+      "name": "Global Land Cover (2000)",
+      "category": "LULC",
+      "dataset": "GLC",
+      "group": "Land Cover Layers",
+      "type": "raster",
+      "style": "raster",
+      "show_legend": "yes",
 			"img": "GLC.svg",
-			"items":
+			"layers":
 			[
 				{ "year": "2000", "ID": "GLC_2000", "active":"yes" }
 			],
+      "show_metadata": "yes",
 			"metadata":
         {
-        "Name": "Global Land Cover (2000)",
-        "Category_ID": "LULC",
-        "Category": "Land Cover Layers",
-        "Style": "raster",
-        "Dataset": "GLC-2000",
         "Institution": "EC-JRC",
         "Temporal coverage": "2000",
         "Spatial Coverage": "Global",

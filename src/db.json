@@ -1,34 +1,107 @@
 {
-	"layers": {
+	"servers": {
+		"WMS": {
+			"Server": "WMS",
+			"URL": "http://localhost:8080/geoserver/",
+			"Format": "image/png",
+			"Workspace1": "EPSG3857",
+			"Workspace2": "EPSG3035",
+			"Transparent": true,
+			"Version": "1.3.0",
+			"Tiled": true,
+			"CRS": "EPSG:3857",
+			"Bbox": "-3480827,3203412,3203414,11465937",
+			"Width": "720",
+			"Height": "768"
+		},
+		"WFS": {
+			"Server": "WFS",
+			"URL": "http://localhost:8080/geoserver/EPSG3857/ows",
+			"service": "WFS",
+			"version": "2.0.0",
+			"request": "GetFeature",
+			"outputFormat": "text/javascript",
+			"format_options": "callback:getJson",
+			"SrsName": "EPSG:4326"
+		}
+	},
+	"LULC": {
+		"NUTS0": {
+			"name": "NUTS Level 0",
+			"category": "ADM",
+			"dataset": "NUTS",
+			"group": "Administrative Layers",
+			"type": "vector",
+			"style": "...",
+			"show_legend": "no",
+			"img": "....",
+			"layers": [
+				{
+					"year": "2006",
+					"ID": "NUTS0",
+					"active": "yes"
+				}
+			],
+			"show_metadata": "no",
+			"metadata": {
+				"Institution": "",
+				"Temporal coverage": "",
+				"Spatial Coverage": "Europe",
+				"Sensor": "",
+				"Input Data": "",
+				"Spatial Resolution": "",
+				"Native Coordinate System": "",
+				"Classification Technique": "",
+				"Classification Scheme": "",
+				"Validation": "",
+				"Accuracy": "",
+				"Use policy": "",
+				"Data source": "..."
+			}
+		},
+		"NUTS2": {
+			"name": "NUTS Level 2",
+			"category": "ADM",
+			"dataset": "NUTS",
+			"group": "Administrative Layers",
+			"type": "vector",
+			"style": "...",
+			"show_legend": "no",
+			"img": "....",
+			"layers": [
+				{
+					"year": "2006",
+					"ID": "NUTS2",
+					"active": "yes"
+				}
+			],
+			"show_metadata": "no",
+			"metadata": {
+				"Institution": "",
+				"Temporal coverage": "",
+				"Spatial Coverage": "Europe",
+				"Sensor": "",
+				"Input Data": "",
+				"Spatial Resolution": "",
+				"Native Coordinate System": "",
+				"Classification Technique": "",
+				"Classification Scheme": "",
+				"Validation": "",
+				"Accuracy": "",
+				"Use policy": "",
+				"Data source": "..."
+			}
+		},
 		"Corine": {
 			"name": "Corine",
 			"category": "LULC",
+			"dataset": "Corine",
+			"group": "Land Cover Layers",
 			"type": "raster",
-			"group": "Corine",
-			"key": "Corine",
-			"metadata": {
-				"Name": "Corine",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "Corine",
-				"Institution": "EEA",
-				"Temporal coverage": "1990, 2000, 2006 and 2012",
-				"Spatial Coverage": "Europe",
-				"Sensor": "Landsat-5 MSS/TM (1990), Landsat-7 ETM (2000), SPOT-4/5 and IRS P6 LISS III (2006) and IRS P6 LISS III and RapIDEye (2012)",
-				"Input Data": "False-colour images + Ancillary documents",
-				"Spatial Resolution": "250 and 100 m",
-				"Native Coordinate System": "ETRS89 /  ETRS-LAEA (EPSG:3035)",
-				"Classification Technique": "Computer-aIDed interpretation methodology",
-				"Classification Scheme": "1st level: 5 classes; 2nd level: 15 classes; 3th level: 44 classes",
-				"Validation": "Statistical sampling",
-				"Accuracy": "CLC 2000: Average accuracy of 74.8 %; CLC 2006: Not checked; Land Cover Change 2000-2006: overall accuracy of 87.82%",
-				"Use policy": "Re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
-				"Data source": "..."
-			},
-			"legend": "yes",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "Corine.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "1990",
 					"ID": "Corine_1990",
@@ -49,37 +122,34 @@
 					"ID": "Corine_2012",
 					"active": "yes"
 				}
-			]
+			],
+			"show_metadata": "yes",
+			"metadata": {
+				"Institution": "EEA",
+				"Temporal coverage": "1990, 2000, 2006 and 2012",
+				"Spatial Coverage": "Europe",
+				"Sensor": "Landsat-5 MSS/TM (1990), Landsat-7 ETM (2000), SPOT-4/5 and IRS P6 LISS III (2006) and IRS P6 LISS III and RapIDEye (2012)",
+				"Input Data": "False-colour images + Ancillary documents",
+				"Spatial Resolution": "250 and 100 m",
+				"Native Coordinate System": "ETRS89 /  ETRS-LAEA (EPSG:3035)",
+				"Classification Technique": "Computer-aIDed interpretation methodology",
+				"Classification Scheme": "1st level: 5 classes; 2nd level: 15 classes; 3th level: 44 classes",
+				"Validation": "Statistical sampling",
+				"Accuracy": "CLC 2000: Average accuracy of 74.8 %; CLC 2006: Not checked; Land Cover Change 2000-2006: overall accuracy of 87.82%",
+				"Use policy": "Re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
+				"Data source": "..."
+			}
 		},
 		"ESA": {
 			"name": "Land Cover CCI",
 			"category": "LULC",
+			"dataset": "ESA",
+			"group": "Land Cover Layers",
 			"type": "raster",
-			"group": "ESA",
-			"key": "ESA",
-			"metadata": {
-				"Name": "Land Cover CCI",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "LC-CCI",
-				"Institution": "ESA / UCL-Geomatics",
-				"Temporal coverage": "5-year epochs centered on 2000, 2005 and 2010",
-				"Spatial Coverage": "Global",
-				"Sensor": "AVHRR, SPOT-VGT, MERIS FR and RR",
-				"Input Data": "13 of 15 MERIS spectral channels. 7-day compositing period",
-				"Spatial Resolution": "300 m",
-				"Native Coordinate System": "Plate-Carrée with a Geographic Lat/Lon representation",
-				"Classification Technique": "Unsupervised classification chain + machine learning classification",
-				"Classification Scheme": "UN LCCS (22 classes)",
-				"Validation": "Statistical sampling / Expert’s judgement",
-				"Accuracy": "Overall accuracy between 73.2 % and 74.1 %",
-				"Use policy": "Free access for educational and/or scientific purposes",
-				"Data source": "..."
-			},
-			"legend": "yes",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "CCIESA.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "2000",
 					"ID": "ESA_2000",
@@ -95,37 +165,34 @@
 					"ID": "ESA_2010",
 					"active": "yes"
 				}
-			]
+			],
+			"show_metadata": "yes",
+			"metadata": {
+				"Institution": "ESA / UCL-Geomatics",
+				"Temporal coverage": "5-year epochs centered on 2000, 2005 and 2010",
+				"Spatial Coverage": "Global",
+				"Sensor": "AVHRR, SPOT-VGT, MERIS FR and RR",
+				"Input Data": "13 of 15 MERIS spectral channels. 7-day compositing period",
+				"Spatial Resolution": "300 m",
+				"Native Coordinate System": "Plate-Carrée with a Geographic Lat/Lon representation",
+				"Classification Technique": "Unsupervised classification chain + machine learning classification",
+				"Classification Scheme": "UN LCCS (22 classes)",
+				"Validation": "Statistical sampling / Expert’s judgement",
+				"Accuracy": "Overall accuracy between 73.2 % and 74.1 %",
+				"Use policy": "Free access for educational and/or scientific purposes",
+				"Data source": "..."
+			}
 		},
 		"GHSL": {
-			"name": "Global Land Cover (2000)",
+			"name": "...",
 			"category": "LULC",
+			"dataset": "GHSL",
+			"group": "Land Cover Layers",
 			"type": "raster",
-			"group": "GLC",
-			"key": "GLC",
-			"metadata": {
-				"Name": "",
-				"Category_ID": "",
-				"Category": "",
-				"Style": "",
-				"Dataset": "",
-				"Institution": "",
-				"Temporal coverage": "",
-				"Spatial Coverage": "",
-				"Sensor": "",
-				"Input Data": "",
-				"Spatial Resolution": "-",
-				"Native Coordinate System": "",
-				"Classification Technique": "...",
-				"Classification Scheme": "",
-				"Validation": "",
-				"Accuracy": "",
-				"Use policy": "",
-				"Data source": "..."
-			},
-			"legend": "yes",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "GHSL.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "1975",
 					"ID": "GHSL_1975",
@@ -146,56 +213,85 @@
 					"ID": "GHSL_2015",
 					"active": "yes"
 				}
-			]
+			],
+			"show_metadata": "yes",
+			"metadata": {
+				"Institution": "",
+				"Temporal coverage": "",
+				"Spatial Coverage": "",
+				"Sensor": "",
+				"Input Data": "",
+				"Spatial Resolution": "-",
+				"Native Coordinate System": "",
+				"Classification Technique": "...",
+				"Classification Scheme": "",
+				"Validation": "",
+				"Accuracy": "",
+				"Use policy": "",
+				"Data source": "..."
+			}
 		},
 		"GLC": {
-			"name": "Global Land Cover (2000)",
+			"name": "GlobCover",
 			"category": "LULC",
+			"dataset": "GlobCover",
+			"group": "Land Cover Layers",
 			"type": "raster",
-			"group": "GLC",
-			"key": "GLC",
-			"metadata": {
-				"Name": "Global Land Cover (2000)",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "GLC-2000",
-				"Institution": "EC-JRC",
-				"Temporal coverage": "2000",
-				"Spatial Coverage": "Global",
-				"Sensor": "SPOT 4",
-				"Input Data": "4 Spectral Bands. Monthly to 3 monthly NDVI composites",
-				"Spatial Resolution": "1 km",
-				"Native Coordinate System": "Geographic coordinates - Datum WGS84",
-				"Classification Technique": "Generally unsupervised classification",
-				"Classification Scheme": "FAO LCCS (23 classes)",
-				"Validation": "Statistical sampling",
-				"Accuracy": "Overall accuracy of 68 %. The accuracy of the European sub product was not yet performed",
-				"Use policy": "Free of charge for non-commercial use",
-				"Data source": "..."
-			},
-			"legend": "yes",
-			"img": "GLC.svg",
-			"items": [
+			"style": "raster",
+			"show_legend": "yes",
+			"img": "GlobCover.svg",
+			"layers": [
 				{
-					"year": "2000",
-					"ID": "GLC_2000",
+					"year": "2005",
+					"ID": "GlobCover_2005",
+					"active": "yes"
+				},
+				{
+					"year": "2009",
+					"ID": "GlobCover_2009",
 					"active": "yes"
 				}
-			]
+			],
+			"show_metadata": "yes",
+			"metadata": {
+				"Institution": "ESA",
+				"Temporal coverage": "2004-2006 and 2009",
+				"Spatial Coverage": "Global",
+				"Sensor": "ENVISAT",
+				"Input Data": "13 Spectral Bands. Bi-monthly from 10 day composites",
+				"Spatial Resolution": "300 m",
+				"Native Coordinate System": "Plate-Carrée with a Geographic Lat/Lon representation",
+				"Classification Technique": "Flexible classification using local/regional expertise",
+				"Classification Scheme": "FAO LCCS (23 classes)",
+				"Validation": "Statistical sampling / Expert’s judgement",
+				"Accuracy": "Kappa coefficient of 0.656",
+				"Use policy": "Free access for educational and/or scientific purposes",
+				"Data source": "..."
+			}
 		},
 		"GLand30": {
 			"name": "Global Land 30",
 			"category": "LULC",
+			"dataset": "GLand30",
+			"group": "Land Cover Layers",
 			"type": "raster",
-			"group": "GLand30",
-			"key": "GLand30",
+			"style": "raster",
+			"show_legend": "yes",
+			"img": "GLand30.svg",
+			"layers": [
+				{
+					"year": "2000",
+					"ID": "GLand30_2000",
+					"active": "yes"
+				},
+				{
+					"year": "2010",
+					"ID": "GLand30_2010",
+					"active": "yes"
+				}
+			],
+			"show_metadata": "yes",
 			"metadata": {
-				"Name": "GlobeLand30",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "LC-CCI",
 				"Institution": "NGCC",
 				"Temporal coverage": "12000 and 2010",
 				"Spatial Coverage": "Global",
@@ -209,51 +305,18 @@
 				"Accuracy": "Overall accuracy of 80.33 % and Kappa coefficient of  0.75 (2010). In Italy, the overall accuracy vary between  81% and 92% (compared to 5 Corine LC classes) and between  62% and 81% (compared to Corine LC subclasses)",
 				"Use policy": "Information not available",
 				"Data source": "..."
-			},
-			"legend": "yes",
-			"img": "GLand30.svg",
-			"items": [
-				{
-					"year": "2000",
-					"ID": "GLand30_2000",
-					"active": "yes"
-				},
-				{
-					"year": "2010",
-					"ID": "GLand30_2010",
-					"active": "yes"
-				}
-			]
+			}
 		},
 		"MODIS_Type1": {
 			"name": "MODIS Type 1",
 			"category": "LULC",
+			"dataset": "MODIS",
+			"group": "Land Cover Layers",
 			"type": "raster",
-			"group": "MODIS",
-			"key": "MODIS_Type1",
-			"metadata": {
-				"Name": "MODIS",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "MODIS",
-				"Institution": "USGS",
-				"Temporal coverage": "2001-2012",
-				"Spatial Coverage": "Global",
-				"Sensor": "Terra MODIS",
-				"Input Data": "7 Spectral Bands",
-				"Spatial Resolution": "500 m",
-				"Native Coordinate System": "SinusoIDal",
-				"Classification Technique": "Supervised decision-tree classifier, neural networks",
-				"Classification Scheme": "MODIS land IGBP (20 classes)",
-				"Validation": "Statistical sampling / Confusion matrices, confIDence values",
-				"Accuracy": "Overall accuracy of 74.80 %",
-				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
-				"Data source": "..."
-			},
-			"legend": "yes",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "MODIS.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "2001",
 					"ID": "MODIS_Type1_2001",
@@ -314,20 +377,9 @@
 					"ID": "MODIS_Type1_2012",
 					"active": "yes"
 				}
-			]
-		},
-		"MODIS_Type2": {
-			"name": "MODIS Type 2",
-			"category": "LULC",
-			"type": "raster",
-			"group": "MODIS",
-			"key": "MODIS_Type2",
+			],
+			"show_metadata": "yes",
 			"metadata": {
-				"Name": "MODIS",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "MODIS",
 				"Institution": "USGS",
 				"Temporal coverage": "2001-2012",
 				"Spatial Coverage": "Global",
@@ -341,10 +393,18 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			},
-			"legend": "yes",
+			}
+		},
+		"MODIS_Type2": {
+			"name": "MODIS Type 2",
+			"category": "LULC",
+			"dataset": "MODIS",
+			"group": "Land Cover Layers",
+			"type": "raster",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "MODIS.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "2001",
 					"ID": "MODIS_Type2_2001",
@@ -405,20 +465,9 @@
 					"ID": "MODIS_Type2_2012",
 					"active": "no"
 				}
-			]
-		},
-		"MODIS_Type3": {
-			"name": "MODIS Type 3",
-			"category": "LULC",
-			"type": "raster",
-			"group": "MODIS",
-			"key": "MODIS_Type3",
+			],
+			"show_metadata": "yes",
 			"metadata": {
-				"Name": "MODIS",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "MODIS",
 				"Institution": "USGS",
 				"Temporal coverage": "2001-2012",
 				"Spatial Coverage": "Global",
@@ -432,10 +481,18 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			},
-			"legend": "yes",
+			}
+		},
+		"MODIS_Type3": {
+			"name": "MODIS Type 3",
+			"category": "LULC",
+			"dataset": "MODIS",
+			"group": "Land Cover Layers",
+			"type": "raster",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "MODIS.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "2001",
 					"ID": "MODIS_Type3_2001",
@@ -496,20 +553,9 @@
 					"ID": "MODIS_Type3_2012",
 					"active": "no"
 				}
-			]
-		},
-		"MODIS_Type4": {
-			"name": "MODIS Type 4",
-			"category": "LULC",
-			"type": "raster",
-			"group": "MODIS",
-			"key": "MODIS_Type4",
+			],
+			"show_metadata": "yes",
 			"metadata": {
-				"Name": "MODIS",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "MODIS",
 				"Institution": "USGS",
 				"Temporal coverage": "2001-2012",
 				"Spatial Coverage": "Global",
@@ -523,10 +569,18 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			},
-			"legend": "yes",
+			}
+		},
+		"MODIS_Type4": {
+			"name": "MODIS Type 4",
+			"category": "LULC",
+			"dataset": "MODIS",
+			"group": "Land Cover Layers",
+			"type": "raster",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "MODIS.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "2001",
 					"ID": "MODIS_Type4_2001",
@@ -587,20 +641,9 @@
 					"ID": "MODIS_Type4_2012",
 					"active": "no"
 				}
-			]
-		},
-		"MODIS_Type5": {
-			"name": "MODIS Type 2",
-			"category": "LULC",
-			"type": "raster",
-			"group": "MODIS",
-			"key": "MODIS_Type5",
+			],
+			"show_metadata": "yes",
 			"metadata": {
-				"Name": "MODIS",
-				"Category_ID": "LULC",
-				"Category": "Land Cover Layers",
-				"Style": "raster",
-				"Dataset": "MODIS",
 				"Institution": "USGS",
 				"Temporal coverage": "2001-2012",
 				"Spatial Coverage": "Global",
@@ -614,10 +657,18 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			},
-			"legend": "yes",
+			}
+		},
+		"MODIS_Type5": {
+			"name": "MODIS Type 5",
+			"category": "LULC",
+			"dataset": "MODIS",
+			"group": "Land Cover Layers",
+			"type": "raster",
+			"style": "raster",
+			"show_legend": "yes",
 			"img": "MODIS.svg",
-			"items": [
+			"layers": [
 				{
 					"year": "2001",
 					"ID": "MODIS_Type5_2001",
@@ -678,20 +729,47 @@
 					"ID": "MODIS_Type5_2012",
 					"active": "no"
 				}
-			]
+			],
+			"show_metadata": "yes",
+			"metadata": {
+				"Institution": "USGS",
+				"Temporal coverage": "2001-2012",
+				"Spatial Coverage": "Global",
+				"Sensor": "Terra MODIS",
+				"Input Data": "7 Spectral Bands",
+				"Spatial Resolution": "500 m",
+				"Native Coordinate System": "SinusoIDal",
+				"Classification Technique": "Supervised decision-tree classifier, neural networks",
+				"Classification Scheme": "MODIS land IGBP (20 classes)",
+				"Validation": "Statistical sampling / Confusion matrices, confIDence values",
+				"Accuracy": "Overall accuracy of 74.80 %",
+				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
+				"Data source": "..."
+			}
 		},
 		"UrbanAtlas": {
 			"name": "Urban Atlas",
 			"category": "LULC",
+			"dataset": "UrbanAtlas",
+			"group": "Land Cover Layers",
 			"type": "raster",
-			"group": "UrbanAtlas",
-			"key": "UrbanAtlas",
+			"style": "raster",
+			"show_legend": "yes",
+			"img": "UrbanAtlas.svg",
+			"layers": [
+				{
+					"year": "2006",
+					"ID": "UrbanAtlas_2006",
+					"active": "no"
+				},
+				{
+					"year": "2012",
+					"ID": "UrbanAtlas_2012",
+					"active": "no"
+				}
+			],
+			"show_metadata": "yes",
 			"metadata": {
-				"Name": "Urban Atlas",
-				"Category_ID": "atlas",
-				"Category": "Urban Atlas",
-				"Style": "Atlas_06",
-				"Dataset": "European Urban Atlas",
 				"Institution": "European Commission Directorate-General for Regional Policy and the Directorate-General for Enterprise and Industry with the support of the European Space Agency and the European Environment Agency",
 				"Temporal coverage": "2005-2007",
 				"Spatial Coverage": "Main cities of Europe (> 100.000 inhabitants)",
@@ -705,21 +783,7 @@
 				"Accuracy": "Minimum overall accuracy for level 1 class 1 “Artificial surfaces”: 85%<br>Minimum overall accuracy (all classes): 80%<br>Positional Accuracy: + / - 5 m",
 				"Use policy": "Unless otherwise indicated, re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
 				"Data source": "..."
-			},
-			"legend": "yes",
-			"img": "UrbanAtlas.svg",
-			"items": [
-				{
-					"year": "2006",
-					"ID": "UrbanAtlas_2006",
-					"active": "no"
-				},
-				{
-					"year": "2012",
-					"ID": "UrbanAtlas_2012",
-					"active": "no"
-				}
-			]
+			}
 		}
 	}
 }

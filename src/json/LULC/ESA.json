@@ -1,28 +1,24 @@
-{ "layers":
+{ "LULC":
 	{
 		"ESA":
 		{
       "name": "Land Cover CCI",
       "category": "LULC",
+      "dataset": "ESA",
+      "group": "Land Cover Layers",
       "type": "raster",
-      "group": "ESA",
-      "key": "ESA",
-      "metadata": "yes",
-      "legend": "yes",
+      "style": "raster",
+      "show_legend": "yes",
 			"img": "CCIESA.svg",
-			"items":
+			"layers":
 			[
         { "year": "2000", "ID": "ESA_2000", "active":"yes" },
         { "year": "2005", "ID": "ESA_2005", "active":"yes" },
         { "year": "2010", "ID": "ESA_2010", "active":"yes" }
 			],
+      "show_metadata": "yes",
 			"metadata":
         {
-        "Name": "Land Cover CCI",
-        "Category_ID": "LULC",
-        "Category": "Land Cover Layers",
-        "Style": "raster",
-        "Dataset": "LC-CCI",
         "Institution": "ESA / UCL-Geomatics",
         "Temporal coverage": "5-year epochs centered on 2000, 2005 and 2010",
         "Spatial Coverage": "Global",

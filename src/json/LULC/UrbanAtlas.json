@@ -1,27 +1,23 @@
-{ "layers":
+{ "LULC":
 	{
 		"UrbanAtlas":
 		{
       "name": "Urban Atlas",
       "category": "LULC",
+      "dataset": "UrbanAtlas",
+      "group": "Land Cover Layers",
       "type": "raster",
-      "group": "UrbanAtlas",
-      "key": "UrbanAtlas",
-      "metadata": "yes",
-      "legend": "yes",
+      "style": "raster",
+      "show_legend": "yes",
 			"img": "UrbanAtlas.svg",
-			"items":
+			"layers":
 			[
         { "year": "2006", "ID": "UrbanAtlas_2006", "active":"no" },
         { "year": "2012", "ID": "UrbanAtlas_2012", "active":"no" }
 			],
+      "show_metadata": "yes",
 			"metadata":
         {
-        "Name": "Urban Atlas",
-        "Category_ID": "atlas",
-        "Category": "Urban Atlas",
-        "Style": "Atlas_06",
-        "Dataset": "European Urban Atlas",
         "Institution": "European Commission Directorate-General for Regional Policy and the Directorate-General for Enterprise and Industry with the support of the European Space Agency and the European Environment Agency",
         "Temporal coverage": "2005-2007",
         "Spatial Coverage": "Main cities of Europe (> 100.000 inhabitants)",
