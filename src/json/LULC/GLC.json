@@ -8,15 +8,13 @@
       "group": "Land Cover Layers",
       "type": "raster",
       "style": "raster",
-      "show_legend": "yes",
-			"img": "GLC.svg",
 			"layers":
 			[
 				{ "year": "2000", "ID": "GLC_2000", "active":"yes" }
 			],
       "show_metadata": "yes",
-			"metadata":
-        {
+		"metadata":
+    {
         "Institution": "EC-JRC",
         "Temporal coverage": "2000",
         "Spatial Coverage": "Global",
@@ -30,7 +28,9 @@
         "Accuracy": "Overall accuracy of 68 %. The accuracy of the European sub product was not yet performed",
         "Use policy": "Free of charge for non-commercial use",
         "Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "GLC.svg"
 		}
 	}
 }

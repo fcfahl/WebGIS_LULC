@@ -8,8 +8,6 @@
       "group": "Land Cover Layers",
       "type": "raster",
       "style": "raster",
-      "show_legend": "yes",
-			"img": "MODIS.svg",
 			"layers":
 			[
           { "year": "2001", "ID": "MODIS_Type5_2001", "active":"no" },
@@ -27,7 +25,7 @@
 			],
       "show_metadata": "yes",
 			"metadata":
-        {
+      {
         "Institution": "USGS",
         "Temporal coverage": "2001-2012",
         "Spatial Coverage": "Global",
@@ -41,7 +39,9 @@
         "Accuracy": "Overall accuracy of 74.80 %",
         "Use policy": "No restrictions on subsequent use, sale, or redistribution",
         "Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "MODIS.svg"
 		}
 	}
 }

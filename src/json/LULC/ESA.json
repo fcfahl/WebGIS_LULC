@@ -8,8 +8,6 @@
       "group": "Land Cover Layers",
       "type": "raster",
       "style": "raster",
-      "show_legend": "yes",
-			"img": "CCIESA.svg",
 			"layers":
 			[
         { "year": "2000", "ID": "ESA_2000", "active":"yes" },
@@ -32,7 +30,9 @@
         "Accuracy": "Overall accuracy between 73.2 % and 74.1 %",
         "Use policy": "Free access for educational and/or scientific purposes",
         "Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "CCIESA.svg"
 		}
 	}
 }

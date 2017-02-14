@@ -8,8 +8,6 @@
       "group": "Land Cover Layers",
       "type": "raster",
       "style": "raster",
-      "show_legend": "yes",
-			"img": "GLand30.svg",
 			"layers":
 			[
           { "year": "2000", "ID": "GLand30_2000", "active":"yes" },
@@ -31,7 +29,9 @@
         "Accuracy": "Overall accuracy of 80.33 % and Kappa coefficient of  0.75 (2010). In Italy, the overall accuracy vary between  81% and 92% (compared to 5 Corine LC classes) and between  62% and 81% (compared to Corine LC subclasses)",
         "Use policy": "Information not available",
         "Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "GLand30.svg"
 		}
 	}
 }

@@ -2,29 +2,29 @@
 - var  layers_Name =  []
 - var  layers_ID =  []
 - var  layers_Array =  []
-- var  layers =  locals.layers
+- var  LULC =  locals.LULC
 - var  metadata =  locals.metadata
 - var  servers =  locals.servers
-- var  legend =  locals.legend
-- var  atlas =  []
+
 
 
 // JSON Keys
 - var key_JSON = Object.keys(locals)
-- var key_Layers = Object.keys(locals.layers)
+- var key_LULC= Object.keys(locals.LULC)
 - var key_Servers = Object.keys(servers)
 
 //- - console.log (layers["NUTS"].items[0].year)
 
 // Extract JSON values
-for key in key_Layers
-	- layers_Name.push (layers[key].name)
-	for values in layers[key].items
+for key in key_LULC
+	- layers_Name.push (LULC[key].name)
+	for values in LULC[key].layers
 		- layers_Array.push (values)
+		
 
 for values in layers_Array
 	- layers_ID.push (values.ID)
-
+	- console.log (values.ID)
 
 
 //-

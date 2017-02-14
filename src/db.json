@@ -32,9 +32,7 @@
 			"dataset": "NUTS",
 			"group": "Administrative Layers",
 			"type": "vector",
-			"style": "...",
-			"show_legend": "no",
-			"img": "....",
+			"style": "",
 			"layers": [
 				{
 					"year": "2006",
@@ -57,7 +55,9 @@
 				"Accuracy": "",
 				"Use policy": "",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "no",
+			"img": "...."
 		},
 		"NUTS2": {
 			"name": "NUTS Level 2",
@@ -65,9 +65,7 @@
 			"dataset": "NUTS",
 			"group": "Administrative Layers",
 			"type": "vector",
-			"style": "...",
-			"show_legend": "no",
-			"img": "....",
+			"style": "",
 			"layers": [
 				{
 					"year": "2006",
@@ -90,7 +88,9 @@
 				"Accuracy": "",
 				"Use policy": "",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "no",
+			"img": "...."
 		},
 		"Corine": {
 			"name": "Corine",
@@ -99,8 +99,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "Corine.svg",
 			"layers": [
 				{
 					"year": "1990",
@@ -138,7 +136,9 @@
 				"Accuracy": "CLC 2000: Average accuracy of 74.8 %; CLC 2006: Not checked; Land Cover Change 2000-2006: overall accuracy of 87.82%",
 				"Use policy": "Re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "Corine.svg"
 		},
 		"ESA": {
 			"name": "Land Cover CCI",
@@ -147,8 +147,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "CCIESA.svg",
 			"layers": [
 				{
 					"year": "2000",
@@ -181,7 +179,9 @@
 				"Accuracy": "Overall accuracy between 73.2 % and 74.1 %",
 				"Use policy": "Free access for educational and/or scientific purposes",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "CCIESA.svg"
 		},
 		"GHSL": {
 			"name": "...",
@@ -190,8 +190,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "GHSL.svg",
 			"layers": [
 				{
 					"year": "1975",
@@ -229,45 +227,9 @@
 				"Accuracy": "",
 				"Use policy": "",
 				"Data source": "..."
-			}
-		},
-		"GLC": {
-			"name": "GlobCover",
-			"category": "LULC",
-			"dataset": "GlobCover",
-			"group": "Land Cover Layers",
-			"type": "raster",
-			"style": "raster",
+			},
 			"show_legend": "yes",
-			"img": "GlobCover.svg",
-			"layers": [
-				{
-					"year": "2005",
-					"ID": "GlobCover_2005",
-					"active": "yes"
-				},
-				{
-					"year": "2009",
-					"ID": "GlobCover_2009",
-					"active": "yes"
-				}
-			],
-			"show_metadata": "yes",
-			"metadata": {
-				"Institution": "ESA",
-				"Temporal coverage": "2004-2006 and 2009",
-				"Spatial Coverage": "Global",
-				"Sensor": "ENVISAT",
-				"Input Data": "13 Spectral Bands. Bi-monthly from 10 day composites",
-				"Spatial Resolution": "300 m",
-				"Native Coordinate System": "Plate-Carrée with a Geographic Lat/Lon representation",
-				"Classification Technique": "Flexible classification using local/regional expertise",
-				"Classification Scheme": "FAO LCCS (23 classes)",
-				"Validation": "Statistical sampling / Expert’s judgement",
-				"Accuracy": "Kappa coefficient of 0.656",
-				"Use policy": "Free access for educational and/or scientific purposes",
-				"Data source": "..."
-			}
+			"img": "GHSL.svg"
 		},
 		"GLand30": {
 			"name": "Global Land 30",
@@ -276,8 +238,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "GLand30.svg",
 			"layers": [
 				{
 					"year": "2000",
@@ -305,7 +265,47 @@
 				"Accuracy": "Overall accuracy of 80.33 % and Kappa coefficient of  0.75 (2010). In Italy, the overall accuracy vary between  81% and 92% (compared to 5 Corine LC classes) and between  62% and 81% (compared to Corine LC subclasses)",
 				"Use policy": "Information not available",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "GLand30.svg"
+		},
+		"GLC": {
+			"name": "GlobCover",
+			"category": "LULC",
+			"dataset": "GlobCover",
+			"group": "Land Cover Layers",
+			"type": "raster",
+			"style": "raster",
+			"layers": [
+				{
+					"year": "2005",
+					"ID": "GlobCover_2005",
+					"active": "yes"
+				},
+				{
+					"year": "2009",
+					"ID": "GlobCover_2009",
+					"active": "yes"
+				}
+			],
+			"show_metadata": "yes",
+			"metadata": {
+				"Institution": "ESA",
+				"Temporal coverage": "2004-2006 and 2009",
+				"Spatial Coverage": "Global",
+				"Sensor": "ENVISAT",
+				"Input Data": "13 Spectral Bands. Bi-monthly from 10 day composites",
+				"Spatial Resolution": "300 m",
+				"Native Coordinate System": "Plate-Carrée with a Geographic Lat/Lon representation",
+				"Classification Technique": "Flexible classification using local/regional expertise",
+				"Classification Scheme": "FAO LCCS (23 classes)",
+				"Validation": "Statistical sampling / Expert’s judgement",
+				"Accuracy": "Kappa coefficient of 0.656",
+				"Use policy": "Free access for educational and/or scientific purposes",
+				"Data source": "..."
+			},
+			"show_legend": "yes",
+			"img": "GlobCover.svg"
 		},
 		"MODIS_Type1": {
 			"name": "MODIS Type 1",
@@ -314,8 +314,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "MODIS.svg",
 			"layers": [
 				{
 					"year": "2001",
@@ -393,7 +391,9 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "MODIS.svg"
 		},
 		"MODIS_Type2": {
 			"name": "MODIS Type 2",
@@ -402,8 +402,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "MODIS.svg",
 			"layers": [
 				{
 					"year": "2001",
@@ -481,7 +479,9 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "MODIS.svg"
 		},
 		"MODIS_Type3": {
 			"name": "MODIS Type 3",
@@ -490,8 +490,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "MODIS.svg",
 			"layers": [
 				{
 					"year": "2001",
@@ -569,7 +567,9 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "MODIS.svg"
 		},
 		"MODIS_Type4": {
 			"name": "MODIS Type 4",
@@ -578,8 +578,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "MODIS.svg",
 			"layers": [
 				{
 					"year": "2001",
@@ -657,7 +655,9 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "MODIS.svg"
 		},
 		"MODIS_Type5": {
 			"name": "MODIS Type 5",
@@ -666,8 +666,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "MODIS.svg",
 			"layers": [
 				{
 					"year": "2001",
@@ -745,7 +743,9 @@
 				"Accuracy": "Overall accuracy of 74.80 %",
 				"Use policy": "No restrictions on subsequent use, sale, or redistribution",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "MODIS.svg"
 		},
 		"UrbanAtlas": {
 			"name": "Urban Atlas",
@@ -754,8 +754,6 @@
 			"group": "Land Cover Layers",
 			"type": "raster",
 			"style": "raster",
-			"show_legend": "yes",
-			"img": "UrbanAtlas.svg",
 			"layers": [
 				{
 					"year": "2006",
@@ -783,7 +781,9 @@
 				"Accuracy": "Minimum overall accuracy for level 1 class 1 “Artificial surfaces”: 85%<br>Minimum overall accuracy (all classes): 80%<br>Positional Accuracy: + / - 5 m",
 				"Use policy": "Unless otherwise indicated, re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
 				"Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "UrbanAtlas.svg"
 		}
 	}
 }

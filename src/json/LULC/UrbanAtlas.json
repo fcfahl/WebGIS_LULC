@@ -8,8 +8,6 @@
       "group": "Land Cover Layers",
       "type": "raster",
       "style": "raster",
-      "show_legend": "yes",
-			"img": "UrbanAtlas.svg",
 			"layers":
 			[
         { "year": "2006", "ID": "UrbanAtlas_2006", "active":"no" },
@@ -17,7 +15,7 @@
 			],
       "show_metadata": "yes",
 			"metadata":
-        {
+      {
         "Institution": "European Commission Directorate-General for Regional Policy and the Directorate-General for Enterprise and Industry with the support of the European Space Agency and the European Environment Agency",
         "Temporal coverage": "2005-2007",
         "Spatial Coverage": "Main cities of Europe (> 100.000 inhabitants)",
@@ -31,7 +29,9 @@
         "Accuracy": "Minimum overall accuracy for level 1 class 1 “Artificial surfaces”: 85%<br>Minimum overall accuracy (all classes): 80%<br>Positional Accuracy: + / - 5 m",
         "Use policy": "Unless otherwise indicated, re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
         "Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "UrbanAtlas.svg"
 		}
 	}
 }

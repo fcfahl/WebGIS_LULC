@@ -8,8 +8,6 @@
       "group": "Land Cover Layers",
       "type": "raster",
       "style": "raster",
-      "show_legend": "yes",
-			"img": "Corine.svg",
 			"layers":
 			[
         { "year": "1990", "ID": "Corine_1990", "active":"yes" },
@@ -33,7 +31,9 @@
         "Accuracy": "CLC 2000: Average accuracy of 74.8 %; CLC 2006: Not checked; Land Cover Change 2000-2006: overall accuracy of 87.82%",
         "Use policy": "Re-use of content on the EEA website for commercial or non-commercial purposes is permitted free of charge, provIDed that the source is acknowledged",
         "Data source": "..."
-			}
+			},
+			"show_legend": "yes",
+			"img": "Corine.svg"
 		}
 	}
 }

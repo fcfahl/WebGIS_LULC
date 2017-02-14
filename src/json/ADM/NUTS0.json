@@ -7,16 +7,14 @@
       "dataset": "NUTS",
       "group": "Administrative Layers",
       "type": "vector",
-      "style": "...",
-      "show_legend": "no",
-			"img": "....",
+      "style": "",
 			"layers":
 			[
           { "year": "2006", "ID": "NUTS0", "active":"yes" }
 			],
       "show_metadata": "no",
 			"metadata":
-        {
+      {
         "Institution": "",
         "Temporal coverage": "",
         "Spatial Coverage": "Europe",
@@ -30,7 +28,9 @@
         "Accuracy": "",
         "Use policy": "",
         "Data source": "..."
-			}
+			},
+			"show_legend": "no",
+			"img": "...."
 		}
 	}
 }
