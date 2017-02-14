@@ -61,3 +61,4 @@ target/
 # WebGIS modules and libraries
 node_modules/
 bower_components/
+.sass-cache/
