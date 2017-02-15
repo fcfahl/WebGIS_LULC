@@ -1,6 +1,6 @@
 { "LULC":
 	{
-		"GLC":
+		"GlobCover":
 		{
       "name": "GlobCover",
       "category": "LULC",

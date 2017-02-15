@@ -33,12 +33,12 @@ function html_Design () {
         var tbl = "#" + $(this).attr("data-table");
 
         if ($("input[data-key='" + group + "']:checked").val()) {
-            // console.log(group, '  is checked!');
+            console.log(group, '  is checked!');
             $(leg).show();
             $(tbl).show();
         }
         else {
-        //    console.log('Nothing is checked!');
+           console.log('Nothing is checked!');
            $(leg).hide();
            $(tbl).hide();
         }
