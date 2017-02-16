@@ -231,6 +231,39 @@
 			"show_legend": "yes",
 			"img": "GHSL.svg"
 		},
+		"GLC": {
+			"name": "Global Land Cover (2000)",
+			"category": "LULC",
+			"dataset": "GLC",
+			"group": "Land Cover Layers",
+			"type": "raster",
+			"style": "raster",
+			"layers": [
+				{
+					"year": "2000",
+					"ID": "GLC_2000",
+					"active": "yes"
+				}
+			],
+			"show_metadata": "yes",
+			"metadata": {
+				"Institution": "EC-JRC",
+				"Temporal coverage": "2000",
+				"Spatial Coverage": "Global",
+				"Sensor": "SPOT 4",
+				"Input Data": "4 Spectral Bands. Monthly to 3 monthly NDVI composites",
+				"Spatial Resolution": "1 km",
+				"Native Coordinate System": "Geographic coordinates - Datum WGS84",
+				"Classification Technique": "Generally unsupervised classification",
+				"Classification Scheme": "FAO LCCS (23 classes)",
+				"Validation": "Statistical sampling",
+				"Accuracy": "Overall accuracy of 68 %. The accuracy of the European sub product was not yet performed",
+				"Use policy": "Free of charge for non-commercial use",
+				"Data source": "..."
+			},
+			"show_legend": "yes",
+			"img": "GLC.svg"
+		},
 		"GLand30": {
 			"name": "Global Land 30",
 			"category": "LULC",
@@ -268,39 +301,6 @@
 			},
 			"show_legend": "yes",
 			"img": "GLand30.svg"
-		},
-		"GLC": {
-			"name": "Global Land Cover (2000)",
-			"category": "LULC",
-			"dataset": "GLC",
-			"group": "Land Cover Layers",
-			"type": "raster",
-			"style": "raster",
-			"layers": [
-				{
-					"year": "2000",
-					"ID": "GLC_2000",
-					"active": "yes"
-				}
-			],
-			"show_metadata": "yes",
-			"metadata": {
-				"Institution": "EC-JRC",
-				"Temporal coverage": "2000",
-				"Spatial Coverage": "Global",
-				"Sensor": "SPOT 4",
-				"Input Data": "4 Spectral Bands. Monthly to 3 monthly NDVI composites",
-				"Spatial Resolution": "1 km",
-				"Native Coordinate System": "Geographic coordinates - Datum WGS84",
-				"Classification Technique": "Generally unsupervised classification",
-				"Classification Scheme": "FAO LCCS (23 classes)",
-				"Validation": "Statistical sampling",
-				"Accuracy": "Overall accuracy of 68 %. The accuracy of the European sub product was not yet performed",
-				"Use policy": "Free of charge for non-commercial use",
-				"Data source": "..."
-			},
-			"show_legend": "yes",
-			"img": "GLC.svg"
 		},
 		"GlobCover": {
 			"name": "GlobCover",
